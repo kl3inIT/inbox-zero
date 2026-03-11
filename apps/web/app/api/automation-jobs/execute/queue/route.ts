@@ -12,7 +12,7 @@ export const maxDuration = 300;
 
 const logger = createScopedLogger("automation-jobs/execute/queue");
 
-export const POST = handleCallback<z.infer<typeof executeAutomationJobBody>>(
+const callbackHandler = handleCallback<z.infer<typeof executeAutomationJobBody>>(
   async (message, metadata) => {
     const parseResult = executeAutomationJobBody.safeParse(message);
     if (!parseResult.success) {
@@ -57,3 +57,9 @@ export const POST = handleCallback<z.infer<typeof executeAutomationJobBody>>(
     },
   },
 );
+
+// Next.js App Router expects `(req: Request | NextRequest) => Response`.
+// `handleCallback` expects a CallbackRequestInput, so we wrap it.
+export const POST = async (req: Request) => {
+  return callbackHandler({ request: req } as any);
+};
