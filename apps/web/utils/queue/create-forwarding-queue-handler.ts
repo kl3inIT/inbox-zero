@@ -9,7 +9,9 @@ type QueueMetadata = {
   deliveryCount: number;
 };
 
-export function createForwardingQueueHandler<TSchema extends z.ZodTypeAny>({
+export function createForwardingQueueHandler<
+  TSchema extends z.ZodTypeAny,
+>({
   loggerScope,
   schema,
   path,
@@ -26,10 +28,10 @@ export function createForwardingQueueHandler<TSchema extends z.ZodTypeAny>({
     payload: z.infer<TSchema>,
     metadata: QueueMetadata,
   ) => Record<string, unknown>;
-}) {
+}): (req: Request) => Promise<Response> {
   const logger = createScopedLogger(loggerScope);
 
-  return handleCallback<z.infer<TSchema>>(
+  const callbackHandler = handleCallback<z.infer<TSchema>>(
     async (message, metadata) => {
       const parseResult = schema.safeParse(message);
       if (!parseResult.success) {
@@ -63,4 +65,9 @@ export function createForwardingQueueHandler<TSchema extends z.ZodTypeAny>({
       },
     },
   );
+
+  // Wrap the queue callback handler in a standard Next.js route handler signature
+  return async (req: Request) => {
+    return callbackHandler({ request: req } as any);
+  };
 }
