@@ -22,15 +22,16 @@ export function StepCustomRules({
           </IconCircle>
 
           <div className="text-center mt-4 max-w-lg mx-auto">
-            <PageHeading>Custom rules</PageHeading>
+            <PageHeading>Quy tắc tùy chỉnh</PageHeading>
             <TypographyP className="mt-2 text-left">
-              We've set up the basics, but that's just the beginning. Your AI
-              assistant can handle any email workflow you'd give to a human.
+              Chúng tôi đã thiết lập những phần cơ bản, nhưng đó mới chỉ là khởi
+              đầu. Trợ lý AI của bạn có thể xử lý hầu hết các quy trình email
+              giống như một trợ lý thật.
             </TypographyP>
-            <TypographyP className="mt-2 text-left">For example:</TypographyP>
+            <TypographyP className="mt-2 text-left">Ví dụ:</TypographyP>
             <ul className="list-disc list-inside space-y-1 text-left leading-7 text-muted-foreground ">
-              <li>Forward receipts to your accountant</li>
-              <li>Label newsletters and archive them after a week</li>
+              <li>Chuyển tiếp hóa đơn/biên lai cho kế toán của bạn</li>
+              <li>Gắn nhãn bản tin và tự động lưu trữ sau một tuần</li>
             </ul>
           </div>
 
@@ -48,7 +49,7 @@ export function StepCustomRules({
         <div className="rounded-2xl p-4 bg-slate-50 border border-slate-200">
           <Image
             src="/images/onboarding/custom-rules.png"
-            alt="Custom rules"
+            alt="Quy tắc tùy chỉnh"
             width={1200}
             height={800}
             className="rounded-xl border border-slate-200"

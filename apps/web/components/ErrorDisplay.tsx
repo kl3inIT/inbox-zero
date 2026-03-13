@@ -28,7 +28,7 @@ export function ErrorDisplay(props: {
           <EmptyMedia variant="icon" className="bg-destructive/10">
             <AlertCircle className="text-destructive" />
           </EmptyMedia>
-          <EmptyTitle>There was an error</EmptyTitle>
+          <EmptyTitle>Đã xảy ra lỗi</EmptyTitle>
           <EmptyDescription>{errorMessage}</EmptyDescription>
         </EmptyHeader>
       </Empty>
@@ -42,13 +42,13 @@ export function ErrorDisplay(props: {
           <EmptyMedia variant="icon" className="bg-destructive/10">
             <AlertCircle className="text-destructive" />
           </EmptyMedia>
-          <EmptyTitle>There was an error</EmptyTitle>
+          <EmptyTitle>Đã xảy ra lỗi</EmptyTitle>
           <EmptyDescription>
-            Please refresh or contact support at{" "}
+            Vui lòng tải lại trang hoặc liên hệ hỗ trợ tại{" "}
             <a href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>
               {env.NEXT_PUBLIC_SUPPORT_EMAIL}
             </a>{" "}
-            if the error persists.
+            nếu lỗi tiếp tục xảy ra.
           </EmptyDescription>
         </EmptyHeader>
       </Empty>

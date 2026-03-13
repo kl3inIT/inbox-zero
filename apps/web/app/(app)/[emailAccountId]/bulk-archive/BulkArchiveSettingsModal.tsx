@@ -33,20 +33,20 @@ export function BulkArchiveSettingsModal({
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           <SettingsIcon className="mr-2 size-4" />
-          Settings
+          Cài đặt
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>Bulk Archive Settings</DialogTitle>
+          <DialogTitle>Cài đặt lưu trữ hàng loạt</DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
           <div className="flex items-center justify-between gap-8">
             <div className="space-y-2">
-              <p className="font-medium">Action</p>
+              <p className="font-medium">Hành động</p>
               <p className="text-sm text-muted-foreground">
-                Choose what happens when you click the action buttons on each
-                category
+                Chọn hành động sẽ xảy ra khi bạn bấm nút thao tác trên từng danh
+                mục
               </p>
             </div>
             <Select
@@ -60,13 +60,13 @@ export function BulkArchiveSettingsModal({
                 <SelectItem value="archive">
                   <div className="flex items-center gap-2">
                     <ArchiveIcon className="size-4" />
-                    <span>Archive</span>
+                    <span>Lưu trữ</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="markRead">
                   <div className="flex items-center gap-2">
                     <MailOpenIcon className="size-4" />
-                    <span>Mark as read</span>
+                    <span>Đánh dấu đã đọc</span>
                   </div>
                 </SelectItem>
               </SelectContent>
@@ -81,20 +81,20 @@ export function BulkArchiveSettingsModal({
 export function getActionLabels(action: BulkActionType) {
   if (action === "markRead") {
     return {
-      buttonLabel: "Mark as read",
-      allLabel: "Mark all as read",
+      buttonLabel: "Đánh dấu đã đọc",
+      allLabel: "Đánh dấu tất cả đã đọc",
       countLabel: (selected: number, total: number) =>
-        `Mark ${selected} of ${total} as read`,
-      completedLabel: "Marked as read",
+        `Đánh dấu ${selected} trên ${total} là đã đọc`,
+      completedLabel: "Đã đánh dấu đã đọc",
       icon: MailOpenIcon,
     };
   }
   return {
-    buttonLabel: "Archive",
-    allLabel: "Archive all",
+    buttonLabel: "Lưu trữ",
+    allLabel: "Lưu trữ tất cả",
     countLabel: (selected: number, total: number) =>
-      `Archive ${selected} of ${total}`,
-    completedLabel: "Archived",
+      `Lưu trữ ${selected} trên ${total}`,
+    completedLabel: "Đã lưu trữ",
     icon: ArchiveIcon,
   };
 }

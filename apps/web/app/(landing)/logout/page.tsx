@@ -12,7 +12,10 @@ export default function LogoutPage() {
 
   return (
     <BasicLayout>
-      <Loading />
+      <div className="flex flex-col items-center justify-center py-20">
+        <Loading />
+        <p className="mt-4 text-gray-600">Đang đăng xuất...</p>
+      </div>
     </BasicLayout>
   );
 }

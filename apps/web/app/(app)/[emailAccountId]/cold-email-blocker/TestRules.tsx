@@ -86,7 +86,7 @@ const TestRulesForm = () => {
   } = useForm<TestRulesInputs>({
     defaultValues: {
       message:
-        "Hey, I run a development agency. I was wondering if you need extra hands on your team?",
+        "Chào bạn, mình đang điều hành một agency phát triển phần mềm. Không biết bạn có cần thêm người hỗ trợ cho đội của mình không?",
     },
   });
 
@@ -114,14 +114,14 @@ const TestRulesForm = () => {
           autosizeTextarea
           rows={3}
           name="message"
-          label="Email to test against"
-          placeholder="Hey, I run a marketing agency, and would love to chat."
+          label="Nội dung email để kiểm tra"
+          placeholder="Chào bạn, mình đang điều hành một agency marketing và rất muốn trao đổi thêm với bạn."
           registerProps={register("message", { required: true })}
           error={errors.message}
         />
         <Button type="submit" loading={isSubmitting}>
           <SparklesIcon className="mr-2 h-4 w-4" />
-          Test
+          Kiểm tra
         </Button>
       </form>
       {response && (
@@ -179,7 +179,7 @@ function TestRulesContentRow({
               }}
             >
               <SparklesIcon className="mr-2 h-4 w-4" />
-              Test
+              Kiểm tra
             </Button>
           </div>
         </div>
@@ -200,7 +200,7 @@ function Result(props: { coldEmailResponse: ColdEmailBlockerResponse | null }) {
     return (
       <AlertBasic
         variant="destructive"
-        title="Email is a cold email!"
+        title="Email này là email tiếp thị (cold email)!"
         description={coldEmailResponse.aiReason}
       />
     );
@@ -210,8 +210,8 @@ function Result(props: { coldEmailResponse: ColdEmailBlockerResponse | null }) {
       variant="success"
       title={
         coldEmailResponse.reason === "hasPreviousEmail"
-          ? "This person has previously emailed you. This is not a cold email!"
-          : "Our AI determined this is not a cold email!"
+          ? "Người này đã từng gửi email cho bạn trước đây. Đây không phải là email tiếp thị!"
+          : "AI của chúng tôi xác định đây không phải là email tiếp thị!"
       }
       description={coldEmailResponse.aiReason}
     />
@@ -231,7 +231,7 @@ function useColdEmailTest() {
       const result = await testColdEmailAction(emailAccountId, data);
       if (result?.serverError) {
         toastError({
-          title: "Error checking whether it's a cold email.",
+          title: "Lỗi khi kiểm tra email có phải email tiếp thị hay không.",
           description: result.serverError,
         });
       } else if (result?.data) {

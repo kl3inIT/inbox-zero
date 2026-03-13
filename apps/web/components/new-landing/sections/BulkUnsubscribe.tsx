@@ -13,13 +13,13 @@ export function BulkUnsubscribe() {
   return (
     <Section>
       <SectionHeading>
-        Get to Inbox Zero fast.
+        Nhanh chóng đạt Inbox Zero.
         <br />
-        Bulk unsubscribe from emails you never read.
+        Hủy đăng ký hàng loạt những email bạn không bao giờ đọc.
       </SectionHeading>
       <SectionSubtitle>
-        See which emails you never read, and one-click unsubscribe and archive
-        them.
+        Xem những email bạn không đọc và chỉ với một cú nhấp để hủy đăng ký và
+        lưu trữ chúng.
       </SectionSubtitle>
       <SectionContent className="flex justify-center items-center">
         <CardWrapper

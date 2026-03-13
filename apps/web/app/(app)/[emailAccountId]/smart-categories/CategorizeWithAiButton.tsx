@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { bulkCategorizeSendersAction } from "@/utils/actions/categorize";
 import { PremiumTooltip, usePremium } from "@/components/PremiumAlert";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 import type { ButtonProps } from "@/components/ui/button";
 import { useCategorizeProgress } from "@/app/(app)/[emailAccountId]/smart-categories/CategorizeProgress";
 import { Tooltip } from "@/components/Tooltip";
@@ -53,14 +53,14 @@ export function CategorizeWithAiButton({
                 return result?.data?.totalUncategorizedSenders || 0;
               },
               {
-                loading: "Categorizing senders... This might take a while.",
+                loading: "Đang phân loại người gửi... Có thể mất một lúc.",
                 success: (totalUncategorizedSenders) => {
                   return totalUncategorizedSenders
-                    ? `Categorizing ${totalUncategorizedSenders} senders...`
-                    : "There are no more senders to categorize.";
+                    ? `Đang phân loại ${totalUncategorizedSenders} người gửi...`
+                    : "Không còn người gửi nào cần phân loại.";
                 },
                 error: (err) => {
-                  return `Error categorizing senders: ${err.message}`;
+                  return `Lỗi khi phân loại người gửi: ${err.message}`;
                 },
               },
             );
@@ -70,7 +70,7 @@ export function CategorizeWithAiButton({
           {buttonProps?.children || (
             <>
               <SparklesIcon className="mr-2 size-4" />
-              Categorize
+              Phân loại
             </>
           )}
         </Button>
@@ -91,7 +91,7 @@ function CategorizeWithAiButtonTooltip({
 }) {
   if (hasAiAccess) {
     return (
-      <Tooltip content="Categorize thousands of senders. This will take a few minutes.">
+      <Tooltip content="Phân loại hàng nghìn người gửi. Quá trình này có thể mất vài phút.">
         {children}
       </Tooltip>
     );

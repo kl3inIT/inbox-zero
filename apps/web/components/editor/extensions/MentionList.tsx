@@ -61,7 +61,7 @@ export const MentionList = forwardRef<MentionListRef, MentionListProps>(
       return (
         <div className="relative rounded-md border border-slate-200 bg-white px-2 py-2 text-sm shadow-md">
           <div className="text-slate-500">
-            No labels found. Type to create a new label.
+            Không tìm thấy nhãn nào. Gõ để tạo nhãn mới.
           </div>
         </div>
       );
@@ -82,7 +82,7 @@ export const MentionList = forwardRef<MentionListRef, MentionListProps>(
             {item.isCreateNew ? (
               <>
                 <span className="flex-1 truncate">
-                  <strong>Create label:</strong>{" "}
+                  <strong>Tạo nhãn:</strong>{" "}
                   <span className="font-medium">{item.name}</span>
                 </span>
                 <span className="ml-2 text-xs text-slate-500">+</span>

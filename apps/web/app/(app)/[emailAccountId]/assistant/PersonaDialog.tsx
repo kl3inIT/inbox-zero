@@ -19,7 +19,7 @@ export function PersonaDialog({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent>
         <DialogTitle className="text-lg font-medium">
-          Choose a persona
+          Chọn vai trò (persona)
         </DialogTitle>
 
         <ButtonList

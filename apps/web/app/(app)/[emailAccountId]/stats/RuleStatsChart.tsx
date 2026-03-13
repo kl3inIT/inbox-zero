@@ -66,7 +66,7 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
 
     const config: ChartConfig = {
       value: {
-        label: "Executed Rules",
+        label: "Số lần thực thi quy tắc",
       },
       ...fromPairs(
         data.ruleStats.map((rule, index) => [
@@ -80,7 +80,10 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
     };
 
     const barConfig: ChartConfig = {
-      executed: { label: "Executed Rules", color: COLORS.analytics.blue },
+      executed: {
+        label: "Số lần thực thi quy tắc",
+        color: COLORS.analytics.blue,
+      },
     };
 
     return {
@@ -102,8 +105,8 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
             <div className="flex items-center justify-between">
               <p>{title}</p>
               <TabsList>
-                <TabsTrigger value="bar">Bar Chart</TabsTrigger>
-                <TabsTrigger value="pie">Pie Chart</TabsTrigger>
+                <TabsTrigger value="bar">Biểu đồ cột</TabsTrigger>
+                <TabsTrigger value="pie">Biểu đồ tròn</TabsTrigger>
               </TabsList>
             </div>
 
@@ -121,7 +124,7 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
               <ShadcnCard className="border-0 shadow-none">
                 <CardHeader className="items-center pb-0">
                   <CardTitle className="text-base font-normal text-muted-foreground">
-                    Rule Execution Distribution
+                    Phân bố số lần thực thi quy tắc
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 pb-0">
@@ -155,7 +158,10 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
         <CardBasic>
           <p>{title}</p>
           <div className="mt-4 h-72 flex items-center justify-center text-muted-foreground">
-            <p>No executed rules found for this period.</p>
+            <p>
+              Không tìm thấy quy tắc nào được thực thi trong khoảng thời gian
+              này.
+            </p>
           </div>
         </CardBasic>
       )}

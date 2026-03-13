@@ -81,7 +81,7 @@ export function UpcomingMeetings({
 
   return (
     <>
-      <TypographyH3>Upcoming Meetings</TypographyH3>
+      <TypographyH3>Các cuộc họp sắp tới</TypographyH3>
 
       <LoadingContent loading={isLoading} error={error}>
         {!data?.events.length ? (
@@ -90,7 +90,7 @@ export function UpcomingMeetings({
               <EmptyMedia variant="icon">
                 <CalendarIcon />
               </EmptyMedia>
-              <EmptyTitle>No upcoming calendar events found</EmptyTitle>
+              <EmptyTitle>Không tìm thấy sự kiện lịch sắp tới</EmptyTitle>
             </EmptyHeader>
           </Empty>
         ) : (
@@ -103,7 +103,7 @@ export function UpcomingMeetings({
                     <ItemDescription>
                       {format(
                         new Date(event.startTime),
-                        "EEE, MMM d 'at' h:mm a",
+                        "EEE, MMM d 'lúc' h:mm a",
                       )}
                     </ItemDescription>
                   </ItemContent>
@@ -115,12 +115,12 @@ export function UpcomingMeetings({
                           Icon={SendIcon}
                           loading={sendingEventId === event.id}
                         >
-                          Send test brief
+                          Gửi bản tóm tắt thử
                         </Button>
                       }
-                      title="Send test brief?"
-                      description="This will send you a briefing email for this meeting now. Use this to verify briefs are working correctly."
-                      confirmText="Send"
+                      title="Gửi bản tóm tắt thử?"
+                      description="Hệ thống sẽ gửi cho bạn một email tóm tắt cho cuộc họp này ngay bây giờ. Hãy dùng chức năng này để kiểm tra bản tóm tắt hoạt động đúng."
+                      confirmText="Gửi"
                       onConfirm={() => handleSendTestBrief(event)}
                     />
                   </ItemActions>
@@ -145,12 +145,12 @@ function SendHistoryLink() {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="link" className="h-auto p-0 text-muted-foreground">
-          View send history →
+          Xem lịch sử gửi →
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Send History</DialogTitle>
+          <DialogTitle>Lịch sử gửi</DialogTitle>
         </DialogHeader>
 
         <LoadingContent
@@ -164,7 +164,7 @@ function SendHistoryLink() {
                 <EmptyMedia variant="icon">
                   <CalendarIcon />
                 </EmptyMedia>
-                <EmptyTitle>No briefings have been sent yet</EmptyTitle>
+                <EmptyTitle>Chưa có bản tóm tắt nào được gửi</EmptyTitle>
               </EmptyHeader>
             </Empty>
           ) : (
@@ -174,8 +174,7 @@ function SendHistoryLink() {
                   <ItemContent>
                     <ItemTitle>{briefing.eventTitle}</ItemTitle>
                     <ItemDescription>
-                      {briefing.guestCount} guest
-                      {briefing.guestCount !== 1 ? "s" : ""} •{" "}
+                      {briefing.guestCount} khách mời •{" "}
                       {formatDistanceToNow(new Date(briefing.createdAt), {
                         addSuffix: true,
                       })}

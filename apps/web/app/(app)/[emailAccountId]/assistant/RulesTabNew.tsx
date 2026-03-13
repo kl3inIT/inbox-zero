@@ -8,8 +8,7 @@ export function RulesTab() {
     <div>
       <div className="flex items-center mb-2 justify-between gap-2">
         <MutedText className="hidden sm:block">
-          Your assistant automatically organizes incoming emails using these
-          rules.
+          Trợ lý Email AI tự động sắp xếp email đến sử dụng các quy tắc này
         </MutedText>
 
         <div className="flex shrink-0 items-center gap-2">

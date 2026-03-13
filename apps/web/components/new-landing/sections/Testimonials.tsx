@@ -162,10 +162,10 @@ export function Testimonials() {
   return (
     <Section>
       <SectionHeading wrap>
-        Join {userCount} others who spend less time on emails
+        Tham gia cùng {userCount} người khác để dành ít thời gian hơn cho email
       </SectionHeading>
       <SectionSubtitle>
-        {`Our customers love saving time with ${BRAND_NAME}.`}
+        {`Khách hàng của chúng tôi thích việc tiết kiệm thời gian với ${BRAND_NAME}.`}
       </SectionSubtitle>
       <SectionContent>
         {/* Mobile */}

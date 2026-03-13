@@ -83,12 +83,13 @@ export function DeliveryChannelsSetting() {
     updateEmailDeliveryAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Settings saved" });
+        toastSuccess({ description: "Đã lưu cài đặt" });
         mutateBriefSettings();
       },
       onError: (error) => {
         toastError({
-          description: getActionErrorMessage(error.error) ?? "Failed to update",
+          description:
+            getActionErrorMessage(error.error) ?? "Cập nhật không thành công",
         });
       },
     },
@@ -105,8 +106,8 @@ export function DeliveryChannelsSetting() {
     <Card>
       <CardContent className="p-4 space-y-4">
         <div>
-          <h3 className="font-medium">Delivery Channels</h3>
-          <MutedText>Choose where to receive meeting briefings</MutedText>
+          <h3 className="font-medium">Kênh nhận bản tóm tắt</h3>
+          <MutedText>Chọn nơi bạn muốn nhận bản tóm tắt cuộc họp</MutedText>
         </div>
 
         <div className="space-y-3">
@@ -134,12 +135,12 @@ export function DeliveryChannelsSetting() {
 
           {!isLoadingChannels && !hasSlack && slackAvailable && (
             <MutedText className="text-xs">
-              Want to receive briefs in Slack?{" "}
+              Bạn muốn nhận bản tóm tắt qua Slack?{" "}
               <Link
                 href={prefixPath(emailAccountId, "/settings")}
                 className="underline text-foreground"
               >
-                Connect Slack in Settings
+                Kết nối Slack trong phần Cài đặt
               </Link>
             </MutedText>
           )}
@@ -184,13 +185,14 @@ function ChannelRow({
     updateSlackChannelAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Slack channel updated" });
+        toastSuccess({ description: "Đã cập nhật kênh Slack" });
         setSelectingTarget(false);
         onUpdate();
       },
       onError: (error) => {
         toastError({
-          description: getActionErrorMessage(error.error) ?? "Failed to update",
+          description:
+            getActionErrorMessage(error.error) ?? "Cập nhật không thành công",
         });
       },
     },
@@ -200,12 +202,13 @@ function ChannelRow({
     updateChannelFeaturesAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Settings saved" });
+        toastSuccess({ description: "Đã lưu cài đặt" });
         onUpdate();
       },
       onError: (error) => {
         toastError({
-          description: getActionErrorMessage(error.error) ?? "Failed to update",
+          description:
+            getActionErrorMessage(error.error) ?? "Cập nhật không thành công",
         });
       },
     },
@@ -236,10 +239,10 @@ function ChannelRow({
                     <SelectValue
                       placeholder={
                         targetsError
-                          ? "Failed to load channels"
+                          ? "Không tải được danh sách kênh"
                           : isLoadingTargets
-                            ? "Loading channels..."
-                            : "Select private channel"
+                            ? "Đang tải danh sách kênh..."
+                            : "Chọn kênh riêng tư"
                       }
                     />
                   </SelectTrigger>
@@ -254,8 +257,8 @@ function ChannelRow({
                       privateTargets &&
                       privateTargets.length === 0 && (
                         <div className="px-2 py-1.5 text-xs text-muted-foreground">
-                          No private channels found. Create one and invite the
-                          bot first.
+                          Không tìm thấy kênh riêng tư. Hãy tạo một kênh riêng
+                          tư và mời bot vào trước.
                         </div>
                       )}
                   </SelectContent>
@@ -263,12 +266,12 @@ function ChannelRow({
               </div>
               {!isLoadingTargets && (
                 <MutedText className="text-xs">
-                  Pick a channel to receive meeting briefs. Create a private
-                  Slack channel, then type{" "}
+                  Chọn một kênh để nhận bản tóm tắt cuộc họp. Tạo một kênh Slack
+                  riêng tư, sau đó gõ{" "}
                   <code className="bg-muted px-1 rounded">
                     /invite @InboxZero
                   </code>{" "}
-                  in it. The channel will appear above once the bot is invited.
+                  trong kênh. Kênh sẽ xuất hiện ở trên sau khi bot được mời.
                 </MutedText>
               )}
             </div>
@@ -277,7 +280,7 @@ function ChannelRow({
               type="button"
               className="font-medium text-sm text-left hover:underline"
               onClick={() => setSelectingTarget(true)}
-              title="Change channel"
+              title="Đổi kênh"
             >
               {config.name}{" "}
               <span className="text-muted-foreground font-normal">
@@ -290,7 +293,7 @@ function ChannelRow({
           <div className="space-y-1">
             <span className="font-medium text-sm">{config.name}</span>
             <MutedText className="text-xs">
-              Brief delivery targets are currently supported for Slack.
+              Hiện tại chỉ hỗ trợ chọn nơi nhận bản tóm tắt cho Slack.
             </MutedText>
           </div>
         )}

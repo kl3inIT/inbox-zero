@@ -69,7 +69,7 @@ export function Hero({
           <BlurFade duration={0.4} delay={0.125 * 8}>
             <div className="mb-12 flex items-center gap-2 justify-center">
               <Paragraph color="light" size="sm">
-                Works with
+                Hoạt động với
               </Paragraph>
               <Outlook />
               <Gmail />
@@ -101,12 +101,12 @@ export function HeroVideoPlayer() {
               </LiquidGlassButton>
             </DialogTrigger>
             <DialogContent className="max-w-7xl border-0 bg-transparent p-0">
-              <DialogTitle className="sr-only">Video player</DialogTitle>
+              <DialogTitle className="sr-only">Trình phát video</DialogTitle>
               <div className="relative aspect-video w-full">
                 <iframe
                   src="https://www.youtube.com/embed/hfvKvTHBjG0?autoplay=1&rel=0"
                   className="size-full rounded-lg"
-                  title="Video content"
+                  title="Nội dung video"
                   allowFullScreen
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 />
@@ -115,7 +115,7 @@ export function HeroVideoPlayer() {
           </Dialog>
           <Image
             src="/images/new-landing/video-thumbnail.png"
-            alt="an organized inbox"
+            alt="một hộp thư đến ngăn nắp"
             width={2000}
             height={1000}
             className="w-full"

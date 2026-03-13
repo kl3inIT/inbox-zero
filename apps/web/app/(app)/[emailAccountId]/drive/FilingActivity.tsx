@@ -50,20 +50,22 @@ export function FilingActivity() {
 
   return (
     <div>
-      <SectionHeader className="mb-3">Recent Activity</SectionHeader>
+      <SectionHeader className="mb-3">Hoạt động gần đây</SectionHeader>
       <LoadingContent loading={isLoading} error={error}>
         {data?.filings.length === 0 ? (
-          <MutedText className="italic">No recently filed documents.</MutedText>
+          <MutedText className="italic">
+            Không có tài liệu nào được lưu gần đây.
+          </MutedText>
         ) : (
           <div className="rounded-lg border">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>File</TableHead>
-                  <TableHead>Folder</TableHead>
-                  <TableHead className="w-[100px]">When</TableHead>
+                  <TableHead>Tệp</TableHead>
+                  <TableHead>Thư mục</TableHead>
+                  <TableHead className="w-[100px]">Thời gian</TableHead>
                   <TableHead className="w-[80px] text-center">
-                    Correct?
+                    Đúng không?
                   </TableHead>
                   <TableHead className="w-[50px]" />
                 </TableRow>
@@ -83,7 +85,8 @@ export function FilingActivity() {
             </Table>
             {data && data.total > 10 && (
               <MutedText className="p-3 border-t">
-                Showing {data.filings.length} of {data.total} filings
+                Đang hiển thị {data.filings.length} trên tổng {data.total} lần
+                lưu
               </MutedText>
             )}
           </div>
@@ -141,7 +144,7 @@ function FilingRow({
 
       if (result?.serverError) {
         setVote(previousValue);
-        toastError({ description: "Failed to submit feedback" });
+        toastError({ description: "Không thể gửi phản hồi" });
         return;
       }
 
@@ -176,14 +179,14 @@ function FilingRow({
 
         if (result?.serverError) {
           setVote(voteBeforeDropdownRef.current);
-          toastError({ description: "Failed to move file" });
+          toastError({ description: "Không thể di chuyển tệp" });
           return;
         }
 
         toastSuccess({ description: `Moved to ${folderName}` });
       } catch {
         setVote(voteBeforeDropdownRef.current);
-        toastError({ description: "Failed to move file" });
+        toastError({ description: "Không thể di chuyển tệp" });
       } finally {
         setIsSubmitting(false);
       }
@@ -206,14 +209,14 @@ function FilingRow({
 
       if (result?.serverError) {
         setVote(previousValue);
-        toastError({ description: "Failed to submit feedback" });
+        toastError({ description: "Không thể gửi phản hồi" });
         return;
       }
 
       onFeedbackSaved();
     } catch {
       setVote(previousValue);
-      toastError({ description: "Failed to submit feedback" });
+      toastError({ description: "Không thể gửi phản hồi" });
     } finally {
       setIsSubmitting(false);
     }
@@ -342,9 +345,9 @@ function FolderCell({
 
   if (isSkipped) {
     return (
-      <Tooltip content={filing.reasoning || "Doesn't match preferences"}>
+      <Tooltip content={filing.reasoning || "Không khớp với tùy chọn của bạn"}>
         <span className="flex items-center gap-1.5 text-muted-foreground italic">
-          Skipped
+          Đã bỏ qua
           <InfoIcon className="size-3.5 shrink-0" />
         </span>
       </Tooltip>

@@ -21,33 +21,34 @@ import { BRAND_NAME } from "@/utils/branding";
 // `value` is the value that will be saved to the database
 const choices = [
   {
-    label: "AI Personal Assistant",
-    description: "Auto labelling, pre-drafted responses, and more.",
+    label: "Trợ lý cá nhân AI",
+    description: "Tự động gắn nhãn, soạn sẵn phản hồi và nhiều hơn nữa.",
     icon: <SparklesIcon className="size-4" />,
     value: "AI Personal Assistant",
   },
   {
-    label: "Bulk Unsubscriber",
-    description: "One-click unsubscribe and archive emails you never read",
+    label: "Hủy đăng ký hàng loạt",
+    description:
+      "Một lần bấm để hủy đăng ký và lưu trữ những email bạn không bao giờ đọc",
     icon: <ClockIcon className="size-4" />,
     value: "Bulk Unsubscriber",
   },
   {
-    label: "Cold Email Blocker",
-    description: "Block unsolicited sales emails and spam",
+    label: "Chặn email tiếp thị lạnh",
+    description: "Chặn email bán hàng không mong muốn và thư rác",
     icon: <ShieldCheckIcon className="size-4" />,
     value: "Cold Email Blocker",
   },
   {
     label: "Reply Zero",
     description:
-      "Never forget to reply. Never miss a follow up when others don't respond.",
+      "Không bao giờ quên trả lời. Không bỏ lỡ việc nhắc lại khi người khác im lặng.",
     icon: <ReplyIcon className="size-4" />,
     value: "Reply/Follow-up Tracker",
   },
   {
-    label: "Email Analytics",
-    description: "Analyze your email activity",
+    label: "Phân tích email",
+    description: "Phân tích hoạt động email của bạn",
     icon: <ChartBarIcon className="size-4" />,
     value: "Email Analytics",
   },
@@ -65,9 +66,9 @@ export function StepFeatures({ onNext }: { onNext: () => void }) {
       </IconCircle>
 
       <div className="text-center mt-4">
-        <PageHeading>{`How would you like to use ${BRAND_NAME}?`}</PageHeading>
+        <PageHeading>{`Bạn muốn sử dụng ${BRAND_NAME} như thế nào?`}</PageHeading>
         <TypographyP className="mt-2 max-w-lg mx-auto">
-          Select as many as you want.
+          Bạn có thể chọn nhiều mục mà mình quan tâm.
         </TypographyP>
 
         <div className="grid gap-4 mt-4 max-w-3xl mx-auto">
@@ -112,7 +113,7 @@ export function StepFeatures({ onNext }: { onNext: () => void }) {
               onNext();
             }}
           >
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

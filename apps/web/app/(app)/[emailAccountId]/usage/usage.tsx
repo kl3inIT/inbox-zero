@@ -17,29 +17,29 @@ export function Usage(props: { usage: RedisUsage | null }) {
       <StatsCards
         stats={[
           {
-            name: "Unsubscribe Credits",
+            name: "Số lượt hủy đăng ký",
             value: isPremium(
               premium?.lemonSqueezyRenewsAt || null,
               premium?.stripeSubscriptionStatus || null,
             )
-              ? "Unlimited"
+              ? "Không giới hạn"
               : formatStat(
                   premium?.unsubscribeCredits ??
                     env.NEXT_PUBLIC_FREE_UNSUBSCRIBE_CREDITS,
                 ),
-            subvalue: "credits",
+            subvalue: "lượt",
             icon: <CoinsIcon className="h-4 w-4" />,
           },
           {
-            name: "LLM API Calls",
+            name: "Số lần gọi API LLM",
             value: formatStat(props.usage?.openaiCalls),
-            subvalue: "calls",
+            subvalue: "lần",
             icon: <BotIcon className="h-4 w-4" />,
           },
           {
-            name: "LLM Tokens Used",
+            name: "Số token LLM đã dùng",
             value: formatStat(props.usage?.openaiTokensUsed),
-            subvalue: "tokens",
+            subvalue: "token",
             icon: <CpuIcon className="h-4 w-4" />,
           },
         ]}

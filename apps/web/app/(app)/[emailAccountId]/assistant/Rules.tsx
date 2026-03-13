@@ -140,19 +140,19 @@ export function Rules({
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-16 px-2 sm:px-4">Enabled</TableHead>
-                  <TableHead className="px-2 sm:px-4">Name</TableHead>
+                  <TableHead className="w-16 px-2 sm:px-4">Bật</TableHead>
+                  <TableHead className="px-2 sm:px-4">Tên</TableHead>
                   <TableHead className="hidden sm:table-cell px-2 sm:px-4">
-                    Prompt
+                    Gợi ý
                   </TableHead>
-                  <TableHead className="px-2 sm:px-4">Action</TableHead>
+                  <TableHead className="px-2 sm:px-4">Hành động</TableHead>
                   <TableHead className="w-fit whitespace-nowrap px-1">
                     {showAddRuleButton && (
                       <div className="flex justify-end">
                         <div className="my-2">
                           <Button size="sm" onClick={onCreateRule}>
                             <PlusIcon className="mr-2 hidden size-4 md:block" />
-                            Add Rule
+                            Thêm quy tắc
                           </Button>
                         </div>
                       </div>
@@ -249,7 +249,7 @@ export function Rules({
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 <MoreHorizontalIcon className="size-4" />
-                                <span className="sr-only">Toggle menu</span>
+                                <span className="sr-only">Mở menu</span>
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
@@ -265,7 +265,7 @@ export function Rules({
                                 }}
                               >
                                 <PenIcon className="mr-2 size-4" />
-                                Edit manually
+                                Chỉnh sửa thủ công
                               </DropdownMenuItem>
                               <DropdownMenuItem
                                 onClick={() => {
@@ -276,7 +276,7 @@ export function Rules({
                                 }}
                               >
                                 <SparklesIcon className="mr-2 size-4" />
-                                Edit via AI
+                                Chỉnh sửa bằng AI
                               </DropdownMenuItem>
                               <DropdownMenuItem
                                 onClick={() => {
@@ -286,7 +286,7 @@ export function Rules({
                                 }}
                               >
                                 <CopyIcon className="mr-2 size-4" />
-                                Duplicate
+                                Nhân bản
                               </DropdownMenuItem>
                               <DropdownMenuItem asChild>
                                 <Link
@@ -296,7 +296,7 @@ export function Rules({
                                   )}
                                 >
                                   <HistoryIcon className="mr-2 size-4" />
-                                  History
+                                  Lịch sử
                                 </Link>
                               </DropdownMenuItem>
                               <DropdownMenuSeparator />
@@ -304,7 +304,7 @@ export function Rules({
                               <DropdownMenuItem
                                 onClick={async () => {
                                   const yes = confirm(
-                                    `Are you sure you want to delete the rule "${rule.name}"?`,
+                                    `Bạn có chắc chắn muốn xóa quy tắc "${rule.name}" không?`,
                                   );
                                   if (yes) {
                                     toast.promise(
@@ -319,17 +319,17 @@ export function Rules({
                                         ) {
                                           throw new Error(
                                             res?.serverError ||
-                                              "There was an error deleting your rule",
+                                              "Đã xảy ra lỗi khi xóa quy tắc của bạn",
                                           );
                                         }
 
                                         mutate();
                                       },
                                       {
-                                        loading: "Deleting rule...",
-                                        success: "Rule deleted",
+                                        loading: "Đang xóa quy tắc...",
+                                        success: "Đã xóa quy tắc",
                                         error: (error) =>
-                                          `Error deleting rule. ${error.message}`,
+                                          `Lỗi khi xóa quy tắc. ${error.message}`,
                                         finally: () => {
                                           mutate();
                                         },
@@ -414,7 +414,7 @@ function NoRules() {
   return (
     <CardHeader>
       <CardDescription className="flex flex-col items-center gap-4 py-20">
-        You don't have any rules yet.
+        Bạn chưa có quy tắc nào.
         <div>
           <Button asChild size="sm">
             <Link
@@ -423,7 +423,7 @@ function NoRules() {
                 `/onboarding?step=${getStepNumber(STEP_KEYS.LABELS)}`,
               )}
             >
-              Set up default rules
+              Thiết lập quy tắc mặc định
             </Link>
           </Button>
         </div>

@@ -29,16 +29,16 @@ export const usersRolesInfo: Record<
     icon: RocketIcon,
     suggestedLabels: [
       {
-        label: "Customer Feedback",
-        description: "Feedback and suggestions we receive from our customers",
+        label: "Phản hồi khách hàng",
+        description: "Ý kiến, góp ý và phản hồi mà khách hàng gửi cho chúng ta",
       },
       {
-        label: "Investor",
-        description: "Communications from investors and VCs",
+        label: "Nhà đầu tư",
+        description: "Trao đổi từ các nhà đầu tư và quỹ đầu tư",
       },
       {
-        label: "Urgent",
-        description: "Time-sensitive emails requiring immediate attention",
+        label: "Khẩn cấp",
+        description: "Email cần xử lý ngay hoặc trong thời gian rất gấp",
       },
     ],
   },
@@ -46,13 +46,13 @@ export const usersRolesInfo: Record<
     icon: BriefcaseIcon,
     suggestedLabels: [
       {
-        label: "Board",
-        description: "Board meetings, materials, and director communications",
+        label: "Hội đồng quản trị",
+        description: "Họp HĐQT, tài liệu và trao đổi với các thành viên HĐQT",
       },
       {
-        label: "Key Stakeholder",
+        label: "Đối tác/khách hàng quan trọng",
         description:
-          "Important partners, major clients, and VIP communications",
+          "Đối tác then chốt, khách hàng lớn và các trao đổi quan trọng",
       },
     ],
   },
@@ -60,12 +60,12 @@ export const usersRolesInfo: Record<
     icon: StoreIcon,
     suggestedLabels: [
       {
-        label: "Customer Feedback",
-        description: "Feedback and suggestions we receive from our customers",
+        label: "Phản hồi khách hàng",
+        description: "Góp ý và phản hồi từ khách hàng về sản phẩm/dịch vụ",
       },
       {
-        label: "Urgent",
-        description: "Time-sensitive emails requiring immediate attention",
+        label: "Khẩn cấp",
+        description: "Email cần xử lý ngay hoặc trong thời gian rất gấp",
       },
     ],
   },
@@ -73,20 +73,20 @@ export const usersRolesInfo: Record<
     icon: CodeIcon,
     suggestedLabels: [
       {
-        label: "Alert",
-        description: "Server errors and deployment notifications",
+        label: "Cảnh báo",
+        description: "Lỗi hệ thống, cảnh báo server và thông báo triển khai",
       },
       {
         label: "GitHub",
-        description: "Pull requests and code reviews",
+        description: "Pull request và đánh giá code",
       },
       {
         label: "Bug",
-        description: "Bug reports and issue tracking",
+        description: "Báo lỗi và theo dõi issue",
       },
       {
-        label: "Security",
-        description: "Security vulnerabilities and updates",
+        label: "Bảo mật",
+        description: "Lỗ hổng bảo mật và cập nhật liên quan",
       },
     ],
   },
@@ -94,12 +94,12 @@ export const usersRolesInfo: Record<
     icon: CalendarDaysIcon,
     suggestedLabels: [
       {
-        label: "Schedule Meeting",
-        description: "Emails that need a meeting to be scheduled",
+        label: "Lên lịch họp",
+        description: "Email cần được xếp lịch cuộc họp",
       },
       {
-        label: "Travel",
-        description: "Travel arrangements and itineraries",
+        label: "Công tác/di chuyển",
+        description: "Đặt vé, lịch trình và sắp xếp chuyến đi",
       },
     ],
   },
@@ -107,20 +107,20 @@ export const usersRolesInfo: Record<
     icon: TrendingUpIcon,
     suggestedLabels: [
       {
-        label: "Company Update",
-        description: "Portfolio company progress reports",
+        label: "Cập nhật công ty",
+        description: "Báo cáo tiến độ từ các công ty trong danh mục đầu tư",
       },
       {
         label: "Pitch Deck",
-        description: "Startup presentations and investment opportunities",
+        description: "Slide giới thiệu, cơ hội đầu tư mới",
       },
       {
-        label: "LP",
-        description: "Limited Partner communications",
+        label: "Nhà đầu tư góp vốn (LP)",
+        description: "Trao đổi với các Limited Partner",
       },
       {
-        label: "Due Diligence",
-        description: "Investment research and analysis",
+        label: "Thẩm định (Due Diligence)",
+        description: "Nghiên cứu và phân tích cơ hội đầu tư",
       },
     ],
   },
@@ -128,20 +128,20 @@ export const usersRolesInfo: Record<
     icon: PhoneIcon,
     suggestedLabels: [
       {
-        label: "Prospect",
-        description: "Potential customers and leads",
+        label: "Khách hàng tiềm năng",
+        description: "Cơ hội mới và khách hàng đang được chăm sóc",
       },
       {
-        label: "Customer",
-        description: "Existing customer communications",
+        label: "Khách hàng hiện tại",
+        description: "Trao đổi với các khách hàng đang sử dụng dịch vụ",
       },
       {
-        label: "Deal Discussion",
-        description: "Active negotiations and proposals",
+        label: "Thương vụ đang trao đổi",
+        description: "Đàm phán và đề xuất báo giá",
       },
       {
-        label: "Churn Risk",
-        description: "Customers showing signs of cancellation",
+        label: "Nguy cơ rời bỏ",
+        description: "Khách hàng có dấu hiệu muốn dừng dịch vụ",
       },
     ],
   },
@@ -149,20 +149,20 @@ export const usersRolesInfo: Record<
     icon: MegaphoneIcon,
     suggestedLabels: [
       {
-        label: "Campaign",
-        description: "Marketing campaigns and promotional activities",
+        label: "Chiến dịch",
+        description: "Chiến dịch marketing và các hoạt động truyền thông",
       },
       {
-        label: "Content Review",
-        description: "Content drafts requiring approval or feedback",
+        label: "Duyệt nội dung",
+        description: "Bản nháp nội dung cần góp ý hoặc phê duyệt",
       },
       {
-        label: "Analytics Report",
-        description: "Performance metrics and marketing analytics",
+        label: "Báo cáo chỉ số",
+        description: "Số liệu hiệu quả và báo cáo phân tích marketing",
       },
       {
-        label: "Partner/Agency",
-        description: "Communications with marketing agencies and partners",
+        label: "Đối tác/Agency",
+        description: "Trao đổi với agency và các đối tác marketing",
       },
     ],
   },
@@ -170,16 +170,16 @@ export const usersRolesInfo: Record<
     icon: HeadphonesIcon,
     suggestedLabels: [
       {
-        label: "Support Ticket",
-        description: "Customer requests for help with our product or service",
+        label: "Yêu cầu hỗ trợ",
+        description: "Khách hàng cần hỗ trợ về sản phẩm/dịch vụ",
       },
       {
-        label: "Bug",
-        description: "Bug reports from customers",
+        label: "Báo lỗi",
+        description: "Khách hàng báo lỗi sản phẩm",
       },
       {
-        label: "Feature Request",
-        description: "Customer suggestions for new features",
+        label: "Đề xuất tính năng",
+        description: "Gợi ý tính năng mới từ khách hàng",
       },
     ],
   },
@@ -187,20 +187,20 @@ export const usersRolesInfo: Record<
     icon: HomeIcon,
     suggestedLabels: [
       {
-        label: "Buyer Lead",
-        description: "Potential home buyers inquiring about properties",
+        label: "Khách mua tiềm năng",
+        description: "Người mua quan tâm và hỏi thêm về bất động sản",
       },
       {
-        label: "Seller Lead",
-        description: "Property owners looking to sell",
+        label: "Chủ nhà/bên bán",
+        description: "Chủ sở hữu muốn bán bất động sản",
       },
       {
-        label: "Showing Request",
-        description: "Requests to view properties",
+        label: "Yêu cầu xem nhà",
+        description: "Yêu cầu đặt lịch xem bất động sản",
       },
       {
-        label: "Closing",
-        description: "Documents and communications for property closings",
+        label: "Hoàn tất giao dịch",
+        description: "Hồ sơ và trao đổi giai đoạn chốt giao dịch",
       },
     ],
   },
@@ -208,20 +208,20 @@ export const usersRolesInfo: Record<
     icon: VideoIcon,
     suggestedLabels: [
       {
-        label: "Sponsorship",
-        description: "Brand sponsorship inquiries and deals",
+        label: "Tài trợ",
+        description: "Đề nghị tài trợ và hợp đồng với thương hiệu",
       },
       {
-        label: "Collab",
-        description: "Collaboration requests from other creators",
+        label: "Hợp tác",
+        description: "Lời mời collab từ các creator khác",
       },
       {
-        label: "Brand Deal",
-        description: "Partnership opportunities with brands",
+        label: "Thỏa thuận thương hiệu",
+        description: "Cơ hội hợp tác dài hạn với nhãn hàng",
       },
       {
-        label: "Press",
-        description: "Media inquiries and interview requests",
+        label: "Báo chí/Truyền thông",
+        description: "Phỏng vấn, bài báo và yêu cầu từ báo chí",
       },
     ],
   },
@@ -229,16 +229,16 @@ export const usersRolesInfo: Record<
     icon: UsersIcon,
     suggestedLabels: [
       {
-        label: "Client Project",
-        description: "Active client engagements and project updates",
+        label: "Dự án khách hàng",
+        description: "Các dự án đang triển khai và cập nhật tiến độ",
       },
       {
-        label: "Proposal",
-        description: "New business proposals and RFP responses",
+        label: "Đề xuất/Proposal",
+        description: "Đề xuất hợp tác và phản hồi RFP",
       },
       {
-        label: "Professional Network",
-        description: "Industry contacts and referral opportunities",
+        label: "Mối quan hệ nghề nghiệp",
+        description: "Liên hệ trong ngành và cơ hội kết nối",
       },
     ],
   },
@@ -247,20 +247,20 @@ export const usersRolesInfo: Record<
     icon: GraduationCapIcon,
     suggestedLabels: [
       {
-        label: "School",
-        description: "Emails from professors and teaching staff",
+        label: "Trường/Lớp",
+        description: "Email từ giảng viên và nhà trường",
       },
       {
-        label: "Assignment",
-        description: "Homework and project deadlines",
+        label: "Bài tập",
+        description: "Bài tập, dự án và hạn nộp",
       },
       {
-        label: "Internship",
-        description: "Internship opportunities and applications",
+        label: "Thực tập",
+        description: "Cơ hội thực tập và hồ sơ ứng tuyển",
       },
       {
-        label: "Study Materials",
-        description: "Class notes and learning resources",
+        label: "Tài liệu học tập",
+        description: "Giáo trình, ghi chú và tài liệu học",
       },
     ],
   },

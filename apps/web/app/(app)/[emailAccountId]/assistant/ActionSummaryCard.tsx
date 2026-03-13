@@ -48,7 +48,7 @@ export function ActionSummaryCard({
           ? `AI ${terminology.label.action}: ${labelName}`
           : `AI ${terminology.label.action}`;
       } else {
-        summaryContent = `${terminology.label.action} as "${labelName || "unset"}"`;
+        summaryContent = `${terminology.label.action} là "${labelName || "chưa đặt"}"`;
       }
       break;
     }
@@ -58,11 +58,11 @@ export function ActionSummaryCard({
         const contentValue = action.content?.value || "";
         summaryContent = (
           <>
-            <span>Draft reply</span>
+            <span>Soạn thư trả lời nháp</span>
             {action.to?.value && (
               <span className="text-muted-foreground">
                 {" "}
-                to {action.to.value}
+                tới {action.to.value}
               </span>
             )}
             {contentValue && (
@@ -84,17 +84,17 @@ export function ActionSummaryCard({
           <>
             <div className="flex items-center gap-2">
               <div>
-                <span>AI draft reply</span>
+                <span>AI soạn thư trả lời nháp</span>
                 {action.to?.value && (
                   <span className="text-muted-foreground">
                     {" "}
-                    to {action.to.value}
+                    tới {action.to.value}
                   </span>
                 )}
               </div>
               <TooltipExplanation
                 size="md"
-                text="Our AI will generate a reply in your tone of voice. It will use your knowledge base and previous conversations with the sender to draft a reply."
+                text="AI sẽ tạo một câu trả lời theo giọng văn của bạn. AI sẽ dùng kiến thức đã lưu và các cuộc trao đổi trước đây với người gửi để soạn trả lời."
               />
             </div>
             <OptionalEmailFields
@@ -112,11 +112,11 @@ export function ActionSummaryCard({
         const contentValue = action.content?.value || "";
         summaryContent = (
           <>
-            <span>Reply</span>
+            <span>Trả lời</span>
             {action.to?.value && (
               <span className="text-muted-foreground">
                 {" "}
-                to {action.to.value}
+                tới {action.to.value}
               </span>
             )}
             {contentValue && (
@@ -136,11 +136,11 @@ export function ActionSummaryCard({
       } else {
         summaryContent = (
           <>
-            <span>AI reply</span>
+            <span>AI trả lời</span>
             {action.to?.value && (
               <span className="text-muted-foreground">
                 {" "}
-                to {action.to.value}
+                tới {action.to.value}
               </span>
             )}
             <OptionalEmailFields
@@ -156,7 +156,7 @@ export function ActionSummaryCard({
     case ActionType.FORWARD:
       summaryContent = (
         <>
-          <span>Forward to {action.to?.value || "unset"}</span>
+          <span>Chuyển tiếp tới {action.to?.value || "chưa đặt"}</span>
           {action.content?.value && (
             <span className="mt-2 block text-muted-foreground">
               {action.content.value}
@@ -170,7 +170,7 @@ export function ActionSummaryCard({
     case ActionType.SEND_EMAIL:
       summaryContent = (
         <>
-          <span>Send email to {action.to?.value || "unset"}</span>
+          <span>Gửi email tới {action.to?.value || "chưa đặt"}</span>
           {action.subject?.value && (
             <span className="text-muted-foreground">
               {" "}
@@ -183,30 +183,30 @@ export function ActionSummaryCard({
       break;
 
     case ActionType.CALL_WEBHOOK:
-      summaryContent = `Call webhook: ${action.url?.value || "unset"}`;
+      summaryContent = `Gọi webhook: ${action.url?.value || "chưa đặt"}`;
       tooltipText =
-        "Sends email details and rule execution data to your webhook endpoint when this rule is triggered.";
+        "Gửi thông tin email và dữ liệu thực thi quy tắc tới endpoint webhook của bạn khi quy tắc được kích hoạt.";
       break;
 
     case ActionType.ARCHIVE:
-      summaryContent = "Archive";
+      summaryContent = "Lưu trữ";
       break;
 
     case ActionType.MARK_READ:
-      summaryContent = "Mark as read";
+      summaryContent = "Đánh dấu đã đọc";
       break;
 
     case ActionType.MARK_SPAM:
-      summaryContent = "Mark as spam";
+      summaryContent = "Đánh dấu spam";
       break;
 
     case ActionType.MOVE_FOLDER:
-      summaryContent = `Folder: ${action.folderName?.value || "unset"}`;
+      summaryContent = `Thư mục: ${action.folderName?.value || "chưa đặt"}`;
       break;
 
     case ActionType.NOTIFY_SENDER:
-      summaryContent = "Notify sender";
-      tooltipText = `Sends an automated notification from ${BRAND_NAME} (not from your email) informing the sender their email was filtered as cold outreach.`;
+      summaryContent = "Thông báo cho người gửi";
+      tooltipText = `Gửi một thông báo tự động từ ${BRAND_NAME} (không phải từ email của bạn) cho người gửi biết email của họ đã bị lọc là email tiếp cận lạnh.`;
       break;
 
     default:

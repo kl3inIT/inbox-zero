@@ -24,8 +24,8 @@ export default function PermissionsConsentPage() {
       window.location.href = url;
     } catch {
       toastError({
-        title: "Error initiating reconnection",
-        description: "Please try again or contact support",
+        title: "Lỗi khi bắt đầu kết nối lại",
+        description: "Vui lòng thử lại hoặc liên hệ bộ phận hỗ trợ",
       });
     } finally {
       setIsReconnecting(false);
@@ -34,25 +34,24 @@ export default function PermissionsConsentPage() {
 
   return (
     <div className="flex flex-col items-center justify-center sm:p-20 md:p-32">
-      <PageHeading className="text-center">
-        We are missing permissions 😔
-      </PageHeading>
+      <PageHeading className="text-center">Thiếu quyền truy cập 😔</PageHeading>
 
       <TypographyP className="mx-auto mt-4 max-w-prose text-center">
         {isMicrosoft
-          ? `Your Microsoft account is connected, but ${BRAND_NAME} is missing one or more required Microsoft 365 permissions.`
-          : `You must sign in and give access to all permissions for ${BRAND_NAME} to work.`}
+          ? `Tài khoản Microsoft của bạn đã được kết nối, nhưng ${BRAND_NAME} đang thiếu một hoặc nhiều quyền bắt buộc của Microsoft 365.`
+          : `Bạn cần đăng nhập và cấp đầy đủ tất cả quyền cần thiết để ${BRAND_NAME} hoạt động.`}
       </TypographyP>
 
       {isMicrosoft && (
         <TypographyP className="mx-auto mt-3 max-w-prose text-center text-muted-foreground">
-          If your organization restricts user consent, ask your Microsoft 365
-          admin to approve {BRAND_NAME} and then reconnect your account.
+          Nếu tổ chức của bạn hạn chế việc người dùng tự cấp quyền, hãy nhờ quản
+          trị viên Microsoft 365 phê duyệt {BRAND_NAME} rồi kết nối lại tài
+          khoản của bạn.
         </TypographyP>
       )}
       {!isMicrosoft && (
         <TypographyP className="mx-auto mt-3 max-w-prose text-center text-muted-foreground">
-          Reconnect your account and approve every requested permission.
+          Hãy kết nối lại tài khoản và chấp nhận tất cả các quyền được yêu cầu.
         </TypographyP>
       )}
 
@@ -62,15 +61,15 @@ export default function PermissionsConsentPage() {
         loading={isReconnecting}
         disabled={isReconnecting || accountLoading}
       >
-        Reconnect account
+        Kết nối lại tài khoản
       </Button>
 
       <p className="mt-8 text-center text-muted-foreground">
-        Having trouble?{" "}
+        Gặp sự cố?{" "}
         <Link href="/logout" className="underline hover:text-primary">
-          Sign out
+          Đăng xuất
         </Link>{" "}
-        and sign back in again.
+        rồi đăng nhập lại.
       </p>
 
       <div className="mt-8">

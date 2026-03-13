@@ -45,17 +45,17 @@ export function EarlyAccessFeatures() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Early access features</CardTitle>
+        <CardTitle>Các tính năng truy cập sớm</CardTitle>
         <CardDescription>
-          You can enable and disable early access features here.
+          Bạn có thể bật hoặc tắt các tính năng truy cập sớm tại đây.
         </CardDescription>
       </CardHeader>
 
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Feature</TableHead>
-            <TableHead className="w-24">Enabled</TableHead>
+            <TableHead>Tính năng</TableHead>
+            <TableHead className="w-24">Đang bật</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

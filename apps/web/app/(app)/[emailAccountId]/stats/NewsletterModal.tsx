@@ -52,7 +52,7 @@ export function NewsletterModal(props: {
         {newsletter && (
           <>
             <DialogHeader>
-              <DialogTitle>Stats for {newsletter.name}</DialogTitle>
+              <DialogTitle>Thống kê cho {newsletter.name}</DialogTitle>
             </DialogHeader>
 
             <div className="flex space-x-2">
@@ -62,10 +62,10 @@ export function NewsletterModal(props: {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Unsubscribe
+                  Hủy đăng ký
                 </a>
               </Button>
-              <Tooltip content="Auto archive emails using Gmail filters">
+              <Tooltip content="Tự động lưu trữ email bằng bộ lọc Gmail">
                 <Button
                   size="sm"
                   variant="outline"
@@ -76,7 +76,7 @@ export function NewsletterModal(props: {
                     });
                   }}
                 >
-                  Auto Archive
+                  Tự động lưu trữ
                 </Button>
               </Tooltip>
               {newsletter.autoArchived && (
@@ -86,7 +86,7 @@ export function NewsletterModal(props: {
                     target="_blank"
                   >
                     <ExternalLinkIcon className="mr-2 h-4 w-4" />
-                    View Auto Archive Filter
+                    Xem bộ lọc tự động lưu trữ
                   </Link>
                 </Button>
               )}
@@ -166,11 +166,11 @@ function EmailsChart(props: {
 function Emails(props: { fromEmail: string; refreshInterval?: number }) {
   return (
     <>
-      <SectionHeader>Emails</SectionHeader>
+      <SectionHeader>Email</SectionHeader>
       <Tabs defaultValue="unarchived" className="mt-2" searchParam="modal-tab">
         <TabsList>
-          <TabsTrigger value="unarchived">Unarchived</TabsTrigger>
-          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="unarchived">Chưa lưu trữ</TabsTrigger>
+          <TabsTrigger value="all">Tất cả</TabsTrigger>
         </TabsList>
 
         <div className="mt-2">
@@ -205,8 +205,8 @@ function UnarchivedEmails({
           threads={data.threads}
           emptyMessage={
             <AlertBasic
-              title="No unarchived emails"
-              description={`There are no unarchived emails. Switch to the "All" to view all emails from this sender.`}
+              title="Không có email chưa lưu trữ"
+              description={`Không có email chưa lưu trữ. Chuyển sang tab "Tất cả" để xem toàn bộ email từ người gửi này.`}
             />
           }
           hideActionBarWhenEmpty
@@ -237,8 +237,8 @@ function AllEmails({
           threads={data.threads}
           emptyMessage={
             <AlertBasic
-              title="No emails"
-              description="There are no emails from this sender."
+              title="Không có email"
+              description="Không có email nào từ người gửi này."
             />
           }
           hideActionBarWhenEmpty

@@ -76,7 +76,7 @@ export function DomainIcon({
           width={size}
           height={size}
           src={domainFavicon}
-          alt="favicon"
+          alt="biểu tượng trang web"
           className="z-10 rounded"
           onError={() => setFallbackEnabled(true)}
         />

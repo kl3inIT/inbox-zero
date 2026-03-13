@@ -24,12 +24,12 @@ type Award = {
 const awards: Award[] = [
   {
     title: "SOC2 Compliant",
-    description: "Enterprise-grade security. SOC 2 Type 2 certified",
+    description: "Bảo mật cấp doanh nghiệp. Chứng nhận SOC 2 Type 2",
     image: "/images/new-landing/awards/soc-award.png",
   },
   {
     title: "#1 GitHub Trending",
-    description: "Trusted and loved by developers worldwide",
+    description: "Được tin dùng và yêu thích bởi lập trình viên trên toàn cầu",
     image: "/images/new-landing/awards/github-trending-award.png",
     imageSize: 160,
     top: "top-2",
@@ -37,13 +37,13 @@ const awards: Award[] = [
   },
   {
     title: "#1 Product Hunt",
-    description: "Product of the Day on Product Hunt",
+    description: "Sản phẩm của ngày trên Product Hunt",
     image: "/images/new-landing/awards/product-hunt-award.png",
     imageSize: 170,
   },
   {
     title: "9k GitHub Stars",
-    description: "Open-source. See exactly what the code does",
+    description: "Mã nguồn mở. Xem chính xác code đang làm gì",
     image: "/images/new-landing/awards/github-stars-award.png",
     imageSize: 170,
     top: "top-3",
@@ -55,11 +55,11 @@ const defaultAwardImageSize = 200;
 export function Awards() {
   return (
     <Section>
-      <SectionHeading>Privacy first and open source</SectionHeading>
+      <SectionHeading>Ưu tiên quyền riêng tư và mã nguồn mở</SectionHeading>
       <SectionSubtitle>
-        Your data stays private — no AI training, no funny business. We’re fully
-        certified for top-tier security, and you can even self-host Inbox Zero
-        if you want total control.
+        Dữ liệu của bạn luôn riêng tư — không dùng để huấn luyện AI, không
+        “chiêu trò” mập mờ. Chúng tôi đạt các chứng nhận bảo mật hàng đầu, và
+        bạn thậm chí có thể tự host Inbox Zero nếu muốn toàn quyền kiểm soát.
       </SectionSubtitle>
       <SectionContent
         noMarginTop

@@ -407,7 +407,7 @@ export const TreeExpander = ({
       }}
       role="button"
       tabIndex={0}
-      aria-label={isExpanded ? "Collapse" : "Expand"}
+      aria-label={isExpanded ? "Thu gọn" : "Mở rộng"}
       transition={{ duration: 0.2, ease: "easeInOut" }}
       {...props}
     >

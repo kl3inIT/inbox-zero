@@ -116,12 +116,12 @@ export function getProgressMessage(
   const completed = state.processedThreadIds.size - remaining;
 
   if (remaining > 0) {
-    return `Progress: ${completed}/${state.processedThreadIds.size} emails completed`;
+    return `Tiến độ: ${completed}/${state.processedThreadIds.size} email đã hoàn tất`;
   }
 
   if (state.status === "stopped" && state.stoppedCount !== null) {
-    return `Processed ${state.stoppedCount} emails`;
+    return `Đã xử lý ${state.stoppedCount} email`;
   }
 
-  return `Processed ${state.processedThreadIds.size} emails`;
+  return `Đã xử lý ${state.processedThreadIds.size} email`;
 }

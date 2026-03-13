@@ -21,15 +21,15 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const navigation = [
-  { name: "Enterprise", href: "/enterprise" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Doanh nghiệp", href: "/enterprise" },
+  { name: "Bảng giá", href: "/pricing" },
 ];
 
 const useCases = [
   {
-    title: "Founders",
+    title: "Nhà sáng lập",
     href: "/founders",
-    description: "Scale your startup while AI handles your inbox",
+    description: "Mở rộng startup khi AI lo phần hộp thư của bạn",
     icon: RocketIcon,
     iconColor: "text-new-purple-600",
     borderColor: "from-new-purple-200 to-new-purple-300",
@@ -37,9 +37,9 @@ const useCases = [
     hoverBg: "hover:bg-new-purple-50/[0.44]",
   },
   {
-    title: "Small Business",
+    title: "Doanh nghiệp nhỏ",
     href: "/small-business",
-    description: "Grow your business with automated email management",
+    description: "Phát triển kinh doanh với quản lý email tự động",
     icon: BuildingIcon,
     iconColor: "text-new-green-500",
     borderColor: "from-new-green-150 to-new-green-200",
@@ -47,9 +47,9 @@ const useCases = [
     hoverBg: "hover:bg-new-green-50",
   },
   {
-    title: "Content Creators",
+    title: "Nhà sáng tạo nội dung",
     href: "/creator",
-    description: "Streamline brand partnerships and collaborations",
+    description: "Tối ưu hợp tác và làm việc với các nhãn hàng",
     icon: UserIcon,
     iconColor: "text-new-blue-600",
     borderColor: "from-new-blue-150 to-new-blue-200",
@@ -57,9 +57,9 @@ const useCases = [
     hoverBg: "hover:bg-new-blue-50/50",
   },
   {
-    title: "Real Estate",
+    title: "Bất động sản",
     href: "/real-estate",
-    description: "AI email management for real estate professionals",
+    description: "Quản lý email bằng AI cho môi giới/chuyên gia bất động sản",
     icon: HomeIcon,
     iconColor: "text-new-pink-500",
     borderColor: "from-new-pink-150 to-new-pink-200",
@@ -67,9 +67,9 @@ const useCases = [
     hoverBg: "hover:bg-new-pink-50/[0.44]",
   },
   {
-    title: "Customer Support",
+    title: "Chăm sóc khách hàng",
     href: "/support",
-    description: "Deliver faster support with AI-powered responses",
+    description: "Hỗ trợ nhanh hơn nhờ phản hồi được AI hỗ trợ",
     icon: HeadphonesIcon,
     iconColor: "text-new-orange-600",
     borderColor: "from-new-orange-150 to-new-orange-200",
@@ -77,9 +77,9 @@ const useCases = [
     hoverBg: "hover:bg-new-orange-50/50",
   },
   {
-    title: "E-commerce",
+    title: "Thương mại điện tử",
     href: "/ecommerce",
-    description: "Automate order updates and customer communications",
+    description: "Tự động cập nhật đơn hàng và giao tiếp với khách hàng",
     icon: ShoppingCartIcon,
     iconColor: "text-new-indigo-600",
     borderColor: "from-new-indigo-150 to-new-indigo-200",
@@ -96,7 +96,7 @@ export function HeaderLinks() {
           {/* Solutions Dropdown */}
           <NavigationMenuItem>
             <NavigationMenuTrigger className="text-sm font-semibold font-geist leading-6 text-gray-900">
-              Solutions
+              Giải pháp
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[640px] grid-cols-2 gap-2 p-4">

@@ -61,8 +61,8 @@ export function BulkArchive() {
       <PageWrapper>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <PageHeading>Bulk Archive</PageHeading>
-            <TooltipExplanation text="Archive emails in bulk by category to quickly clean up your inbox." />
+            <PageHeading>Lưu trữ hàng loạt</PageHeading>
+            <TooltipExplanation text="Lưu trữ email theo từng nhóm danh mục để dọn sạch hộp thư của bạn nhanh chóng." />
           </div>
           <div className="flex items-center gap-2">
             <BulkArchiveSettingsModal

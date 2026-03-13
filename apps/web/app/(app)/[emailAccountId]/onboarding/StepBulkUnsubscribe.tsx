@@ -13,16 +13,18 @@ export function StepBulkUnsubscribe({ onNext }: { onNext: () => void }) {
           <BulkUnsubscribeIllustration />
         </div>
 
-        <PageHeading className="mb-3">Bulk Unsubscriber & Archiver</PageHeading>
+        <PageHeading className="mb-3">
+          Hủy đăng ký & lưu trữ hàng loạt
+        </PageHeading>
 
         <TypographyP className="text-muted-foreground mb-8">
-          See which emails you never read, and one-click unsubscribe and archive
-          them.
+          Xem những email bạn gần như không bao giờ đọc và chỉ với một lần bấm,
+          hủy đăng ký và lưu trữ chúng.
         </TypographyP>
 
         <div className="flex flex-col gap-2 w-full max-w-xs">
           <Button className="w-full" onClick={onNext}>
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

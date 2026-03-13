@@ -89,12 +89,12 @@ function ModelSectionForm(props: {
 
       if (res?.serverError) {
         toastError({
-          description: "There was an error updating the settings.",
+          description: "Đã xảy ra lỗi khi cập nhật cài đặt.",
         });
       } else {
         toastSuccess({
           description:
-            "Settings updated! Please check it works on the Assistant page.",
+            "Đã cập nhật cài đặt! Vui lòng kiểm tra lại tại trang Trợ lý.",
         });
       }
 
@@ -116,7 +116,7 @@ function ModelSectionForm(props: {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm space-y-4">
       <Select
-        label="Provider"
+        label="Nhà cung cấp"
         options={providerOptions}
         {...register("aiProvider")}
         error={errors.aiProvider}
@@ -152,7 +152,7 @@ function ModelSectionForm(props: {
       )}
 
       {globalError?.message && (
-        <AlertError title="Error saving" description={globalError.message} />
+        <AlertError title="Lỗi lưu lại" description={globalError.message} />
       )}
 
       {watch("aiProvider") === Provider.OPEN_AI &&
@@ -160,24 +160,24 @@ function ModelSectionForm(props: {
         modelSelectOptions.length === 0 &&
         (props.aiApiKey ? (
           <AlertError
-            title="Invalid API Key"
-            description="We couldn't validate your API key. Please try again."
+            title="API Key không hợp lệ"
+            description="Không thể xác thực API key của bạn. Vui lòng thử lại."
           />
         ) : (
           <AlertBasic
             title="API Key"
-            description="Click Save to view available models for your API key."
+            description="Nhấn Lưu để xem các model khả dụng cho API key của bạn."
           />
         ))}
 
       <div className="flex items-center gap-2">
         <Button type="submit" size="sm" loading={isSubmitting}>
-          Save
+          Lưu
         </Button>
         <Button asChild variant="outline" size="sm">
           <Link href={prefixPath(emailAccountId, "/usage")}>
             <BarChartIcon className="mr-2 size-4" />
-            View usage
+            Xem mức sử dụng
           </Link>
         </Button>
       </div>

@@ -90,12 +90,12 @@ export const useNavigation = () => {
   const manageItems: NavItem[] = useMemo(
     () => [
       {
-        name: "Chat",
+        name: "Trò chuyện",
         href: prefixPath(currentEmailAccountId, "/assistant"),
         icon: MessageSquareIcon,
       },
       {
-        name: "Assistant",
+        name: "Trợ lý",
         href: prefixPath(currentEmailAccountId, "/automation"),
         icon: SparklesIcon,
       },
@@ -106,24 +106,24 @@ export const useNavigation = () => {
   const cleanupItems: NavItem[] = useMemo(
     () => [
       {
-        name: "Bulk Unsubscribe",
+        name: "Hủy đăng ký hàng loạt",
         href: prefixPath(currentEmailAccountId, "/bulk-unsubscribe"),
         icon: MailsIcon,
       },
       {
-        name: "Bulk Archive",
+        name: "Lưu trữ hàng loạt",
         href: prefixPath(currentEmailAccountId, "/bulk-archive"),
         icon: ArchiveIcon,
       },
       {
-        name: "Analytics",
+        name: "Thống kê",
         href: prefixPath(currentEmailAccountId, "/stats"),
         icon: BarChartBigIcon,
       },
       ...(isGoogleProvider(provider) && showCleaner
         ? [
             {
-              name: "Deep Clean",
+              name: "Dọn sâu",
               href: prefixPath(currentEmailAccountId, "/clean"),
               icon: BrushIcon,
               beta: true,
@@ -139,27 +139,27 @@ export const useNavigation = () => {
       ...(showMeetingBriefs
         ? [
             {
-              name: "Meeting Briefs",
+              name: "Tóm tắt cuộc họp",
               href: prefixPath(currentEmailAccountId, "/briefs"),
               icon: FileTextIcon,
             },
           ]
         : []),
       {
-        name: "Attachments",
+        name: "Tệp đính kèm",
         href: prefixPath(currentEmailAccountId, "/drive"),
         icon: HardDriveIcon,
         new: false,
       },
       {
-        name: "Calendars",
+        name: "Lịch",
         href: prefixPath(currentEmailAccountId, "/calendars"),
         icon: CalendarIcon,
       },
       ...(showIntegrations
         ? [
             {
-              name: "Integrations",
+              name: "Tích hợp",
               href: prefixPath(currentEmailAccountId, "/integrations"),
               icon: ZapIcon,
               beta: true,
@@ -179,22 +179,22 @@ export const useNavigation = () => {
 
 const topMailLinks: NavItem[] = [
   {
-    name: "Inbox",
+    name: "Hộp thư đến",
     icon: InboxIcon,
     href: "?type=inbox",
   },
   {
-    name: "Drafts",
+    name: "Bản nháp",
     icon: FileIcon,
     href: "?type=draft",
   },
   {
-    name: "Sent",
+    name: "Đã gửi",
     icon: SendIcon,
     href: "?type=sent",
   },
   {
-    name: "Archived",
+    name: "Đã lưu trữ",
     icon: ArchiveIcon,
     href: "?type=archive",
   },
@@ -202,27 +202,27 @@ const topMailLinks: NavItem[] = [
 
 const bottomMailLinks: NavItem[] = [
   {
-    name: "Personal",
+    name: "Cá nhân",
     icon: PersonStandingIcon,
     href: "?type=CATEGORY_PERSONAL",
   },
   {
-    name: "Social",
+    name: "Mạng xã hội",
     icon: Users2Icon,
     href: "?type=CATEGORY_SOCIAL",
   },
   {
-    name: "Updates",
+    name: "Cập nhật",
     icon: AlertCircleIcon,
     href: "?type=CATEGORY_UPDATES",
   },
   {
-    name: "Forums",
+    name: "Diễn đàn",
     icon: MessagesSquareIcon,
     href: "?type=CATEGORY_FORUMS",
   },
   {
-    name: "Promotions",
+    name: "Khuyến mãi",
     icon: RatioIcon,
     href: "?type=CATEGORY_PROMOTIONS",
   },
@@ -238,7 +238,7 @@ export function SideNav({ ...props }: React.ComponentProps<typeof Sidebar>) {
       showMailNav
         ? [
             {
-              name: "Back",
+              name: "Quay lại",
               href: "/automation",
               icon: ArrowLeftIcon,
             },
@@ -318,7 +318,7 @@ export function SideNav({ ...props }: React.ComponentProps<typeof Sidebar>) {
             }}
           >
             <BookIcon className="size-4" />
-            <span className="font-semibold">Help Center</span>
+            <span className="font-semibold">Trung tâm trợ giúp</span>
           </Link>
         </SidebarMenuButton>
 
@@ -334,7 +334,7 @@ export function SideNav({ ...props }: React.ComponentProps<typeof Sidebar>) {
             }}
           >
             <SettingsIcon className="size-4" />
-            <span className="font-semibold">Settings</span>
+            <span className="font-semibold">Cài đặt</span>
           </Link>
         </SidebarMenuButton>
 

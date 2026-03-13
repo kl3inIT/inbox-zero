@@ -15,16 +15,16 @@ export function Process() {
         <div className="flex flex-col space-y-1.5">
           <CardDescription>
             {isApplyMode
-              ? "Run your rules on previous emails"
-              : "Check how your rules perform against previous emails"}
+              ? "Chạy các quy tắc của bạn trên những email trước đây"
+              : "Kiểm tra cách các quy tắc hoạt động với các email trước đây"}
           </CardDescription>
         </div>
 
         <div className="flex pt-1">
           <Toggle
             name="test-mode"
-            label="Test"
-            labelRight="Apply"
+            label="Kiểm thử"
+            labelRight="Áp dụng"
             enabled={isApplyMode}
             onChange={(enabled) => setMode(enabled ? "apply" : "test")}
           />

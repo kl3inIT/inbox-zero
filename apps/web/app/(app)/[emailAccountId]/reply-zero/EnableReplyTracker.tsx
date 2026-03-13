@@ -29,35 +29,37 @@ export function EnableReplyTracker({ enabled }: { enabled: boolean }) {
       title="Reply Zero"
       description={
         <>
-          Your inbox is filled with emails that don't need your attention.
+          Hộp thư của bạn đầy những email không cần bạn xử lý.
           <br />
-          Reply Zero only shows you the ones that do.
+          Reply Zero chỉ hiển thị những email thực sự cần bạn quan tâm.
         </>
       }
       extraDescription={
         <div className="mt-4 text-left">
-          <SectionDescription>We label your emails with:</SectionDescription>
+          <SectionDescription>
+            Chúng tôi sẽ gắn nhãn email của bạn với:
+          </SectionDescription>
 
           <SectionDescription>
             <Badge color="green">{getRuleLabel(SystemType.TO_REPLY)}</Badge> -
-            emails you need to reply to.
+            email bạn cần trả lời.
           </SectionDescription>
           <SectionDescription>
             <Badge color="blue">
               {getRuleLabel(SystemType.AWAITING_REPLY)}
             </Badge>{" "}
-            - emails where you're waiting for a response.
+            - email bạn đang chờ phản hồi.
           </SectionDescription>
 
           <SectionDescription className="mt-4">
-            You can also enable auto-drafting of replies that appear in your
-            inbox.
+            Bạn cũng có thể bật tự động soạn thảo trả lời cho các email xuất
+            hiện trong hộp thư.
           </SectionDescription>
         </div>
       }
       imageSrc="/images/illustrations/communication.svg"
       imageAlt="Reply tracking"
-      buttonText={enabled ? "Got it!" : "Enable Reply Zero"}
+      buttonText={enabled ? "Đã hiểu!" : "Bật Reply Zero"}
       onEnable={async () => {
         markOnboardingAsCompleted(REPLY_ZERO_ONBOARDING_COOKIE);
 
@@ -80,13 +82,13 @@ export function EnableReplyTracker({ enabled }: { enabled: boolean }) {
 
         if (result?.serverError) {
           toastError({
-            title: "Error enabling Reply Zero",
+            title: "Lỗi khi bật Reply Zero",
             description: result.serverError,
           });
         } else {
           toastSuccess({
-            title: "Reply Zero enabled",
-            description: "We've enabled Reply Zero for you!",
+            title: "Đã bật Reply Zero",
+            description: "Reply Zero đã được bật cho tài khoản của bạn!",
           });
         }
 

@@ -19,19 +19,19 @@ import {
   PricingFrequencyToggle,
   frequencies,
   DiscountBadge,
-} from "@/app/(app)/premium/PricingFrequencyToggle";
+} from "@/app/(app)/refer/premium/PricingFrequencyToggle";
 import {
   BRIEF_MY_MEETING_PRICE_ID_MONTHLY,
   BRIEF_MY_MEETING_PRICE_ID_ANNUALLY,
-} from "@/app/(app)/premium/config";
+} from "@/app/(app)/refer/premium/config";
 import { generateCheckoutSessionAction } from "@/utils/actions/premium";
 import { toastError } from "@/components/Toast";
 
 const PRICING_FEATURES = [
-  "Briefs for every external meeting",
-  "Google Calendar & Outlook",
-  "LinkedIn & web research",
-  "Sent 1-24 hours before (you choose)",
+  "Bản tóm tắt cho mọi cuộc họp với khách bên ngoài",
+  "Hỗ trợ Google Calendar & Outlook",
+  "Tìm kiếm LinkedIn & web",
+  "Gửi trước 1–24 giờ (bạn chọn)",
 ];
 
 export function StepReady() {
@@ -52,13 +52,17 @@ export function StepReady() {
       const result = await generateCheckoutSessionAction({ tier, priceId });
 
       if (!result?.data?.url) {
-        toastError({ description: "Error creating checkout session" });
+        toastError({
+          description: "Lỗi khi tạo phiên thanh toán, vui lòng thử lại.",
+        });
         return;
       }
 
       window.location.href = result.data.url;
     } catch {
-      toastError({ description: "Error creating checkout session" });
+      toastError({
+        description: "Lỗi khi tạo phiên thanh toán, vui lòng thử lại.",
+      });
     } finally {
       setLoading(false);
     }
@@ -74,11 +78,11 @@ export function StepReady() {
 
       <div className="text-center">
         <PageHeading className="mt-4">
-          Ready to walk into every meeting prepared?
+          Sẵn sàng bước vào mọi cuộc họp với đầy đủ thông tin?
         </PageHeading>
         <TypographyP className="mt-2 max-w-lg mx-auto">
-          You'll get a brief like this before every external meeting,
-          automatically.
+          Bạn sẽ tự động nhận được một bản tóm tắt như thế này trước mỗi cuộc
+          họp với khách bên ngoài.
         </TypographyP>
       </div>
 
@@ -88,7 +92,7 @@ export function StepReady() {
           setFrequency={setFrequency}
         >
           <div className="ml-1">
-            <DiscountBadge>2 months free!</DiscountBadge>
+            <DiscountBadge>Miễn phí 2 tháng!</DiscountBadge>
           </div>
         </PricingFrequencyToggle>
 
@@ -101,17 +105,17 @@ export function StepReady() {
               <p className="text-3xl font-bold text-foreground mt-1">
                 ${frequency.value === "annually" ? "7.50" : "9"}
                 <span className="text-base font-normal text-muted-foreground">
-                  /month
+                  /tháng
                 </span>
               </p>
               <p className="text-sm text-muted-foreground mt-1">
                 {frequency.value === "annually"
-                  ? "billed annually ($90/year)"
-                  : "billed monthly"}
+                  ? "thanh toán hàng năm (90$/năm)"
+                  : "thanh toán hàng tháng"}
               </p>
             </div>
             <div className="rounded-full border border-green-200 bg-green-50 px-3 py-1.5 text-sm font-semibold text-green-700">
-              7-day free trial
+              Dùng thử miễn phí 7 ngày
             </div>
           </div>
 
@@ -135,7 +139,7 @@ export function StepReady() {
           onClick={handleCheckout}
           loading={loading}
         >
-          Start Free Trial
+          Bắt đầu dùng thử miễn phí
           <ChevronRightIcon className="ml-2 h-4 w-4" />
         </Button>
 
@@ -151,7 +155,7 @@ export function StepReady() {
                 rel="noopener noreferrer"
               >
                 <ExternalLinkIcon className="mr-2 h-4 w-4" />
-                View test brief in Gmail
+                Xem bản tóm tắt thử trong Gmail
               </Link>
             </Button>
           )}

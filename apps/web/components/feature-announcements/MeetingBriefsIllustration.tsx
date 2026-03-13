@@ -51,13 +51,13 @@ export function MeetingBriefsIllustration() {
               {/* Email header */}
               <div className="border-b border-gray-100 px-3 py-2 dark:border-gray-700">
                 <div className="text-[11px] font-semibold text-gray-900 dark:text-gray-100">
-                  Briefing for{" "}
+                  Tóm tắt cho{" "}
                   <span className="text-blue-600 dark:text-blue-400">
-                    Product Review
+                    Đánh giá sản phẩm
                   </span>
                 </div>
                 <div className="text-[10px] text-gray-500 dark:text-gray-400">
-                  Starting at{" "}
+                  Bắt đầu lúc{" "}
                   <span className="font-medium text-gray-700 dark:text-gray-300">
                     2:00 PM
                   </span>
@@ -92,16 +92,16 @@ export function MeetingBriefsIllustration() {
                   transition={{ duration: 0.31, ease: "easeOut" }}
                 >
                   <div className="text-[9px] text-gray-600 dark:text-gray-400">
-                    <span className="text-gray-400">-</span> CEO of Acme Corp,
-                    joined 2019
+                    <span className="text-gray-400">-</span> CEO của Acme Corp,
+                    gia nhập từ 2019
                   </div>
                   <div className="text-[9px] text-gray-600 dark:text-gray-400">
-                    <span className="text-gray-400">-</span> Last met 3 weeks
-                    ago
+                    <span className="text-gray-400">-</span> Gặp lần cuối cách
+                    đây 3 tuần
                   </div>
                   <div className="pb-2 text-[9px] text-gray-600 dark:text-gray-400">
-                    <span className="text-gray-400">-</span> Discussed
-                    enterprise pricing
+                    <span className="text-gray-400">-</span> Đã thảo luận về giá
+                    cho doanh nghiệp
                   </div>
                 </motion.div>
               </div>

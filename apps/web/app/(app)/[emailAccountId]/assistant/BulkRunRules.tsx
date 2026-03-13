@@ -33,7 +33,7 @@ import { useAccount } from "@/providers/EmailAccountProvider";
 import { fetchWithAccount } from "@/utils/fetch";
 import { Toggle } from "@/components/Toggle";
 import { hasTierAccess } from "@/utils/premium";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 import { BulkProcessActivityLog } from "@/app/(app)/[emailAccountId]/assistant/BulkProcessActivityLog";
 import {
   bulkRunReducer,
@@ -141,15 +141,15 @@ export function BulkRunRules() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button type="button" variant="outline" size="sm">
-            Process Past Emails
+            Xử lý email cũ
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle>Bulk Process Emails</DialogTitle>
+            <DialogTitle>Xử lý hàng loạt email</DialogTitle>
             <DialogDescription>
-              Run your rules on emails in your inbox that haven't been handled
-              yet.
+              Chạy các quy tắc của bạn trên những email trong hộp thư đến chưa
+              được xử lý.
             </DialogDescription>
           </DialogHeader>
           <LoadingContent loading={isLoading} error={error}>
@@ -173,7 +173,7 @@ export function BulkRunRules() {
                           dispatch({ type: "RESET" });
                         }}
                         value={startDate}
-                        placeholder="Set start date"
+                        placeholder="Chọn ngày bắt đầu"
                         disabled={isProcessing}
                       />
                       <SetDateDropdown
@@ -182,7 +182,7 @@ export function BulkRunRules() {
                           dispatch({ type: "RESET" });
                         }}
                         value={endDate}
-                        placeholder="Set end date (optional)"
+                        placeholder="Chọn ngày kết thúc (tuỳ chọn)"
                         disabled={isProcessing}
                       />
                     </div>
@@ -190,7 +190,7 @@ export function BulkRunRules() {
                     <div className="flex items-center justify-between gap-4">
                       <Toggle
                         name="include-read"
-                        label="Include read emails"
+                        label="Bao gồm email đã đọc"
                         enabled={includeRead}
                         onChange={(enabled) => setIncludeRead(enabled)}
                         disabled={isProcessing || !isBusinessPlusTier}
@@ -204,7 +204,7 @@ export function BulkRunRules() {
                           }}
                           className="text-sm text-primary hover:underline whitespace-nowrap"
                         >
-                          Upgrade to Professional to enable
+                          Nâng cấp lên Professional để bật tính năng này
                         </Link>
                       )}
                     </div>
@@ -232,7 +232,7 @@ export function BulkRunRules() {
                           }
                           onClick={handleStart}
                         >
-                          Process Emails
+                          Xử lý email
                         </Button>
                       )}
                     {isBusy && (
@@ -241,12 +241,12 @@ export function BulkRunRules() {
                           {isPaused ? (
                             <>
                               <PlayIcon className="mr-1.5 h-3.5 w-3.5" />
-                              Resume
+                              Tiếp tục
                             </>
                           ) : (
                             <>
                               <PauseIcon className="mr-1.5 h-3.5 w-3.5" />
-                              Pause
+                              Tạm dừng
                             </>
                           )}
                         </Button>
@@ -256,15 +256,16 @@ export function BulkRunRules() {
                           onClick={handleStop}
                         >
                           <SquareIcon className="mr-1.5 h-3.5 w-3.5" />
-                          Stop
+                          Dừng
                         </Button>
                       </div>
                     )}
 
                     {state.runResult && state.runResult.count === 0 && (
                       <div className="mt-4 rounded-md border border-blue-200 bg-blue-50 px-3 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-200">
-                        No {includeRead ? "" : "unread "}emails found in the
-                        selected date range.
+                        Không tìm thấy email
+                        {includeRead ? "" : " chưa đọc"} nào trong khoảng thời
+                        gian đã chọn.
                       </div>
                     )}
                   </div>

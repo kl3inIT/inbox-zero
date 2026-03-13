@@ -49,8 +49,8 @@ export function FixWithChat({
 
   const selectedRuleName = useMemo(() => {
     if (!data) return null;
-    if (selectedRuleId === NEW_RULE_ID) return "New rule";
-    if (selectedRuleId === NONE_RULE_ID) return "None";
+    if (selectedRuleId === NEW_RULE_ID) return "Quy tắc mới";
+    if (selectedRuleId === NONE_RULE_ID) return "Không có";
     return data.find((r) => r.id === selectedRuleId)?.name ?? null;
   }, [data, selectedRuleId]);
 
@@ -66,19 +66,19 @@ export function FixWithChat({
 
     if (selectedRuleId === CONST_NEW_RULE_ID) {
       input = explanation?.trim()
-        ? `Create a new rule for emails like this: ${explanation.trim()}`
-        : "Create a new rule for emails like this: ";
+        ? `Tạo một quy tắc mới cho những email như thế này: ${explanation.trim()}`
+        : "Tạo một quy tắc mới cho những email như thế này: ";
     } else if (selectedRuleId === CONST_NONE_RULE_ID) {
       input = explanation?.trim()
-        ? `This email shouldn't have matched any rule because ${explanation.trim()}`
-        : "This email shouldn't have matched any rule because ";
+        ? `Email này lẽ ra không nên khớp với bất kỳ quy tắc nào vì ${explanation.trim()}`
+        : "Email này lẽ ra không nên khớp với bất kỳ quy tắc nào vì ";
     } else {
       const rulePart = selectedRuleName
-        ? `the "${selectedRuleName}" rule`
-        : "a different rule";
+        ? `quy tắc "${selectedRuleName}"`
+        : "một quy tắc khác";
       input = explanation?.trim()
-        ? `This email should have matched ${rulePart} because ${explanation.trim()}`
-        : `This email should have matched ${rulePart} because `;
+        ? `Email này lẽ ra nên khớp với ${rulePart} vì ${explanation.trim()}`
+        : `Email này lẽ ra nên khớp với ${rulePart} vì `;
     }
 
     const context: MessageContext = {
@@ -141,13 +141,13 @@ export function FixWithChat({
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           <MessageCircleIcon className="mr-2 size-4" />
-          Fix
+          Sửa
         </Button>
       </DialogTrigger>
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Improve Rules</DialogTitle>
+          <DialogTitle>Cải thiện quy tắc</DialogTitle>
         </DialogHeader>
 
         <LoadingContent loading={isLoading} error={error}>
@@ -160,21 +160,21 @@ export function FixWithChat({
           ) : data && showExplanation ? (
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium">Selected rule:</span>
+                <span className="text-sm font-medium">Quy tắc đã chọn:</span>
                 <Badge variant="secondary">
                   {selectedRuleId === NEW_RULE_ID
-                    ? "✨ New rule"
+                    ? "✨ Quy tắc mới"
                     : selectedRuleId === NONE_RULE_ID
-                      ? "❌ None"
+                      ? "❌ Không có"
                       : data.find((r) => r.id === selectedRuleId)?.name ||
-                        "Unknown"}
+                        "Không rõ"}
                 </Badge>
               </div>
 
               <div>
                 <Label
                   name="explanation"
-                  label="Why should this rule have been applied? (optional)"
+                  label="Vì sao quy tắc này nên được áp dụng? (tuỳ chọn)"
                 />
                 <Textarea
                   id="explanation"
@@ -187,8 +187,7 @@ export function FixWithChat({
                   autoFocus
                 />
                 <p id="explanation-help" className="mt-1 text-xs text-gray-500">
-                  Providing an explanation helps the AI understand your intent
-                  better
+                  Việc giải thích giúp AI hiểu rõ hơn ý định của bạn
                 </p>
               </div>
 
@@ -201,9 +200,9 @@ export function FixWithChat({
                     setExplanation("");
                   }}
                 >
-                  Back
+                  Quay lại
                 </Button>
-                <Button onClick={handleSubmit}>Next</Button>
+                <Button onClick={handleSubmit}>Tiếp tục</Button>
               </div>
             </div>
           ) : null}
@@ -224,21 +223,21 @@ function RuleMismatch({
 }) {
   return (
     <div>
-      <Label name="matchedRule" label="Matched:" />
+      <Label name="matchedRule" label="Đã khớp:" />
       <div className="mt-1">
         {results.length > 0 ? (
           <ResultsDisplay results={results} />
         ) : (
-          <p>No rule matched</p>
+          <p>Không có quy tắc nào khớp</p>
         )}
       </div>
       <div className="mt-4">
         <ButtonList
-          title="Which rule did you expect it to match?"
-          emptyMessage="You haven't created any rules yet!"
+          title="Bạn mong đợi email này sẽ khớp với quy tắc nào?"
+          emptyMessage="Bạn chưa tạo quy tắc nào!"
           items={[
-            { id: NONE_RULE_ID, name: "❌ None" },
-            { id: NEW_RULE_ID, name: "✨ New rule" },
+            { id: NONE_RULE_ID, name: "❌ Không có" },
+            { id: NEW_RULE_ID, name: "✨ Quy tắc mới" },
             ...rules,
           ]}
           onSelect={onSelectExpectedRuleId}

@@ -58,15 +58,15 @@ export function StatsCardGrid() {
       icon: MailIcon,
       variant: "blue",
       value: formatStat(emailsProcessed),
-      title: "Emails processed",
-      tooltip: "Total emails that have been processed so far.",
+      title: "Email đã được xử lý",
+      tooltip: "Tổng số email đã được xử lý cho đến hiện tại.",
     },
     {
       icon: PenIcon,
       variant: "green",
       value: formatStat(draftedEmails),
-      title: "Drafted emails",
-      tooltip: "Total AI-drafted email replies created so far.",
+      title: "Email nháp đã tạo",
+      tooltip: "Tổng số email trả lời được AI soạn thảo cho đến hiện tại.",
     },
   ];
 

@@ -12,8 +12,9 @@ export function BetaBanner() {
   if (bannerVisible && typeof window !== "undefined")
     return (
       <Banner title="Beta">
-        Mail is currently in beta. It is not intended to be a full replacement
-        for your email client yet.
+        Tính năng Mail hiện đang trong giai đoạn thử nghiệm (beta). Tính năng
+        này chưa được thiết kế để thay thế hoàn toàn ứng dụng email hiện tại của
+        bạn.
       </Banner>
     );
 

@@ -20,13 +20,16 @@ export function OrgAnalyticsConsentBanner() {
     updateAnalyticsConsentAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Analytics access granted to admins!" });
+        toastSuccess({
+          description:
+            "Đã cho phép quản trị viên xem số liệu phân tích của bạn!",
+        });
         mutate();
       },
       onError: (error) => {
         toastError({
           description: getActionErrorMessage(error.error, {
-            prefix: "Failed to update settings",
+            prefix: "Cập nhật cài đặt thất bại",
           }),
         });
       },
@@ -44,8 +47,8 @@ export function OrgAnalyticsConsentBanner() {
   const isAdmin = hasOrganizationAdminRole(data.role ?? "");
 
   const title = isAdmin
-    ? "Include your analytics in organization stats"
-    : "Allow organization admins to view your analytics";
+    ? "Bao gồm số liệu của bạn trong thống kê tổ chức"
+    : "Cho phép quản trị viên tổ chức xem số liệu của bạn";
 
   const description = `Your email analytics are currently private. Enable access to let${isAdmin ? " other " : " "}organization admins view your inbox statistics and usage data. This helps your team understand productivity and collaborate more effectively.`;
 
@@ -55,10 +58,14 @@ export function OrgAnalyticsConsentBanner() {
       className="mt-6 max-w-full"
       icon={<ShieldCheckIcon className="h-4 w-4" />}
       title={title}
-      description={description}
+      description={
+        isAdmin
+          ? "Hiện tại số liệu email của bạn đang là riêng tư. Bật quyền truy cập để các quản trị viên khác trong tổ chức có thể xem thống kê hộp thư và dữ liệu sử dụng, giúp đội ngũ hiểu rõ hiệu suất và phối hợp hiệu quả hơn."
+          : "Hiện tại số liệu email của bạn đang là riêng tư. Bật quyền truy cập để quản trị viên tổ chức có thể xem thống kê hộp thư và dữ liệu sử dụng của bạn, giúp đội ngũ hiểu rõ hiệu suất và phối hợp hiệu quả hơn."
+      }
       action={
         <Button onClick={handleAllow} loading={isPending}>
-          Allow Access
+          Cho phép truy cập
         </Button>
       }
     />

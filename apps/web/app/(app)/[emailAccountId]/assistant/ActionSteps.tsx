@@ -81,7 +81,7 @@ export function ActionSteps({
   return (
     <RuleSteps
       onAdd={() => append({ type: ActionType.LABEL })}
-      addButtonLabel="Add Action"
+      addButtonLabel="Thêm hành động"
       addButtonDisabled={false}
     >
       {actionFields?.map((field, i) => (
@@ -234,7 +234,7 @@ function ActionCard({
                       <span>{selectedOption.label}</span>
                     </div>
                   ) : (
-                    <SelectValue placeholder="Select action" />
+                    <SelectValue placeholder="Chọn hành động" />
                   )}
                 </SelectTrigger>
               </FormControl>
@@ -346,7 +346,7 @@ function ActionCard({
                   actionType === ActionType.LABEL &&
                   delayEnabled && (
                     <>
-                      <span className="text-muted-foreground">after</span>
+                      <span className="text-muted-foreground">sau</span>
                       <DelayInputControls
                         index={index}
                         delayInMinutes={delayValue}
@@ -432,7 +432,7 @@ function ActionCard({
                 <ErrorMessage
                   message={
                     errors.actions?.[index]?.delayInMinutes?.message ||
-                    "Invalid delay value"
+                    "Giá trị độ trễ không hợp lệ"
                   }
                 />
               </div>
@@ -464,7 +464,7 @@ function ActionCard({
           <ErrorMessage
             message={
               errors.actions?.[index]?.[field.name]?.message?.toString() ||
-              "Invalid value"
+              "Giá trị không hợp lệ"
             }
           />
         )}
@@ -491,12 +491,12 @@ function ActionCard({
                   {expandedFields ? (
                     <>
                       <ChevronDownIcon className="h-3.5 w-3.5" />
-                      Hide extra fields
+                      Ẩn các trường bổ sung
                     </>
                   ) : (
                     <>
                       <ChevronRightIcon className="h-3.5 w-3.5" />
-                      Show all fields
+                      Hiển thị tất cả trường
                     </>
                   )}
                 </Button>
@@ -511,7 +511,7 @@ function ActionCard({
     actionCanBeDelayed && actionType !== ActionType.LABEL && delayEnabled ? (
       <div className="space-y-2">
         <div className="flex items-center space-x-2">
-          <span className="text-muted-foreground">after</span>
+          <span className="text-muted-foreground">sau</span>
           <DelayInputControls
             index={index}
             delayInMinutes={delayValue}
@@ -524,7 +524,7 @@ function ActionCard({
             <ErrorMessage
               message={
                 errors.actions?.[index]?.delayInMinutes?.message ||
-                "Invalid delay value"
+                "Giá trị độ trễ không hợp lệ"
               }
             />
           </div>
@@ -606,7 +606,7 @@ function ActionCard({
   return (
     <RuleStep
       onRemove={() => remove(index)}
-      removeAriaLabel="Remove action"
+      removeAriaLabel="Xoá hành động"
       leftContent={leftContent}
       rightContent={rightContent}
       onAddDelay={actionCanBeDelayed ? handleAddDelay : undefined}
@@ -627,23 +627,23 @@ function VariableExamplesDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" size="xs" className="ml-auto">
-          See examples
+          Xem ví dụ
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Variable Examples</DialogTitle>
+          <DialogTitle>Ví dụ về biến</DialogTitle>
         </DialogHeader>
         <div className="space-y-6 py-4">
           <div>
-            <h4 className="font-medium">Example: Subject</h4>
+            <h4 className="font-medium">Ví dụ: Tiêu đề</h4>
             <div className="mt-2 rounded-md bg-muted p-3">
               <code className="text-sm">Hi {"{{name}}"}</code>
             </div>
           </div>
 
           <div>
-            <h4 className="font-medium">Example: Email Content</h4>
+            <h4 className="font-medium">Ví dụ: Nội dung email</h4>
             <div className="mt-2 whitespace-pre-wrap rounded-md bg-muted p-3 font-mono text-sm">
               {`Hi {{name}},
 
@@ -654,7 +654,7 @@ cal.com/example`}
             </div>
           </div>
           <div>
-            <h4 className="font-medium">Example: Label</h4>
+            <h4 className="font-medium">Ví dụ: Nhãn</h4>
             <div className="mt-2 whitespace-pre-wrap rounded-md bg-muted p-3 font-mono text-sm">
               {`{{choose between "p1", "p2", "p3" depending on urgency. "p1" is highest urgency.}}`}
             </div>
@@ -670,7 +670,7 @@ function VariableProTip() {
     <div className="mt-4 rounded-md bg-blue-50 p-3 dark:bg-blue-950/30">
       <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400">
         <span>
-          ✨ Use {"{{"}variables{"}}"} for personalized content
+          ✨ Dùng {"{{"}biến{"}}"} để cá nhân hoá nội dung
         </span>
         <VariableExamplesDialog />
       </div>
@@ -734,13 +734,13 @@ function DelayInputControls({
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="minutes">
-            {delayInMinutes === 1 ? "Minute" : "Minutes"}
+            {delayInMinutes === 1 ? "Phút" : "Phút"}
           </SelectItem>
           <SelectItem value="hours">
-            {delayInMinutes === 60 ? "Hour" : "Hours"}
+            {delayInMinutes === 60 ? "Giờ" : "Giờ"}
           </SelectItem>
           <SelectItem value="days">
-            {delayInMinutes === 1440 ? "Day" : "Days"}
+            {delayInMinutes === 1440 ? "Ngày" : "Ngày"}
           </SelectItem>
         </SelectContent>
       </Select>

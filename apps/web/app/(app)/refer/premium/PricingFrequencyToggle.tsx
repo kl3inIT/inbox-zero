@@ -6,13 +6,13 @@ import { cn } from "@/utils";
 export const frequencies = [
   {
     value: "monthly" as const,
-    label: "Monthly",
-    priceSuffix: "/month, billed monthly",
+    label: "Theo tháng",
+    priceSuffix: "/tháng, thanh toán hàng tháng",
   },
   {
     value: "annually" as const,
-    label: "Annually",
-    priceSuffix: "/month, billed annually",
+    label: "Theo năm",
+    priceSuffix: "/tháng, thanh toán hàng năm",
   },
 ];
 

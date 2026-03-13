@@ -15,7 +15,7 @@ export async function ErrorMessages() {
   return (
     <div className="mx-auto max-w-screen-xl w-full px-4 mt-6 mb-2 space-y-2">
       <AlertError
-        title="Action Required"
+        title="Cần hành động"
         description={
           <div className="flex flex-col gap-3 mt-2">
             <ul className="list-disc pl-5 space-y-1">
@@ -26,7 +26,7 @@ export async function ErrorMessages() {
 
             <form action={clearUserErrorMessagesAction as () => void}>
               <Button type="submit" variant="red" size="sm">
-                I've fixed them
+                Tôi đã khắc phục
               </Button>
             </form>
           </div>

@@ -19,7 +19,7 @@ export function ActivityLog({
   entries,
   processingCount = 0,
   paused = false,
-  title = "Processing Activity",
+  title = "Hoạt động xử lý",
   loading = false,
 }: {
   entries: ActivityLogEntry[];
@@ -36,7 +36,7 @@ export function ActivityLog({
         <h3 className="text-sm font-medium">{title}</h3>
         {processingCount > 0 && !paused && (
           <span className="text-xs text-muted-foreground">
-            {processingCount} processing
+            {processingCount} đang xử lý
           </span>
         )}
       </div>
@@ -45,7 +45,7 @@ export function ActivityLog({
           {entries.length === 0 && loading && (
             <div className="flex items-center gap-2 px-2 py-3 text-xs text-muted-foreground">
               <LoaderIcon className="h-3.5 w-3.5 animate-spin" />
-              Fetching emails...
+              Đang tải email...
             </div>
           )}
           {entries.map((entry) => (
@@ -88,7 +88,7 @@ function ActivityLogRow({
               </Badge>
             )}
             {!entry.ruleName && isCompleted && (
-              <Badge color="yellow">No match</Badge>
+              <Badge color="yellow">Không có quy tắc phù hợp</Badge>
             )}
           </span>
         </div>
@@ -186,7 +186,7 @@ export function BulkProcessActivityLog({
           threadId: thread.id,
           messageId: message.id,
           from: message.headers.from || "Unknown",
-          subject: message.headers.subject || "(No subject)",
+          subject: message.headers.subject || "(Không có tiêu đề)",
           status: executedRule ? "completed" : "processing",
           ruleName: executedRule?.rule?.name,
           timestamp: Date.now(),

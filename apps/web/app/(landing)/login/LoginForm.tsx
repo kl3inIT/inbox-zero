@@ -74,9 +74,9 @@ export function LoginForm({ showLocalBypass }: { showLocalBypass: boolean }) {
     } catch (error) {
       console.error("Error signing in with local bypass:", error);
       toastError({
-        title: "Error bypassing login",
+        title: "Lỗi khi bỏ qua đăng nhập",
         description:
-          "Ensure LOCAL_AUTH_BYPASS_ENABLED=true in your local environment.",
+          "Hãy đảm bảo LOCAL_AUTH_BYPASS_ENABLED=true trong môi trường local của bạn.",
       });
     } finally {
       setLoadingLocalBypass(false);
@@ -96,28 +96,28 @@ export function LoginForm({ showLocalBypass }: { showLocalBypass: boolean }) {
                 height={24}
                 unoptimized
               />
-              <span className="ml-2">Sign in with Google</span>
+              <span className="ml-2">Đăng nhập với Google</span>
             </span>
           </Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Sign in</DialogTitle>
+            <DialogTitle>Đăng nhập</DialogTitle>
           </DialogHeader>
           <SectionDescription>
-            {getPossessiveBrandName()} use and transfer of information received
-            from Google APIs to any other app will adhere to{" "}
+            Việc {getPossessiveBrandName()} sử dụng và chuyển giao thông tin
+            nhận được từ Google APIs sang bất kỳ ứng dụng nào khác sẽ tuân thủ{" "}
             <a
               href="https://developers.google.com/terms/api-services-user-data-policy"
               className="underline underline-offset-4 hover:text-gray-900"
             >
-              Google API Services User Data
+              Chính sách Dữ liệu Người dùng của Google API Services
             </a>{" "}
-            Policy, including the Limited Use requirements.
+            , bao gồm cả các yêu cầu về Limited Use.
           </SectionDescription>
           <div>
             <Button loading={loadingGoogle} onClick={handleGoogleSignIn}>
-              I agree
+              Tôi đồng ý
             </Button>
           </div>
         </DialogContent>
@@ -136,7 +136,7 @@ export function LoginForm({ showLocalBypass }: { showLocalBypass: boolean }) {
             height={24}
             unoptimized
           />
-          <span className="ml-2">Sign in with Microsoft</span>
+          <span className="ml-2">Đăng nhập với Microsoft</span>
         </span>
       </Button>
 
@@ -146,7 +146,7 @@ export function LoginForm({ showLocalBypass }: { showLocalBypass: boolean }) {
         className="w-full hover:scale-105 transition-transform"
         asChild
       >
-        <Link href="/login/sso">Sign in with SSO</Link>
+        <Link href="/login/sso">Đăng nhập với SSO</Link>
       </UIButton>
 
       {showLocalBypass && (
@@ -156,7 +156,7 @@ export function LoginForm({ showLocalBypass }: { showLocalBypass: boolean }) {
           loading={loadingLocalBypass}
           onClick={handleLocalBypassSignIn}
         >
-          Bypass login (local only)
+          Bỏ qua đăng nhập (chỉ local)
         </Button>
       )}
     </div>
@@ -200,8 +200,8 @@ async function handleSocialSignIn({
   } catch (error) {
     console.error(`Error signing in with ${providerName}:`, error);
     toastError({
-      title: `Error signing in with ${providerName}`,
-      description: "Please try again or contact support",
+      title: `Lỗi đăng nhập với ${providerName}`,
+      description: "Vui lòng thử lại hoặc liên hệ hỗ trợ",
     });
   } finally {
     setLoading(false);

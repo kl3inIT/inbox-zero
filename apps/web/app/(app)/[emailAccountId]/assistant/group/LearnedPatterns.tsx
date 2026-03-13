@@ -42,7 +42,7 @@ export function LearnedPatternsDialog({
           setLearnedPatternGroupId(data.data.groupId);
         } else {
           toastError({
-            description: "There was an error setting up learned patterns.",
+            description: "Đã xảy ra lỗi khi thiết lập pattern đã học.",
           });
         }
       },
@@ -70,17 +70,17 @@ export function LearnedPatternsDialog({
             execute({ ruleId });
           }}
         >
-          View learned patterns
+          Xem pattern đã học
         </Button>
       </DialogTrigger>
 
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Learned patterns</DialogTitle>
+          <DialogTitle>Pattern đã học</DialogTitle>
           <DialogDescription>
-            Learned patterns are patterns that the AI has learned from your
-            email history. When a learned pattern is matched other rules
-            conditions are skipped and this rule is automatically selected.
+            Pattern đã học là các pattern mà AI rút ra từ lịch sử email của bạn.
+            Khi một pattern đã học khớp, các điều kiện quy tắc khác sẽ được bỏ
+            qua và quy tắc này được chọn tự động.
           </DialogDescription>
         </DialogHeader>
 

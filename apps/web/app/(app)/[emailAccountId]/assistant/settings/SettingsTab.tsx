@@ -21,26 +21,26 @@ export function SettingsTab() {
       </div>
 
       <div className="space-y-2">
-        <SectionHeader>Updates</SectionHeader>
+        <SectionHeader>Cập nhật</SectionHeader>
         <FollowUpRemindersSetting />
         {env.NEXT_PUBLIC_DIGEST_ENABLED && <DigestSetting />}
       </div>
 
       <div className="space-y-2">
-        <SectionHeader>Your voice</SectionHeader>
+        <SectionHeader>Giọng văn</SectionHeader>
         <WritingStyleSetting />
         <AboutSetting />
         <PersonalSignatureSetting />
       </div>
 
       <div className="space-y-2">
-        <SectionHeader>Knowledge</SectionHeader>
+        <SectionHeader>Kiến thức</SectionHeader>
         <DraftKnowledgeSetting />
         <LearnedPatternsSetting />
       </div>
 
       <div className="space-y-2">
-        <SectionHeader>Advanced</SectionHeader>
+        <SectionHeader>Nâng cao</SectionHeader>
         <MultiRuleSetting />
         <ReferralSignatureSetting />
       </div>

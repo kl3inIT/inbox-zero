@@ -40,11 +40,11 @@ export function StartedInMinutes({ title, subtitle }: StartedInMinutesProps) {
         <CardWrapper className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
           <BlurFade inView>
             <DisplayCard
-              title="Connect your Google or Microsoft email"
-              description="Link your Gmail or Outlook in two clicks to get started."
+              title="Kết nối email Google hoặc Microsoft của bạn"
+              description="Liên kết Gmail hoặc Outlook của bạn chỉ với hai lần nhấp để bắt đầu."
               icon={
                 <Badge variant="dark-gray" size="sm" icon={<Connect />}>
-                  STEP 1
+                  BƯỚC 1
                 </Badge>
               }
               centerContent={true}
@@ -70,11 +70,11 @@ export function StartedInMinutes({ title, subtitle }: StartedInMinutesProps) {
           </BlurFade>
           <BlurFade delay={0.25} inView>
             <DisplayCard
-              title="Organizes your inbox exactly how you want it"
-              description="Smart categories set up automatically. Use our categories or create your own."
+              title="Sắp xếp hộp thư đến đúng như cách bạn muốn"
+              description="Các danh mục thông minh được thiết lập tự động. Dùng danh mục có sẵn hoặc tự tạo danh mục của riêng bạn."
               icon={
                 <Badge variant="dark-gray" size="sm" icon={<AutoOrganize />}>
-                  STEP 2
+                  BƯỚC 2
                 </Badge>
               }
               centerContent
@@ -83,30 +83,30 @@ export function StartedInMinutes({ title, subtitle }: StartedInMinutesProps) {
               <div className="flex flex-col gap-2 scale-[110%]">
                 <div className="flex gap-2">
                   <Badge variant="purple" icon={<Newsletter />}>
-                    Newsletter
+                    Bản tin
                   </Badge>
                   <Badge variant="dark-blue" icon={<Envelope />}>
-                    To Reply
+                    Cần trả lời
                   </Badge>
                   <Badge variant="green" icon={<Megaphone />}>
-                    Marketing
+                    Tiếp thị
                   </Badge>
                   <Badge variant="yellow" icon={<Calendar />}>
-                    Calendar
+                    Lịch
                   </Badge>
                 </div>
                 <div className="flex gap-2">
                   <Badge variant="red" icon={<Bell />}>
-                    Notification
+                    Thông báo
                   </Badge>
                   <Badge variant="light-blue" icon={<SnowFlake />}>
-                    Cold Email
+                    Email bán hàng
                   </Badge>
                   <Badge variant="orange" icon={<Team />}>
-                    Team
+                    Nhóm
                   </Badge>
                   <Badge variant="pink" icon={<Fire />}>
-                    Urgent
+                    Khẩn cấp
                   </Badge>
                 </div>
               </div>
@@ -114,18 +114,18 @@ export function StartedInMinutes({ title, subtitle }: StartedInMinutesProps) {
           </BlurFade>
           <BlurFade delay={0.25 * 2} inView>
             <DisplayCard
-              title="Pre-drafted replies based on your email history and calendar"
-              description="Every email you get needing a reply will have a pre-written draft."
+              title="Soạn sẵn trả lời dựa trên lịch sử email và lịch của bạn"
+              description="Mỗi email cần phản hồi sẽ có sẵn một bản nháp được viết trước."
               icon={
                 <Badge variant="dark-gray" size="sm" icon={<SparkleBlue />}>
-                  STEP 3
+                  BƯỚC 3
                 </Badge>
               }
             >
               <div className="pt-6 pl-6">
                 <Image
                   src="/images/new-landing/new-message.png"
-                  alt="Pre-drafted replies"
+                  alt="Trả lời được soạn sẵn"
                   width={1000}
                   height={400}
                 />

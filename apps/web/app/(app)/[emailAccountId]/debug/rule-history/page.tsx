@@ -24,18 +24,18 @@ export default function RuleHistorySelectPage() {
 
   if (isLoading) {
     return (
-      <LoadingContent loading={isLoading}>Loading rules...</LoadingContent>
+      <LoadingContent loading={isLoading}>Đang tải quy tắc...</LoadingContent>
     );
   }
 
   if (error) {
     return (
       <div className="container mx-auto p-4">
-        <PageHeading>Rule History</PageHeading>
+        <PageHeading>Lịch sử quy tắc</PageHeading>
         <Alert variant="destructive" className="mt-4">
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>
-            Error loading rules: {error.error || "Unknown error"}
+            Lỗi khi tải quy tắc: {error.error || "Lỗi không xác định"}
           </AlertDescription>
         </Alert>
       </div>
@@ -46,10 +46,12 @@ export default function RuleHistorySelectPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <PageHeading>Select Rule to View History</PageHeading>
+      <PageHeading>Chọn quy tắc để xem lịch sử</PageHeading>
 
       {rules.length === 0 ? (
-        <p className="mt-4 text-muted-foreground">No rules found.</p>
+        <p className="mt-4 text-muted-foreground">
+          Không tìm thấy quy tắc nào.
+        </p>
       ) : (
         <div className="mt-4 space-y-4">
           {rules.map((rule) => (
@@ -78,7 +80,7 @@ export default function RuleHistorySelectPage() {
                       `/debug/rule-history/${rule.id}`,
                     )}
                   >
-                    View History
+                    Xem lịch sử
                   </Link>
                 </Button>
               </CardContent>

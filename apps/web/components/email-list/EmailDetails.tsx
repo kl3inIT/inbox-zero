@@ -2,12 +2,12 @@ import type { ThreadMessage } from "@/components/email-list/types";
 
 export function EmailDetails({ message }: { message: ThreadMessage }) {
   const details = [
-    { label: "From", value: message.headers.from },
-    { label: "To", value: message.headers.to },
+    { label: "Từ", value: message.headers.from },
+    { label: "Đến", value: message.headers.to },
     { label: "CC", value: message.headers.cc },
     { label: "BCC", value: message.headers.bcc },
     {
-      label: "Date",
+      label: "Ngày",
       value: new Date(message.headers.date).toLocaleString(),
     },
     // { label: "Subject", value: message.headers.subject },

@@ -27,7 +27,8 @@ export function StepSendTestBrief({ onNext }: { onNext: () => void }) {
     {
       onSuccess: async ({ data: result }) => {
         toastSuccess({
-          description: result.message || "Test brief sent! Check your inbox.",
+          description:
+            result.message || "Đã gửi bản tóm tắt thử! Hãy kiểm tra hộp thư.",
         });
         setBriefSent(true);
         await sleep(1000);
@@ -35,7 +36,8 @@ export function StepSendTestBrief({ onNext }: { onNext: () => void }) {
       },
       onError: ({ error: err }) => {
         toastError({
-          description: err.serverError || "Failed to send brief",
+          description:
+            err.serverError || "Gửi bản tóm tắt thất bại, vui lòng thử lại.",
         });
       },
     },
@@ -69,10 +71,10 @@ export function StepSendTestBrief({ onNext }: { onNext: () => void }) {
       </div>
 
       <div className="text-center">
-        <PageHeading className="mt-4">Send a Test Brief</PageHeading>
+        <PageHeading className="mt-4">Gửi bản tóm tắt thử</PageHeading>
         <TypographyP className="mt-2 max-w-lg mx-auto">
-          Pick an upcoming meeting and we'll send you a sample brief so you can
-          see exactly what you'll receive.
+          Chọn một cuộc họp sắp tới và chúng tôi sẽ gửi cho bạn một bản tóm tắt
+          mẫu để bạn thấy chính xác những gì mình sẽ nhận được.
         </TypographyP>
       </div>
 
@@ -82,13 +84,14 @@ export function StepSendTestBrief({ onNext }: { onNext: () => void }) {
             <div className="flex flex-col items-center gap-4 rounded-xl border bg-card p-6 text-center">
               <CalendarIcon className="h-8 w-8 text-muted-foreground" />
               <div>
-                <p className="font-medium">No upcoming meetings found</p>
+                <p className="font-medium">Không tìm thấy cuộc họp sắp tới</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We couldn't find any upcoming meetings with external guests.
+                  Chúng tôi không tìm thấy bất kỳ cuộc họp sắp tới nào với khách
+                  bên ngoài.
                 </p>
               </div>
               <Button onClick={onNext} variant="outline">
-                Skip for now
+                Bỏ qua lúc này
               </Button>
             </div>
           ) : (
@@ -165,12 +168,12 @@ export function StepSendTestBrief({ onNext }: { onNext: () => void }) {
             {briefSent ? (
               <>
                 <CheckIcon className="mr-2 h-4 w-4" />
-                Brief sent! Check your inbox
+                Đã gửi bản tóm tắt! Hãy kiểm tra hộp thư
               </>
             ) : (
               <>
                 <Send className="mr-2 h-4 w-4" />
-                Send Test Brief
+                Gửi bản tóm tắt thử
               </>
             )}
           </Button>

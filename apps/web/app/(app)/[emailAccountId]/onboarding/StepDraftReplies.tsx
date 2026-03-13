@@ -13,16 +13,16 @@ export function StepDraftReplies({ onNext }: { onNext: () => void }) {
           <DraftRepliesIllustration />
         </div>
 
-        <PageHeading className="mb-3">Pre-drafted replies</PageHeading>
+        <PageHeading className="mb-3">Soạn sẵn câu trả lời</PageHeading>
 
         <TypographyP className="text-muted-foreground mb-8">
-          When you check your inbox, every email needing a response will have a
-          pre-drafted reply in your tone.
+          Khi bạn mở hộp thư, mọi email cần phản hồi sẽ có sẵn một câu trả lời
+          được soạn trước theo đúng giọng văn của bạn.
         </TypographyP>
 
         <div className="flex flex-col gap-2 w-full max-w-xs">
           <Button className="w-full" onClick={onNext}>
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

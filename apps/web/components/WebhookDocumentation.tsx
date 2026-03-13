@@ -22,7 +22,7 @@ export function WebhookDocumentationDialog({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Webhook Payload</DialogTitle>
+          <DialogTitle>Dữ liệu webhook (payload)</DialogTitle>
         </DialogHeader>
         <WebhookPayloadDocumentation />
       </DialogContent>
@@ -67,13 +67,13 @@ export function WebhookPayloadDocumentation() {
   return (
     <div className="space-y-4">
       <MutedText>
-        When a rule with a webhook action is triggered, we'll send a POST
-        request to your URL with the following payload:
+        Khi một quy tắc có hành động webhook được kích hoạt, chúng tôi sẽ gửi
+        một request POST tới URL của bạn với payload sau:
       </MutedText>
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h4 className="font-medium">Webhook Payload Structure</h4>
+          <h4 className="font-medium">Cấu trúc payload</h4>
           <Button
             variant="ghost"
             size="sm"
@@ -93,46 +93,46 @@ export function WebhookPayloadDocumentation() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div>
-            <h5 className="font-medium mb-2">Email Fields</h5>
+            <h5 className="font-medium mb-2">Trường email</h5>
             <div className="space-y-1">
               <MutedText>
-                <code>threadId</code> - Gmail/Outlook thread ID
+                <code>threadId</code> - ID luồng Gmail/Outlook
               </MutedText>
               <MutedText>
-                <code>messageId</code> - Unique message ID
+                <code>messageId</code> - ID message duy nhất
               </MutedText>
               <MutedText>
-                <code>subject</code> - Email subject line
+                <code>subject</code> - Tiêu đề email
               </MutedText>
               <MutedText>
-                <code>from</code> - Sender's email address
+                <code>from</code> - Email người gửi
               </MutedText>
               <MutedText>
-                <code>cc/bcc</code> - Optional CC/BCC recipients
+                <code>cc/bcc</code> - Người nhận CC/BCC (tuỳ chọn)
               </MutedText>
               <MutedText>
-                <code>headerMessageId</code> - Email Message-ID header
+                <code>headerMessageId</code> - Header Message-ID của email
               </MutedText>
             </div>
           </div>
 
           <div>
-            <h5 className="font-medium mb-2">Rule Execution Fields</h5>
+            <h5 className="font-medium mb-2">Trường thực thi quy tắc</h5>
             <div className="space-y-1">
               <MutedText>
-                <code>id</code> - Execution ID
+                <code>id</code> - ID thực thi
               </MutedText>
               <MutedText>
-                <code>ruleId</code> - Rule that was triggered
+                <code>ruleId</code> - Quy tắc đã kích hoạt
               </MutedText>
               <MutedText>
-                <code>reason</code> - Why the rule was triggered
+                <code>reason</code> - Lý do quy tắc kích hoạt
               </MutedText>
               <MutedText>
-                <code>automated</code> - Whether rule ran automatically
+                <code>automated</code> - Quy tắc có chạy tự động không
               </MutedText>
               <MutedText>
-                <code>createdAt</code> - When the rule was executed (ISO 8601)
+                <code>createdAt</code> - Thời điểm thực thi (ISO 8601)
               </MutedText>
             </div>
           </div>
@@ -140,7 +140,7 @@ export function WebhookPayloadDocumentation() {
 
         <div className="p-3 bg-blue-50 dark:bg-blue-950/30 rounded-md">
           <div className="text-sm text-blue-600 dark:text-blue-400">
-            <strong>Authentication:</strong> Each request includes an{" "}
+            <strong>Xác thực:</strong> Mỗi request sẽ kèm{" "}
             <code>X-Webhook-Secret</code> header with your webhook secret for
             verification.
           </div>
@@ -158,7 +158,7 @@ export function WebhookDocumentationLink() {
         size="xs"
         className="h-auto p-0 text-xs text-blue-600 hover:text-blue-800"
       >
-        View payload structure
+        Xem cấu trúc payload
       </Button>
     </WebhookDocumentationDialog>
   );

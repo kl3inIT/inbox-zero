@@ -13,13 +13,13 @@ export const AdminSyncStripe = () => {
   const { execute, isExecuting } = useAction(adminSyncStripeForAllUsersAction, {
     onSuccess: () => {
       toastSuccess({
-        title: "Stripe synced",
-        description: "Stripe synced",
+        title: "Đã đồng bộ Stripe",
+        description: "Stripe đã được đồng bộ",
       });
     },
     onError: (error) => {
       toastError({
-        title: "Error syncing Stripe",
+        title: "Lỗi khi đồng bộ Stripe",
         description: getActionErrorMessage(error.error),
       });
     },
@@ -27,7 +27,7 @@ export const AdminSyncStripe = () => {
 
   return (
     <Button onClick={() => execute()} loading={isExecuting} variant="outline">
-      Sync Stripe
+      Đồng bộ Stripe
     </Button>
   );
 };
@@ -38,14 +38,15 @@ export const AdminSyncStripeCustomers = () => {
     {
       onSuccess: (result) => {
         toastSuccess({
-          title: "Stripe customers synced",
+          title: "Đã đồng bộ khách hàng Stripe",
           description:
-            result.data?.success || "All Stripe customers synced to database",
+            result.data?.success ||
+            "Tất cả khách hàng Stripe đã được đồng bộ vào cơ sở dữ liệu",
         });
       },
       onError: (error) => {
         toastError({
-          title: "Error syncing Stripe customers",
+          title: "Lỗi khi đồng bộ khách hàng Stripe",
           description: getActionErrorMessage(error.error),
         });
       },
@@ -54,7 +55,7 @@ export const AdminSyncStripeCustomers = () => {
 
   return (
     <Button onClick={() => execute()} loading={isExecuting} variant="outline">
-      Sync All Stripe Customers to DB
+      Đồng bộ tất cả khách hàng Stripe vào DB
     </Button>
   );
 };

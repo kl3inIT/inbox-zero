@@ -6,10 +6,10 @@ export function RulesTab() {
   return (
     <Tabs defaultValue="prompt" searchParam="view">
       <div className="flex items-center gap-2 pt-2">
-        <span className="text-sm font-medium">View as:</span>
+        <span className="text-sm font-medium">Xem dưới dạng:</span>
         <TabsList>
           <TabsTrigger value="prompt">Prompt</TabsTrigger>
-          <TabsTrigger value="rules">Rules</TabsTrigger>
+          <TabsTrigger value="rules">Danh sách quy tắc</TabsTrigger>
         </TabsList>
       </div>
 

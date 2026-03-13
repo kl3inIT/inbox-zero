@@ -16,7 +16,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toastError, toastSuccess } from "@/components/Toast";
 import type { PremiumTier } from "@/generated/prisma/enums";
-import { tiers } from "@/app/(app)/premium/config";
+import { tiers } from "@/app/(app)/refer/premium/config";
 import {
   Select,
   SelectContent,
@@ -54,11 +54,11 @@ export const AdminUpgradeUserForm = () => {
     adminChangePremiumStatusAction,
     {
       onSuccess: () => {
-        toastSuccess({ description: "Premium status changed" });
+        toastSuccess({ description: "Đã thay đổi trạng thái gói trả phí" });
       },
       onError: ({ error }) => {
         toastError({
-          description: `Error changing premium status: ${error.serverError}`,
+          description: `Lỗi khi thay đổi trạng thái gói trả phí: ${error.serverError}`,
         });
       },
     },
@@ -110,13 +110,13 @@ export const AdminUpgradeUserForm = () => {
       <Input
         type="number"
         name="emailAccountsAccess"
-        label="Seats"
+        label="Số ghế (seats)"
         registerProps={register("emailAccountsAccess", { valueAsNumber: true })}
         error={errors.emailAccountsAccess}
       />
 
       <div>
-        <Label name="plan" label="Plan" />
+        <Label name="plan" label="Gói" />
         <Select
           value={selectedTier}
           onValueChange={(v) => setSelectedTier(v as TierKey)}
@@ -152,7 +152,7 @@ export const AdminUpgradeUserForm = () => {
 
       {selectedTier !== "LIFETIME" && (
         <div>
-          <Label name="billingPeriod" label="Billing period" />
+          <Label name="billingPeriod" label="Chu kỳ thanh toán" />
           <div className="mt-1 flex gap-1 rounded-md border border-input p-1">
             {(["MONTHLY", "ANNUALLY"] as const).map((bp) => (
               <button
@@ -166,7 +166,7 @@ export const AdminUpgradeUserForm = () => {
                     : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                {bp === "MONTHLY" ? "Monthly" : "Annual"}
+                {bp === "MONTHLY" ? "Theo tháng" : "Theo năm"}
               </button>
             ))}
           </div>
@@ -176,7 +176,7 @@ export const AdminUpgradeUserForm = () => {
       <Input
         type="number"
         name="count"
-        label="Months/Years"
+        label="Số tháng/năm"
         registerProps={register("count", { valueAsNumber: true })}
         error={errors.count}
       />
@@ -195,7 +195,7 @@ export const AdminUpgradeUserForm = () => {
             });
           }}
         >
-          Upgrade
+          Nâng cấp
         </Button>
         <Button
           type="button"
@@ -210,7 +210,7 @@ export const AdminUpgradeUserForm = () => {
             });
           }}
         >
-          Downgrade
+          Hạ cấp
         </Button>
       </div>
     </form>

@@ -11,66 +11,66 @@ export const footerNavigation = {
       href: EXTENSION_URL,
       target: "_blank",
     },
-    { name: "AI Email Assistant", href: "/ai-automation" },
-    { name: "Brief My Meeting", href: "/brief-my-meeting" },
+    { name: "Trợ lý Email AI", href: "/ai-automation" },
+    { name: "Tóm tắt cuộc họp", href: "/brief-my-meeting" },
     { name: "Reply Zero", href: "/reply-zero-ai" },
-    { name: "Bulk Email Unsubscriber", href: "/bulk-email-unsubscriber" },
-    { name: "Clean your inbox", href: "/clean-inbox" },
-    { name: "Cold Email Blocker", href: "/block-cold-emails" },
-    { name: "Email Analytics", href: "/email-analytics" },
-    { name: "Auto Forward Emails", href: "/auto-forward-emails" },
-    { name: "Open Source", href: "/github", target: "_blank" },
+    { name: "Hủy đăng ký email hàng loạt", href: "/bulk-email-unsubscriber" },
+    { name: "Dọn dẹp inbox", href: "/clean-inbox" },
+    { name: "Chặn email lạnh", href: "/block-cold-emails" },
+    { name: "Phân tích email", href: "/email-analytics" },
+    { name: "Tự động chuyển tiếp email", href: "/auto-forward-emails" },
+    { name: "Mã nguồn mở", href: "/github", target: "_blank" },
   ],
   useCases: [
-    { name: "Founder", href: "/founders" },
-    { name: "Small Business", href: "/small-business" },
-    { name: "Content Creator", href: "/creator" },
-    { name: "Realtor", href: "/real-estate" },
-    { name: "Customer Support", href: "/support" },
-    { name: "E-commerce", href: "/ecommerce" },
+    { name: "Nhà sáng lập", href: "/founders" },
+    { name: "Doanh nghiệp nhỏ", href: "/small-business" },
+    { name: "Nhà sáng tạo nội dung", href: "/creator" },
+    { name: "Môi giới BĐS", href: "/real-estate" },
+    { name: "Chăm sóc khách hàng", href: "/support" },
+    { name: "Thương mại điện tử", href: "/ecommerce" },
   ],
   industries: [
     { name: "MSPs", href: "/msp" },
-    { name: "Property Management", href: "/property-management" },
-    { name: "Law Firms", href: "/law-firms" },
-    { name: "Accounting Firms", href: "/accounting-firms" },
+    { name: "Quản lý bất động sản", href: "/property-management" },
+    { name: "Hãng luật", href: "/law-firms" },
+    { name: "Công ty kế toán", href: "/accounting-firms" },
   ],
   compare: [
     { name: "vs Fyxer.ai", href: "/best-fyxer-alternative" },
     {
-      name: "vs Perplexity Email Assistant",
+      name: "vs Trợ lý email Perplexity",
       href: "/best-perplexity-email-assistant-alternative",
     },
   ],
   tools: [
     {
-      name: "Email Deliverability Checker",
+      name: "Kiểm tra khả năng gửi email (deliverability)",
       href: "/tools/email-deliverability-checker",
     },
-    { name: "Gmail Personality Quiz", href: "/tools/gmail-quiz" },
-    { name: "Subject Line Analyzer", href: "/tools/subject-line-analyzer" },
+    { name: "Trắc nghiệm tính cách Gmail", href: "/tools/gmail-quiz" },
+    { name: "Phân tích tiêu đề email", href: "/tools/subject-line-analyzer" },
     {
-      name: "Email Signature Generator",
+      name: "Tạo chữ ký email",
       href: "/tools/email-signature-generator",
     },
-    { name: "Meeting Cost Calculator", href: "/tools/meeting-cost-calculator" },
+    { name: "Tính chi phí cuộc họp", href: "/tools/meeting-cost-calculator" },
   ],
   support: [
-    { name: "Pricing", href: "/pricing" },
+    { name: "Bảng giá", href: "/pricing" },
     {
-      name: "Contact",
+      name: "Liên hệ",
       href: `mailto:${SUPPORT_EMAIL}`,
       target: "_blank",
     },
     {
-      name: "Documentation",
+      name: "Tài liệu",
       href: "https://docs.getinboxzero.com",
       target: "_blank",
     },
-    { name: "Feature Requests", href: "/feature-requests", target: "_blank" },
-    { name: "Changelog", href: "/changelog", target: "_blank" },
+    { name: "Góp ý tính năng", href: "/feature-requests", target: "_blank" },
+    { name: "Nhật ký thay đổi", href: "/changelog", target: "_blank" },
     {
-      name: "Status",
+      name: "Trạng thái",
       href: "https://inbox-zero.openstatus.dev/",
       target: "_blank",
     },
@@ -78,7 +78,7 @@ export const footerNavigation = {
   company: [
     { name: "Affiliates", href: "/affiliates", target: "_blank" },
     { name: "Blog", href: "/blog" },
-    { name: "Case Studies", href: "/case-studies" },
+    { name: "Case study", href: "/case-studies" },
     { name: "Twitter", href: "/twitter", target: "_blank" },
     { name: "GitHub", href: "/github", target: "_blank" },
     { name: "Discord", href: "/discord", target: "_blank" },
@@ -86,8 +86,8 @@ export const footerNavigation = {
     { name: "Email Blaster", href: "/game" },
   ],
   legal: [
-    { name: "Terms", href: "/terms" },
-    { name: "Privacy", href: "/privacy" },
+    { name: "Điều khoản", href: "/terms" },
+    { name: "Quyền riêng tư", href: "/privacy" },
     {
       name: "SOC2 Compliant",
       href: "https://security.getinboxzero.com",
@@ -140,7 +140,7 @@ export const footerNavigation = {
 const selfHostedFooter = {
   resources: [
     {
-      name: "Documentation",
+      name: "Tài liệu",
       href: "https://docs.getinboxzero.com",
       target: "_blank",
     },
@@ -187,7 +187,7 @@ export function Footer() {
             ))}
           </div>
           <p className="mt-6 text-center text-xs leading-5 text-gray-500">
-            Powered by{" "}
+            Cung cấp bởi{" "}
             <Link
               href="https://getinboxzero.com"
               target="_blank"
@@ -207,34 +207,37 @@ export function Footer() {
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
         <div className="mt-16 grid grid-cols-2 gap-8 lg:grid-cols-5 xl:col-span-2 xl:mt-0">
           <div>
-            <FooterList title="Product" items={footerNavigation.main} />
+            <FooterList title="Sản phẩm" items={footerNavigation.main} />
           </div>
           <div>
-            <FooterList title="Use Cases" items={footerNavigation.useCases} />
+            <FooterList
+              title="Trường hợp dùng"
+              items={footerNavigation.useCases}
+            />
+
+            <div className="mt-6">
+              <FooterList title="Ngành" items={footerNavigation.industries} />
+            </div>
+
+            <div className="mt-6">
+              <FooterList title="So sánh" items={footerNavigation.compare} />
+            </div>
+          </div>
+          <div>
+            <FooterList title="Hỗ trợ" items={footerNavigation.support} />
 
             <div className="mt-6">
               <FooterList
-                title="Industries"
-                items={footerNavigation.industries}
+                title="Công cụ miễn phí"
+                items={footerNavigation.tools}
               />
             </div>
-
-            <div className="mt-6">
-              <FooterList title="Compare" items={footerNavigation.compare} />
-            </div>
           </div>
           <div>
-            <FooterList title="Support" items={footerNavigation.support} />
-
-            <div className="mt-6">
-              <FooterList title="Free Tools" items={footerNavigation.tools} />
-            </div>
+            <FooterList title="Công ty" items={footerNavigation.company} />
           </div>
           <div>
-            <FooterList title="Company" items={footerNavigation.company} />
-          </div>
-          <div>
-            <FooterList title="Legal" items={footerNavigation.legal} />
+            <FooterList title="Pháp lý" items={footerNavigation.legal} />
           </div>
         </div>
 
@@ -251,8 +254,7 @@ export function Footer() {
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-          &copy; {new Date().getFullYear()} {copyrightName}. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} {copyrightName}. Bảo lưu mọi quyền.
         </p>
       </div>
     </footer>

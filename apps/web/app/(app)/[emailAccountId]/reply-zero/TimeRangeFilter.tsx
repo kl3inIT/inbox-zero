@@ -11,11 +11,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { TimeRange } from "./date-filter";
 
 const timeRangeOptions = [
-  { value: "all", label: "All" },
-  { value: "3d", label: "3+ days old" },
-  { value: "1w", label: "1+ week old" },
-  { value: "2w", label: "2+ weeks old" },
-  { value: "1m", label: "1+ month old" },
+  { value: "all", label: "Tất cả" },
+  { value: "3d", label: "Từ 3 ngày trở lên" },
+  { value: "1w", label: "Từ 1 tuần trở lên" },
+  { value: "2w", label: "Từ 2 tuần trở lên" },
+  { value: "1m", label: "Từ 1 tháng trở lên" },
 ] as const;
 
 export function TimeRangeFilter() {
@@ -40,7 +40,7 @@ export function TimeRangeFilter() {
       }}
     >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select time range" />
+        <SelectValue placeholder="Chọn khoảng thời gian" />
       </SelectTrigger>
       <SelectContent>
         {timeRangeOptions.map((option) => (

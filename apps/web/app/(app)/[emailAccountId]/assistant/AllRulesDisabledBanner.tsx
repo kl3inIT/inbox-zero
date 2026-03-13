@@ -27,8 +27,8 @@ export function AllRulesDisabledBanner() {
       className="max-w-full mt-4"
       variant="blue"
       icon={<SettingsIcon className="h-5 w-5" />}
-      title="All rules are disabled"
-      description="Your AI Assistant isn't processing emails because all rules are disabled. Enable them to get started."
+      title="Tất cả quy tắc đang bị tắt"
+      description="Trợ lý AI của bạn không xử lý email vì tất cả quy tắc đang bị tắt. Hãy bật chúng để bắt đầu."
       action={
         <Button asChild variant="primaryBlack">
           <Link
@@ -37,7 +37,7 @@ export function AllRulesDisabledBanner() {
               `/onboarding?step=${getStepNumber(STEP_KEYS.LABELS)}&force=true`,
             )}
           >
-            Set up rules
+            Thiết lập quy tắc
           </Link>
         </Button>
       }

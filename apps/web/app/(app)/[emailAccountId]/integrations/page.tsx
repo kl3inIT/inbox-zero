@@ -27,8 +27,8 @@ export default function IntegrationsPage() {
       <PageWrapper>
         <div className="flex items-center justify-between gap-2">
           <PageHeader
-            title="Integrations"
-            description="Connect to external services to help the AI assistant draft better replies by accessing relevant data from your tools."
+            title="Tích hợp"
+            description="Kết nối với các dịch vụ bên ngoài để trợ lý AI soạn thư tốt hơn bằng cách truy cập dữ liệu liên quan từ các công cụ của bạn."
           />
         </div>
 
@@ -36,11 +36,11 @@ export default function IntegrationsPage() {
           <ActionCard
             variant="blue"
             icon={<ZapIcon className="h-5 w-5" />}
-            title="Integrations are not enabled"
-            description="This feature is in limited rollout. Join early access to enable integrations for your account."
+            title="Tính năng tích hợp chưa được bật"
+            description="Tính năng này đang được phát hành giới hạn. Tham gia chương trình dùng thử sớm để bật tích hợp cho tài khoản của bạn."
             action={
               <Button asChild variant="outline">
-                <Link href="/early-access">Join Early Access</Link>
+                <Link href="/early-access">Tham gia dùng thử sớm</Link>
               </Button>
             }
           />
@@ -53,15 +53,13 @@ export default function IntegrationsPage() {
     <PageWrapper>
       <div className="flex items-center justify-between gap-2">
         <PageHeader
-          title="Integrations"
-          description="Connect to external services to help the AI assistant draft better replies by accessing relevant data from your tools."
+          title="Tích hợp"
+          description="Kết nối với các dịch vụ bên ngoài để trợ lý AI soạn thư tốt hơn bằng cách truy cập dữ liệu liên quan từ các công cụ của bạn."
         />
         {hasAccess && (
           <div className="shrink-0">
             <RequestAccessDialog
-              trigger={
-                <Button variant="outline">Request an Integration</Button>
-              }
+              trigger={<Button variant="outline">Yêu cầu tích hợp</Button>}
             />
           </div>
         )}

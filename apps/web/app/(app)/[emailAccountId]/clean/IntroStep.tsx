@@ -31,29 +31,32 @@ export function IntroStep({
         />
 
         <TypographyH3 className="mt-2">
-          Let's get your inbox cleaned up in 5 minutes
+          Dọn dẹp hộp thư đến của bạn trong 5 phút
         </TypographyH3>
 
         {unhandledCount === null ? (
           <SectionDescription className="mx-auto mt-2 max-w-prose">
-            Checking your inbox...
+            Đang kiểm tra hộp thư của bạn...
           </SectionDescription>
         ) : (
           <>
             <SectionDescription className="mx-auto mt-2 max-w-prose">
-              You have {unhandledCount.toLocaleString()}{" "}
-              {cleanAction === CleanAction.ARCHIVE ? "unarchived" : "unread"}{" "}
-              emails in your inbox.
+              Bạn có {unhandledCount.toLocaleString()}{" "}
+              {cleanAction === CleanAction.ARCHIVE
+                ? "chưa được lưu trữ"
+                : "chưa đọc"}{" "}
+              email trong hộp thư đến.
             </SectionDescription>
             <SectionDescription className="mx-auto mt-2 max-w-prose">
-              Let's clean up your inbox while keeping important emails safe.
+              Hãy dọn dẹp hộp thư trong khi vẫn giữ an toàn các email quan
+              trọng.
             </SectionDescription>
           </>
         )}
 
         <div className="mt-6">
           <Button onClick={onNext} disabled={unhandledCount === null}>
-            Next
+            Tiếp tục
           </Button>
         </div>
       </div>

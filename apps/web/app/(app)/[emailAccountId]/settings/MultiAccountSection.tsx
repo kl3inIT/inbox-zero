@@ -25,7 +25,7 @@ import { AlertBasic, AlertWithButton } from "@/components/Alert";
 import { usePremium } from "@/components/PremiumAlert";
 import type { PremiumTier } from "@/generated/prisma/enums";
 import { getUserTier, isAdminForPremium } from "@/utils/premium";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 import { useAction } from "next-safe-action/hooks";
 import { toastError, toastSuccess } from "@/components/Toast";
 import { getActionErrorMessage } from "@/utils/error";

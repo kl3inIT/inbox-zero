@@ -14,14 +14,14 @@ import type {
 } from "@/app/api/sso/signin/route";
 
 const ssoLoginSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().email("Vui lòng nhập địa chỉ email hợp lệ"),
   organizationSlug: z
     .string()
     .regex(
       /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/,
-      "Please enter a valid organization slug",
+      "Vui lòng nhập organization slug hợp lệ",
     )
-    .max(63, "Organization slug must be 63 characters or fewer"),
+    .max(63, "Organization slug phải có tối đa 63 ký tự"),
 });
 
 type SsoLoginBody = z.infer<typeof ssoLoginSchema>;
@@ -58,8 +58,9 @@ export default function SSOLoginPage() {
 
         if (!response.ok) {
           toastError({
-            title: "SSO Sign-in Error",
-            description: responseData.error || "Failed to initiate SSO sign-in",
+            title: "Lỗi đăng nhập SSO",
+            description:
+              responseData.error || "Không thể khởi tạo đăng nhập SSO",
           });
           return;
         }
@@ -67,13 +68,13 @@ export default function SSOLoginPage() {
         const res: GetSsoSignInResponse = responseData;
 
         if (res.redirectUrl) {
-          toastSuccess({ description: "Redirecting to SSO provider..." });
+          toastSuccess({ description: "Đang chuyển tới nhà cung cấp SSO..." });
           router.push(res.redirectUrl);
         }
       } catch {
         toastError({
-          title: "SSO Sign-in Error",
-          description: "An unexpected error occurred. Please try again.",
+          title: "Lỗi đăng nhập SSO",
+          description: "Đã xảy ra lỗi. Vui lòng thử lại.",
         });
       } finally {
         setIsSubmitting(false);
@@ -86,9 +87,9 @@ export default function SSOLoginPage() {
     <div className="flex h-screen flex-col justify-center text-foreground">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col text-center">
-          <h1 className="font-title text-2xl text-foreground">SSO Sign In</h1>
+          <h1 className="font-title text-2xl text-foreground">Đăng nhập SSO</h1>
           <p className="mt-4 text-muted-foreground">
-            Sign in to your organization account
+            Đăng nhập vào tài khoản tổ chức của bạn
           </p>
         </div>
 
@@ -113,7 +114,7 @@ export default function SSOLoginPage() {
               />
 
               <Button type="submit" size="lg" full loading={isSubmitting}>
-                Continue with SSO
+                Tiếp tục với SSO
               </Button>
             </form>
           </div>

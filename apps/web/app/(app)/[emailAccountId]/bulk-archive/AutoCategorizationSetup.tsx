@@ -12,20 +12,20 @@ import { useCategorizeProgress } from "@/app/(app)/[emailAccountId]/smart-catego
 const features = [
   {
     icon: <TagsIcon className="size-4 text-blue-500" />,
-    title: "Sorted automatically",
+    title: "Tự động sắp xếp",
     description:
-      "We group senders into categories like Newsletters, Receipts, and Marketing",
+      "Chúng tôi nhóm người gửi vào các danh mục như Bản tin, Hóa đơn và Tiếp thị",
   },
   {
     icon: <ArchiveIcon className="size-4 text-blue-500" />,
-    title: "Archive by category",
-    description:
-      "Clean up an entire category at once instead of one email at a time",
+    title: "Lưu trữ theo danh mục",
+    description: "Dọn sạch cả một danh mục cùng lúc thay vì từng email một",
   },
   {
     icon: <RotateCcwIcon className="size-4 text-blue-500" />,
-    title: "Always reversible",
-    description: "Emails are archived, not deleted — you can find them anytime",
+    title: "Luôn có thể hoàn tác",
+    description:
+      "Email chỉ được lưu trữ, không bị xóa — bạn có thể tìm lại bất cứ lúc nào",
   },
 ];
 
@@ -54,15 +54,17 @@ export function AutoCategorizationSetup({
 
       if (result?.data?.totalUncategorizedSenders) {
         toastSuccess({
-          description: `Categorizing ${result.data.totalUncategorizedSenders} senders... This may take a few minutes.`,
+          description: `Đang phân loại ${result.data.totalUncategorizedSenders} người gửi... Việc này có thể mất vài phút.`,
         });
       } else {
-        toastSuccess({ description: "No uncategorized senders found." });
+        toastSuccess({
+          description: "Không tìm thấy người gửi chưa được phân loại nào.",
+        });
         setIsBulkCategorizing(false);
       }
     } catch (error) {
       toastError({
-        description: `Failed to enable feature: ${error instanceof Error ? error.message : "Unknown error"}`,
+        description: `Bật tính năng không thành công: ${error instanceof Error ? error.message : "Lỗi không xác định"}`,
       });
       setIsBulkCategorizing(false);
     } finally {
@@ -75,13 +77,13 @@ export function AutoCategorizationSetup({
       open={open}
       onOpenChange={onOpenChange}
       imageSrc="/images/illustrations/working-vacation.svg"
-      imageAlt="Bulk Archive"
-      title="Bulk Archive"
-      description="Archive thousands of emails in a few clicks."
+      imageAlt="Lưu trữ hàng loạt"
+      title="Lưu trữ hàng loạt"
+      description="Lưu trữ hàng nghìn email chỉ với vài lần nhấp."
       features={features}
     >
       <Button onClick={enableFeature} loading={isEnabling}>
-        Get Started
+        Bắt đầu
       </Button>
     </SetupDialog>
   );

@@ -70,7 +70,7 @@ export function MessageEditor({
             setMode("view");
           }}
         >
-          Cancel
+          Huỷ
         </Button>
         <Button
           data-testid="message-editor-send-button"
@@ -104,7 +104,7 @@ export function MessageEditor({
             regenerate();
           }}
         >
-          {isSubmitting ? "Sending..." : "Send"}
+          {isSubmitting ? "Đang gửi..." : "Gửi"}
         </Button>
       </div>
     </div>

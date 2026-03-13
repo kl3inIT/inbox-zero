@@ -89,11 +89,11 @@ export default function SettingsPage() {
   return (
     <div className="content-container pb-12">
       <div className="mx-auto max-w-5xl space-y-10 pt-4">
-        <PageHeader title="Settings" />
+        <PageHeader title="Cài đặt" />
 
         <SettingsGroup
           icon={<MailIcon className="size-5" />}
-          title="Email Accounts"
+          title="Tài khoản email"
         >
           <LoadingContent loading={isLoading} error={error}>
             {emailAccounts.length > 0 && (
@@ -115,7 +115,7 @@ export default function SettingsPage() {
                 <Button asChild variant="outline">
                   <Link href="/accounts">
                     <MailIcon className="mr-2 size-4" />
-                    Add Account
+                    Thêm tài khoản
                   </Link>
                 </Button>
               </div>
@@ -126,7 +126,7 @@ export default function SettingsPage() {
         {!env.NEXT_PUBLIC_BYPASS_PREMIUM_CHECKS && (
           <SettingsGroup
             icon={<CreditCardIcon className="size-5" />}
-            title="Billing"
+            title="Thanh toán"
           >
             <ItemCard>
               <BillingSection />
@@ -136,7 +136,7 @@ export default function SettingsPage() {
 
         <SettingsGroup
           icon={<SparklesIcon className="size-5" />}
-          title="AI Model"
+          title="Mô hình AI"
         >
           <ItemCard className="p-4">
             <ModelSection />
@@ -145,7 +145,7 @@ export default function SettingsPage() {
 
         <SettingsGroup
           icon={<WebhookIcon className="size-5" />}
-          title="Developer"
+          title="Nhà phát triển"
         >
           <ItemCard>
             <WebhookSection />
@@ -223,7 +223,7 @@ function EmailAccountSettingsCard({
             }}
           >
             <PlugIcon className="size-3" />
-            Connect Apps
+            Kết nối ứng dụng
           </Badge>
         )}
         <ChevronRightIcon
@@ -290,18 +290,18 @@ function AdvancedSettingsSection({
       <ItemSeparator />
       <Item size="sm">
         <ItemContent>
-          <ItemTitle>Advanced</ItemTitle>
+          <ItemTitle>Nâng cao</ItemTitle>
         </ItemContent>
         <ItemActions>
           <Dialog>
             <DialogTrigger asChild>
               <Button variant="outline" size="sm">
-                View
+                Xem
               </Button>
             </DialogTrigger>
             <DialogContent className="max-h-[80vh] overflow-y-auto sm:max-w-lg">
               <DialogHeader>
-                <DialogTitle>Advanced Settings</DialogTitle>
+                <DialogTitle>Cài đặt nâng cao</DialogTitle>
               </DialogHeader>
               <ItemCard className="[&>[data-slot=item-separator]:first-child]:hidden">
                 <OrgAnalyticsConsentSection emailAccountId={emailAccountId} />

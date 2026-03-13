@@ -72,7 +72,7 @@ function OptionsMenu({
           size="icon"
           variant="ghost"
           className="size-8 mt-1"
-          aria-label="More options"
+          aria-label="Tuỳ chọn khác"
         >
           <MoreHorizontalIcon className="size-4 text-muted-foreground" />
         </Button>
@@ -81,37 +81,37 @@ function OptionsMenu({
         {onUsePrompt && !isPromptMode && (
           <DropdownMenuItem onClick={onUsePrompt}>
             <SparklesIcon className="mr-2 size-4" />
-            Use prompt
+            Dùng prompt
           </DropdownMenuItem>
         )}
         {onUseLabel && isPromptMode && (
           <DropdownMenuItem onClick={onUseLabel}>
             <SparklesIcon className="mr-2 size-4" />
-            Use label
+            Dùng nhãn
           </DropdownMenuItem>
         )}
         {onSetManually && !isManualMode && (
           <DropdownMenuItem onClick={onSetManually}>
             <PenLineIcon className="mr-2 size-4" />
-            Set content manually
+            Nhập nội dung thủ công
           </DropdownMenuItem>
         )}
         {onUseAiDraft && isManualMode && (
           <DropdownMenuItem onClick={onUseAiDraft}>
             <SparklesIcon className="mr-2 size-4" />
-            Use AI draft
+            Dùng bản nháp AI
           </DropdownMenuItem>
         )}
         {onAddDelay && !hasDelay && (
           <DropdownMenuItem onClick={onAddDelay}>
             <ClockIcon className="mr-2 size-4" />
-            Add delay
+            Thêm độ trễ
           </DropdownMenuItem>
         )}
         {onRemoveDelay && hasDelay && (
           <DropdownMenuItem onClick={onRemoveDelay}>
             <ClockIcon className="mr-2 size-4" />
-            Remove delay
+            Xoá độ trễ
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>

@@ -16,7 +16,7 @@ export function ConditionSummaryCard({
     case ConditionType.AI: {
       Icon = BotIcon;
       textColorClass = "text-purple-500";
-      summaryContent = condition.instructions || "No instructions set";
+      summaryContent = condition.instructions || "Chưa thiết lập hướng dẫn nào";
       break;
     }
 
@@ -25,19 +25,19 @@ export function ConditionSummaryCard({
       const parts: string[] = [];
 
       if (condition.from) {
-        parts.push(`From: ${condition.from}`);
+        parts.push(`Người gửi (From): ${condition.from}`);
       }
       if (condition.to) {
-        parts.push(`To: ${condition.to}`);
+        parts.push(`Người nhận (To): ${condition.to}`);
       }
       if (condition.subject) {
-        parts.push(`Subject: ${condition.subject}`);
+        parts.push(`Tiêu đề (Subject): ${condition.subject}`);
       }
 
       if (parts.length > 0) {
         summaryContent = (
           <>
-            <span>Static Condition</span>
+            <span>Điều kiện tĩnh</span>
             <div className="mt-2 space-y-1">
               {parts.map((part, index) => (
                 <div key={index} className="text-muted-foreground">
@@ -48,13 +48,13 @@ export function ConditionSummaryCard({
           </>
         );
       } else {
-        summaryContent = "Static Condition (no filters set)";
+        summaryContent = "Điều kiện tĩnh (chưa đặt bộ lọc nào)";
       }
       break;
     }
 
     default:
-      summaryContent = `${condition.type} Condition`;
+      summaryContent = `Điều kiện ${condition.type}`;
   }
 
   return (

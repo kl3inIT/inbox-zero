@@ -28,7 +28,7 @@ export function HtmlEmail({ html }: { html: string }) {
         srcDoc={srcDoc}
         className="min-h-0 w-full"
         style={{ height: `${iframeHeight + 3}px` }}
-        title="Email content preview"
+        title="Xem trước nội dung email"
         sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox"
         referrerPolicy="no-referrer"
       />

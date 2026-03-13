@@ -124,7 +124,7 @@ export function CategoriesSetup({
 
   return (
     <div>
-      <SectionHeader>BASIC LABELS</SectionHeader>
+      <SectionHeader>CÁC NHÃN CƠ BẢN</SectionHeader>
 
       <div className="grid grid-cols-1 gap-2">
         {basicCategories.map((category, index) => {
@@ -156,7 +156,9 @@ export function CategoriesSetup({
       >
         {suggestedCategories.length > 0 ? (
           <>
-            <SectionHeader className="mt-8">SUGGESTED FOR YOU</SectionHeader>
+            <SectionHeader className="mt-8">
+              GỢI Ý DÀNH RIÊNG CHO BẠN
+            </SectionHeader>
             <div className="grid grid-cols-1 gap-2">
               {suggestedCategories.map((category, index) => {
                 return (
@@ -253,13 +255,15 @@ function CategoryCard({
             }}
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select action" />
+              <SelectValue placeholder="Chọn hành động" />
             </SelectTrigger>
             <SelectContent>
               {isMicrosoftProvider(provider) && (
                 <>
-                  <SelectItem value="label">Categorise</SelectItem>
-                  <SelectItem value="move_folder">Move to folder</SelectItem>
+                  <SelectItem value="label">Gắn nhãn</SelectItem>
+                  <SelectItem value="move_folder">
+                    Chuyển sang thư mục
+                  </SelectItem>
                   {/* <SelectItem value="move_folder_delayed">
                     Move to folder after a week
                   </SelectItem> */}
@@ -267,14 +271,16 @@ function CategoryCard({
               )}
               {isGoogleProvider(provider) && (
                 <>
-                  <SelectItem value="label">Label</SelectItem>
-                  <SelectItem value="label_archive">Label & archive</SelectItem>
+                  <SelectItem value="label">Gắn nhãn</SelectItem>
+                  <SelectItem value="label_archive">
+                    Gắn nhãn & lưu trữ
+                  </SelectItem>
                   {/* <SelectItem value="label_archive_delayed">
                     Label & archive after a week
                   </SelectItem> */}
                 </>
               )}
-              <SelectItem value="none">Do nothing</SelectItem>
+              <SelectItem value="none">Không làm gì</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -289,9 +295,11 @@ function CustomCategoryCard() {
       <CardContent className="flex items-center gap-2 p-4">
         <IconCircle size="sm" color="purple" Icon={PencilLineIcon} />
         <div>
-          <div className="flex flex-1 items-center font-medium">Custom</div>
+          <div className="flex flex-1 items-center font-medium">
+            Tự tạo nhãn riêng
+          </div>
           <div className="ml-auto flex items-center gap-4 text-muted-foreground text-sm">
-            You can set your own custom categories later
+            Bạn có thể tự tạo thêm các nhóm/nhãn riêng sau này
           </div>
         </div>
       </CardContent>

@@ -30,11 +30,11 @@ export default function MeetingBriefsPage() {
     updateMeetingBriefsEnabledAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Settings saved!" });
+        toastSuccess({ description: "Đã lưu cài đặt!" });
         mutate();
       },
       onError: () => {
-        toastError({ description: "Failed to save settings" });
+        toastError({ description: "Lưu cài đặt không thành công" });
       },
     },
   );
@@ -62,7 +62,7 @@ export default function MeetingBriefsPage() {
 
   return (
     <PageWrapper>
-      <PageHeader title="Meeting Briefs" />
+      <PageHeader title="Bản tóm tắt cuộc họp" />
 
       <div className="mt-4 space-y-4 max-w-3xl">
         <PremiumAlertWithData />
@@ -70,8 +70,8 @@ export default function MeetingBriefsPage() {
         <LoadingContent loading={isLoading} error={error}>
           <div className="space-y-2">
             <SettingCard
-              title="Enable Meeting Briefs"
-              description="Receive email briefings before meetings with external guests"
+              title="Bật bản tóm tắt cuộc họp"
+              description="Nhận email tóm tắt trước các cuộc họp với khách mời bên ngoài"
               right={
                 <Toggle
                   name="enabled"
@@ -85,8 +85,8 @@ export default function MeetingBriefsPage() {
             {!!data?.enabled && (
               <>
                 <SettingCard
-                  title="Send briefing before meeting"
-                  description="How long before the meeting to send the briefing"
+                  title="Gửi bản tóm tắt trước cuộc họp"
+                  description="Thời gian gửi bản tóm tắt trước khi cuộc họp bắt đầu"
                   collapseOnMobile
                   right={
                     <TimeDurationSetting

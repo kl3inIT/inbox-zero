@@ -13,16 +13,16 @@ export function StepEmailsSorted({ onNext }: { onNext: () => void }) {
           <EmailsSortedIllustration />
         </div>
 
-        <PageHeading className="mb-3">Emails automatically sorted</PageHeading>
+        <PageHeading className="mb-3">Email được tự động sắp xếp</PageHeading>
 
         <TypographyP className="text-muted-foreground mb-8">
-          Emails are organized into categories like "To Reply", "Newsletters",
-          and "Cold Emails".
+          Email của bạn sẽ được sắp xếp vào các nhóm như "Cần trả lời", "Bản
+          tin" và "Email tiếp thị lạnh".
         </TypographyP>
 
         <div className="flex flex-col gap-2 w-full max-w-xs">
           <Button className="w-full" onClick={onNext}>
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

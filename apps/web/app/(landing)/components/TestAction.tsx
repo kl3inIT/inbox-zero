@@ -10,13 +10,13 @@ export function TestActionButton() {
       onClick={async () => {
         try {
           const res = await testAction();
-          alert(`Action completed: ${res}`);
+          alert(`Thao tác hoàn tất: ${res}`);
         } catch (error) {
-          alert(`Action failed: ${error}`);
+          alert(`Thao tác thất bại: ${error}`);
         }
       }}
     >
-      Test Action
+      Thử hành động
     </Button>
   );
 }

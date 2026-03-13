@@ -14,9 +14,9 @@ import {
   frequencies,
   DiscountBadge,
   type Frequency,
-} from "@/app/(app)/premium/PricingFrequencyToggle";
+} from "@/app/(app)/refer/premium/PricingFrequencyToggle";
 import { getUserTier } from "@/utils/premium";
-import { type Tier, tiers } from "@/app/(app)/premium/config";
+import { type Tier, tiers } from "@/app/(app)/refer/premium/config";
 import { AlertWithButton } from "@/components/Alert";
 import { TooltipExplanation } from "@/components/TooltipExplanation";
 import { toastError } from "@/components/Toast";
@@ -27,7 +27,7 @@ import {
 import type { PremiumTier } from "@/generated/prisma/enums";
 import { LoadingMiniSpinner } from "@/components/Loading";
 import { cn } from "@/utils";
-import { ManageSubscription } from "@/app/(app)/premium/ManageSubscription";
+import { ManageSubscription } from "@/app/(app)/refer/premium/ManageSubscription";
 import { captureException } from "@/utils/error";
 
 export type PricingProps = {
@@ -50,14 +50,14 @@ export default function Pricing(props: PricingProps) {
     <div className="mb-12">
       <div className="mx-auto max-w-2xl text-center lg:max-w-4xl">
         <h2 className="font-title text-base leading-7 text-blue-600">
-          Pricing
+          Bảng giá
         </h2>
         <p className="mt-2 font-title text-4xl text-gray-900 sm:text-5xl">
-          Try for free, affordable paid plans
+          Dùng thử miễn phí, gói trả phí linh hoạt
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-        No hidden fees. Cancel anytime.
+        Không phí ẩn. Có thể hủy bất cứ lúc nào.
       </p>
     </div>
   );
@@ -86,7 +86,7 @@ export default function Pricing(props: PricingProps) {
                 <Button className="ml-2" asChild>
                   <Link href="/setup">
                     <SparklesIcon className="mr-2 h-4 w-4" />
-                    Go to app
+                    Vào ứng dụng
                   </Link>
                 </Button>
                 <div className="mx-auto mt-4 max-w-md">
@@ -97,13 +97,13 @@ export default function Pricing(props: PricingProps) {
                     <AlertWithButton
                       className="bg-background"
                       variant="blue"
-                      title="Need multiple accounts?"
-                      description="Individual plans are designed for single users. Contact our support team for custom pricing on multiple accounts."
+                      title="Cần nhiều tài khoản?"
+                      description="Các gói cá nhân được thiết kế cho một người dùng. Liên hệ đội ngũ hỗ trợ để được tư vấn giá cho nhiều tài khoản."
                       icon={null}
                       button={
                         <div className="ml-4 whitespace-nowrap">
                           <Button asChild>
-                            <Link href="/support">Contact Support</Link>
+                            <Link href="/support">Liên hệ hỗ trợ</Link>
                           </Button>
                         </div>
                       }
@@ -120,7 +120,7 @@ export default function Pricing(props: PricingProps) {
           setFrequency={setFrequency}
         >
           <div className="ml-1">
-            <DiscountBadge>Save up to 20%</DiscountBadge>
+            <DiscountBadge>Tiết kiệm tới 20%</DiscountBadge>
           </div>
         </PricingFrequencyToggle>
 
@@ -177,8 +177,8 @@ function PriceTier({
   const isCurrentPlan = tier.tiers[frequency.value] === userPremiumTier;
 
   function getCTAText() {
-    if (isCurrentPlan) return "Current plan";
-    if (userPremiumTier && !tier.ctaLink) return "Switch to this plan";
+    if (isCurrentPlan) return "Gói hiện tại";
+    if (userPremiumTier && !tier.ctaLink) return "Chuyển sang gói này";
     return tier.cta;
   }
 
@@ -206,7 +206,7 @@ function PriceTier({
         <p className="mt-6 flex items-baseline gap-x-1">
           {tier.price[frequency.value] === 0 ? (
             <span className="text-4xl font-bold tracking-tight text-gray-900">
-              Let's talk
+              Liên hệ
             </span>
           ) : (
             <>
@@ -214,7 +214,7 @@ function PriceTier({
                 ${tier.price[frequency.value]}
               </span>
               <span className="text-sm font-semibold leading-6 text-gray-600">
-                /user
+                /người dùng
               </span>
             </>
           )}
@@ -222,7 +222,7 @@ function PriceTier({
           {!!tier.discount?.[frequency.value] && (
             <DiscountBadge>
               <span className="tracking-wide">
-                SAVE {tier.discount[frequency.value].toFixed(0)}%
+                GIẢM {tier.discount[frequency.value].toFixed(0)}%
               </span>
             </DiscountBadge>
           )}
@@ -269,7 +269,7 @@ function PriceTier({
 
           async function load() {
             if (tier.tiers[frequency.value] === userPremiumTier) {
-              toast.info("You are already on this plan");
+              toast.info("Bạn đang sử dụng gói này rồi");
               return;
             }
 
@@ -312,7 +312,7 @@ function PriceTier({
               toastError({
                 description:
                   result?.serverError ||
-                  `Error creating checkout session. Please contact support at ${env.NEXT_PUBLIC_SUPPORT_EMAIL}`,
+                  `Lỗi khi tạo phiên thanh toán. Vui lòng liên hệ hỗ trợ tại ${env.NEXT_PUBLIC_SUPPORT_EMAIL}`,
               });
               return;
             }
@@ -328,7 +328,7 @@ function PriceTier({
               description:
                 error instanceof Error
                   ? error.message
-                  : `Error creating checkout session. Please contact support at ${env.NEXT_PUBLIC_SUPPORT_EMAIL}`,
+                  : `Lỗi khi tạo phiên thanh toán. Vui lòng liên hệ hỗ trợ tại ${env.NEXT_PUBLIC_SUPPORT_EMAIL}`,
             });
           } finally {
             setLoading(false);

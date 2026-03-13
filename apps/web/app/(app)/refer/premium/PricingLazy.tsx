@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 const PricingComponent = dynamic(() =>
-  import("../../../components/new-landing/sections/Pricing").then((mod) => ({
+  import("../../../../components/new-landing/sections/Pricing").then((mod) => ({
     default: mod.Pricing,
   })),
 );

@@ -47,12 +47,12 @@ export function RegisterSSOModal() {
 
       if (result?.serverError) {
         toastError({
-          title: "Error registering SSO",
+          title: "Lỗi khi đăng ký SSO",
           description: result.serverError,
         });
       } else {
         toastSuccess({
-          description: "SSO registration initiated successfully!",
+          description: "Đã bắt đầu đăng ký SSO thành công!",
         });
         reset();
         onClose();
@@ -64,15 +64,15 @@ export function RegisterSSOModal() {
   return (
     <Dialog open={isOpen} onOpenChange={onToggle}>
       <DialogTrigger asChild>
-        <Button>Register SSO Provider</Button>
+        <Button>Đăng ký nhà cung cấp SSO</Button>
       </DialogTrigger>
 
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Enterprise SSO Registration (SAML)</DialogTitle>
+          <DialogTitle>Đăng ký SSO cho doanh nghiệp (SAML)</DialogTitle>
           <DialogDescription>
-            Configure Single Sign-On (SAML) for your organization. This will
-            enable your team to sign in using your SAML identity provider.
+            Cấu hình Single Sign-On (SAML) cho tổ chức của bạn. Tính năng này
+            cho phép đội ngũ của bạn đăng nhập bằng nhà cung cấp danh tính SAML.
           </DialogDescription>
         </DialogHeader>
 
@@ -81,8 +81,8 @@ export function RegisterSSOModal() {
             <Input
               type="text"
               name="organizationName"
-              label="Organization Name"
-              placeholder="e.g., Your Company"
+              label="Tên tổ chức"
+              placeholder="ví dụ: Công ty của bạn"
               registerProps={register("organizationName")}
               error={errors.organizationName}
             />
@@ -90,8 +90,8 @@ export function RegisterSSOModal() {
             <Input
               type="text"
               name="providerId"
-              label="Provider ID"
-              placeholder="e.g., your-company-saml"
+              label="ID nhà cung cấp"
+              placeholder="ví dụ: your-company-saml"
               registerProps={register("providerId")}
               error={errors.providerId}
             />
@@ -100,7 +100,7 @@ export function RegisterSSOModal() {
               type="text"
               name="domain"
               label="Domain"
-              placeholder="e.g., your-company.com"
+              placeholder="ví dụ: your-company.com"
               registerProps={register("domain")}
               error={errors.domain}
             />
@@ -113,7 +113,7 @@ export function RegisterSSOModal() {
                 minRows={3}
                 rows={3}
                 {...register("idpMetadata")}
-                placeholder="Paste your SAML IDP metadata XML from your identity provider here."
+                placeholder="Dán XML metadata SAML IDP từ nhà cung cấp danh tính của bạn vào đây."
               />
               {errors.idpMetadata && (
                 <ErrorMessage message={errors.idpMetadata.message ?? ""} />
@@ -123,10 +123,10 @@ export function RegisterSSOModal() {
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">Hủy</Button>
             </DialogClose>
             <Button type="submit" loading={isExecuting}>
-              Register SSO
+              Đăng ký SSO
             </Button>
           </DialogFooter>
         </form>

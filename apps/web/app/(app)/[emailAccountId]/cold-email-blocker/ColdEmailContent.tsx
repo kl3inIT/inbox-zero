@@ -17,10 +17,12 @@ export function ColdEmailContent({ searchParam }: { searchParam?: string }) {
   return (
     <Tabs defaultValue="cold-emails" searchParam={searchParam}>
       <TabsList>
-        <TabsTrigger value="cold-emails">Cold Emails</TabsTrigger>
-        <TabsTrigger value="rejected">Marked Not Cold</TabsTrigger>
-        <TabsTrigger value="test">Test</TabsTrigger>
-        <TabsTrigger value="settings">Settings</TabsTrigger>
+        <TabsTrigger value="cold-emails">Email tiếp thị</TabsTrigger>
+        <TabsTrigger value="rejected">
+          Đã đánh dấu không phải tiếp thị
+        </TabsTrigger>
+        <TabsTrigger value="test">Kiểm tra</TabsTrigger>
+        <TabsTrigger value="settings">Cài đặt</TabsTrigger>
       </TabsList>
 
       <TabsContent value="test" className="mb-10">
@@ -40,12 +42,13 @@ export function ColdEmailContent({ searchParam }: { searchParam?: string }) {
 
       <TabsContent value="settings" className="mb-10">
         <MessageText className="my-4">
-          To manage cold email settings, go to the Assistant Rules tab and click
-          Edit on the Cold Email rule.
+          Để quản lý cài đặt email tiếp thị, hãy vào tab Quy tắc trợ lý
+          (Assistant Rules) và bấm Chỉnh sửa ở quy tắc Email tiếp thị (Cold
+          Email).
         </MessageText>
         <Button asChild variant="outline">
           <Link href={prefixPath(emailAccountId, "/automation?tab=rules")}>
-            Go to Assistant Rules
+            Đi tới tab Quy tắc trợ lý
           </Link>
         </Button>
       </TabsContent>

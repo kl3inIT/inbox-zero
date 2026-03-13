@@ -8,7 +8,7 @@ export function AddRuleDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button size="sm" Icon={PlusIcon}>
-          Add Rule
+          Thêm quy tắc
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-5xl">

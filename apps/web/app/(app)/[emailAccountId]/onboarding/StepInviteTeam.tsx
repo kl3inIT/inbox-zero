@@ -50,7 +50,8 @@ export function StepInviteTeam({
 
       if (result?.serverError || result?.validationErrors) {
         toastError({
-          description: "Failed to create organization and send invitations",
+          description:
+            "Không thể tạo tổ chức và gửi lời mời. Vui lòng thử lại.",
         });
         return;
       }
@@ -63,12 +64,12 @@ export function StepInviteTeam({
 
         if (successCount > 0) {
           toastSuccess({
-            description: `${successCount} invitation${successCount > 1 ? "s" : ""} sent successfully!`,
+            description: `${successCount} lời mời đã được gửi thành công!`,
           });
         }
         if (errorCount > 0) {
           toastError({
-            description: `Failed to send ${errorCount} invitation${errorCount > 1 ? "s" : ""}`,
+            description: `Không thể gửi ${errorCount} lời mời.`,
           });
         }
         onNext();
@@ -98,13 +99,13 @@ export function StepInviteTeam({
 
     if (successCount > 0) {
       toastSuccess({
-        description: `${successCount} invitation${successCount > 1 ? "s" : ""} sent successfully!`,
+        description: `${successCount} lời mời đã được gửi thành công!`,
       });
     }
 
     if (errorCount > 0) {
       toastError({
-        description: `Failed to send ${errorCount} invitation${errorCount > 1 ? "s" : ""}`,
+        description: `Không thể gửi ${errorCount} lời mời.`,
       });
     }
 
@@ -120,20 +121,20 @@ export function StepInviteTeam({
       </IconCircle>
 
       <div className="text-center mt-4">
-        <PageHeading>Invite your team</PageHeading>
+        <PageHeading>Mời đồng nghiệp trong đội của bạn</PageHeading>
         <TypographyP className="mt-2 max-w-lg mx-auto">
-          {`Collaborate with your team on ${BRAND_NAME}. You can always add more members later.`}
+          {`Hợp tác cùng đội ngũ của bạn trên ${BRAND_NAME}. Bạn luôn có thể thêm thành viên sau này.`}
         </TypographyP>
 
         <TagInput
           value={emails}
           onChange={handleEmailsChange}
           validate={(email) =>
-            isValidEmail(email) ? null : "Please enter a valid email address"
+            isValidEmail(email) ? null : "Vui lòng nhập địa chỉ email hợp lệ"
           }
-          label="Email addresses"
+          label="Địa chỉ email"
           id="email-input"
-          placeholder="Enter email addresses separated by commas"
+          placeholder="Nhập các địa chỉ email, ngăn cách bằng dấu phẩy"
           className="mt-6 max-w-md mx-auto text-left"
         />
 
@@ -145,7 +146,7 @@ export function StepInviteTeam({
             loading={isSubmitting}
             disabled={emails.length === 0}
           >
-            Invite & Continue
+            Gửi lời mời & Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
           <Button
@@ -155,7 +156,7 @@ export function StepInviteTeam({
             onClick={onNext}
             disabled={isSubmitting}
           >
-            Skip
+            Bỏ qua
           </Button>
         </div>
       </div>

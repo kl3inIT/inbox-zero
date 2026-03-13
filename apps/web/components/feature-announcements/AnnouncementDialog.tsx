@@ -127,7 +127,7 @@ export function AnnouncementCard({
             {announcement.title}
           </h3>
           <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-400">
-            {new Date(announcement.publishedAt).toLocaleDateString("en-US", {
+            {new Date(announcement.publishedAt).toLocaleDateString("vi-VN", {
               month: "short",
               day: "numeric",
             })}
@@ -162,7 +162,7 @@ export function AnnouncementCard({
               onClick={onClose}
               className="flex flex-1 items-center justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
             >
-              View
+              Xem
             </Link>
           )}
           {announcement.learnMoreLink && (
@@ -170,7 +170,7 @@ export function AnnouncementCard({
               href={announcement.learnMoreLink}
               className="flex flex-1 items-center justify-center rounded-lg bg-gray-100 px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
             >
-              Learn more
+              Tìm hiểu thêm
             </Link>
           )}
         </div>

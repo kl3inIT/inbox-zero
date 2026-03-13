@@ -39,7 +39,7 @@ export default function AccountsPage() {
 
   return (
     <PageWrapper>
-      <PageHeader title="Accounts" />
+      <PageHeader title="Tài khoản" />
 
       <LoadingContent loading={isLoading} error={error}>
         <div className="grid grid-cols-1 gap-4 py-6 lg:grid-cols-2 xl:grid-cols-3">
@@ -139,8 +139,8 @@ function AccountOptionsDropdown({
   const { execute, isExecuting } = useAction(deleteEmailAccountAction, {
     onSuccess: async () => {
       toastSuccess({
-        title: "Email account deleted",
-        description: "The email account has been deleted successfully.",
+        title: "Đã xóa tài khoản email",
+        description: "Tài khoản email đã được xóa thành công.",
       });
       onAccountDeleted();
       if (emailAccount.isPrimary) {
@@ -149,7 +149,7 @@ function AccountOptionsDropdown({
     },
     onError: (error) => {
       toastError({
-        title: "Error deleting email account",
+        title: "Lỗi khi xóa tài khoản email",
         description: getActionErrorMessage(error.error),
       });
       onAccountDeleted();
@@ -171,7 +171,7 @@ function AccountOptionsDropdown({
             onClick={(e) => e.stopPropagation()}
           >
             <Settings className="size-4" />
-            Setup
+            Thiết lập
           </Link>
         </DropdownMenuItem>
         <ConfirmDialog
@@ -186,16 +186,16 @@ function AccountOptionsDropdown({
               disabled={isExecuting}
             >
               <Trash2 className="size-4" />
-              Delete
+              Xóa
             </DropdownMenuItem>
           }
-          title="Delete Account"
+          title="Xóa tài khoản"
           description={
             emailAccount.isPrimary
-              ? `Are you sure you want to delete "${emailAccount.email}"? This is your primary account. You will be logged out and need to log in again. Your oldest remaining account will become your new primary account. All data for "${emailAccount.email}" will be permanently deleted from ${BRAND_NAME}.`
-              : `Are you sure you want to delete "${emailAccount.email}"? This will delete all data for it on ${BRAND_NAME}.`
+              ? `Bạn có chắc chắn muốn xóa "${emailAccount.email}"? Đây là tài khoản chính của bạn. Bạn sẽ bị đăng xuất và cần đăng nhập lại. Tài khoản còn lại lâu nhất sẽ trở thành tài khoản chính mới của bạn. Tất cả dữ liệu cho "${emailAccount.email}" sẽ bị xóa vĩnh viễn khỏi ${BRAND_NAME}.`
+              : `Bạn có chắc chắn muốn xóa "${emailAccount.email}"? Thao tác này sẽ xóa toàn bộ dữ liệu của tài khoản này trên ${BRAND_NAME}.`
           }
-          confirmText="Delete"
+          confirmText="Xóa"
           onConfirm={() => {
             execute({ emailAccountId: emailAccount.id });
           }}
@@ -244,8 +244,7 @@ function useAccountNotifications() {
         },
         consent_declined: {
           title: "Microsoft permissions were not granted",
-          description:
-            `Microsoft sign-in was canceled before ${BRAND_NAME} received the required permissions. Please try again and complete the consent screen.`,
+          description: `Microsoft sign-in was canceled before ${BRAND_NAME} received the required permissions. Please try again and complete the consent screen.`,
         },
         admin_consent_required: {
           title: "Admin approval required",
@@ -259,8 +258,7 @@ function useAccountNotifications() {
         },
         consent_incomplete: {
           title: "More Microsoft permissions are required",
-          description:
-            `Microsoft connected the account, but did not grant all required permissions. Reconnect and approve every requested permission. If your organization restricts consent, ask your admin to approve ${BRAND_NAME} first.`,
+          description: `Microsoft connected the account, but did not grant all required permissions. Reconnect and approve every requested permission. If your organization restricts consent, ask your admin to approve ${BRAND_NAME} first.`,
         },
         link_failed: {
           title: "Account linking failed",

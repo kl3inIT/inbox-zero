@@ -25,15 +25,15 @@ export default async function AdminPage() {
   if (!isAdmin({ email: session?.user.email })) {
     return (
       <ErrorPage
-        title="No Access"
-        description="You do not have permission to access this page."
+        title="Không có quyền truy cập"
+        description="Bạn không có quyền truy cập trang này."
       />
     );
   }
 
   return (
     <PageWrapper>
-      <PageHeader title="Admin" />
+      <PageHeader title="Quản trị" />
 
       <div className="space-y-8 mt-4 mb-20">
         <AdminUpgradeUserForm />

@@ -76,14 +76,14 @@ export default async function ReplyTrackerPage(props: {
                   className="flex items-center gap-2"
                 >
                   <MailIcon className="h-4 w-4" />
-                  To Reply
+                  Cần trả lời
                 </TabsTrigger>
                 <TabsTrigger
                   value="awaitingReply"
                   className="flex items-center gap-2"
                 >
                   <ClockIcon className="h-4 w-4" />
-                  Waiting
+                  Đang chờ phản hồi
                 </TabsTrigger>
                 {/* <TabsTrigger
                 value="needsAction"
@@ -98,7 +98,7 @@ export default async function ReplyTrackerPage(props: {
                   className="flex items-center gap-2"
                 >
                   <CheckCircleIcon className="size-4" />
-                  Done
+                  Hoàn tất
                 </TabsTrigger>
               </TabsList>
 

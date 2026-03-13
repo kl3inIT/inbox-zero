@@ -165,12 +165,12 @@ export function GroupedTable({
               if (result?.serverError) {
                 toastError({ description: result.serverError });
               } else {
-                toastSuccess({ description: "Category changed" });
+                toastSuccess({ description: "Đã đổi danh mục" });
               }
             }}
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select category" />
+              <SelectValue placeholder="Chọn danh mục" />
             </SelectTrigger>
             <SelectContent>
               {categories.map((category) => (
@@ -219,7 +219,7 @@ export function GroupedTable({
 
             const onRemoveAllFromCategory = async () => {
               const yes = confirm(
-                "This will remove all emails from this category. You can re-categorize them later. Do you want to continue?",
+                "Thao tác này sẽ xoá tất cả email khỏi danh mục này. Bạn có thể phân loại lại sau. Bạn có muốn tiếp tục không?",
               );
               if (!yes) return;
               const result = await removeAllFromCategoryAction(emailAccountId, {
@@ -230,7 +230,7 @@ export function GroupedTable({
                 toastError({ description: result.serverError });
               } else {
                 toastSuccess({
-                  description: "All emails removed from category",
+                  description: "Đã xoá toàn bộ email khỏi danh mục",
                 });
               }
             };

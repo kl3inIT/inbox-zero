@@ -7,9 +7,9 @@ import { auth } from "@/utils/auth";
 import { getBrandTitle } from "@/utils/branding";
 
 export const metadata: Metadata = {
-  title: getBrandTitle("Meeting Briefs Setup"),
+  title: getBrandTitle("Thiết lập bản tóm tắt cuộc họp"),
   description:
-    "Set up meeting briefs to receive personalized briefings before your meetings.",
+    "Thiết lập bản tóm tắt cuộc họp để nhận các bản tóm tắt cá nhân hóa trước mỗi cuộc họp của bạn.",
   alternates: { canonical: "/onboarding-brief" },
 };
 

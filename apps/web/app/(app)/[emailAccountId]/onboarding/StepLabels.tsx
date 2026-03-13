@@ -25,10 +25,12 @@ export function StepLabels({
           </IconCircle>
 
           <div className="text-center mt-4">
-            <PageHeading>How do you want your inbox organized?</PageHeading>
+            <PageHeading>
+              Bạn muốn hộp thư được sắp xếp như thế nào?
+            </PageHeading>
             <TypographyP className="mt-2 max-w-lg mx-auto">
-              We'll use these labels to organize your inbox. You can add custom
-              labels and change them later.
+              Chúng tôi sẽ dùng các nhãn này để tổ chức hộp thư của bạn. Bạn có
+              thể thêm nhãn riêng và thay đổi bất cứ lúc nào.
             </TypographyP>
           </div>
 
@@ -44,7 +46,7 @@ export function StepLabels({
         <div className="rounded-2xl p-4 bg-slate-50 border border-slate-200">
           <Image
             src="/images/assistant/labels.png"
-            alt="Categorize your emails"
+            alt="Phân loại email của bạn"
             width={1200}
             height={800}
             className="rounded-xl border border-slate-200"

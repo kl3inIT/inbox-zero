@@ -83,7 +83,7 @@ function ResultDisplay({
         {rule
           ? rule.name
           : status === ExecutedRuleStatus.SKIPPED
-            ? "No match found"
+            ? "Không tìm thấy quy tắc phù hợp"
             : capitalCase(status)}
         <EyeIcon className="ml-1.5 size-3.5 opacity-70" />
       </Badge>
@@ -106,7 +106,8 @@ export function ResultDisplayContent({ result }: { result: RunRulesResult }) {
             <Badge color="blue">{conditionTypesToString(rule)}</Badge>
           </>
         ) : (
-          status === ExecutedRuleStatus.SKIPPED && "No match found"
+          status === ExecutedRuleStatus.SKIPPED &&
+          "Không tìm thấy quy tắc phù hợp"
         )}
       </div>
       <div className="mt-2">
@@ -120,7 +121,7 @@ export function ResultDisplayContent({ result }: { result: RunRulesResult }) {
               ruleDialog.onOpen({ ruleId: rule.id });
             }}
           >
-            View matching rule
+            Xem quy tắc khớp
           </Button>
         )}
       </div>
@@ -128,7 +129,7 @@ export function ResultDisplayContent({ result }: { result: RunRulesResult }) {
       <div className="mt-2">
         {result.actionItems?.length ? (
           <>
-            <div className="font-medium text-sm mb-1">Actions:</div>
+            <div className="font-medium text-sm mb-1">Hành động:</div>
             <Actions
               actions={
                 result.actionItems?.map((action) => ({
@@ -149,15 +150,15 @@ export function ResultDisplayContent({ result }: { result: RunRulesResult }) {
             />
           </>
         ) : (
-          <div className="text-muted-foreground text-sm">No actions taken</div>
+          <div className="text-muted-foreground text-sm">
+            Không có hành động nào được thực hiện
+          </div>
         )}
       </div>
 
       {!!reason && (
         <div className="mt-4 space-y-2 bg-muted p-2 rounded-md">
-          <div className="font-medium text-sm">
-            Reason for choosing this rule:
-          </div>
+          <div className="font-medium text-sm">Lý do chọn quy tắc này:</div>
           <MessageText>{reason}</MessageText>
         </div>
       )}
@@ -242,17 +243,18 @@ function PrettyConditions({
 
   // Static conditions - grouped with commas
   const staticConditions: string[] = [];
-  if (rule.from) staticConditions.push(`From: ${rule.from}`);
-  if (rule.subject) staticConditions.push(`Subject: "${rule.subject}"`);
-  if (rule.to) staticConditions.push(`To: ${rule.to}`);
-  if (rule.body) staticConditions.push(`Body: "${rule.body}"`);
+  if (rule.from) staticConditions.push(`Người gửi (From): ${rule.from}`);
+  if (rule.subject)
+    staticConditions.push(`Tiêu đề (Subject): "${rule.subject}"`);
+  if (rule.to) staticConditions.push(`Người nhận (To): ${rule.to}`);
+  if (rule.body) staticConditions.push(`Nội dung (Body): "${rule.body}"`);
   if (staticConditions.length) conditions.push(staticConditions.join(", "));
 
   // AI condition
   if (rule.instructions) conditions.push(rule.instructions);
 
   const operator =
-    rule.conditionalOperator === LogicalOperator.AND ? "AND" : "OR";
+    rule.conditionalOperator === LogicalOperator.AND ? "VÀ" : "HOẶC";
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">

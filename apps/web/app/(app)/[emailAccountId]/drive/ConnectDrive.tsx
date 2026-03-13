@@ -32,7 +32,7 @@ export function ConnectDrive() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to initiate Google Drive connection");
+        throw new Error("Không thể bắt đầu kết nối Google Drive");
       }
 
       const data: GetDriveAuthUrlResponse = await response.json();
@@ -45,8 +45,8 @@ export function ConnectDrive() {
         extra: { context: "Google Drive OAuth initiation" },
       });
       toastError({
-        title: "Error initiating Google Drive connection",
-        description: "Please try again or contact support",
+        title: "Lỗi khi bắt đầu kết nối Google Drive",
+        description: "Vui lòng thử lại hoặc liên hệ bộ phận hỗ trợ.",
       });
       setIsConnectingGoogle(false);
     }
@@ -62,7 +62,7 @@ export function ConnectDrive() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to initiate OneDrive connection");
+        throw new Error("Không thể bắt đầu kết nối OneDrive");
       }
 
       const data: GetDriveAuthUrlResponse = await response.json();
@@ -75,8 +75,8 @@ export function ConnectDrive() {
         extra: { context: "OneDrive OAuth initiation" },
       });
       toastError({
-        title: "Error initiating OneDrive connection",
-        description: "Please try again or contact support",
+        title: "Lỗi khi bắt đầu kết nối OneDrive",
+        description: "Vui lòng thử lại hoặc liên hệ bộ phận hỗ trợ.",
       });
       setIsConnectingMicrosoft(false);
     }
@@ -99,7 +99,7 @@ export function ConnectDrive() {
             height={16}
             unoptimized
           />
-          {isConnectingGoogle ? "Connecting..." : "Add Google Drive"}
+          {isConnectingGoogle ? "Đang kết nối..." : "Thêm Google Drive"}
         </Button>
 
         <Button
@@ -116,22 +116,22 @@ export function ConnectDrive() {
             height={16}
             unoptimized
           />
-          {isConnectingMicrosoft ? "Connecting..." : "Add OneDrive"}
+          {isConnectingMicrosoft ? "Đang kết nối..." : "Thêm OneDrive"}
         </Button>
       </div>
 
       <Dialog open={googleDialogOpen} onOpenChange={setGoogleDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Connect Google Drive</DialogTitle>
+            <DialogTitle>Kết nối Google Drive</DialogTitle>
           </DialogHeader>
 
           <div className="space-y-3">
             <div className="flex items-center justify-between gap-4 rounded-md border p-3">
               <div>
-                <p className="text-sm font-medium">Standard</p>
+                <p className="text-sm font-medium">Tiêu chuẩn</p>
                 <p className="text-xs text-muted-foreground">
-                  You&apos;ll need to create new folders for filing
+                  Bạn sẽ cần tạo các thư mục mới để lưu trữ
                 </p>
               </div>
               <Button
@@ -149,13 +149,13 @@ export function ConnectDrive() {
 
             <div className="flex items-center justify-between gap-4 rounded-md border p-3">
               <div>
-                <p className="text-sm font-medium">Full access</p>
+                <p className="text-sm font-medium">Toàn quyền truy cập</p>
                 <p className="text-xs text-muted-foreground">
-                  Use your existing folders
+                  Sử dụng các thư mục hiện có của bạn
                 </p>
                 <p className="mt-1 text-xs text-amber-600">
-                  Google will show a warning — we&apos;re working on
-                  verification
+                  Google có thể hiển thị cảnh báo — chúng tôi đang làm việc để
+                  xác minh
                 </p>
               </div>
               <Button

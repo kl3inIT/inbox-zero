@@ -2,7 +2,7 @@ import { after } from "next/server";
 import prisma from "@/utils/prisma";
 import type { Logger } from "@/utils/logger";
 import { getStripe } from "@/ee/billing/stripe";
-import { getStripeSubscriptionTier } from "@/app/(app)/premium/config";
+import { getStripeSubscriptionTier } from "@/app/(app)/refer/premium/config";
 import { handleLoopsEvents } from "@/ee/billing/stripe/loops-events";
 import { syncPremiumSeats } from "@/utils/premium/server";
 import { ensureEmailAccountsWatched } from "@/utils/email/watch-manager";

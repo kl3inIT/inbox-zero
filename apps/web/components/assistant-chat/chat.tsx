@@ -199,7 +199,7 @@ export function Chat({ open }: { open: boolean }) {
 
       <PromptInputTextarea
         value={input}
-        placeholder="Ask me anything"
+        placeholder="Hỏi mình bất cứ điều gì về hộp thư của bạn"
         onChange={(e) => setInput(e.currentTarget.value)}
         onPaste={handlePaste}
         className="pr-24"
@@ -216,7 +216,7 @@ export function Chat({ open }: { open: boolean }) {
       />
 
       <div className="absolute bottom-2 right-2 flex items-center gap-1">
-        <Tooltip content="Attach images">
+        <Tooltip content="Đính kèm hình ảnh">
           <Button
             type="button"
             variant="ghost"
@@ -355,9 +355,9 @@ function ChatMessagesView({
 }
 
 const CHAT_EXAMPLES = [
-  "Help me handle my inbox today",
-  "Clean up my inbox",
-  "Auto-archive newsletters for me",
+  "Giúp tôi xử lý inbox hôm nay",
+  "Dọn dẹp hộp thư của tôi",
+  "Tự động lưu trữ bản tin cho tôi",
 ];
 
 function NewChatView({
@@ -415,10 +415,10 @@ function NewChatButton() {
   const { setNewChat } = useChat();
 
   return (
-    <Tooltip content="Start a new conversation">
+    <Tooltip content="Bắt đầu cuộc trò chuyện mới">
       <Button variant="ghost" size="icon" onClick={setNewChat}>
         <PlusIcon className="size-5" />
-        <span className="sr-only">New Chat</span>
+        <span className="sr-only">Cuộc trò chuyện mới</span>
       </Button>
     </Tooltip>
   );
@@ -431,7 +431,7 @@ function ChatHistoryDropdown() {
 
   return (
     <DropdownMenu>
-      <Tooltip content="View previous conversations">
+      <Tooltip content="Xem các cuộc trò chuyện trước">
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
@@ -454,11 +454,13 @@ function ChatHistoryDropdown() {
               className="flex items-center justify-center"
             >
               <Loader2 className="mr-2 size-4 animate-spin" />
-              Loading chats...
+              Đang tải cuộc trò chuyện...
             </DropdownMenuItem>
           }
           errorComponent={
-            <DropdownMenuItem disabled>Error loading chats</DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              Lỗi khi tải cuộc trò chuyện
+            </DropdownMenuItem>
           }
         >
           {data && data.chats.length > 0 ? (
@@ -469,12 +471,12 @@ function ChatHistoryDropdown() {
                   setChatId(chatItem.id);
                 }}
               >
-                {`Chat from ${new Date(chatItem.createdAt).toLocaleString()}`}
+                {`Cuộc trò chuyện từ ${new Date(chatItem.createdAt).toLocaleString()}`}
               </DropdownMenuItem>
             ))
           ) : (
             <DropdownMenuItem disabled>
-              No previous chats found
+              Không tìm thấy cuộc trò chuyện nào trước đó
             </DropdownMenuItem>
           )}
         </LoadingContent>
@@ -486,8 +488,8 @@ function ChatHistoryDropdown() {
 function getGreeting(firstName: string | undefined): string {
   const hour = new Date().getHours();
   const name = firstName ? `, ${firstName}` : "";
-  if (hour < 5) return `Hey there${name}`;
-  if (hour < 12) return `Good morning${name}`;
-  if (hour < 18) return `Good afternoon${name}`;
-  return `Good evening${name}`;
+  if (hour < 5) return `Xin chào${name}`;
+  if (hour < 12) return `Chào buổi sáng${name}`;
+  if (hour < 18) return `Chào buổi chiều${name}`;
+  return `Chào buổi tối${name}`;
 }

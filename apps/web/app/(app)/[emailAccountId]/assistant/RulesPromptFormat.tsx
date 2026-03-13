@@ -58,8 +58,8 @@ export function RulesPromptFormat() {
         loadingComponent={<Skeleton className="min-h-[220px] w-full" />}
       >
         <Notice variant="info" className="mb-2">
-          Editing in 'Prompt' view is currently disabled. Edit using AI Chat or
-          'List' view instead.
+          Việc chỉnh sửa trong chế độ 'Prompt' hiện đang bị tắt. Hãy chỉnh sửa
+          bằng AI Chat hoặc chế độ 'Danh sách'.
         </Notice>
 
         <SimpleRichTextEditor
@@ -73,12 +73,12 @@ export function RulesPromptFormat() {
 
       <div className="flex flex-wrap gap-2 mt-4 items-center">
         <Button type="submit" size="sm" disabled>
-          Save
+          Lưu
         </Button>
 
         <MessageText className="pl-2">
-          Editing in 'Prompt' view is currently disabled. Edit using AI chat or
-          'List' view instead.
+          Việc chỉnh sửa trong chế độ 'Prompt' hiện đang bị tắt. Hãy chỉnh sửa
+          bằng AI Chat hoặc chế độ 'Danh sách'.
         </MessageText>
       </div>
     </form>

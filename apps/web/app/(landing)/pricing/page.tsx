@@ -7,8 +7,9 @@ import { SectionContent } from "@/components/new-landing/common/Section";
 import { getBrandTitle } from "@/utils/branding";
 
 export const metadata: Metadata = {
-  title: getBrandTitle("Pricing"),
-  description: "Simple, transparent pricing. No hidden fees. Cancel anytime.",
+  title: getBrandTitle("Bảng giá"),
+  description:
+    "Bảng giá đơn giản, minh bạch. Không phí ẩn. Huỷ bất cứ lúc nào.",
   alternates: { canonical: "/pricing" },
 };
 

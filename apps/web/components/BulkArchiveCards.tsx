@@ -240,7 +240,7 @@ export function BulkArchiveCards({
       setArchivedCategories((prev) => ({ ...prev, [categoryName]: true }));
     } catch (_error) {
       toastError({
-        description: `Failed to ${bulkAction === "markRead" ? "mark as read" : "archive"} some senders. Please try again.`,
+        description: `Không thể ${bulkAction === "markRead" ? "đánh dấu đã đọc" : "lưu trữ"} một số người gửi. Vui lòng thử lại.`,
       });
     } finally {
       setLoadingCategories((prev) => ({ ...prev, [categoryName]: false }));

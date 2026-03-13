@@ -47,10 +47,14 @@ export function ColdEmailList() {
     markNotColdEmailAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Marked not cold email!" });
+        toastSuccess({
+          description: "Đã đánh dấu là không phải email tiếp thị!",
+        });
       },
       onError: () => {
-        toastError({ description: "Error marking not cold email!" });
+        toastError({
+          description: "Lỗi khi đánh dấu là không phải email tiếp thị!",
+        });
       },
     },
   );
@@ -77,7 +81,7 @@ export function ColdEmailList() {
                   onClick={markNotColdEmailSelected}
                   loading={isExecuting}
                 >
-                  Mark Not Cold Email
+                  Đánh dấu không phải email tiếp thị
                 </Button>
               </div>
             </div>
@@ -93,8 +97,8 @@ export function ColdEmailList() {
                   />
                 </TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>AI Reason</TableHead>
-                <TableHead>Date</TableHead>
+                <TableHead>Lý do từ AI</TableHead>
+                <TableHead>Ngày</TableHead>
                 <TableHead>
                   <span className="sr-only">Actions</span>
                 </TableHead>
@@ -178,7 +182,7 @@ function Row({
             }}
             loading={isExecuting}
           >
-            Not cold email
+            Không phải email tiếp thị
           </Button>
         </div>
       </TableCell>
@@ -194,11 +198,11 @@ function NoColdEmails() {
     toggleRuleAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Cold email blocker enabled!" });
+        toastSuccess({ description: "Đã bật trình chặn email tiếp thị!" });
         mutateRules();
       },
       onError: () => {
-        toastError({ description: "Error enabling cold email blocker" });
+        toastError({ description: "Lỗi khi bật trình chặn email tiếp thị" });
       },
     },
   );
@@ -207,11 +211,11 @@ function NoColdEmails() {
     return (
       <div className="mb-10">
         <EnableFeatureCard
-          title="Cold Email Blocker"
-          description="Our AI identifies cold outreach from senders you've never communicated with before. You can customize the prompt after enabling."
+          title="Trình chặn email tiếp thị"
+          description="AI của chúng tôi nhận diện các email tiếp thị được gửi từ những người bạn chưa từng trao đổi trước đó. Bạn có thể tùy chỉnh prompt sau khi bật tính năng."
           imageSrc="/images/illustrations/calling-help.svg"
-          imageAlt="Cold email blocker"
-          buttonText="Enable"
+          imageAlt="Trình chặn email tiếp thị"
+          buttonText="Bật"
           onEnable={async () => {
             await enableColdEmailBlocker({
               systemType: SystemType.COLD_EMAIL,
@@ -227,8 +231,10 @@ function NoColdEmails() {
   return (
     <div className="p-2">
       <AlertBasic
-        title="No cold emails!"
-        description={`We haven't marked any of your emails as cold emails yet!`}
+        title="Chưa có email tiếp thị nào!"
+        description={
+          "Chúng tôi chưa đánh dấu email nào của bạn là email tiếp thị!"
+        }
       />
     </div>
   );

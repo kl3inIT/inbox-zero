@@ -66,7 +66,7 @@ export function EmailItem({
           </Link>
         </div>
         <div className="truncate text-xs text-muted-foreground">
-          From: {email.from} • {formatShortDate(email.date)}
+          Từ: {email.from} • {formatShortDate(email.date)}
         </div>
       </div>
 
@@ -116,20 +116,20 @@ function StatusBadge({
   emailAccountId: string;
 }) {
   if (status === "processing") {
-    return <Badge color="purple">Processing...</Badge>;
+    return <Badge color="purple">Đang xử lý...</Badge>;
   }
 
   if (undoState === "undoing") {
-    return <Badge color="purple">Undoing...</Badge>;
+    return <Badge color="purple">Đang hoàn tác...</Badge>;
   }
 
   if (undoState === "undone") {
-    return <Badge color="purple">Undone</Badge>;
+    return <Badge color="purple">Đã hoàn tác</Badge>;
   }
 
   // If the email has the undone flag, show it as undone regardless of other status
   if (email.undone) {
-    return <Badge color="purple">Undone</Badge>;
+    return <Badge color="purple">Đã hoàn tác</Badge>;
   }
 
   if (status === "markedDone" || status === "markingDone") {
@@ -139,11 +139,11 @@ function StatusBadge({
           <Badge color="green">
             {status === "markingDone"
               ? action === CleanAction.MARK_READ
-                ? "Marking read..."
-                : "Archiving..."
+                ? "Đang đánh dấu đã đọc..."
+                : "Đang lưu trữ..."
               : action === CleanAction.MARK_READ
-                ? "Marked read"
-                : "Archived"}
+                ? "Đã đánh dấu đã đọc"
+                : "Đã lưu trữ"}
           </Badge>
         </span>
         <div className="hidden group-hover:inline-flex">
@@ -169,7 +169,7 @@ function StatusBadge({
             }}
           >
             <Undo2Icon className="size-3" />
-            Undo
+            Hoàn tác
           </Button>
         </div>
       </div>
@@ -180,7 +180,7 @@ function StatusBadge({
     return (
       <div className="group">
         <span className="group-hover:hidden">
-          <Badge color="blue">Keep</Badge>
+          <Badge color="blue">Giữ lại</Badge>
         </span>
         <div className="hidden group-hover:inline-flex">
           <Button
@@ -206,12 +206,12 @@ function StatusBadge({
             {action === CleanAction.ARCHIVE ? (
               <>
                 <ArchiveIcon className="mr-1 size-3" />
-                Archive
+                Lưu trữ
               </>
             ) : (
               <>
                 <CheckIcon className="mr-1 size-3" />
-                Mark Read
+                Đánh dấu đã đọc
               </>
             )}
           </Button>

@@ -25,8 +25,8 @@ export function EmailUpdatesSection({
   return (
     <FormSection id="email-updates">
       <FormSectionLeft
-        title="Email Updates"
-        description="Get a weekly digest of items that need your attention."
+        title="Cập nhật qua email"
+        description="Nhận email tổng hợp hàng tuần về các mục cần bạn chú ý."
       />
 
       <SummaryUpdateSectionForm
@@ -64,10 +64,10 @@ function SummaryUpdateSectionForm({
 
       if (res?.serverError) {
         toastError({
-          description: "There was an error updating the settings.",
+          description: "Đã xảy ra lỗi khi cập nhật cài đặt.",
         });
       } else {
-        toastSuccess({ description: "Settings updated!" });
+        toastSuccess({ description: "Đã cập nhật cài đặt!" });
       }
 
       mutate();
@@ -78,11 +78,11 @@ function SummaryUpdateSectionForm({
   const options: { label: string; value: Frequency }[] = useMemo(
     () => [
       {
-        label: "Never",
+        label: "Không bao giờ",
         value: Frequency.NEVER,
       },
       {
-        label: "Weekly",
+        label: "Hàng tuần",
         value: Frequency.WEEKLY,
       },
     ],
@@ -98,14 +98,14 @@ function SummaryUpdateSectionForm({
         error={errors.statsEmailFrequency}
       /> */}
       <Select
-        label="Summary Email"
+        label="Email tổng hợp"
         options={options}
         {...register("summaryEmailFrequency")}
         error={errors.summaryEmailFrequency}
       />
 
       <Button type="submit" loading={isSubmitting}>
-        Save
+        Lưu
       </Button>
     </form>
   );

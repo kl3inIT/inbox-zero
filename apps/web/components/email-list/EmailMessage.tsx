@@ -167,16 +167,16 @@ function TopBar({
         </MutedText>
         {showReplyButton && (
           <div className="relative flex items-center">
-            <Tooltip content="Reply">
+            <Tooltip content="Trả lời">
               <Button variant="ghost" size="icon" onClick={onReply}>
                 <ReplyIcon className="h-4 w-4" />
-                <span className="sr-only">Reply</span>
+                <span className="sr-only">Trả lời</span>
               </Button>
             </Tooltip>
-            <Tooltip content="Forward">
+            <Tooltip content="Chuyển tiếp">
               <Button variant="ghost" size="icon">
                 <ForwardIcon className="h-4 w-4" onClick={onForward} />
-                <span className="sr-only">Forward</span>
+                <span className="sr-only">Chuyển tiếp</span>
               </Button>
             </Tooltip>
           </div>
@@ -287,7 +287,7 @@ function ReplyPanel({
         {isGeneratingReply ? (
           <div className="flex items-center justify-center">
             <Loading />
-            <MessageText>Generating reply...</MessageText>
+            <MessageText>Đang tạo nội dung trả lời...</MessageText>
             <Button
               className="ml-4"
               variant="outline"
@@ -296,7 +296,7 @@ function ReplyPanel({
                 setIsGeneratingReply(false);
               }}
             >
-              Skip
+              Bỏ qua
             </Button>
           </div>
         ) : (

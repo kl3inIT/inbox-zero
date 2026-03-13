@@ -51,20 +51,20 @@ export default async function RuleHistoryPage(props: {
   });
 
   const triggerTypeLabels: Record<string, string> = {
-    ai_update: "AI Update",
-    manual_update: "Manual Update",
-    ai_creation: "AI Creation",
-    manual_creation: "Manual Creation",
-    system_creation: "System Creation",
-    system_update: "System Update",
+    ai_update: "Cập nhật bởi AI",
+    manual_update: "Cập nhật thủ công",
+    ai_creation: "Tạo bởi AI",
+    manual_creation: "Tạo thủ công",
+    system_creation: "Tạo bởi hệ thống",
+    system_update: "Cập nhật bởi hệ thống",
   };
 
   return (
     <div className="container mx-auto p-4">
-      <PageHeading>Rule History: {rule.name}</PageHeading>
+      <PageHeading>Lịch sử quy tắc: {rule.name}</PageHeading>
       {ruleHistory.length === 0 ? (
         <p className="mt-4 text-muted-foreground">
-          No history found for this rule.
+          Không có lịch sử cho quy tắc này.
         </p>
       ) : (
         <div className="mt-6 space-y-4">
@@ -73,7 +73,7 @@ export default async function RuleHistoryPage(props: {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">
-                    Version {history.version}
+                    Phiên bản {history.version}
                   </CardTitle>
                   <div className="flex items-center gap-2">
                     <Badge variant="outline">
@@ -96,29 +96,29 @@ export default async function RuleHistoryPage(props: {
               <CardContent>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="mb-1 font-semibold">Rule Details</h4>
+                    <h4 className="mb-1 font-semibold">Chi tiết quy tắc</h4>
                     <dl className="grid grid-cols-1 gap-1 text-sm">
                       <div className="flex gap-2">
-                        <dt className="font-medium">Name:</dt>
+                        <dt className="font-medium">Tên:</dt>
                         <dd>{history.name}</dd>
                       </div>
                       {history.instructions && (
                         <div className="flex gap-2">
-                          <dt className="font-medium">Instructions:</dt>
+                          <dt className="font-medium">Hướng dẫn:</dt>
                           <dd>{history.instructions}</dd>
                         </div>
                       )}
                       <div className="flex gap-2">
-                        <dt className="font-medium">Status:</dt>
+                        <dt className="font-medium">Trạng thái:</dt>
                         <dd>
-                          {history.enabled ? "Enabled" : "Disabled"}
-                          {history.automate && " • Automated"}
-                          {history.runOnThreads && " • Runs on threads"}
+                          {history.enabled ? "Đang bật" : "Đang tắt"}
+                          {history.automate && " • Tự động hóa"}
+                          {history.runOnThreads && " • Chạy trên luồng"}
                         </dd>
                       </div>
                       {history.conditionalOperator && (
                         <div className="flex gap-2">
-                          <dt className="font-medium">Operator:</dt>
+                          <dt className="font-medium">Toán tử điều kiện:</dt>
                           <dd>{history.conditionalOperator}</dd>
                         </div>
                       )}
@@ -130,29 +130,29 @@ export default async function RuleHistoryPage(props: {
                     history.subject ||
                     history.body) && (
                     <div>
-                      <h4 className="mb-1 font-semibold">Static Conditions</h4>
+                      <h4 className="mb-1 font-semibold">Điều kiện tĩnh</h4>
                       <dl className="grid grid-cols-1 gap-1 text-sm">
                         {history.from && (
                           <div className="flex gap-2">
-                            <dt className="font-medium">From:</dt>
+                            <dt className="font-medium">Từ:</dt>
                             <dd className="font-mono">{history.from}</dd>
                           </div>
                         )}
                         {history.to && (
                           <div className="flex gap-2">
-                            <dt className="font-medium">To:</dt>
+                            <dt className="font-medium">Đến:</dt>
                             <dd className="font-mono">{history.to}</dd>
                           </div>
                         )}
                         {history.subject && (
                           <div className="flex gap-2">
-                            <dt className="font-medium">Subject:</dt>
+                            <dt className="font-medium">Tiêu đề:</dt>
                             <dd className="font-mono">{history.subject}</dd>
                           </div>
                         )}
                         {history.body && (
                           <div className="flex gap-2">
-                            <dt className="font-medium">Body:</dt>
+                            <dt className="font-medium">Nội dung:</dt>
                             <dd className="font-mono">{history.body}</dd>
                           </div>
                         )}
@@ -162,14 +162,14 @@ export default async function RuleHistoryPage(props: {
 
                   {history.systemType && (
                     <div>
-                      <h4 className="mb-1 font-semibold">System Type</h4>
+                      <h4 className="mb-1 font-semibold">Loại hệ thống</h4>
                       <p className="text-sm">{history.systemType}</p>
                     </div>
                   )}
 
                   {history.actions && (
                     <div>
-                      <h4 className="mb-1 font-semibold">Actions</h4>
+                      <h4 className="mb-1 font-semibold">Hành động</h4>
                       <div className="space-y-1">
                         {(
                           history.actions as Array<
@@ -191,14 +191,14 @@ export default async function RuleHistoryPage(props: {
                               </span>
                             )}
                             {action.subject && (
-                              <span>Subject: {action.subject}</span>
+                              <span>Tiêu đề: {action.subject}</span>
                             )}
                             {action.content && (
                               <span>
-                                Content: {action.content.substring(0, 50)}...
+                                Nội dung: {action.content.substring(0, 50)}...
                               </span>
                             )}
-                            {action.to && <span>To: {action.to}</span>}
+                            {action.to && <span>Đến: {action.to}</span>}
                           </div>
                         ))}
                       </div>

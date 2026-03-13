@@ -57,9 +57,9 @@ export function EmailPanel({
             }}
             refetch={refetch}
           />
-          <Tooltip content="Close">
+          <Tooltip content="Đóng">
             <Button onClick={close} size="icon" variant="ghost">
-              <span className="sr-only">Close</span>
+              <span className="sr-only">Đóng</span>
               <XIcon className="h-4 w-4" aria-hidden="true" />
             </Button>
           </Tooltip>

@@ -4,7 +4,7 @@ import { BasicLayout } from "@/components/layouts/BasicLayout";
 import { FeaturesHome } from "@/app/(landing)/home/Features";
 import { Privacy } from "@/app/(landing)/home/Privacy";
 import { Testimonials } from "@/app/(landing)/home/Testimonials";
-import { PricingLazy } from "@/app/(app)/premium/PricingLazy";
+import { PricingLazy } from "@/app/(app)/refer/premium/PricingLazy";
 import { FAQs } from "@/app/(landing)/home/FAQs";
 import { FinalCTA } from "@/app/(landing)/home/FinalCTA";
 import { BRAND_NAME } from "@/utils/branding";
@@ -30,8 +30,8 @@ export default function Home() {
 function HeroHome() {
   return (
     <Hero
-      title="Meet Your AI Email Assistant That Actually Works"
-      subtitle={`${BRAND_NAME} organizes your inbox, drafts replies in your voice, and helps you reach inbox zero fast. Never miss an important email again.`}
+      title="Gặp gỡ Trợ lý Email AI Thực sự Hiệu quả"
+      subtitle={`${BRAND_NAME} sắp xếp hộp thư đến, soạn thảo câu trả lời bằng giọng văn của bạn và giúp bạn đạt được inbox zero nhanh chóng. Không bao giờ bỏ lỡ một email quan trọng nào nữa.`}
     >
       <HeroVideoPlayer />
     </Hero>

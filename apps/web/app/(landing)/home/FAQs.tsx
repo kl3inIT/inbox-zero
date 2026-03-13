@@ -14,59 +14,61 @@ import { BRAND_NAME } from "@/utils/branding";
 
 const faqs = [
   {
-    question: `Which email providers does ${BRAND_NAME} support?`,
+    question: `${BRAND_NAME} hỗ trợ nhà cung cấp email nào?`,
     answer:
-      "We support Gmail, Google Workspace, and Microsoft Outlook email accounts.",
+      "Chúng tôi hỗ trợ các tài khoản Gmail, Google Workspace và Microsoft Outlook.",
   },
   {
-    question: "How can I request a feature?",
+    question: "Làm thế nào để tôi yêu cầu một tính năng mới?",
     answer: (
       <span>
-        Email us or post an issue on{" "}
+        Hãy gửi email cho chúng tôi hoặc tạo vấn đề (issue) trên{" "}
         <Anchor href="/github" newTab>
           GitHub
         </Anchor>
-        . We're happy to hear how we can improve your email experience.
+        . Chúng tôi luôn sẵn lòng lắng nghe ý kiến để cải thiện trải nghiệm
+        email của bạn.
       </span>
     ),
   },
   {
-    question: `Will ${BRAND_NAME} replace my current email client?`,
-    answer: `No! ${BRAND_NAME} isn't an email client. It's used alongside your existing email client. You use Google or Outlook as normal.`,
+    question: `${BRAND_NAME} có thay thế ứng dụng email hiện tại của tôi không?`,
+    answer: `Không! ${BRAND_NAME} không phải là một ứng dụng email. Nó được sử dụng song song với ứng dụng email hiện tại của bạn. Bạn vẫn sử dụng Google hoặc Outlook như bình thường.`,
   },
   {
-    question: "Is the code open-source?",
+    question: "Mã nguồn có phải là nguồn mở không?",
     answer: (
       <span>
-        Yes! You can see the entire source code for the inbox zero app in our{" "}
+        Có! Bạn có thể xem toàn bộ mã nguồn của ứng dụng Inbox Zero trong{" "}
         <Anchor href="/github" newTab>
-          GitHub repo
+          kho lưu trữ GitHub
         </Anchor>
-        .
+        của chúng tôi.
       </span>
     ),
   },
   {
-    question: "Do you offer refunds?",
+    question: "Bạn có chính sách hoàn tiền không?",
     answer: (
       <span>
-        Yes, if you don't think we provided you with value send us an{" "}
+        Có, nếu bạn cảm thấy chúng tôi không mang lại giá trị cho mình, hãy gửi{" "}
         <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
-        within 14 days of upgrading and we'll refund you.
+        cho chúng tôi trong vòng 14 ngày kể từ khi nâng cấp và chúng tôi sẽ hoàn
+        tiền cho bạn.
       </span>
     ),
   },
   {
-    question: `Can I try ${BRAND_NAME} for free?`,
+    question: `Tôi có thể dùng thử ${BRAND_NAME} miễn phí không?`,
     answer:
-      "Absolutely, we have a 7 day free trial on all of our plans so you can try it out right away, no credit card needed!",
+      "Chắc chắn rồi, chúng tôi có chương trình dùng thử miễn phí 7 ngày cho tất cả các gói dịch vụ để bạn có thể trải nghiệm ngay lập tức, không cần thẻ tín dụng!",
   },
 ];
 
 export function FAQs() {
   return (
     <Section>
-      <SectionHeading>Frequently asked questions</SectionHeading>
+      <SectionHeading>Câu hỏi thường gặp</SectionHeading>
       <SectionContent>
         <CardWrapper>
           <dl className="grid md:grid-cols-2 gap-6">

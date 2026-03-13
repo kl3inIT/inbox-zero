@@ -22,8 +22,8 @@ export default function NewLanding() {
     return (
       <BasicLayout>
         <Hero
-          title={`${BRAND_NAME} for self-hosted teams`}
-          subtitle={`Deploy ${BRAND_NAME} on your own infrastructure and automate your inbox with full data control.`}
+          title={`${BRAND_NAME} cho đội ngũ tự host`}
+          subtitle={`Triển khai ${BRAND_NAME} trên hạ tầng của bạn và tự động hoá hộp thư với toàn quyền kiểm soát dữ liệu.`}
         />
       </BasicLayout>
     );
@@ -36,38 +36,40 @@ export default function NewLanding() {
           <WordReveal
             spaceBetween="w-2 md:w-3"
             words={[
-              "Meet",
-              "your",
-              "AI",
+              "Gặp",
+              "trợ",
+              "lý",
               "email",
-              "assistant",
-              "that",
+              "AI",
+              "thực",
+              "sự",
               <em key="actually">actually</em>,
-              "works",
+              "hiệu",
+              "quả",
             ]}
           />
         }
-        subtitle={`${BRAND_NAME} organizes your inbox and calendar, drafts replies in your voice, and helps you reach inbox zero fast. Never miss an important email again.`}
+        subtitle={`${BRAND_NAME} sắp xếp hộp thư và lịch của bạn, soạn nháp trả lời theo giọng văn của bạn, và giúp bạn nhanh chóng đạt inbox zero. Không bỏ lỡ email quan trọng nữa.`}
       >
         <HeroContent />
       </Hero>
       <OrganizedInbox
         title={
           <>
-            Automatically organized.
+            Tự động sắp xếp.
             <br />
-            Never miss an important email again.
+            Không bỏ lỡ email quan trọng nữa.
           </>
         }
-        subtitle="Drowning in emails? Don't waste energy trying to prioritize your emails. Our AI assistant will label everything automatically."
+        subtitle="Quá tải email? Đừng tốn công ưu tiên thủ công. Trợ lý AI của chúng tôi sẽ tự động gắn nhãn mọi thứ."
       />
       <PreWrittenDrafts
-        title="Pre-written drafts waiting in your inbox"
-        subtitle="When you check your inbox, every email needing a response will have a pre-drafted reply in your tone, ready for you to send."
+        title="Bản nháp soạn sẵn chờ trong hộp thư"
+        subtitle="Khi bạn mở inbox, mọi email cần phản hồi sẽ có sẵn bản nháp theo đúng giọng văn của bạn, sẵn sàng để gửi."
       />
       <StartedInMinutes
-        title="Get started in minutes"
-        subtitle="One-click setup. Start organizing and drafting replies in minutes."
+        title="Bắt đầu chỉ trong vài phút"
+        subtitle="Cài đặt một chạm. Bắt đầu sắp xếp và soạn nháp trong vài phút."
       />
       <BulkUnsubscribe />
       <EverythingElseSection />

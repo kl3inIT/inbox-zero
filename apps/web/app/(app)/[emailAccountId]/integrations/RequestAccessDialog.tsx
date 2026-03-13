@@ -24,25 +24,25 @@ export function RequestAccessDialog({
 }: RequestAccessDialogProps) {
   const isGenericRequest = !integrationName;
   const title = isGenericRequest
-    ? "Request an Integration"
-    : `Request ${integrationName} Access`;
+    ? "Yêu cầu tích hợp"
+    : `Yêu cầu truy cập ${integrationName}`;
   const subject = isGenericRequest
-    ? "Integration Request"
-    : `Request Access: ${integrationName} Integration`;
+    ? "Yêu cầu tích hợp"
+    : `Yêu cầu truy cập: Tích hợp ${integrationName}`;
 
   const messageBody = isGenericRequest
-    ? `Hi,\n\nI would like to request a new integration for ${BRAND_NAME}.\n\nIntegration name:\n\nUse case:\n\nThank you!`
-    : `Hi,\n\nI'm interested in using the ${integrationName} integration with ${BRAND_NAME}.\n\nCould you please let me know when this integration will be available?\n\nThank you!`;
+    ? `Chào bạn,\n\nTôi muốn yêu cầu thêm một tích hợp mới cho ${BRAND_NAME}.\n\nTên tích hợp:\n\nTrường hợp sử dụng:\n\nXin cảm ơn!`
+    : `Chào bạn,\n\nTôi quan tâm đến việc sử dụng tích hợp ${integrationName} với ${BRAND_NAME}.\n\nBạn có thể cho tôi biết khi nào tích hợp này sẽ khả dụng không?\n\nXin cảm ơn!`;
 
   const handleCopyEmail = async () => {
     await navigator.clipboard.writeText(SUPPORT_EMAIL);
-    toastSuccess({ description: "Email copied to clipboard" });
+    toastSuccess({ description: "Đã sao chép email vào clipboard" });
   };
 
   const handleCopyMessage = async () => {
     const message = `Subject: ${subject}\n\n${messageBody}`;
     await navigator.clipboard.writeText(message);
-    toastSuccess({ description: "Message copied to clipboard" });
+    toastSuccess({ description: "Đã sao chép nội dung vào clipboard" });
   };
 
   return (
@@ -50,7 +50,7 @@ export function RequestAccessDialog({
       <DialogTrigger asChild>
         {trigger || (
           <Button size="sm" variant="outline">
-            Request Access
+            Yêu cầu truy cập
           </Button>
         )}
       </DialogTrigger>
@@ -59,8 +59,8 @@ export function RequestAccessDialog({
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
             {isGenericRequest
-              ? "Send us an email to request a new integration."
-              : "Send us an email to request access to this integration."}
+              ? "Gửi email cho chúng tôi để yêu cầu một tích hợp mới."
+              : "Gửi email cho chúng tôi để yêu cầu quyền truy cập tích hợp này."}
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
@@ -76,10 +76,10 @@ export function RequestAccessDialog({
             </div>
           </div>
           <div>
-            <div className="text-sm font-medium">Message</div>
+            <div className="text-sm font-medium">Nội dung</div>
             <div className="flex flex-col gap-2 mt-1">
               <div className="rounded bg-muted px-3 py-2 text-sm">
-                <div className="font-medium mb-2">Subject: {subject}</div>
+                <div className="font-medium mb-2">Tiêu đề: {subject}</div>
                 <div className="whitespace-pre-wrap text-muted-foreground">
                   {messageBody}
                 </div>
@@ -91,7 +91,7 @@ export function RequestAccessDialog({
                 className="self-end"
               >
                 <Copy className="h-4 w-4 mr-2" />
-                Copy Message
+                Sao chép nội dung
               </Button>
             </div>
           </div>

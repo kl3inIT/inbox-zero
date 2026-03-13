@@ -100,7 +100,7 @@ export function FeaturesWithImage({
             <div className="rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl lg:p-4">
               <Image
                 src={image}
-                alt="Product screenshot"
+                alt="Ảnh chụp màn hình sản phẩm"
                 className="w-[48rem] max-w-none rounded-xl shadow-2xl ring-1 ring-gray-400/10 sm:w-[57rem]"
                 width={2400}
                 height={1800}
@@ -114,23 +114,23 @@ export function FeaturesWithImage({
 }
 
 export function FeaturesAiAssistant({ imageSide }: { imageSide?: Side }) {
-  const title = "Your Personal Assistant";
-  const subtitle = "Your AI Email Assistant That Works Like Magic";
+  const title = "Trợ lý Cá nhân của Bạn";
+  const subtitle = "Trợ lý Email AI Hoạt động Như Phép màu";
   const description = (
     <>
-      All the benefits of a personal assistant, at a fraction of the cost. It
-      drafts replies, organizes, and labels emails for you.
+      Tất cả lợi ích của một trợ lý cá nhân với chi phí chỉ bằng một phần nhỏ.
+      Nó soạn thảo câu trả lời, sắp xếp và gắn nhãn email cho bạn.
       <br />
       <br />
-      Tell your AI assistant how to manage your email in plain English - just
-      like you would ChatGPT. Want newsletters archived and labeled? Investor
-      emails flagged as important? Automatic reply drafts for common requests?
-      Just ask.
+      Hãy nói cho trợ lý AI biết cách quản lý email của bạn bằng ngôn ngữ tự
+      nhiên – giống như cách bạn dùng ChatGPT. Muốn lưu trữ và gắn nhãn bản tin?
+      Đánh dấu các email quan trọng từ nhà đầu tư? Tự động soạn bản nháp cho các
+      yêu cầu phổ biến? Chỉ cần yêu cầu.
       <br />
       <br />
-      Once configured, your assistant works 24/7 to keep your inbox organized
-      exactly how you want it. No more drowning in email. No expensive human
-      assistant required.
+      Sau khi được định cấu hình, trợ lý của bạn sẽ làm việc 24/7 để giữ cho hộp
+      thư luôn ngăn nắp đúng như ý bạn. Không còn bị quá tải email. Không cần
+      trợ lý là người thực đắt đỏ.
     </>
   );
 
@@ -148,33 +148,33 @@ export function FeaturesAiAssistant({ imageSide }: { imageSide?: Side }) {
 
 const featuresColdEmailBlocker = [
   {
-    name: "Block out the noise",
+    name: "Loại bỏ tiếng ồn",
     description:
-      "Automatically archive or label cold emails. Keep your inbox clean and focused on what matters.",
+      "Tự động lưu trữ hoặc gắn nhãn các email quảng cáo không mong muốn. Giữ cho hộp thư của bạn sạch sẽ và tập trung vào những điều quan trọng.",
     icon: ShieldHalfIcon,
   },
   {
-    name: "Adjust cold email prompt",
-    description: `Tell ${BRAND_NAME} what constitutes a cold email for you. It will block them based on your instructions.`,
+    name: "Điều chỉnh lời nhắc email quảng cáo",
+    description: `Cho ${BRAND_NAME} biết điều gì tạo nên một email quảng cáo đối với bạn. Nó sẽ chặn chúng dựa trên chỉ dẫn của bạn.`,
     icon: SparklesIcon,
   },
   {
-    name: "Label cold emails",
+    name: "Gắn nhãn email quảng cáo",
     description:
-      "Automatically label cold emails so you can review them later. Keep your inbox clean and focused on what matters.",
+      "Tự động gắn nhãn các email quảng cáo để bạn có thể xem lại sau. Giữ cho hộp thư của bạn sạch sẽ và tập trung vào những điều quan trọng.",
     icon: TagIcon,
   },
 ];
 
 export function FeaturesColdEmailBlocker({ imageSide }: { imageSide?: Side }) {
-  const subtitle = "Never read a cold email again";
+  const subtitle = "Không bao giờ phải đọc email quảng cáo nữa";
   const description =
-    "Say goodbye to unsolicited outreach. Automatically filter sales pitches and cold emails so you only see messages that matter.";
+    "Nói lời tạm biệt với những tiếp cận không mong muốn. Tự động lọc các email chào hàng và quảng cáo để bạn chỉ thấy những tin nhắn quan trọng.";
 
   return (
     <FeaturesWithImage
       imageSide={imageSide}
-      title="Cold Email Blocker"
+      title="Trình chặn Email Quảng cáo"
       subtitle={subtitle}
       description={description}
       image="/images/home/cold-email-blocker.png"
@@ -185,21 +185,21 @@ export function FeaturesColdEmailBlocker({ imageSide }: { imageSide?: Side }) {
 
 const featuresStats = [
   {
-    name: "Who emails you most",
+    name: "Ai gửi email cho bạn nhiều nhất",
     description:
-      "Someone emailing you too much? Figure out a plan to handle this better.",
+      "Ai đó đang gửi email quá nhiều cho bạn? Hãy tìm ra kế hoạch để xử lý việc này tốt hơn.",
     icon: Sparkles,
   },
   {
-    name: "Who you email most",
+    name: "Bạn gửi email cho ai nhiều nhất",
     description:
-      "If there's one person you're constantly speaking to is there a better way for you to speak?",
+      "Nếu có một người mà bạn liên tục liên lạc, liệu có cách nào giao tiếp tốt hơn không?",
     icon: Orbit,
   },
   {
-    name: "What type of emails you get",
+    name: "Loại email bạn nhận được",
     description:
-      "Getting a lot of newsletters or cold emails? Try automatically archiving and labelling them with our AI.",
+      "Bạn nhận được nhiều bản tin hoặc email quảng cáo? Hãy thử tự động lưu trữ và gắn nhãn chúng bằng AI của chúng tôi.",
     icon: LineChart,
   },
 ];
@@ -208,9 +208,9 @@ export function FeaturesStats({ imageSide }: { imageSide?: Side }) {
   return (
     <FeaturesWithImage
       imageSide={imageSide}
-      title="Email Analytics"
-      subtitle="What gets measured, gets managed"
-      description="Understanding your inbox is the first step to dealing with it. Understand what is filling up your inbox. Then figure out an action plan to deal with it."
+      title="Phân tích Email"
+      subtitle="Cái gì đo lường được thì quản lý được"
+      description="Hiểu rõ hộp thư của bạn là bước đầu tiên để xử lý nó. Hãy tìm hiểu điều gì đang làm đầy hộp thư của bạn, sau đó đưa ra kế hoạch hành động để giải quyết."
       image="/images/home/email-analytics.png"
       features={featuresStats}
     />
@@ -219,21 +219,21 @@ export function FeaturesStats({ imageSide }: { imageSide?: Side }) {
 
 const featuresUnsubscribe = [
   {
-    name: "One-click unsubscribe",
+    name: "Hủy đăng ký chỉ với một cú nhấp chuột",
     description:
-      "Don't search for the unsubscribe button. Unsubscribe in a click, or auto archive instead.",
+      "Đừng tìm nút hủy đăng ký nữa. Hủy đăng ký chỉ với một cú nhấp chuột, hoặc tự động lưu trữ thay thế.",
     icon: MousePointer2Icon,
   },
   {
-    name: "See who emails you most",
+    name: "Xem ai gửi email cho bạn nhiều nhất",
     description:
-      "See who's sending you the most emails to prioritise which ones to unsubscribe from.",
+      "Xem ai đang gửi cho bạn nhiều email nhất để ưu tiên xem nên hủy đăng ký từ ai.",
     icon: EyeIcon,
   },
   {
-    name: "How often you read them",
+    name: "Bạn đọc chúng thường xuyên như thế nào",
     description:
-      "See what percentage of emails you read from each sender. Unsubscribe from the ones you don't read.",
+      "Xem tỷ lệ phần trăm email bạn đọc từ mỗi người gửi. Hủy đăng ký khỏi những người bạn không đọc.",
     icon: BarChart2Icon,
   },
 ];
@@ -242,9 +242,9 @@ export function FeaturesUnsubscribe({ imageSide }: { imageSide?: Side }) {
   return (
     <FeaturesWithImage
       imageSide={imageSide}
-      title="Bulk Unsubscriber"
-      subtitle="Bulk unsubscribe from emails you never read"
-      description="Unsubscribe from newsletters and marketing emails in one click. We show you which emails you never read to make it easy."
+      title="Trình hủy đăng ký hàng loạt"
+      subtitle="Hủy đăng ký hàng loạt khỏi những email bạn không bao giờ đọc"
+      description="Hủy đăng ký khỏi các bản tin và email tiếp thị chỉ với một cú nhấp chuột. Chúng tôi hiển thị cho bạn những email bạn không bao giờ đọc để giúp việc này dễ dàng hơn."
       image="/images/home/bulk-unsubscriber.png"
       features={featuresUnsubscribe}
     />
@@ -253,27 +253,27 @@ export function FeaturesUnsubscribe({ imageSide }: { imageSide?: Side }) {
 
 const featuresReplyZero = [
   {
-    name: "Pre-drafted replies",
+    name: "Các bản nháp đã soạn sẵn",
     description:
-      "AI-drafted replies waiting in Gmail or Outlook, ready to send or customize.",
+      "Bản nháp do AI soạn sẵn đang chờ trong Gmail hoặc Outlook, sẵn sàng để gửi hoặc tùy chỉnh.",
     icon: ReplyIcon,
   },
   {
-    name: "Focus on what needs a reply",
+    name: "Tập trung vào những gì cần phản hồi",
     description:
-      "We label every email that needs a reply, so it's easy to focus on the ones that matter.",
+      "Chúng tôi gắn nhãn mọi email cần phản hồi, giúp bạn dễ dàng tập trung vào những email quan trọng.",
     icon: EyeIcon,
   },
   {
-    name: "Follow up reminders",
+    name: "Nhắc nhở theo dõi",
     description:
-      "Never lose track of conversations. We label emails awaiting replies and help you filter for overdue ones.",
+      "Không bao giờ mất dấu các cuộc hội thoại. Chúng tôi gắn nhãn các email đang chờ phản hồi và giúp bạn lọc những email đã quá hạn.",
     icon: BellIcon,
   },
   {
-    name: "One-click follow-ups",
+    name: "Theo dõi chỉ với một cú nhấp chuột",
     description:
-      "Send polite nudges effortlessly. Our AI drafts follow-up messages, keeping conversations moving.",
+      "Gửi những lời nhắc lịch sự một cách dễ dàng. AI của chúng tôi sẽ soạn tin nhắn theo dõi, giúp cuộc hội thoại luôn được tiếp tục.",
     icon: SparklesIcon,
   },
 ];
@@ -282,9 +282,9 @@ export function FeaturesReplyZero({ imageSide }: { imageSide?: Side }) {
   return (
     <FeaturesWithImage
       imageSide={imageSide}
-      title="Reply Zero"
-      subtitle="Pre-written drafts waiting in your inbox"
-      description="Focus only on emails needing your attention. Reply Zero identifies them and prepares draft replies, letting you skip the noise and respond faster."
+      title="Phản hồi Zero"
+      subtitle="Các bản nháp soạn sẵn đang chờ trong hộp thư của bạn"
+      description="Chỉ tập trung vào những email cần sự chú ý của bạn. Phản hồi Zero nhận diện chúng và chuẩn bị các bản nháp, giúp bạn bỏ qua những thứ gây nhiễu và phản hồi nhanh hơn."
       image="/images/home/reply-zero.png"
       features={featuresReplyZero}
     />

@@ -25,9 +25,9 @@ export function DriveConnections() {
       ) : (
         <Empty>
           <EmptyHeader>
-            <EmptyTitle>No drive connections found</EmptyTitle>
+            <EmptyTitle>Không tìm thấy kết nối Drive nào</EmptyTitle>
             <EmptyDescription>
-              Connect your drive to start organizing your documents.
+              Kết nối Drive của bạn để bắt đầu sắp xếp tài liệu.
             </EmptyDescription>
           </EmptyHeader>
         </Empty>

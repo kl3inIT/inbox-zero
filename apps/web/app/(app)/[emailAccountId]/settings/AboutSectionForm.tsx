@@ -59,7 +59,7 @@ const AboutSectionForm = ({
     saveAboutAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Your profile has been updated!" });
+        toastSuccess({ description: "Hồ sơ của bạn đã được cập nhật!" });
         onSuccess();
       },
       onError: (error) => {
@@ -83,13 +83,13 @@ const AboutSectionForm = ({
         label=""
         registerProps={register("about")}
         error={errors.about}
-        placeholder={`My name is Alex Smith. I'm the founder of Acme.
+        placeholder={`Tôi là Alex Smith. Tôi là người sáng lập công ty Acme.
 
-- If I'm CC'd, it's not To Reply
-- Emails from jane@accounting.com aren't Notifications`}
+- Nếu tôi chỉ được CC, thì không phải email cần trả lời
+- Email từ jane@accounting.com không phải là Thông báo`}
       />
       <Button type="submit" className="mt-8" loading={isExecuting}>
-        Save
+        Lưu
       </Button>
     </form>
   );

@@ -27,7 +27,7 @@ export function EmailAttachments({ message }: { message: ThreadMessage }) {
               <Button variant="outline" size="sm" asChild>
                 <Link href={url} target="_blank">
                   <DownloadIcon className="mr-2 h-4 w-4" />
-                  Download
+                  Tải xuống
                 </Link>
               </Button>
             </div>

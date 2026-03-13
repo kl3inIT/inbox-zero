@@ -10,11 +10,11 @@ export function ColdEmailTest() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Test cold email blocker</CardTitle>
+        <CardTitle>Kiểm tra trình chặn email tiếp thị</CardTitle>
 
         <CardDescription>
-          Check how your the cold email blocker performs against previous
-          emails.
+          Kiểm tra cách trình chặn email tiếp thị hoạt động với các email trước
+          đây.
         </CardDescription>
       </CardHeader>
       <TestRulesContent />

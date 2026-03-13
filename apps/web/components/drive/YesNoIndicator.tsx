@@ -30,7 +30,7 @@ export function YesNoIndicator({
         <span
           className="rounded-full p-1.5 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 inline-flex"
           role="status"
-          aria-label="Correct"
+          aria-label="Đúng"
         >
           <CheckIcon className={iconSize} />
         </span>
@@ -41,7 +41,7 @@ export function YesNoIndicator({
         <span
           className="rounded-full p-1.5 bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 inline-flex"
           role="status"
-          aria-label="Wrong"
+          aria-label="Sai"
         >
           <XIcon className={iconSize} />
         </span>
@@ -75,7 +75,7 @@ export function YesNoIndicator({
             ? "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 hover:opacity-80"
             : "text-muted-foreground hover:bg-muted hover:text-foreground",
         )}
-        aria-label="Correct"
+        aria-label="Đúng"
       >
         <CheckIcon className={iconSize} />
       </button>
@@ -88,7 +88,7 @@ export function YesNoIndicator({
             ? "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 hover:opacity-80"
             : "text-muted-foreground hover:bg-muted hover:text-foreground",
         )}
-        aria-label="Wrong"
+        aria-label="Sai"
       >
         <XIcon className={iconSize} />
       </button>

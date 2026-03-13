@@ -42,8 +42,8 @@ import type { CategorizedSendersResponse } from "@/app/api/user/categorize/sende
 
 const confidenceConfig = {
   high: {
-    label: "Safe to Archive",
-    description: "Marketing emails and newsletters you likely don't need",
+    label: "An toàn để lưu trữ",
+    description: "Email marketing và bản tin mà bạn có thể không cần",
     icon: MailXIcon,
     color: "text-green-600",
     bgColor: "bg-green-50 dark:bg-green-950/30",
@@ -52,8 +52,8 @@ const confidenceConfig = {
     badgeVariant: "default" as const,
   },
   medium: {
-    label: "Probably Safe",
-    description: "Automated notifications and updates",
+    label: "Có lẽ an toàn",
+    description: "Thông báo tự động và các cập nhật hệ thống",
     icon: BellOffIcon,
     color: "text-amber-600",
     bgColor: "bg-amber-50 dark:bg-amber-950/30",
@@ -62,8 +62,8 @@ const confidenceConfig = {
     badgeVariant: "secondary" as const,
   },
   low: {
-    label: "Review Recommended",
-    description: "Senders that may need a closer look",
+    label: "Nên xem lại",
+    description: "Người gửi có thể cần bạn kiểm tra kỹ hơn",
     icon: MailOpenIcon,
     color: "text-blue-600",
     bgColor: "bg-blue-50 dark:bg-blue-950/30",
@@ -203,7 +203,9 @@ export function BulkArchiveTab() {
       }
       setArchiveComplete(true);
     } catch {
-      toast.error("Failed to archive some senders. Please try again.");
+      toast.error(
+        "Lưu trữ một số người gửi không thành công. Vui lòng thử lại.",
+      );
     } finally {
       setIsArchiving(false);
     }
@@ -233,14 +235,14 @@ export function BulkArchiveTab() {
             <CheckIcon className="size-8 text-green-600" />
           </div>
           <h2 className="mb-2 text-xl font-semibold text-green-900 dark:text-green-100">
-            Archive Started!
+            Đã bắt đầu lưu trữ!
           </h2>
           <p className="mb-4 text-green-700 dark:text-green-300">
-            {selectedCount} senders are being archived in the background.
+            {selectedCount} người gửi đang được lưu trữ ở chế độ nền.
           </p>
           <p className="text-sm text-green-600 dark:text-green-400">
-            Emails are archived, not deleted. You can find them in Gmail
-            anytime.
+            Email được lưu trữ, không bị xóa. Bạn có thể tìm lại trong Gmail bất
+            cứ lúc nào.
           </p>
           <Button
             variant="outline"
@@ -250,7 +252,7 @@ export function BulkArchiveTab() {
               setSelectedSenders({});
             }}
           >
-            Done
+            Hoàn tất
           </Button>
         </Card>
       </div>
@@ -264,10 +266,11 @@ export function BulkArchiveTab() {
           <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
             <InboxIcon className="size-8 text-muted-foreground" />
           </div>
-          <h2 className="mb-2 text-xl font-semibold">No Senders to Archive</h2>
+          <h2 className="mb-2 text-xl font-semibold">
+            Không có người gửi cần lưu trữ
+          </h2>
           <p className="text-muted-foreground">
-            Once our AI categorizes your senders, you&apos;ll see archive
-            suggestions here.
+            Khi AI phân loại xong người gửi, bạn sẽ thấy gợi ý lưu trữ tại đây.
           </p>
         </Card>
       </div>
@@ -284,13 +287,15 @@ export function BulkArchiveTab() {
               <ArchiveIcon className="size-6 text-muted-foreground" />
             </div>
             <div className="flex-1">
-              <h2 className="mb-1 text-xl font-semibold">Ready to Clean Up</h2>
+              <h2 className="mb-1 text-xl font-semibold">
+                Sẵn sàng dọn dẹp hộp thư
+              </h2>
               <p className="mb-4 text-muted-foreground">
-                We found{" "}
+                Chúng tôi tìm thấy{" "}
                 <span className="font-medium text-foreground">
                   {totalCount}
                 </span>{" "}
-                senders you may want to archive
+                người gửi mà bạn có thể muốn lưu trữ
               </p>
 
               <div className="mb-4 flex flex-wrap gap-3 text-sm">
@@ -298,7 +303,8 @@ export function BulkArchiveTab() {
                   <div className="flex items-center gap-1.5">
                     <div className="size-2 rounded-full bg-green-500" />
                     <span>
-                      {groupedByConfidence.high.length} safe to archive
+                      {groupedByConfidence.high.length} người gửi an toàn để lưu
+                      trữ
                     </span>
                   </div>
                 )}
@@ -306,14 +312,17 @@ export function BulkArchiveTab() {
                   <div className="flex items-center gap-1.5">
                     <div className="size-2 rounded-full bg-amber-500" />
                     <span>
-                      {groupedByConfidence.medium.length} probably safe
+                      {groupedByConfidence.medium.length} người gửi có lẽ an
+                      toàn
                     </span>
                   </div>
                 )}
                 {groupedByConfidence.low.length > 0 && (
                   <div className="flex items-center gap-1.5">
                     <div className="size-2 rounded-full bg-blue-500" />
-                    <span>{groupedByConfidence.low.length} to review</span>
+                    <span>
+                      {groupedByConfidence.low.length} người gửi nên xem lại
+                    </span>
                   </div>
                 )}
               </div>
@@ -325,8 +334,8 @@ export function BulkArchiveTab() {
                 >
                   <ArchiveIcon className="mr-2 size-4" />
                   {isArchiving
-                    ? "Archiving..."
-                    : `Archive ${selectedCount} Sender${selectedCount !== 1 ? "s" : ""}`}
+                    ? "Đang lưu trữ..."
+                    : `Lưu trữ ${selectedCount} người gửi`}
                 </Button>
               </div>
             </div>
@@ -338,10 +347,11 @@ export function BulkArchiveTab() {
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">
               <TrendingDownIcon className="mr-1.5 inline size-4" />
-              {selectedCount} of {totalCount} senders selected
+              Đã chọn {selectedCount}/{totalCount} người gửi
             </span>
             <span className="font-medium">
-              {Math.round((selectedCount / totalCount) * 100)}% inbox cleanup
+              {Math.round((selectedCount / totalCount) * 100)}% mức độ dọn dẹp
+              hộp thư
             </span>
           </div>
           <Progress
@@ -419,8 +429,8 @@ export function BulkArchiveTab() {
                       }}
                     >
                       {selectedInSection === senders.length
-                        ? "Deselect All"
-                        : "Select All"}
+                        ? "Bỏ chọn tất cả"
+                        : "Chọn tất cả"}
                     </Button>
                     <span className="min-w-[60px] text-right text-sm text-muted-foreground">
                       {selectedInSection}/{senders.length}
@@ -541,11 +551,11 @@ function ArchiveStatus({
       if (status.threadsTotal) {
         return (
           <span className="text-sm text-green-600">
-            Archived {status.threadsTotal}!
+            Đã lưu trữ {status.threadsTotal} email!
           </span>
         );
       }
-      return <span className="text-sm text-muted-foreground">Archived</span>;
+      return <span className="text-sm text-muted-foreground">Đã lưu trữ</span>;
     case "processing":
       return (
         <span className="text-sm text-blue-600">
@@ -554,7 +564,7 @@ function ArchiveStatus({
         </span>
       );
     case "pending":
-      return <span className="text-sm text-muted-foreground">Pending...</span>;
+      return <span className="text-sm text-muted-foreground">Đang chờ...</span>;
     default:
       return null;
   }

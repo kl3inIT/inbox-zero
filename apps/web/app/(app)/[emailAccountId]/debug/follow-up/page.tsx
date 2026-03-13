@@ -26,49 +26,55 @@ export default function DebugFollowUpPage() {
 
   return (
     <PageWrapper>
-      <PageHeading>Follow-up Debug</PageHeading>
+      <PageHeading>Gỡ lỗi theo dõi</PageHeading>
 
       <LoadingContent loading={isLoading} error={error}>
         <div className="mt-6 space-y-6">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <DebugStat
-              label="Awaiting Reply (days)"
+              label="Đang chờ trả lời (ngày)"
               value={data?.emailAccount.followUpAwaitingReplyDays ?? "Off"}
             />
             <DebugStat
-              label="Needs Reply (days)"
+              label="Cần trả lời (ngày)"
               value={data?.emailAccount.followUpNeedsReplyDays ?? "Off"}
             />
             <DebugStat
-              label="Auto Draft"
-              value={data?.emailAccount.followUpAutoDraftEnabled ? "On" : "Off"}
+              label="Tự động tạo nháp"
+              value={
+                data?.emailAccount.followUpAutoDraftEnabled ? "Bật" : "Tắt"
+              }
             />
             <DebugStat
-              label="Unresolved Trackers"
+              label="Trình theo dõi chưa xử lý"
               value={data?.summary.unresolvedTrackers ?? 0}
             />
             <DebugStat
-              label="Unresolved + Applied"
+              label="Chưa xử lý + Đã áp dụng"
               value={data?.summary.unresolvedWithFollowUpApplied ?? 0}
             />
             <DebugStat
-              label="Unresolved + Draft"
+              label="Chưa xử lý + Đã tạo nháp"
               value={data?.summary.unresolvedWithFollowUpDraft ?? 0}
             />
           </div>
 
           <div className="rounded-lg border p-4 text-sm">
             <p>
-              <span className="font-medium">Last Follow-up Applied:</span>{" "}
+              <span className="font-medium">
+                Lần áp dụng theo dõi gần nhất:
+              </span>{" "}
               {formatDate(data?.summary.lastFollowUpAppliedAt)}
             </p>
             <p className="mt-2">
-              <span className="font-medium">Last Tracker Activity:</span>{" "}
+              <span className="font-medium">
+                Hoạt động trình theo dõi gần nhất:
+              </span>{" "}
               {formatDate(data?.summary.lastTrackerActivityAt)}
             </p>
             <p className="mt-2 text-muted-foreground">
-              Last tracker activity is a proxy for follow-up processing
-              activity.
+              Hoạt động trình theo dõi gần nhất là chỉ báo cho hoạt động xử lý
+              theo dõi.
             </p>
           </div>
 
@@ -84,13 +90,13 @@ export default function DebugFollowUpPage() {
               ) : (
                 <CopyIcon className="mr-2 h-4 w-4" />
               )}
-              {copied ? "Copied" : "Copy JSON"}
+              {copied ? "Đã sao chép" : "Sao chép JSON"}
             </Button>
           </div>
 
           <div className="rounded-lg border bg-muted/50 p-4">
             <pre className="overflow-auto text-sm">
-              {data ? JSON.stringify(data, null, 2) : "Loading..."}
+              {data ? JSON.stringify(data, null, 2) : "Đang tải..."}
             </pre>
           </div>
         </div>
@@ -115,7 +121,7 @@ function DebugStat({
 }
 
 function formatDate(value: Date | string | null | undefined) {
-  if (!value) return "Never";
+  if (!value) return "Không bao giờ";
   const date = typeof value === "string" ? new Date(value) : value;
   return date.toISOString();
 }

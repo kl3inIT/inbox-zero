@@ -33,28 +33,28 @@ export function EmailsToIncludeFilter(props: {
 
   return (
     <DetailedStatsFilter
-      label="Emails to include"
+      label="Email cần hiển thị"
       icon={<FilterIcon className="mr-2 h-4 w-4" />}
       keepOpenOnSelect
       columns={[
         {
-          label: "Read",
+          label: "Đã đọc",
           checked: types.read,
           setChecked: () => setTypes({ ...types, read: !types.read }),
         },
         {
-          label: "Unread",
+          label: "Chưa đọc",
           checked: types.unread,
           setChecked: () => setTypes({ ...types, unread: !types.unread }),
         },
         {
-          label: "Unarchived",
+          label: "Chưa lưu trữ",
           checked: types.unarchived,
           setChecked: () =>
             setTypes({ ...types, unarchived: !types.unarchived }),
         },
         {
-          label: "Archived",
+          label: "Đã lưu trữ",
           checked: types.archived,
           setChecked: () => setTypes({ ...types, archived: !types.archived }),
         },

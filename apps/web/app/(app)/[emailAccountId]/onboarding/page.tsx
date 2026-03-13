@@ -10,8 +10,8 @@ import { BRAND_NAME, getBrandTitle } from "@/utils/branding";
 export const maxDuration = 300;
 
 export const metadata: Metadata = {
-  title: getBrandTitle("Onboarding"),
-  description: `Learn how ${BRAND_NAME} works and get set up.`,
+  title: getBrandTitle("Hướng dẫn bắt đầu"),
+  description: `Tìm hiểu cách ${BRAND_NAME} hoạt động và thiết lập hộp thư của bạn.`,
   alternates: { canonical: "/onboarding" },
 };
 

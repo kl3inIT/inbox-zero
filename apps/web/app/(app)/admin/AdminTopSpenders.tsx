@@ -33,10 +33,11 @@ export function AdminTopSpenders() {
   return (
     <Card className="max-w-5xl">
       <CardHeader>
-        <CardTitle>Top Spenders</CardTitle>
+        <CardTitle>Người dùng tốn chi phí nhiều nhất</CardTitle>
         <CardDescription>
-          Last 7 days (same window as spend limiter). Nano-Limited shows who is
-          currently forced onto nano via the Redis spend guard.
+          7 ngày gần nhất (cùng cửa sổ với giới hạn chi tiêu). Nano-Limited cho
+          biết ai hiện đang bị buộc dùng nano bởi cơ chế giới hạn chi tiêu
+          Redis.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -45,11 +46,11 @@ export function AdminTopSpenders() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-16">Rank</TableHead>
-                  <TableHead>Email Account ID</TableHead>
+                  <TableHead className="w-16">Hạng</TableHead>
+                  <TableHead>ID tài khoản email</TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>Nano-Limited</TableHead>
-                  <TableHead className="text-right">Cost</TableHead>
+                  <TableHead className="text-right">Chi phí</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -64,9 +65,9 @@ export function AdminTopSpenders() {
                     </TableCell>
                     <TableCell>
                       {spender.nanoLimitedBySpendGuard ? (
-                        <Badge variant="red">Yes</Badge>
+                        <Badge variant="red">Có</Badge>
                       ) : (
-                        <Badge variant="green">No</Badge>
+                        <Badge variant="green">Không</Badge>
                       )}
                     </TableCell>
                     <TableCell className="text-right">
@@ -78,7 +79,7 @@ export function AdminTopSpenders() {
             </Table>
           ) : (
             <p className="text-sm text-muted-foreground">
-              No usage cost recorded in the past 7 days.
+              Không có chi phí sử dụng nào được ghi nhận trong 7 ngày qua.
             </p>
           )}
         </LoadingContent>

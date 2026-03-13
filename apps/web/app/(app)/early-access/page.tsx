@@ -24,16 +24,16 @@ export default function RequestAccessPage() {
           <>
             <Card>
               <CardHeader>
-                <CardTitle>Sender categories</CardTitle>
+                <CardTitle>Phân loại người gửi</CardTitle>
                 <CardDescription>
-                  Sender Categories is a feature that allows you to categorize
-                  emails by sender, and take bulk actions or apply rules to
-                  them.
+                  Sender Categories là tính năng cho phép bạn phân loại email
+                  theo người gửi và thực hiện các hành động hàng loạt hoặc áp
+                  dụng quy tắc cho chúng.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button asChild>
-                  <Link href="/smart-categories">Sender Categories</Link>
+                  <Link href="/smart-categories">Phân loại người gửi</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -69,15 +69,15 @@ export default function RequestAccessPage() {
         )}
         <Card>
           <CardHeader>
-            <CardTitle>Early access</CardTitle>
+            <CardTitle>Quyền truy cập sớm</CardTitle>
             <CardDescription>
-              Give us feedback on what features you want to see.
+              Hãy cho chúng tôi biết bạn muốn thấy những tính năng nào.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild>
               <Link href="/waitlist" target="_blank">
-                Feedback Form
+                Biểu mẫu góp ý
               </Link>
             </Button>
           </CardContent>

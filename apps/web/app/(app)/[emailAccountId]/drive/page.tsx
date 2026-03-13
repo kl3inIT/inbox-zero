@@ -70,11 +70,11 @@ export default function DrivePage() {
 
         if (result?.serverError) {
           toastError({
-            title: "Error saving preferences",
+            title: "Lỗi khi lưu cài đặt",
             description: result.serverError,
           });
         } else {
-          toastSuccess({ description: "Preferences saved" });
+          toastSuccess({ description: "Đã lưu cài đặt" });
           mutateEmail();
         }
       } finally {
@@ -95,10 +95,12 @@ export default function DrivePage() {
         {view === "settings" && (
           <>
             <div className="flex items-center justify-between">
-              <PageHeader title="Auto-file attachments" />
+              <PageHeader title="Tự động lưu tệp đính kèm" />
               <div className="flex items-center gap-3">
                 <IntegrationsPopover emailAccountId={emailAccountId} />
-                {!filingEnabled && <Badge variant="destructive">Paused</Badge>}
+                {!filingEnabled && (
+                  <Badge variant="destructive">Đang tạm dừng</Badge>
+                )}
                 <Switch
                   checked={filingEnabled}
                   onCheckedChange={handleToggle}
@@ -153,15 +155,15 @@ function IntegrationsPopover({ emailAccountId }: { emailAccountId: string }) {
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" size="sm">
-          Integrations
+          Tích hợp
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-72">
         <div className="space-y-3">
           <div>
-            <h4 className="text-sm font-medium">Integrations</h4>
+            <h4 className="text-sm font-medium">Tích hợp</h4>
             <MutedText className="text-xs">
-              Send filing updates to connected apps
+              Gửi cập nhật lưu trữ tài liệu sang các ứng dụng đã kết nối
             </MutedText>
           </div>
 
@@ -178,14 +180,14 @@ function IntegrationsPopover({ emailAccountId }: { emailAccountId: string }) {
             </div>
           ) : (
             <MutedText className="text-xs">
-              Select a target channel in{" "}
+              Chọn một kênh đích trong{" "}
               <Link
                 href={prefixPath(emailAccountId, "/briefs")}
                 className="underline text-foreground"
               >
-                Meeting Briefs
+                Tóm tắt cuộc họp
               </Link>{" "}
-              to enable Slack notifications.
+              để bật thông báo Slack.
             </MutedText>
           )}
         </div>
@@ -211,12 +213,13 @@ function SlackChannelToggle({
     updateChannelFeaturesAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Settings saved" });
+        toastSuccess({ description: "Đã lưu cài đặt" });
         onUpdate();
       },
       onError: (error) => {
         toastError({
-          description: getActionErrorMessage(error.error) ?? "Failed to update",
+          description:
+            getActionErrorMessage(error.error) ?? "Cập nhật không thành công",
         });
       },
     },

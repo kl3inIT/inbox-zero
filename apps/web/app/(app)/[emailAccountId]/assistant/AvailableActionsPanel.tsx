@@ -10,25 +10,25 @@ import {
 import { TooltipExplanation } from "@/components/TooltipExplanation";
 
 const actionNames: Record<ActionType, string> = {
-  [ActionType.LABEL]: "Label",
-  [ActionType.MOVE_FOLDER]: "Move to folder",
-  [ActionType.ARCHIVE]: "Archive",
-  [ActionType.DRAFT_EMAIL]: "Draft replies",
-  [ActionType.REPLY]: "Send replies",
-  [ActionType.FORWARD]: "Forward",
-  [ActionType.MARK_READ]: "Mark as read",
-  [ActionType.MARK_SPAM]: "Mark as spam",
-  [ActionType.SEND_EMAIL]: "Send email",
-  [ActionType.CALL_WEBHOOK]: "Call webhook",
-  [ActionType.DIGEST]: "Add to digest",
-  [ActionType.NOTIFY_SENDER]: "Notify sender",
+  [ActionType.LABEL]: "Gắn nhãn",
+  [ActionType.MOVE_FOLDER]: "Chuyển vào thư mục",
+  [ActionType.ARCHIVE]: "Lưu trữ",
+  [ActionType.DRAFT_EMAIL]: "Soạn thư trả lời nháp",
+  [ActionType.REPLY]: "Gửi trả lời",
+  [ActionType.FORWARD]: "Chuyển tiếp",
+  [ActionType.MARK_READ]: "Đánh dấu đã đọc",
+  [ActionType.MARK_SPAM]: "Đánh dấu spam",
+  [ActionType.SEND_EMAIL]: "Gửi email",
+  [ActionType.CALL_WEBHOOK]: "Gọi webhook",
+  [ActionType.DIGEST]: "Thêm vào bản tóm tắt",
+  [ActionType.NOTIFY_SENDER]: "Thông báo cho người gửi",
 };
 
 const actionTooltips: Partial<Record<ActionType, string>> = {
   [ActionType.CALL_WEBHOOK]:
-    "For developers: trigger external integrations by sending email data to a custom URL",
+    "Dành cho nhà phát triển: kích hoạt tích hợp bên ngoài bằng cách gửi dữ liệu email tới một URL tuỳ chỉnh",
   [ActionType.DIGEST]:
-    "Group emails together and receive them as a daily summary",
+    "Nhóm email lại và nhận chúng dưới dạng bản tóm tắt hàng ngày",
 };
 
 export function AvailableActionsPanel() {
@@ -39,7 +39,7 @@ export function AvailableActionsPanel() {
         <div className="grid gap-2">
           <ActionSection
             actions={[...getAvailableActions(provider), ...getExtraActions()]}
-            title="Available Actions"
+            title="Các hành động khả dụng"
           />
         </div>
       </CardContent>

@@ -18,7 +18,7 @@ import {
   useBulkDelete,
 } from "@/app/(app)/[emailAccountId]/bulk-unsubscribe/hooks";
 import { PremiumTooltip, usePremium } from "@/components/PremiumAlert";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 import { useAccount } from "@/providers/EmailAccountProvider";
 import { cn } from "@/utils";
 import {
@@ -175,10 +175,10 @@ export function BulkActions({
 
   const unsubscribeLabel =
     hasUnsubscribeLinks && hasBlockableLinks
-      ? "Unsubscribe/Block"
+      ? "Hủy đăng ký/Chặn"
       : hasBlockableLinks
-        ? "Block"
-        : "Unsubscribe";
+        ? "Chặn"
+        : "Hủy đăng ký";
 
   return (
     <>
@@ -206,7 +206,7 @@ export function BulkActions({
                     <XIcon className="size-4" />
                   </button>
                   <span className="text-sm text-gray-600">
-                    {selectedCount} of {totalCount} selected
+                    Đã chọn {selectedCount}/{totalCount}
                   </span>
                 </div>
 
@@ -221,29 +221,31 @@ export function BulkActions({
                   )}
                   <ActionButton
                     icon={ArchiveIcon}
-                    label="Auto Archive"
+                    label="Tự động lưu trữ"
                     onClick={() => setAutoArchiveDialogOpen(true)}
                   />
                   <ActionButton
                     icon={
                       allSelectedAreApproved ? ThumbsDownIcon : ThumbsUpIcon
                     }
-                    label={allSelectedAreApproved ? "Unapprove" : "Approve"}
+                    label={
+                      allSelectedAreApproved ? "Bỏ chấp thuận" : "Chấp thuận"
+                    }
                     onClick={() =>
                       onBulkApprove(getSelectedValues(), allSelectedAreApproved)
                     }
                   />
                   <ActionButton
                     icon={ArchiveIcon}
-                    label="Archive"
-                    loadingLabel="Archiving"
+                    label="Lưu trữ"
+                    loadingLabel="Đang lưu trữ"
                     onClick={() => setArchiveDialogOpen(true)}
                     loading={isBulkArchiving}
                   />
                   <ActionButton
                     icon={TrashIcon}
-                    label="Delete"
-                    loadingLabel="Deleting"
+                    label="Xoá"
+                    loadingLabel="Đang xoá"
                     danger
                     onClick={() => setDeleteDialogOpen(true)}
                     loading={isBulkDeleting}
@@ -259,10 +261,10 @@ export function BulkActions({
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete all emails?</DialogTitle>
+            <DialogTitle>Xóa tất cả email?</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete all emails from these senders.
-              This action cannot be undone.
+              Bạn có chắc chắn muốn xóa tất cả email từ những người gửi này
+              không? Hành động này không thể hoàn tác.
             </DialogDescription>
           </DialogHeader>
 
@@ -305,7 +307,7 @@ export function BulkActions({
               variant="outline"
               onClick={() => setDeleteDialogOpen(false)}
             >
-              Cancel
+              Hủy
             </Button>
             <Button
               variant="destructive"
@@ -314,7 +316,7 @@ export function BulkActions({
                 setDeleteDialogOpen(false);
               }}
             >
-              Delete
+              Xóa
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -324,9 +326,10 @@ export function BulkActions({
       <Dialog open={archiveDialogOpen} onOpenChange={setArchiveDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Archive all emails?</DialogTitle>
+            <DialogTitle>Lưu trữ tất cả email?</DialogTitle>
             <DialogDescription>
-              Are you sure you want to archive all emails from these senders?
+              Bạn có chắc chắn muốn lưu trữ tất cả email từ những người gửi này
+              không?
             </DialogDescription>
           </DialogHeader>
 
@@ -369,7 +372,7 @@ export function BulkActions({
               variant="outline"
               onClick={() => setArchiveDialogOpen(false)}
             >
-              Cancel
+              Hủy
             </Button>
             <Button
               onClick={() => {
@@ -377,7 +380,7 @@ export function BulkActions({
                 setArchiveDialogOpen(false);
               }}
             >
-              Archive
+              Lưu trữ
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -390,10 +393,12 @@ export function BulkActions({
       >
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Auto archive these senders?</DialogTitle>
+            <DialogTitle>
+              Tự động lưu trữ email từ những người gửi này?
+            </DialogTitle>
             <DialogDescription>
-              Automatically archive all current and future emails from these
-              senders. They will no longer appear in your inbox.
+              Tự động lưu trữ tất cả email hiện tại và tương lai từ những người
+              gửi này. Chúng sẽ không còn xuất hiện trong hộp thư đến của bạn.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
@@ -401,7 +406,7 @@ export function BulkActions({
               variant="outline"
               onClick={() => setAutoArchiveDialogOpen(false)}
             >
-              Cancel
+              Hủy
             </Button>
             <Button
               onClick={() => {
@@ -409,7 +414,7 @@ export function BulkActions({
                 setAutoArchiveDialogOpen(false);
               }}
             >
-              Auto Archive
+              Tự động lưu trữ
             </Button>
           </DialogFooter>
         </DialogContent>

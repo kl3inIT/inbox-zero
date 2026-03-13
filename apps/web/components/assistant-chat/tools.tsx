@@ -1242,28 +1242,34 @@ function getManageInboxActionLabel({
   inProgress?: boolean;
 }) {
   if (action === "bulk_archive_senders") {
-    return inProgress ? "Bulk archiving senders" : "Bulk archived senders";
+    return inProgress
+      ? "Đang lưu trữ hàng loạt người gửi"
+      : "Đã lưu trữ hàng loạt người gửi";
   }
   if (action === "unsubscribe_senders") {
-    return inProgress ? "Unsubscribing senders" : "Unsubscribed senders";
+    return inProgress
+      ? "Đang hủy đăng ký người gửi"
+      : "Đã hủy đăng ký người gửi";
   }
   if (action === "archive_threads") {
     if (inProgress) {
       return labelApplied
-        ? "Archiving and labeling emails"
-        : "Archiving emails";
+        ? "Đang lưu trữ và gắn nhãn email"
+        : "Đang lưu trữ email";
     }
-    return labelApplied ? "Archived and labeled emails" : "Archived emails";
+    return labelApplied ? "Đã lưu trữ và gắn nhãn email" : "Đã lưu trữ email";
   }
   if (action === "mark_read_threads") {
     if (inProgress) {
       return read === false
-        ? "Marking emails as unread"
-        : "Marking emails as read";
+        ? "Đang đánh dấu email chưa đọc"
+        : "Đang đánh dấu email đã đọc";
     }
-    return read === false ? "Marked emails as unread" : "Marked emails as read";
+    return read === false
+      ? "Đã đánh dấu email chưa đọc"
+      : "Đã đánh dấu email đã đọc";
   }
-  return "Updated emails";
+  return "Đã cập nhật email";
 }
 
 function ToolDetailRow({ label, value }: { label: string; value: string }) {

@@ -34,7 +34,7 @@ export function OnboardingModal({
     <>
       <Button onClick={openModal} className="text-nowrap" {...buttonProps}>
         <PlayIcon className="mr-2 h-4 w-4" />
-        Watch demo
+        Xem demo
       </Button>
 
       <OnboardingModalDialog

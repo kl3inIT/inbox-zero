@@ -16,7 +16,7 @@ export function Celebration(props: { message: string }) {
   return (
     <>
       <div className="flex items-center justify-center font-title text-2xl text-primary">
-        Congrats! {props.message}
+        Chúc mừng! {props.message}
       </div>
       <div className="flex items-center justify-center">
         <Confetti
@@ -44,7 +44,7 @@ export function Celebration(props: { message: string }) {
             );
           }}
         >
-          Share on Twitter
+          Chia sẻ lên Twitter
         </Button>
       </div>
 
@@ -53,7 +53,7 @@ export function Celebration(props: { message: string }) {
           src={getCelebrationImage()}
           width={400}
           height={400}
-          alt="Congrats!"
+          alt="Chúc mừng!"
           unoptimized
         />
       </div>

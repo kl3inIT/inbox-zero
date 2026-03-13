@@ -27,8 +27,8 @@ export function ConfirmDialog({
   title,
   description,
   onConfirm,
-  confirmText = "Delete",
-  cancelText = "Cancel",
+  confirmText = "Xoá",
+  cancelText = "Huỷ",
 }: ConfirmDialogProps) {
   return (
     <AlertDialog>

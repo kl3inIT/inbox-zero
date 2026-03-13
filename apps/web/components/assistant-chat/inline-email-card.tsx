@@ -41,19 +41,19 @@ export function InlineEmailList({ children }: { children?: ReactNode }) {
       );
       const failedCount = results.filter((r) => r?.serverError).length;
       if (failedCount === results.length) {
-        toastError({ description: "Failed to archive emails" });
+        toastError({ description: "Không thể lưu trữ các email" });
         setArchiveAllState("idle");
       } else if (failedCount > 0) {
         toastSuccess({
-          description: `Archived ${results.length - failedCount} of ${results.length} emails`,
+          description: `Đã lưu trữ ${results.length - failedCount}/${results.length} email`,
         });
         setArchiveAllState("idle");
       } else {
-        toastSuccess({ description: `Archived ${threadIds.length} emails` });
+        toastSuccess({ description: `Đã lưu trữ ${threadIds.length} email` });
         setArchiveAllState("done");
       }
     } catch {
-      toastError({ description: "Failed to archive emails" });
+      toastError({ description: "Không thể lưu trữ các email" });
       setArchiveAllState("idle");
     }
   }
@@ -69,19 +69,19 @@ export function InlineEmailList({ children }: { children?: ReactNode }) {
       );
       const failedCount = results.filter((r) => r?.serverError).length;
       if (failedCount === results.length) {
-        toastError({ description: "Failed to mark emails as read" });
+        toastError({ description: "Không thể đánh dấu email đã đọc" });
         setMarkReadState("idle");
       } else if (failedCount > 0) {
         toastSuccess({
-          description: `Marked ${results.length - failedCount} of ${results.length} as read`,
+          description: `Đã đánh dấu đã đọc ${results.length - failedCount}/${results.length}`,
         });
         setMarkReadState("idle");
       } else {
-        toastSuccess({ description: `Marked ${threadIds.length} as read` });
+        toastSuccess({ description: `Đã đánh dấu đã đọc ${threadIds.length}` });
         setMarkReadState("done");
       }
     } catch {
-      toastError({ description: "Failed to mark emails as read" });
+      toastError({ description: "Không thể đánh dấu email đã đọc" });
       setMarkReadState("idle");
     }
   }
@@ -92,7 +92,9 @@ export function InlineEmailList({ children }: { children?: ReactNode }) {
         <div className="flex items-center justify-end gap-1 border-b px-3 py-1.5">
           <Tooltip
             content={
-              archiveAllState === "done" ? "All archived" : "Archive all"
+              archiveAllState === "done"
+                ? "Đã lưu trữ tất cả"
+                : "Lưu trữ tất cả"
             }
           >
             <Button
@@ -107,7 +109,9 @@ export function InlineEmailList({ children }: { children?: ReactNode }) {
           </Tooltip>
           <Tooltip
             content={
-              markReadState === "done" ? "All marked read" : "Mark all read"
+              markReadState === "done"
+                ? "Đã đánh dấu đã đọc tất cả"
+                : "Đánh dấu đã đọc tất cả"
             }
           >
             <Button
@@ -160,10 +164,10 @@ export function InlineEmailCard({
         setActionState("idle");
         return;
       }
-      toastSuccess({ description: "Archived" });
+      toastSuccess({ description: "Đã lưu trữ" });
       setActionState("done");
     } catch {
-      toastError({ description: "Failed to archive" });
+      toastError({ description: "Không thể lưu trữ" });
       setActionState("idle");
     }
   }
@@ -288,14 +292,14 @@ function EmailPreview({ threadId }: { threadId: string }) {
 
   if (isLoading) {
     return (
-      <div className="px-3 py-2 text-xs text-muted-foreground">Loading…</div>
+      <div className="px-3 py-2 text-xs text-muted-foreground">Đang tải…</div>
     );
   }
 
   if (error) {
     return (
       <div className="px-3 py-2 text-xs text-muted-foreground">
-        Could not load email content: {error.message}
+        Không thể tải nội dung email: {error.message}
       </div>
     );
   }
@@ -303,14 +307,14 @@ function EmailPreview({ threadId }: { threadId: string }) {
   if (!data?.thread?.messages?.length) {
     return (
       <div className="px-3 py-2 text-xs text-muted-foreground">
-        No email content found.
+        Không tìm thấy nội dung email.
       </div>
     );
   }
 
   const lastMessage = data.thread.messages[data.thread.messages.length - 1];
   const text =
-    lastMessage.textPlain || lastMessage.snippet || "No content available.";
+    lastMessage.textPlain || lastMessage.snippet || "Không có nội dung.";
 
   return (
     <div className="max-h-60 overflow-auto border-t bg-muted/20 px-6 py-3 text-xs whitespace-pre-wrap text-muted-foreground">

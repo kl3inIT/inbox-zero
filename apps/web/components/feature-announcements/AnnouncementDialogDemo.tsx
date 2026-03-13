@@ -30,7 +30,7 @@ export function AnnouncementDialogDemo() {
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Open Announcement Dialog</Button>
+      <Button onClick={() => setIsOpen(true)}>Mở hộp thoại thông báo</Button>
 
       <AnimatePresence>
         {isOpen && (
@@ -84,22 +84,22 @@ export function AnnouncementDialogDemo() {
 function getDemoAnnouncement(): Announcement {
   return {
     id: "follow-up-reminders",
-    title: "Follow-up Reminders",
+    title: "Nhắc nhở theo dõi",
     description:
-      "Track replies and get reminded about unanswered emails. Never let an important email slip through the cracks.",
+      "Theo dõi phản hồi và nhận nhắc nhở về các email chưa được trả lời. Không để sót bất kỳ email quan trọng nào.",
     image: <FollowUpRemindersIllustration />,
     link: "/automation?tab=settings",
     learnMoreLink: "/#",
     publishedAt: "2026-01-15T00:00:00Z",
     details: [
       {
-        title: "Automatic follow-up labels",
-        description: "Labels threads after 3 days with no response.",
+        title: "Tự động gắn nhãn theo dõi",
+        description: "Gắn nhãn hội thoại sau 3 ngày không có phản hồi.",
         icon: <Tag className={DETAIL_ICON_CLASS} />,
       },
       {
-        title: "Auto-generated drafts",
-        description: "Creates a draft to nudge unresponsive contacts.",
+        title: "Tự động tạo bản nháp",
+        description: "Tạo bản nháp để nhắc lại những liên hệ chưa phản hồi.",
         icon: <FileEdit className={DETAIL_ICON_CLASS} />,
       },
     ],

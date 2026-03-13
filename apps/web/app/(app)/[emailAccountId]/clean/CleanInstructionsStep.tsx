@@ -38,32 +38,34 @@ export function CleanInstructionsStep() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="text-center">
-      <TypographyH3>Which emails should stay in your inbox?</TypographyH3>
+      <TypographyH3>
+        Những email nào nên được giữ lại trong hộp thư đến?
+      </TypographyH3>
 
       <div className="mt-4 grid gap-4">
         <Toggle
           name="reply"
           enabled={skipStates.skipReply}
           onChange={(value) => setSkipStates({ skipReply: value })}
-          labelRight="Emails needing replies"
+          labelRight="Email cần trả lời"
         />
         <Toggle
           name="starred"
           enabled={skipStates.skipStarred}
           onChange={(value) => setSkipStates({ skipStarred: value })}
-          labelRight="Starred emails"
+          labelRight="Email được gắn sao"
         />
         <Toggle
           name="calendar"
           enabled={skipStates.skipCalendar}
           onChange={(value) => setSkipStates({ skipCalendar: value })}
-          labelRight="Future events"
+          labelRight="Sự kiện trong tương lai"
         />
         <Toggle
           name="receipt"
           enabled={skipStates.skipReceipt}
           onChange={(value) => setSkipStates({ skipReceipt: value })}
-          labelRight="Payment receipts"
+          labelRight="Hóa đơn/thanh toán"
         />
         {/* <Toggle
           name="attachment"
@@ -75,14 +77,14 @@ export function CleanInstructionsStep() {
           name="conversation"
           enabled={skipStates.skipConversation}
           onChange={(value) => setSkipStates({ skipConversation: value })}
-          labelRight="Conversations"
-          tooltipText="Email threads where you sent a reply"
+          labelRight="Cuộc hội thoại"
+          tooltipText="Chuỗi email mà bạn đã từng trả lời"
         />
         <Toggle
           name="custom"
           enabled={showCustom}
           onChange={(value) => setShowCustom(value)}
-          labelRight="Custom"
+          labelRight="Tùy chỉnh"
         />
       </div>
 
@@ -94,17 +96,17 @@ export function CleanInstructionsStep() {
             rows={3}
             name="instructions"
             registerProps={register("instructions")}
-            placeholder={`Example:
+            placeholder={`Ví dụ:
 
-I work as a freelance designer. Don't archive emails from clients.
-I'm in the middle of a building project, keep those emails too.`}
+Tôi làm việc như một freelancer thiết kế. Đừng lưu trữ email từ khách hàng.
+Tôi đang trong một dự án xây dựng, hãy giữ lại các email liên quan.`}
             error={errors.instructions}
           />
         </div>
       )}
 
       <div className="mt-6 flex justify-center">
-        <Button type="submit">Continue</Button>
+        <Button type="submit">Tiếp tục</Button>
       </div>
     </form>
   );

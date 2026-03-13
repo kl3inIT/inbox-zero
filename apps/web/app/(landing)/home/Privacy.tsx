@@ -7,7 +7,7 @@ export function Privacy() {
         <div className="flex items-center gap-8">
           <Image
             src="/images/home/soc2.svg"
-            alt="SOC2 Type II Compliant"
+            alt="Tuân thủ SOC2 Type II"
             className="h-[120px] w-auto"
             width="200"
             height="120"
@@ -15,7 +15,7 @@ export function Privacy() {
 
           <Image
             src="/images/home/soc2.png"
-            alt="SOC2 Type II Compliant"
+            alt="Tuân thủ SOC2 Type II"
             className="h-[160px] w-auto"
             width="300"
             height="160"
@@ -26,20 +26,21 @@ export function Privacy() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="font-title text-base leading-7 text-blue-600">
-            Privacy first
+            Ưu tiên quyền riêng tư
           </h2>
           <p className="mt-2 font-title text-3xl text-gray-900 sm:text-4xl">
-            Open Source. See exactly what our code does. Or host it yourself.
+            Mã nguồn mở. Xem chính xác code của chúng tôi làm gì. Hoặc tự host.
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Your data is never used to train general AI models, and we maintain
-            the highest security and privacy standards.
+            Dữ liệu của bạn không bao giờ được dùng để huấn luyện các mô hình AI
+            đại trà, và chúng tôi duy trì các tiêu chuẩn bảo mật/quyền riêng tư
+            ở mức cao nhất.
           </p>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Inbox Zero is SOC2 compliant and CASA Tier 2 approved. It has
-            undergone a thorough security process with Google to ensure the
-            protection of your emails. You can even self-host Inbox Zero on your
-            own infrastructure.
+            Inbox Zero tuân thủ SOC2 và được phê duyệt CASA Tier 2. Sản phẩm đã
+            trải qua quy trình kiểm tra bảo mật kỹ lưỡng với Google để đảm bảo
+            an toàn cho email của bạn. Bạn thậm chí có thể tự host Inbox Zero
+            trên hạ tầng của mình.
           </p>
         </div>
       </div>

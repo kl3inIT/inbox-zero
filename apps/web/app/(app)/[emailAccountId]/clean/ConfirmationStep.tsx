@@ -71,15 +71,18 @@ export function ConfirmationStep({
         unoptimized
       />
 
-      <TypographyH3 className="mt-2">Ready to clean up your inbox</TypographyH3>
+      <TypographyH3 className="mt-2">
+        Sẵn sàng dọn dẹp hộp thư của bạn
+      </TypographyH3>
 
       <ul className="mx-auto mt-4 max-w-prose list-disc space-y-2 pl-4 text-left">
         <li>
-          We'll process {PREVIEW_RUN_COUNT} emails in an initial clean up.
+          Chúng tôi sẽ xử lý {PREVIEW_RUN_COUNT} email trong lần dọn dẹp thử đầu
+          tiên.
         </li>
         <li>
-          If you're happy with the results, we'll continue to process the rest
-          of your inbox.
+          Nếu bạn hài lòng với kết quả, chúng tôi sẽ tiếp tục xử lý phần còn lại
+          của hộp thư đến.
         </li>
         {/* TODO: we should count only emails we're processing */}
         {/* <li>
@@ -89,26 +92,26 @@ export function ConfirmationStep({
         <li>
           {action === CleanAction.ARCHIVE ? (
             <>
-              Archived emails will be labeled{" "}
-              <Badge color="green">Archived</Badge> in Gmail.
+              Các email đã lưu trữ sẽ được gắn nhãn{" "}
+              <Badge color="green">Đã lưu trữ</Badge> trong Gmail.
             </>
           ) : (
             <>
-              Emails marked as read will be labeled{" "}
-              <Badge color="green">Read</Badge> in Gmail.
+              Các email được đánh dấu đã đọc sẽ được gắn nhãn{" "}
+              <Badge color="green">Đã đọc</Badge> trong Gmail.
             </>
           )}
         </li>
-        <li>No emails are deleted - everything can be found in search.</li>
+        <li>Không email nào bị xóa - bạn vẫn có thể tìm lại bằng tìm kiếm.</li>
         {reuseSettings && (
           <li>
-            We'll use your settings from the last time you cleaned your inbox.
-            You can adjust these{" "}
+            Chúng tôi sẽ dùng lại các cài đặt từ lần dọn dẹp hộp thư trước của
+            bạn. Bạn có thể điều chỉnh lại{" "}
             <Link
               className="font-semibold hover:underline"
               href={prefixPath(emailAccountId, "/clean/onboarding")}
             >
-              here
+              tại đây
             </Link>
             .
           </li>
@@ -117,7 +120,7 @@ export function ConfirmationStep({
 
       <div className="mt-6">
         <Button size="lg" onClick={handleStartCleaning}>
-          Start Cleaning
+          Bắt đầu dọn dẹp
         </Button>
       </div>
 
@@ -125,12 +128,12 @@ export function ConfirmationStep({
         <MutedText className="mt-6 flex items-center justify-center space-x-6">
           <FooterLink
             icon={HistoryIcon}
-            text="History"
+            text="Lịch sử"
             href={prefixPath(emailAccountId, "/clean/history")}
           />
           <FooterLink
             icon={SettingsIcon}
-            text="Edit settings"
+            text="Chỉnh sửa cài đặt"
             href={prefixPath(emailAccountId, "/clean/onboarding")}
           />
         </MutedText>

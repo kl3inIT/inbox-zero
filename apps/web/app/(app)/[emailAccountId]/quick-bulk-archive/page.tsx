@@ -15,7 +15,7 @@ export default function QuickBulkArchivePage() {
       </ClientOnly>
 
       <PageWrapper>
-        <PageHeader title="Quick Bulk Archive" />
+        <PageHeader title="Lưu trữ hàng loạt nhanh" />
 
         <ClientOnly>
           <BulkArchiveTab />

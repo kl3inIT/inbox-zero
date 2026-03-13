@@ -17,14 +17,15 @@ export function CleanStats({
 
   const chartData = [
     {
-      label: "Keep in inbox",
+      label: "Giữ lại trong hộp thư",
       value: inboxCount,
       percentage: stats.total > 0 ? (inboxCount / stats.total) * 100 : 0,
       icon: InboxIcon,
       color: "bg-blue-500",
     },
     {
-      label: action === CleanAction.ARCHIVE ? "Archived" : "Marked as read",
+      label:
+        action === CleanAction.ARCHIVE ? "Đã lưu trữ" : "Đã đánh dấu đã đọc",
       value: stats.archived,
       percentage: stats.total > 0 ? (stats.archived / stats.total) * 100 : 0,
       icon: ArchiveIcon,
@@ -39,7 +40,7 @@ export function CleanStats({
           <div className="text-2xl font-bold">
             {stats.total.toLocaleString()}
           </div>
-          <p className="text-xs text-muted-foreground">Emails processed</p>
+          <p className="text-xs text-muted-foreground">Email đã được xử lý</p>
 
           <div className="mt-4 space-y-4">
             {chartData.map((item) => (

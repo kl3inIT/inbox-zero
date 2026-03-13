@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { SparklesIcon } from "lucide-react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import prisma from "@/utils/prisma";
@@ -18,7 +17,6 @@ import { AIChatButton } from "@/app/(app)/[emailAccountId]/assistant/AIChatButto
 import { AllRulesDisabledBanner } from "@/app/(app)/[emailAccountId]/assistant/AllRulesDisabledBanner";
 import { PageWrapper } from "@/components/PageWrapper";
 import { PageHeader } from "@/components/PageHeader";
-import { DismissibleVideoCard } from "@/components/VideoCard";
 import {
   STEP_KEYS,
   getStepNumber,
@@ -29,22 +27,22 @@ export const maxDuration = 300; // Applies to the actions
 const tabOptions = (emailAccountId: string) => [
   {
     id: "rules",
-    label: "Rules",
+    label: "Quy tắc",
     href: `/${emailAccountId}/automation?tab=rules`,
   },
   {
     id: "test",
-    label: "Test",
+    label: "Kiểm thử",
     href: `/${emailAccountId}/automation?tab=test`,
   },
   {
     id: "history",
-    label: "History",
+    label: "Lịch sử",
     href: `/${emailAccountId}/automation?tab=history`,
   },
   {
     id: "settings",
-    label: "Settings",
+    label: "Cài đặt",
     href: `/${emailAccountId}/automation?tab=settings`,
   },
 ];
@@ -90,13 +88,13 @@ export default async function AutomationPage({
           <div className="flex items-center justify-between">
             <div>
               <PageHeader
-                title="AI Assistant"
-                video={{
-                  title: "Getting started with AI Personal Assistant",
-                  description:
-                    "Learn how to use the AI Personal Assistant to automatically label, archive, and more.",
-                  muxPlaybackId: "VwIP7UAw4MXDjkvmLjJzGsY00ee9jxIZVI952DoBBfp8",
-                }}
+                title="Trợ lý Email AI"
+                // video={{
+                //   title: "Bắt đầu với Trợ lý Email AI",
+                //   description:
+                //     "Tìm hiểu cách sử dụng Trợ lý Email AI để tự động gán nhãn, lưu trữ và nhiều hơn thế nữa.",
+                //   muxPlaybackId: "VwIP7UAw4MXDjkvmLjJzGsY00ee9jxIZVI952DoBBfp8",
+                // }}
               />
             </div>
 
@@ -114,16 +112,18 @@ export default async function AutomationPage({
             />
           </div>
 
+          {/*
           <DismissibleVideoCard
             className="my-4"
             icon={<SparklesIcon className="h-5 w-5" />}
-            title="Getting started with AI Assistant"
+            title="Bắt đầu với Trợ lý AI"
             description={
-              "Learn how to use the AI Assistant to automatically label, archive, and more."
+              "Tìm hiểu cách dùng Trợ lý AI để tự động gán nhãn, lưu trữ và nhiều hơn nữa."
             }
             muxPlaybackId="VwIP7UAw4MXDjkvmLjJzGsY00ee9jxIZVI952DoBBfp8"
             storageKey="ai-assistant-onboarding-video"
           />
+          */}
 
           <Tabs defaultValue="rules">
             <TabsContent value="rules" className="mb-10">

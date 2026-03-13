@@ -67,11 +67,11 @@ export function History() {
             />
           ) : (
             <AlertBasic
-              title="No history"
+              title="Không có lịch sử"
               description={
                 ruleId === "all"
-                  ? "No emails have been processed yet."
-                  : "No emails have been processed for this rule."
+                  ? "Chưa có email nào được xử lý."
+                  : "Chưa có email nào được xử lý cho quy tắc này."
               }
             />
           )}
@@ -101,7 +101,7 @@ function HistoryTable({
         <TableHeader>
           <TableRow>
             <TableHead>Email</TableHead>
-            <TableHead className="text-right">Rule</TableHead>
+            <TableHead className="text-right">Quy tắc</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -122,7 +122,7 @@ function HistoryTable({
                   />
                   {!er.executedRules[0]?.automated && (
                     <Badge color="yellow" className="mt-2">
-                      Applied manually
+                      Áp dụng thủ công
                     </Badge>
                   )}
                 </TableCell>
@@ -169,7 +169,7 @@ function EmailCell({
           ) : isMessageLoading ? (
             <Skeleton className="h-5 w-48" />
           ) : (
-            <span className="text-muted-foreground">Email unavailable</span>
+            <span className="text-muted-foreground">Không tìm thấy email</span>
           )}
         </div>
         <DateCell createdAt={createdAt} />
@@ -180,7 +180,7 @@ function EmailCell({
         ) : isMessageLoading ? (
           <Skeleton className="h-4 w-64" />
         ) : (
-          <span className="text-muted-foreground">Subject unavailable</span>
+          <span className="text-muted-foreground">Không có tiêu đề</span>
         )}
         <OpenInGmailButton
           messageId={messageId}
@@ -200,7 +200,7 @@ function EmailCell({
         ) : isMessageLoading ? (
           <Skeleton className="h-4 w-80" />
         ) : (
-          "Preview unavailable"
+          "Không có bản xem trước"
         )}
       </div>
     </div>
@@ -233,7 +233,7 @@ function RuleCell({
         <Skeleton className="h-9 w-16" />
       ) : (
         <Button variant="outline" size="sm" disabled>
-          Fix
+          Sửa
         </Button>
       )}
     </div>

@@ -59,13 +59,13 @@ export function KnowledgeBase() {
         <DialogTrigger asChild>
           <Button size="sm">
             <Plus className="mr-2 h-4 w-4" />
-            Add
+            Thêm
           </Button>
         </DialogTrigger>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>
-              {editingItem ? "Edit Knowledge" : "Add Knowledge"}
+              {editingItem ? "Sửa kiến thức" : "Thêm kiến thức"}
             </DialogTitle>
           </DialogHeader>
           <KnowledgeForm
@@ -82,8 +82,8 @@ export function KnowledgeBase() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Last Updated</TableHead>
+                <TableHead>Tiêu đề</TableHead>
+                <TableHead>Cập nhật lần cuối</TableHead>
                 <TableHead />
               </TableRow>
             </TableHeader>
@@ -93,11 +93,10 @@ export function KnowledgeBase() {
                   <TableCell colSpan={3}>
                     <Empty className="border-0">
                       <EmptyHeader>
-                        <EmptyTitle>No knowledge entries yet</EmptyTitle>
+                        <EmptyTitle>Chưa có mục kiến thức nào</EmptyTitle>
                         <EmptyDescription>
-                          Add information about your work, projects, or
-                          preferences. The assistant uses this when drafting
-                          replies.
+                          Thêm thông tin về công việc, dự án hoặc tuỳ chọn của
+                          bạn. Trợ lý sẽ dùng chúng khi soạn nháp trả lời.
                         </EmptyDescription>
                       </EmptyHeader>
                     </Empty>
@@ -142,7 +141,7 @@ function KnowledgeTableRow({
       <TableCell className="text-right">
         <div className="flex items-center justify-end gap-2">
           <Button variant="outline" size="sm" onClick={onEdit}>
-            Edit
+            Sửa
           </Button>
           <ConfirmDialog
             trigger={
@@ -150,9 +149,9 @@ function KnowledgeTableRow({
                 <Trash2 className="h-4 w-4" />
               </Button>
             }
-            title="Delete Knowledge Base Entry"
-            description={`Are you sure you want to delete "${item.title}"? This action cannot be undone.`}
-            confirmText="Delete"
+            title="Xoá mục kiến thức"
+            description={`Bạn có chắc chắn muốn xoá "${item.title}"? Hành động này không thể hoàn tác.`}
+            confirmText="Xoá"
             onConfirm={async () => {
               try {
                 setIsDeleting(true);
@@ -161,13 +160,13 @@ function KnowledgeTableRow({
                 });
                 if (result?.serverError) {
                   toastError({
-                    title: "Error deleting knowledge base entry",
+                    title: "Lỗi khi xoá mục kiến thức",
                     description: result.serverError || "",
                   });
                   return;
                 }
                 toastSuccess({
-                  description: "Knowledge base entry deleted successfully",
+                  description: "Đã xoá mục kiến thức thành công",
                 });
                 onDelete();
               } finally {

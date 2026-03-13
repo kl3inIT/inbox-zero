@@ -30,16 +30,16 @@ export function IntegrationsSetting() {
 
   return (
     <SettingCard
-      title="Integrations"
+      title="Tích hợp"
       description={
         hasConnectedIntegrations
-          ? `Connected to ${connectedIntegrations.map((i) => i.shortName || i.displayName).join(", ")} with ${enabledToolsCount} tool${enabledToolsCount === 1 ? "" : "s"} enabled`
-          : "Connect to CRM, databases, and other tools to enrich briefings with more context"
+          ? `Đã kết nối với ${connectedIntegrations.map((i) => i.shortName || i.displayName).join(", ")} với ${enabledToolsCount} công cụ đang được bật`
+          : "Kết nối với CRM, cơ sở dữ liệu và các công cụ khác để bổ sung thêm ngữ cảnh cho bản tóm tắt"
       }
       right={
         <Button variant="outline" asChild>
           <Link href={`/${emailAccountId}/integrations`}>
-            {hasConnectedIntegrations ? "Manage" : "Connect"}
+            {hasConnectedIntegrations ? "Quản lý" : "Kết nối"}
           </Link>
         </Button>
       }

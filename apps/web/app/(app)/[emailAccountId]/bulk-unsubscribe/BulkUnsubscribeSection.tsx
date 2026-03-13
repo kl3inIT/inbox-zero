@@ -31,7 +31,7 @@ import {
   type NewsletterFilterType,
 } from "@/app/(app)/[emailAccountId]/bulk-unsubscribe/hooks";
 import { useStatLoader } from "@/providers/StatLoaderProvider";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 import { useLabels } from "@/hooks/useLabels";
 import {
   BulkUnsubscribeMobile,
@@ -56,8 +56,6 @@ import { useWindowSize } from "usehooks-ts";
 import { LoadStatsButton } from "@/app/(app)/[emailAccountId]/stats/LoadStatsButton";
 import { PageWrapper } from "@/components/PageWrapper";
 import { PageHeader } from "@/components/PageHeader";
-import { TextLink } from "@/components/Typography";
-import { DismissibleVideoCard } from "@/components/VideoCard";
 import { ActionBar } from "@/app/(app)/[emailAccountId]/stats/ActionBar";
 import { DatePickerWithRange } from "@/components/DatePickerWithRange";
 import { Button } from "@/components/ui/button";
@@ -78,39 +76,39 @@ const filterOptions: {
   separatorAfter?: boolean;
 }[] = [
   {
-    label: "Unhandled",
+    label: "Chưa xử lý",
     value: "unhandled",
     icon: <InboxIcon className="size-4" />,
   },
   {
-    label: "All",
+    label: "Tất cả",
     value: "all",
     icon: <ListIcon className="size-4" />,
     separatorAfter: true,
   },
   {
-    label: "Unsubscribed",
+    label: "Đã hủy đăng ký",
     value: "unsubscribed",
     icon: <MailXIcon className="size-4" />,
   },
   {
-    label: "Auto Archive",
+    label: "Tự động lưu trữ",
     value: "autoArchived",
     icon: <ArchiveIcon className="size-4" />,
   },
   {
-    label: "Approved",
+    label: "Đã chấp thuận",
     value: "approved",
     icon: <ThumbsUpIcon className="size-4" />,
   },
 ];
 
 const selectOptions = [
-  { label: "Last week", value: "7" },
-  { label: "Last month", value: "30" },
-  { label: "Last 3 months", value: "90" },
-  { label: "Last year", value: "365" },
-  { label: "All", value: "0" },
+  { label: "Tuần trước", value: "7" },
+  { label: "Tháng trước", value: "30" },
+  { label: "3 tháng trước", value: "90" },
+  { label: "Năm trước", value: "365" },
+  { label: "Tất cả", value: "0" },
 ];
 const defaultSelected = selectOptions[2];
 
@@ -307,38 +305,40 @@ export function BulkUnsubscribe() {
   return (
     <PageWrapper>
       <PageHeader
-        title="Bulk Unsubscriber"
-        video={{
-          title: "Getting started with Bulk Unsubscribe",
-          description: (
-            <>
-              Learn how to quickly bulk unsubscribe from and archive unwanted
-              emails. You can read more in our{" "}
-              <TextLink
-                href="https://docs.getinboxzero.com/essentials/bulk-email-unsubscriber"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                help center
-              </TextLink>
-              .
-            </>
-          ),
-          youtubeVideoId: "T1rnooV4OYc",
-        }}
+        title="Hủy đăng ký email hàng loạt"
+        // video={{
+        //   title: "Bắt đầu với Hủy đăng ký email hàng loạt",
+        //   description: (
+        //     <>
+        //       Tìm hiểu cách hủy đăng ký email hàng loạt và lưu trữ email không mong muốn. Bạn có thể đọc thêm trong{" "}
+        //       tại{" "}
+        //       <TextLink
+        //         href="https://docs.getinboxzero.com/essentials/bulk-email-unsubscriber"
+        //         target="_blank"
+        //         rel="noopener noreferrer"
+        //       >
+        //         trung tâm trợ giúp
+        //       </TextLink>
+        //       .
+        //     </>
+        //   ),
+        //   youtubeVideoId: "T1rnooV4OYc",
+        // }}
       />
 
+      {/*
       <DismissibleVideoCard
         className="my-4"
         icon={<ArchiveIcon className="size-5" />}
-        title="Getting started with Bulk Unsubscribe"
+        title="Bắt đầu với Hủy đăng ký email hàng loạt"
         description={
-          "Learn how to use the Bulk Unsubscribe to unsubscribe from and archive unwanted emails."
+          "Tìm hiểu cách sử dụng Hủy đăng ký email hàng loạt để hủy đăng ký và lưu trữ email không mong muốn."
         }
         videoSrc="https://www.youtube.com/embed/T1rnooV4OYc"
         thumbnailSrc="https://img.youtube.com/vi/T1rnooV4OYc/0.jpg"
         storageKey="bulk-unsubscribe-onboarding-video"
       />
+      */}
 
       <div className="items-center justify-between flex mt-4 flex-wrap">
         <ActionBar rightContent={<LoadStatsButton />}>
@@ -346,7 +346,9 @@ export function BulkUnsubscribe() {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="h-10">
                 {selectedFilter?.icon}
-                <span className="ml-2">{selectedFilter?.label ?? "All"}</span>
+                <span className="ml-2">
+                  {selectedFilter?.label ?? "Tất cả"}
+                </span>
                 <ChevronDown className="ml-2 h-4 w-4 text-gray-400" />
               </Button>
             </DropdownMenuTrigger>
@@ -447,12 +449,12 @@ export function BulkUnsubscribe() {
                       {expanded ? (
                         <>
                           <ChevronsUpIcon className="h-4 w-4" />
-                          <span className="ml-2">Show less</span>
+                          <span className="ml-2">Hiện ít hơn</span>
                         </>
                       ) : (
                         <>
                           <ChevronsDownIcon className="h-4 w-4" />
-                          <span className="ml-2">Show more</span>
+                          <span className="ml-2">Hiện thêm</span>
                         </>
                       )}
                     </Button>
@@ -462,10 +464,12 @@ export function BulkUnsubscribe() {
             ) : (
               <div className="flex flex-col items-center justify-center py-16 px-4">
                 <InboxIcon className="h-16 w-16 text-gray-300" />
-                <h3 className="mt-4 text-lg font-semibold">No emails found</h3>
+                <h3 className="mt-4 text-lg font-semibold">
+                  Không tìm thấy email
+                </h3>
                 <p className="mt-2 text-center text-muted-foreground">
-                  Adjust the filters or click "Load More" to load additional
-                  emails.
+                  Điều chỉnh các bộ lọc hoặc nhấp vào "Tải thêm" để tải thêm
+                  email.
                 </p>
               </div>
             )}

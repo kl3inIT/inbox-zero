@@ -43,7 +43,7 @@ export const SignatureSectionForm = ({
     saveSignatureAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Signature saved" });
+        toastSuccess({ description: "Đã lưu chữ ký" });
       },
       onError: (error) => {
         toastError({
@@ -67,8 +67,8 @@ export const SignatureSectionForm = ({
     <form onSubmit={handleSubmit(execute)}>
       <FormSection>
         <FormSectionLeft
-          title="Signature"
-          description="Appended at the end of all outgoing messages."
+          title="Chữ ký"
+          description="Được thêm vào cuối tất cả email gửi đi."
         />
         <div className="md:col-span-2">
           <FormSectionRight>
@@ -86,7 +86,7 @@ export const SignatureSectionForm = ({
           <SubmitButtonWrapper>
             <div className="flex gap-2">
               <Button type="submit" size="lg" loading={isExecuting}>
-                Save
+                Lưu
               </Button>
               <Button
                 type="button"
@@ -97,7 +97,7 @@ export const SignatureSectionForm = ({
 
                   if (result?.serverError) {
                     toastError({
-                      title: `Error loading signature from ${isGmail ? "Gmail" : "Outlook"}`,
+                      title: `Lỗi khi tải chữ ký từ ${isGmail ? "Gmail" : "Outlook"}`,
                       description: result.serverError,
                     });
                     return;
@@ -110,22 +110,22 @@ export const SignatureSectionForm = ({
                   if (defaultSig?.signature) {
                     editorRef.current?.appendContent(defaultSig.signature);
                     toastSuccess({
-                      title: "Signature loaded",
+                      title: "Đã tải chữ ký",
                       description: isGmail
-                        ? "Loaded from Gmail"
-                        : "Extracted from recent sent emails",
+                        ? "Đã tải từ Gmail"
+                        : "Được trích xuất từ các email đã gửi gần đây",
                     });
                   } else {
                     toastInfo({
-                      title: "No signature found",
+                      title: "Không tìm thấy chữ ký",
                       description: isGmail
-                        ? "No signature found in your Gmail account"
-                        : "No signature found in recent sent emails",
+                        ? "Không tìm thấy chữ ký trong tài khoản Gmail của bạn"
+                        : "Không tìm thấy chữ ký trong các email đã gửi gần đây",
                     });
                   }
                 }}
               >
-                Load from {isGmail ? "Gmail" : "Outlook"}
+                Tải từ {isGmail ? "Gmail" : "Outlook"}
               </Button>
             </div>
           </SubmitButtonWrapper>

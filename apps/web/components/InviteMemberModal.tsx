@@ -67,19 +67,19 @@ export function InviteMemberModal({
       {trigger !== null &&
         (trigger ?? (
           <DialogTrigger asChild>
-            <Button size="sm">Invite Member</Button>
+            <Button size="sm">Mời thành viên</Button>
           </DialogTrigger>
         ))}
 
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>
-            {organizationId ? "Invite Member" : "Invite Members"}
+            {organizationId ? "Mời thành viên" : "Mời các thành viên"}
           </DialogTitle>
           <DialogDescription>
             {organizationId
-              ? "Send an invitation to join your organization."
-              : "Enter email addresses to invite team members."}
+              ? "Gửi lời mời tham gia tổ chức của bạn."
+              : "Nhập các email để mời thành viên trong team."}
           </DialogDescription>
         </DialogHeader>
 
@@ -129,12 +129,12 @@ function InviteForm({
 
       if (result?.serverError) {
         toastError({
-          title: "Error sending invitation",
+          title: "Lỗi khi gửi lời mời",
           description: result.serverError,
         });
       } else {
         toastSuccess({
-          description: "Invitation sent successfully!",
+          description: "Đã gửi lời mời thành công!",
         });
         reset();
         onClose();
@@ -149,7 +149,7 @@ function InviteForm({
       <Input
         type="email"
         name="email"
-        label="Email Address"
+        label="Địa chỉ email"
         placeholder="john.doe@example.com"
         registerProps={register("email")}
         error={errors.email}
@@ -157,10 +157,10 @@ function InviteForm({
 
       <div className="space-y-2">
         <div className="flex items-center space-x-2">
-          <Label htmlFor="role">Role</Label>
+          <Label htmlFor="role">Vai trò</Label>
           <TooltipExplanation
             side="right"
-            text="Members can view and collaborate.\nAdmins can manage the organization and invite others."
+            text="Thành viên có thể xem và cộng tác.\nAdmin có thể quản lý tổ chức và mời người khác."
           />
         </div>
         <Select
@@ -170,21 +170,21 @@ function InviteForm({
           }
         >
           <SelectTrigger id="role">
-            <SelectValue placeholder="Select a role" />
+            <SelectValue placeholder="Chọn vai trò" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="member">Member</SelectItem>
-            <SelectItem value="admin">Admin</SelectItem>
+            <SelectItem value="member">Thành viên</SelectItem>
+            <SelectItem value="admin">Quản trị</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <DialogFooter>
         <DialogClose asChild>
-          <Button variant="outline">Cancel</Button>
+          <Button variant="outline">Huỷ</Button>
         </DialogClose>
         <Button type="submit" loading={isSubmitting}>
-          Send Invitation
+          Gửi lời mời
         </Button>
       </DialogFooter>
     </form>
@@ -208,7 +208,7 @@ function CreateOrgAndInviteForm({
 
   const handleSubmit = useCallback(async () => {
     if (emails.length === 0) {
-      toastError({ description: "Please enter at least one email address" });
+      toastError({ description: "Vui lòng nhập ít nhất một địa chỉ email" });
       return;
     }
 
@@ -222,7 +222,7 @@ function CreateOrgAndInviteForm({
 
     if (result?.serverError) {
       toastError({
-        description: "Failed to create organization and send invitations",
+        description: "Không thể tạo tổ chức và gửi lời mời",
       });
     } else if (result?.data) {
       const successCount = result.data.results.filter((r) => r.success).length;
@@ -230,12 +230,12 @@ function CreateOrgAndInviteForm({
 
       if (successCount > 0) {
         toastSuccess({
-          description: `${successCount} invitation${successCount > 1 ? "s" : ""} sent successfully!`,
+          description: `Đã gửi thành công ${successCount} lời mời!`,
         });
       }
       if (errorCount > 0) {
         toastError({
-          description: `Failed to send ${errorCount} invitation${errorCount > 1 ? "s" : ""}`,
+          description: `Không thể gửi ${errorCount} lời mời`,
         });
       }
 
@@ -251,11 +251,11 @@ function CreateOrgAndInviteForm({
         value={emails}
         onChange={handleEmailsChange}
         validate={(email) =>
-          isValidEmail(email) ? null : "Please enter a valid email address"
+          isValidEmail(email) ? null : "Vui lòng nhập email hợp lệ"
         }
-        label="Email addresses"
+        label="Các địa chỉ email"
         id="email-input"
-        placeholder="Enter email addresses separated by commas"
+        placeholder="Nhập các email, phân tách bằng dấu phẩy"
       />
 
       <DialogFooter>

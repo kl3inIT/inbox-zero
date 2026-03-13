@@ -29,7 +29,7 @@ import {
   type BadgeVariant,
 } from "@/components/new-landing/common/Badge";
 import { Chat } from "@/components/new-landing/icons/Chat";
-import { type Tier, tiers } from "@/app/(app)/premium/config";
+import { type Tier, tiers } from "@/app/(app)/refer/premium/config";
 import { Briefcase } from "@/components/new-landing/icons/Briefcase";
 import { landingPageAnalytics } from "@/hooks/useAnalytics";
 import { cn } from "@/utils";
@@ -53,10 +53,10 @@ type PricingTier = Tier & {
 const pricingTiers: PricingTier[] = [
   {
     ...tiers[0],
-    badges: [{ message: "Save 10%", annualOnly: true }],
+    badges: [{ message: "Tiết kiệm 10%", annualOnly: true }],
     button: {
       variant: "secondary-two",
-      content: "Try free for 7 days",
+      content: "Dùng thử miễn phí 7 ngày",
       href: "/login",
     },
     icon: <Briefcase />,
@@ -64,37 +64,42 @@ const pricingTiers: PricingTier[] = [
   {
     ...tiers[1],
     badges: [
-      { message: "Save 20%", annualOnly: true },
-      { message: "Popular", variant: "green" },
+      { message: "Tiết kiệm 20%", annualOnly: true },
+      { message: "Phổ biến", variant: "green" },
     ],
     button: {
-      content: "Try free for 7 days",
+      content: "Dùng thử miễn phí 7 ngày",
       href: "/login",
     },
     icon: <Zap />,
   },
   {
     ...tiers[2],
-    badges: [{ message: "Save 16%", annualOnly: true }],
+    badges: [{ message: "Tiết kiệm 16%", annualOnly: true }],
     button: {
       variant: "secondary-two",
-      content: "Try free for 7 days",
+      content: "Dùng thử miễn phí 7 ngày",
       href: "/login",
     },
     icon: <Sparkle />,
   },
 ];
 
-const frequencies = ["annually", "monthly"];
+const frequencies = [
+  { value: "annually", label: "Hàng năm" },
+  { value: "monthly", label: "Hàng tháng" },
+] as const;
 
 export function Pricing() {
-  const [frequency, setFrequency] = useState(frequencies[0]);
+  const [frequency, setFrequency] = useState<(typeof frequencies)[number]>(
+    frequencies[0],
+  );
   const posthog = usePostHog();
 
   return (
     <Section id="pricing">
-      <SectionHeading>Try for free, affordable paid plans</SectionHeading>
-      <SectionSubtitle>No hidden fees. Cancel anytime.</SectionSubtitle>
+      <SectionHeading>Dùng thử miễn phí, gói trả phí hợp lý</SectionHeading>
+      <SectionSubtitle>Không phí ẩn. Huỷ bất cứ lúc nào.</SectionSubtitle>
       <SectionContent
         noMarginTop
         className="mt-6 flex flex-col items-center justify-center"
@@ -104,11 +109,11 @@ export function Pricing() {
           onChange={setFrequency}
           className="w-fit rounded-full p-1.5 text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 mb-6 shadow-[0_0_7px_0_rgba(0,0,0,0.0.07)]"
         >
-          <Label className="sr-only">Payment frequency</Label>
-          {frequencies.map((value) => (
+          <Label className="sr-only">Chu kỳ thanh toán</Label>
+          {frequencies.map((item) => (
             <Radio
-              key={value}
-              value={value}
+              key={item.value}
+              value={item}
               className={({ checked }) =>
                 cn(
                   checked ? "bg-black text-white" : "text-gray-500",
@@ -116,7 +121,7 @@ export function Pricing() {
                 )
               }
             >
-              <span>{value.charAt(0).toUpperCase() + value.slice(1)}</span>
+              <span>{item.label}</span>
             </Radio>
           ))}
         </RadioGroup>
@@ -126,7 +131,7 @@ export function Pricing() {
               <PricingCard
                 tier={tier}
                 tierIndex={index}
-                isAnnual={frequency === "annually"}
+                isAnnual={frequency.value === "annually"}
                 posthog={posthog}
               />
             </CardWrapper>
@@ -140,10 +145,10 @@ export function Pricing() {
                   <Sparkle />
                 </div>
                 <div>
-                  <h3 className="font-title text-lg">Enterprise</h3>
+                  <h3 className="font-title text-lg">Doanh nghiệp</h3>
                   <Paragraph size="sm" className="mt-1">
-                    Need SSO, on-premise deployment, or a dedicated account
-                    manager?
+                    Cần SSO, triển khai on-premise, hoặc quản lý tài khoản
+                    riêng?
                   </Paragraph>
                 </div>
               </div>
@@ -156,12 +161,12 @@ export function Pricing() {
                     landingPageAnalytics.pricingCtaClicked(
                       posthog,
                       "Enterprise",
-                      "Speak to sales",
+                      "Liên hệ tư vấn",
                     )
                   }
                 >
                   <Chat />
-                  <span className="relative z-10">Speak to sales</span>
+                  <span className="relative z-10">Liên hệ tư vấn</span>
                 </Link>
               </Button>
             </CardContent>
@@ -210,11 +215,11 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
               <>
                 <Subheading>${price}</Subheading>
                 <Paragraph size="xs" color="light" className="-translate-y-1">
-                  /user /month
+                  /người dùng /tháng
                 </Paragraph>
               </>
             ) : (
-              <Subheading>Contact us</Subheading>
+              <Subheading>Liên hệ</Subheading>
             )}
           </div>
           <Button auto size="lg" variant={tier.button.variant} asChild>

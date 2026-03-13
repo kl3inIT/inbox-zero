@@ -19,8 +19,8 @@ import {
 } from "@/utils/branding";
 
 export const metadata: Metadata = {
-  title: getBrandTitle("Log in"),
-  description: `Log in to ${BRAND_NAME}.`,
+  title: getBrandTitle("Đăng nhập"),
+  description: `Đăng nhập vào ${BRAND_NAME}.`,
   alternates: { canonical: "/login" },
 };
 
@@ -41,9 +41,9 @@ export default async function AuthenticationPage(props: {
     <div className="flex h-screen flex-col justify-center text-foreground">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col text-center">
-          <h1 className="font-title text-2xl text-foreground">Sign In</h1>
+          <h1 className="font-title text-2xl text-foreground">Đăng nhập</h1>
           <p className="mt-4 text-muted-foreground">
-            Your AI personal assistant for email.
+            Trợ lý AI cá nhân cho email của bạn.
           </p>
         </div>
         <div className="mt-4">
@@ -55,33 +55,33 @@ export default async function AuthenticationPage(props: {
         {searchParams?.error && <ErrorAlert error={searchParams?.error} />}
 
         <MutedText className="px-8 pt-10 text-center">
-          By clicking continue, you agree to our{" "}
+          Bằng việc bấm tiếp tục, bạn đồng ý với{" "}
           <Link
             href="/terms"
             className="underline underline-offset-4 hover:text-foreground"
           >
-            Terms of Service
+            Điều khoản dịch vụ
           </Link>{" "}
-          and{" "}
+          và{" "}
           <Link
             href="/privacy"
             className="underline underline-offset-4 hover:text-foreground"
           >
-            Privacy Policy
+            Chính sách quyền riêng tư
           </Link>
           .
         </MutedText>
 
         <MutedText className="px-4 pt-4 text-center">
-          {getPossessiveBrandName()} use and transfer of information received
-          from Google APIs to any other app will adhere to{" "}
+          Việc {getPossessiveBrandName()} sử dụng và chuyển giao thông tin nhận
+          được từ Google APIs sang bất kỳ ứng dụng nào khác sẽ tuân thủ{" "}
           <a
             href="https://developers.google.com/terms/api-services-user-data-policy"
             className="underline underline-offset-4 hover:text-foreground"
           >
-            Google API Services User Data
+            Chính sách Dữ liệu Người dùng của Google API Services
           </a>{" "}
-          Policy, including the Limited Use requirements.
+          , bao gồm cả các yêu cầu về Limited Use.
         </MutedText>
       </div>
     </div>
@@ -93,8 +93,8 @@ function ErrorAlert({ error }: { error: string }) {
     return (
       <AlertBasic
         variant="destructive"
-        title="Permissions need to be refreshed"
-        description={`Please sign in again and approve every requested permission. If your Microsoft 365 organization requires admin approval, ask your admin to approve ${BRAND_NAME} first. If this error persists please contact support at ${SUPPORT_EMAIL}`}
+        title="Cần cấp lại quyền truy cập"
+        description={`Vui lòng đăng nhập lại và chấp thuận tất cả quyền được yêu cầu. Nếu tổ chức Microsoft 365 của bạn cần admin phê duyệt, hãy nhờ admin phê duyệt ${BRAND_NAME} trước. Nếu lỗi vẫn tiếp diễn, vui lòng liên hệ hỗ trợ tại ${SUPPORT_EMAIL}`}
       />
     );
   }
@@ -103,12 +103,12 @@ function ErrorAlert({ error }: { error: string }) {
     return (
       <AlertBasic
         variant="destructive"
-        title="Account already attached to another user"
+        title="Tài khoản đã gắn với người dùng khác"
         description={
           <>
-            <span>You can merge accounts instead.</span>
+            <span>Bạn có thể gộp tài khoản thay thế.</span>
             <Button asChild className="mt-2">
-              <Link href="/accounts">Merge accounts</Link>
+              <Link href="/accounts">Gộp tài khoản</Link>
             </Button>
           </>
         }
@@ -120,8 +120,8 @@ function ErrorAlert({ error }: { error: string }) {
     return (
       <AlertBasic
         variant="destructive"
-        title="Email Already Linked"
-        description={`This email address is already linked to another ${BRAND_NAME} account. Please sign in with the original account, or use a different email address. If this error persists please contact support at ${SUPPORT_EMAIL}`}
+        title="Email đã được liên kết"
+        description={`Địa chỉ email này đã được liên kết với một tài khoản ${BRAND_NAME} khác. Vui lòng đăng nhập bằng tài khoản ban đầu, hoặc dùng email khác. Nếu lỗi vẫn tiếp diễn, vui lòng liên hệ hỗ trợ tại ${SUPPORT_EMAIL}`}
       />
     );
   }
@@ -130,8 +130,8 @@ function ErrorAlert({ error }: { error: string }) {
     <>
       <AlertBasic
         variant="destructive"
-        title="Error logging in"
-        description={`There was an error logging in. Please try logging in again. If this error persists please contact support at ${SUPPORT_EMAIL}`}
+        title="Lỗi đăng nhập"
+        description={`Đã xảy ra lỗi khi đăng nhập. Vui lòng thử đăng nhập lại. Nếu lỗi vẫn tiếp diễn, vui lòng liên hệ hỗ trợ tại ${SUPPORT_EMAIL}`}
       />
       <Suspense>
         <CrispChatLoggedOutVisible />

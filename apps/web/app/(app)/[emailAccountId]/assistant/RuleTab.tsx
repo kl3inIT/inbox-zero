@@ -10,7 +10,7 @@ export function RuleTab() {
   if (!ruleId)
     return (
       <div className="p-4">
-        <MessageText>No rule selected</MessageText>
+        <MessageText>Chưa chọn quy tắc nào</MessageText>
       </div>
     );
 

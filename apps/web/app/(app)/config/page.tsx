@@ -53,101 +53,119 @@ export default async function AdminConfigPage() {
 
   return (
     <PageWrapper className="max-w-2xl mx-auto">
-      <PageHeader title="App Configuration" />
+      <PageHeader title="Cấu hình ứng dụng" />
 
       <div className="space-y-4 mt-4">
-        <Section title="Application">
-          <Row label="Version" value={info.version} />
-          <Row label="Environment" value={info.environment} />
-          <Row label="Base URL" value={info.baseUrl} />
+        <Section title="Ứng dụng">
+          <Row label="Phiên bản" value={info.version} />
+          <Row label="Môi trường" value={info.environment} />
+          <Row label="Địa chỉ gốc (Base URL)" value={info.baseUrl} />
         </Section>
 
-        <Section title="Features">
+        <Section title="Tính năng">
           <Row
-            label="Email Send"
-            value={info.features.emailSendEnabled ? "Enabled" : "Disabled"}
+            label="Gửi email"
+            value={info.features.emailSendEnabled ? "Bật" : "Tắt"}
           />
           <Row
-            label="Contacts"
-            value={info.features.contactsEnabled ? "Enabled" : "Disabled"}
+            label="Danh bạ"
+            value={info.features.contactsEnabled ? "Bật" : "Tắt"}
           />
           <Row
-            label="Bypass Premium"
-            value={info.features.bypassPremiumChecks ? "Yes" : "No"}
+            label="Bỏ qua kiểm tra Premium"
+            value={info.features.bypassPremiumChecks ? "Có" : "Không"}
           />
         </Section>
 
-        <Section title="Auth Providers">
+        <Section title="Nhà cung cấp xác thực">
           <Row
             label="Google"
-            value={info.providers.google ? "Configured" : "Not configured"}
+            value={info.providers.google ? "Đã cấu hình" : "Chưa được cấu hình"}
           />
           <Row
             label="Microsoft"
-            value={info.providers.microsoft ? "Configured" : "Not configured"}
+            value={
+              info.providers.microsoft ? "Đã cấu hình" : "Chưa được cấu hình"
+            }
           />
           <Row
-            label="Microsoft Tenant"
+            label="Tenant Microsoft"
             value={
               info.providers.microsoftTenantConfigured
-                ? "Single tenant"
-                : "Multitenant (common)"
+                ? "Một tenant"
+                : "Nhiều tenant (common)"
             }
           />
         </Section>
 
         {isUserAdmin && (
           <>
-            <Section title="LLM Configuration">
-              <Row label="Default Provider" value={info.llm.defaultProvider} />
-              <Row label="Default Model" value={info.llm.defaultModel} />
-              <Row label="Economy Provider" value={info.llm.economyProvider} />
-              <Row label="Economy Model" value={info.llm.economyModel} />
+            <Section title="Cấu hình LLM">
+              <Row
+                label="Nhà cung cấp mặc định"
+                value={info.llm.defaultProvider}
+              />
+              <Row label="Mô hình mặc định" value={info.llm.defaultModel} />
+              <Row
+                label="Nhà cung cấp tiết kiệm"
+                value={info.llm.economyProvider}
+              />
+              <Row label="Mô hình tiết kiệm" value={info.llm.economyModel} />
             </Section>
 
-            <Section title="Integrations">
+            <Section title="Tích hợp">
               <Row
                 label="Redis"
                 value={
-                  info.integrations.redis ? "Configured" : "Not configured"
+                  info.integrations.redis ? "Đã cấu hình" : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="QStash"
                 value={
-                  info.integrations.qstash ? "Configured" : "Not configured"
+                  info.integrations.qstash
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="Tinybird"
                 value={
-                  info.integrations.tinybird ? "Configured" : "Not configured"
+                  info.integrations.tinybird
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="Sentry"
                 value={
-                  info.integrations.sentry ? "Configured" : "Not configured"
+                  info.integrations.sentry
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="PostHog"
                 value={
-                  info.integrations.posthog ? "Configured" : "Not configured"
+                  info.integrations.posthog
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="Stripe"
                 value={
-                  info.integrations.stripe ? "Configured" : "Not configured"
+                  info.integrations.stripe
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
               <Row
                 label="Lemon Squeezy"
                 value={
                   info.integrations.lemonSqueezy
-                    ? "Configured"
-                    : "Not configured"
+                    ? "Đã cấu hình"
+                    : "Chưa được cấu hình"
                 }
               />
             </Section>
@@ -177,7 +195,7 @@ function Section({
 
 function Row({ label, value }: { label: string; value: string | boolean }) {
   const displayValue =
-    typeof value === "boolean" ? (value ? "Yes" : "No") : value;
+    typeof value === "boolean" ? (value ? "Có" : "Không") : value;
 
   return (
     <div className="flex justify-between px-4 py-2">

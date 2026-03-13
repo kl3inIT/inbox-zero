@@ -186,22 +186,22 @@ export function DriveSetup() {
 
       if (result?.serverError) {
         toastError({
-          title: "Error starting auto-filing",
+          title: "Lỗi khi bật tự động lưu trữ",
           description: result.serverError,
         });
         setUserPhase("previewing");
         return;
       }
 
-      toastSuccess({ description: "Auto-filing started!" });
+      toastSuccess({ description: "Đã bật tự động lưu trữ!" });
       await mutateEmail();
     } catch (error) {
       toastError({
-        title: "Error starting auto-filing",
+        title: "Lỗi khi bật tự động lưu trữ",
         description:
           error instanceof Error
             ? error.message
-            : "An unexpected error occurred while starting auto-filing.",
+            : "Đã xảy ra lỗi không mong muốn khi bật tự động lưu trữ.",
       });
       setUserPhase("previewing");
     }
@@ -210,11 +210,11 @@ export function DriveSetup() {
   return (
     <div className="mx-auto max-w-2xl py-8">
       <div className="text-center">
-        <TypographyH3>Let's set up auto-filing</TypographyH3>
+        <TypographyH3>Hãy thiết lập tự động lưu trữ</TypographyH3>
         <SectionDescription className="mx-auto mt-3 max-w-xl">
-          We'll file attachments from your emails into your{" "}
+          Chúng tôi sẽ lưu các tệp đính kèm từ email của bạn vào{" "}
           {providerInfo?.name || "drive"}.<br />
-          Just tell us where and how.
+          Bạn chỉ cần cho chúng tôi biết nên lưu ở đâu và như thế nào.
         </SectionDescription>
       </div>
 
@@ -311,10 +311,10 @@ function NoAttachmentsMessage({
   return (
     <div className="text-center">
       <MutedText className="mb-4">
-        We couldn't find recent emails with attachments to preview.
+        Chúng tôi không tìm thấy email gần đây có tệp đính kèm để xem trước.
       </MutedText>
       <Button onClick={onSkip} loading={isStarting}>
-        Start auto-filing anyway
+        Vẫn bật tự động lưu trữ
       </Button>
     </div>
   );
@@ -360,22 +360,24 @@ function PreviewResults({
 
   const statusMessage = allComplete
     ? filedCount > 0
-      ? `Filed ${filedCount} attachment${filedCount !== 1 ? "s" : ""}${skippedCount > 0 ? `, skipped ${skippedCount}` : ""}:`
-      : `Skipped ${skippedCount} attachment${skippedCount !== 1 ? "s" : ""} (didn't match your filing preferences):`
-    : `Filing your ${attachments.length} most recent attachments...`;
+      ? `Đã lưu ${filedCount} tệp đính kèm${skippedCount > 0 ? `, đã bỏ qua ${skippedCount}` : ""}:`
+      : `Đã bỏ qua ${skippedCount} tệp đính kèm (không khớp với tùy chọn lưu trữ của bạn):`
+    : `Đang lưu ${attachments.length} tệp đính kèm gần đây nhất của bạn...`;
 
   return (
     <div>
-      <TypographyH4>3. See it in action</TypographyH4>
+      <TypographyH4>3. Xem thử hệ thống hoạt động</TypographyH4>
       <MutedText className="mt-1">{statusMessage}</MutedText>
 
       <div className="mt-4 rounded-lg border">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>File</TableHead>
-              <TableHead>Folder</TableHead>
-              <TableHead className="w-[100px] text-right">Correct?</TableHead>
+              <TableHead>Tệp</TableHead>
+              <TableHead>Thư mục</TableHead>
+              <TableHead className="w-[100px] text-right">
+                Đúng không?
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -398,7 +400,7 @@ function PreviewResults({
       </div>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Your feedback helps us learn
+        Phản hồi của bạn giúp hệ thống ngày càng chính xác hơn
       </p>
 
       <div className="mt-6 flex flex-col items-center gap-2">
@@ -407,10 +409,11 @@ function PreviewResults({
           loading={isStarting}
           disabled={anyFiling}
         >
-          {anyFiling ? "Processing..." : "Looks good, start auto-filing"}
+          {anyFiling ? "Đang xử lý..." : "Ổn rồi, bắt đầu tự động lưu trữ"}
         </Button>
         <p className="text-xs text-muted-foreground">
-          You'll get an email each time we file something. Reply to correct us.
+          Bạn sẽ nhận email mỗi khi chúng tôi lưu một tệp. Hãy trả lời email để
+          chỉnh sửa nếu có sai sót.
         </p>
       </div>
     </div>

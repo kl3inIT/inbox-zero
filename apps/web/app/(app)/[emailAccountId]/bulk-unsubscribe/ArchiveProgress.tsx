@@ -25,9 +25,9 @@ export const ArchiveProgress = memo(() => {
     <ProgressPanel
       totalItems={totalThreads}
       remainingItems={threadsRemaining}
-      inProgressText="Archiving emails..."
-      completedText="Archiving complete!"
-      itemLabel="emails"
+      inProgressText="Đang lưu trữ email..."
+      completedText="Đã lưu trữ xong!"
+      itemLabel="email"
     />
   );
 });

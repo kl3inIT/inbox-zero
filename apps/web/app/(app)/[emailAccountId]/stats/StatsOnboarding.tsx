@@ -19,30 +19,30 @@ export function StatsOnboarding() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Welcome to email analytics</DialogTitle>
+          <DialogTitle>Chào mừng đến với thống kê email</DialogTitle>
           <DialogDescription>
-            Get insights from the depths of your email and clean it up it no
-            time.
+            Khai thác insight từ hộp thư của bạn và dọn dẹp chúng trong thời
+            gian ngắn.
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-2 sm:gap-4">
           <CardBasic className="flex items-center">
             <BarChartBigIcon className="mr-3 h-5 w-5" />
-            Visualise your data
+            Trực quan hoá dữ liệu
           </CardBasic>
           <CardBasic className="flex items-center">
             <Layers3Icon className="mr-3 h-5 w-5" />
-            Understand what{`'`}s filling up your inbox
+            Hiểu điều gì đang làm đầy inbox của bạn
           </CardBasic>
           <CardBasic className="flex items-center">
             <ArchiveIcon className="mr-3 h-5 w-5" />
-            Unsubscribe and bulk archive
+            Hủy đăng ký và lưu trữ hàng loạt
           </CardBasic>
         </div>
         <div>
           <Button className="w-full" onClick={onClose}>
-            Get Started
+            Bắt đầu
           </Button>
         </div>
       </DialogContent>

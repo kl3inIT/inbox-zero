@@ -68,7 +68,7 @@ export function Combobox(props: {
                 </div>
               </CommandLoading>
             )}
-            <CommandEmpty>{emptyText}</CommandEmpty>
+            <CommandEmpty>{emptyText || "Không có kết quả"}</CommandEmpty>
             {props.options.length ? (
               <CommandGroup>
                 {props.options.map((options) => (

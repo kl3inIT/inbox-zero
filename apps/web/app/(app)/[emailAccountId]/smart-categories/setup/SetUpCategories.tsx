@@ -114,15 +114,15 @@ export function SetUpCategories({
     <>
       <Card className="m-4">
         <CardHeader>
-          <CardTitle>Set up sender categories</CardTitle>
+          <CardTitle>Thiết lập nhóm người gửi</CardTitle>
           <CardDescription className="max-w-sm">
-            Automatically categorize senders for bulk archiving and AI
-            assistant.
+            Tự động phân loại người gửi để lưu trữ hàng loạt và hỗ trợ bởi trợ
+            lý AI.
           </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <TypographyH4>Choose categories</TypographyH4>
+          <TypographyH4>Chọn nhóm</TypographyH4>
 
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-6">
             {combinedCategories.map((category) => {
@@ -159,7 +159,7 @@ export function SetUpCategories({
                 children: (
                   <>
                     <PenIcon className="mr-2 size-4" />
-                    Add your own
+                    Thêm nhóm của bạn
                   </>
                 ),
               }}
@@ -235,17 +235,17 @@ function CategoryCard({
         <div className="flex gap-1">
           <Button size="iconSm" variant="ghost" onClick={onEdit}>
             <PenIcon className="size-4" />
-            <span className="sr-only">Edit</span>
+            <span className="sr-only">Chỉnh sửa</span>
           </Button>
           <Button size="iconSm" variant="ghost" onClick={onRemove}>
             <TrashIcon className="size-4" />
-            <span className="sr-only">Remove</span>
+            <span className="sr-only">Xóa</span>
           </Button>
         </div>
       ) : (
         <Button size="iconSm" variant="outline" onClick={onAdd}>
           <PlusIcon className="size-4" />
-          <span className="sr-only">Add</span>
+          <span className="sr-only">Thêm</span>
         </Button>
       )}
     </Card>

@@ -50,24 +50,24 @@ export function PreviewBatch({ job }: { job: CleanupJob }) {
   return (
     <CardGreen className="mb-4">
       <CardHeader>
-        <CardTitle>Preview run</CardTitle>
+        <CardTitle>Chạy thử</CardTitle>
         {/* <CardDescription>
           We processed {total} emails. {archived} were{" "}
           {job.action === CleanAction.ARCHIVE ? "archived" : "marked as read"}.
         </CardDescription> */}
         <CardDescription>
-          We're cleaning up {PREVIEW_RUN_COUNT} emails so you can see how it
-          works.
+          Chúng tôi đang dọn dẹp {PREVIEW_RUN_COUNT} email để bạn có thể xem thử
+          cách hoạt động.
         </CardDescription>
         <CardDescription>
-          To undo any, hover over the "
-          {job.action === CleanAction.ARCHIVE ? "Archive" : "Mark as read"}"
-          badge and click undo.
+          Để hoàn tác, hãy di chuột lên nhãn "
+          {job.action === CleanAction.ARCHIVE ? "Lưu trữ" : "Đánh dấu đã đọc"}"
+          và bấm Hoàn tác.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex items-center gap-4">
         <Button onClick={handleRunOnFullInbox} loading={isLoading}>
-          Run on Full Inbox
+          Chạy trên toàn bộ hộp thư
         </Button>
         {/* {disableRunOnFullInbox && (
           <CardDescription className="font-semibold">

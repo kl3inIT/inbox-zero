@@ -33,10 +33,10 @@ import { TooltipExplanation } from "@/components/TooltipExplanation";
 type UIConditionType = "from" | "to" | "subject" | "prompt";
 
 const CONDITION_TYPE_OPTIONS: { label: string; value: UIConditionType }[] = [
-  { label: "AI Prompt", value: "prompt" },
-  { label: "From", value: "from" },
-  { label: "To", value: "to" },
-  { label: "Subject", value: "subject" },
+  { label: "Yêu cầu AI", value: "prompt" },
+  { label: "Người gửi (From)", value: "from" },
+  { label: "Người nhận (To)", value: "to" },
+  { label: "Tiêu đề (Subject)", value: "subject" },
 ];
 const MAX_CONDITIONS = CONDITION_TYPE_OPTIONS.length;
 
@@ -181,13 +181,13 @@ export function ConditionSteps({
         const newCondition = getConditionFromUIType(undefined);
         appendCondition(newCondition);
       }}
-      addButtonLabel="Add Condition"
+      addButtonLabel="Thêm điều kiện"
       addButtonDisabled={!canAddMoreConditions}
       addButtonTooltip={
         maxConditionsReached
-          ? "Maximum number of conditions reached."
+          ? "Đã đạt số lượng điều kiện tối đa."
           : !canAddMoreConditions
-            ? "You can only set one condition for this rule."
+            ? "Bạn chỉ có thể đặt một điều kiện cho quy tắc này."
             : undefined
       }
     >
@@ -209,14 +209,14 @@ export function ConditionSteps({
 
               const conditionTypeLabel =
                 uiType === "prompt"
-                  ? "AI Prompt"
+                  ? "Yêu cầu AI"
                   : uiType === "from"
-                    ? "From"
+                    ? "Người gửi (From)"
                     : uiType === "to"
-                      ? "To"
+                      ? "Người nhận (To)"
                       : uiType === "subject"
-                        ? "Subject"
-                        : "Select";
+                        ? "Tiêu đề (Subject)"
+                        : "Chọn";
 
               // Get UI types already used in other conditions (excluding current)
               const usedUITypes = new Set(
@@ -323,25 +323,25 @@ export function ConditionSteps({
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="and">and</SelectItem>
-                            <SelectItem value="or">or</SelectItem>
+                            <SelectItem value="and">và</SelectItem>
+                            <SelectItem value="or">hoặc</SelectItem>
                           </SelectContent>
                         </Select>
                       ) : (
                         <p className="text-muted-foreground">
                           {isStaticFollowingStatic
-                            ? "and"
+                            ? "và"
                             : conditionalOperator === LogicalOperator.OR
-                              ? "or"
-                              : "and"}
+                              ? "hoặc"
+                              : "và"}
                         </p>
                       )}
                       <FormControl>
-                        <SelectTrigger className="w-[120px]">
+                        <SelectTrigger className="w-[160px]">
                           {uiType ? (
                             conditionTypeLabel
                           ) : (
-                            <SelectValue placeholder="Choose" />
+                            <SelectValue placeholder="Chọn" />
                           )}
                         </SelectTrigger>
                       </FormControl>
@@ -381,7 +381,7 @@ export function ConditionSteps({
           >
             <RuleStep
               onRemove={() => removeCondition(index)}
-              removeAriaLabel="Remove condition"
+              removeAriaLabel="Xoá điều kiện"
               leftContent={leftContent}
               rightContent={(() => {
                 const currentCondition = watch(`conditions.${index}`);
@@ -394,7 +394,7 @@ export function ConditionSteps({
                         <div className="mb-2">
                           <Label
                             name={`conditions.${index}.instructions`}
-                            label="That matches:"
+                            label="Khớp với:"
                           />
                         </div>
                       )}
@@ -419,7 +419,7 @@ export function ConditionSteps({
                                 errors.conditions?.[index] as {
                                   instructions?: FieldError;
                                 }
-                              )?.instructions?.message || "Invalid value"
+                              )?.instructions?.message || "Giá trị không hợp lệ"
                             }
                           />
                         </div>
@@ -435,7 +435,7 @@ export function ConditionSteps({
                         type="text"
                         name={`conditions.${index}.from`}
                         registerProps={register(`conditions.${index}.from`)}
-                        placeholder="hello@example.com OR support@test.com"
+                        placeholder="hello@example.com HOẶC support@test.com"
                         className="pr-8"
                         error={
                           (
@@ -464,7 +464,7 @@ export function ConditionSteps({
                         type="text"
                         name={`conditions.${index}.to`}
                         registerProps={register(`conditions.${index}.to`)}
-                        placeholder="hello@example.com OR support@test.com"
+                        placeholder="hello@example.com HOẶC support@test.com"
                         className="pr-8"
                         error={
                           (
@@ -493,7 +493,7 @@ export function ConditionSteps({
                         type="text"
                         name={`conditions.${index}.subject`}
                         registerProps={register(`conditions.${index}.subject`)}
-                        placeholder="Receipt for your purchase"
+                        placeholder="Biên lai cho giao dịch mua của bạn"
                         className="pr-8"
                         error={
                           (
@@ -505,7 +505,7 @@ export function ConditionSteps({
                       />
                       <div className="absolute right-2 top-1/2 -translate-y-1/2">
                         <TooltipExplanation
-                          text="Only apply this rule to emails with this subject. e.g. Receipt for your purchase"
+                          text="Chỉ áp dụng quy tắc này cho email có tiêu đề này. Ví dụ: Biên lai cho giao dịch mua của bạn"
                           side="right"
                           size="sm"
                           className="text-gray-400"
@@ -526,4 +526,4 @@ export function ConditionSteps({
 }
 
 const getFilterTooltipText = (filterType: "from" | "to") =>
-  `Only apply this rule ${filterType} emails from this address. Supports multiple addresses separated by comma, pipe, or OR. e.g. "@company.com", "hello@example.com OR support@test.com"`;
+  `Chỉ áp dụng quy tắc này cho email ${filterType === "from" ? "từ" : "tới"} địa chỉ này. Hỗ trợ nhiều địa chỉ, phân tách bởi dấu phẩy, dấu | hoặc từ HOẶC. Ví dụ: "@company.com", "hello@example.com HOẶC support@test.com"`;

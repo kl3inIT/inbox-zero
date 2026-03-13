@@ -16,15 +16,15 @@ export default function NoAccessPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-destructive" />
-            No Access
+            Không có quyền truy cập
           </CardTitle>
           <CardDescription>
-            Email account not found or you don't have access to it
+            Không tìm thấy tài khoản email hoặc bạn không có quyền truy cập.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Button asChild>
-            <Link href="/accounts">View accounts</Link>
+            <Link href="/accounts">Xem các tài khoản</Link>
           </Button>
         </CardContent>
       </Card>

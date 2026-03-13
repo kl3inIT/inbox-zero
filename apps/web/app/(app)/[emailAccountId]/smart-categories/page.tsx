@@ -74,8 +74,10 @@ export default async function CategoriesPage({
         <Tabs defaultValue="categories">
           <TopBar className="items-center">
             <TabsList>
-              <TabsTrigger value="categories">Categories</TabsTrigger>
-              <TabsTrigger value="uncategorized">Uncategorized</TabsTrigger>
+              <TabsTrigger value="categories">Nhóm</TabsTrigger>
+              <TabsTrigger value="uncategorized">
+                Chưa được phân loại
+              </TabsTrigger>
             </TabsList>
 
             <div className="flex items-center gap-2">
@@ -84,7 +86,7 @@ export default async function CategoriesPage({
                   children: (
                     <>
                       <SparklesIcon className="mr-2 size-4" />
-                      Bulk Categorize
+                      Phân loại hàng loạt
                     </>
                   ),
                   variant: "outline",
@@ -95,7 +97,7 @@ export default async function CategoriesPage({
                   href={prefixPath(emailAccountId, "/smart-categories/setup")}
                 >
                   <PenIcon className="mr-2 size-4" />
-                  Edit
+                  Chỉnh sửa
                 </Link>
               </Button>
               <CreateCategoryButton />
@@ -106,10 +108,10 @@ export default async function CategoriesPage({
             {senders.length === 0 && (
               <Card className="m-4">
                 <CardHeader>
-                  <CardTitle>Categorize senders</CardTitle>
+                  <CardTitle>Phân loại người gửi</CardTitle>
                   <CardDescription>
-                    Now that you have some categories, our AI can categorize
-                    senders.
+                    Bây giờ bạn đã có một số nhóm, trợ lý AI có thể giúp phân
+                    loại người gửi.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

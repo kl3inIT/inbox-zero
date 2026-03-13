@@ -11,18 +11,20 @@ import { ConnectDrive } from "./ConnectDrive";
 const steps = [
   {
     number: 1,
-    title: "Tell us how you organize",
-    description: '"Receipts go to Expenses by month. Contracts go to Legal."',
+    title: "Hãy cho chúng tôi biết bạn sắp xếp như thế nào",
+    description:
+      '"Hóa đơn vào thư mục Chi phí theo tháng. Hợp đồng vào thư mục Pháp lý."',
   },
   {
     number: 2,
-    title: "Attachments get filed",
-    description: "AI reads each document and files it to the right folder",
+    title: "Tệp đính kèm được tự động lưu trữ",
+    description: "AI đọc từng tài liệu và lưu vào đúng thư mục phù hợp",
   },
   {
     number: 3,
-    title: "You stay in control",
-    description: "Get an email when files are sorted—reply to correct",
+    title: "Bạn luôn kiểm soát",
+    description:
+      "Nhận email khi tệp được sắp xếp — trả lời email để chỉnh sửa nếu cần",
   },
 ];
 
@@ -30,7 +32,7 @@ export function DriveOnboarding() {
   return (
     <div className="mx-auto max-w-xl py-8">
       <TypographyH3 className="text-center">
-        Attachments filed automatically while you work
+        Tệp đính kèm được tự động lưu khi bạn làm việc
       </TypographyH3>
 
       <div className="mt-10 space-y-6">
@@ -51,7 +53,7 @@ export function DriveOnboarding() {
 
       <Card className="mt-10 p-6">
         <TypographyH4 className="text-center">
-          Where should we file your attachments?
+          Chúng tôi nên lưu tệp đính kèm của bạn ở đâu?
         </TypographyH4>
         <div className="mt-4 flex justify-center">
           <ConnectDrive />

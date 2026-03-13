@@ -26,14 +26,14 @@ export const AdminUserControls = () => {
     {
       onSuccess: () => {
         toastSuccess({
-          title: "History processed",
-          description: "History processed",
+          title: "Đã xử lý lịch sử",
+          description: "Lịch sử đã được xử lý",
         });
       },
       onError: () => {
         toastError({
-          title: "Error processing history",
-          description: "Error processing history",
+          title: "Lỗi khi xử lý lịch sử",
+          description: "Đã xảy ra lỗi khi xử lý lịch sử",
         });
       },
     },
@@ -42,18 +42,18 @@ export const AdminUserControls = () => {
     useAction(adminCheckPermissionsAction, {
       onSuccess: (result) => {
         toastSuccess({
-          title: "Permissions checked",
-          description: `Permissions checked. ${
+          title: "Đã kiểm tra quyền truy cập",
+          description: `Đã kiểm tra quyền truy cập. ${
             result.data?.hasAllPermissions
-              ? "Has all permissions"
-              : "Missing permissions"
+              ? "Đã có đầy đủ quyền"
+              : "Thiếu quyền"
           }`,
         });
       },
       onError: (error) => {
         console.error(error);
         toastError({
-          title: "Error checking permissions",
+          title: "Lỗi khi kiểm tra quyền truy cập",
           description: getActionErrorMessage(error.error),
         });
       },
@@ -69,18 +69,18 @@ export const AdminUserControls = () => {
         const errorCount = results.filter((r) => r.status === "error").length;
         const description =
           successCount > 0
-            ? `${successCount} succeeded, ${errorCount} failed`
+            ? `${successCount} thành công, ${errorCount} thất bại`
             : errorCount > 0
-              ? `0 succeeded, ${errorCount} failed`
-              : "No watchable email accounts found";
+              ? `0 thành công, ${errorCount} thất bại`
+              : "Không tìm thấy tài khoản email nào có thể theo dõi";
         toastSuccess({
-          title: "Watch completed",
+          title: "Đã hoàn tất theo dõi",
           description,
         });
       },
       onError: (error) => {
         toastError({
-          title: "Error watching emails",
+          title: "Lỗi khi theo dõi email",
           description: getActionErrorMessage(error.error),
         });
       },
@@ -91,13 +91,13 @@ export const AdminUserControls = () => {
     {
       onSuccess: (result) => {
         toastSuccess({
-          title: "Rules disabled",
-          description: `Disabled rules and follow-up for ${result.data?.emailAccountCount} account(s)`,
+          title: "Đã tắt rule",
+          description: `Đã tắt rule và theo dõi cho ${result.data?.emailAccountCount} tài khoản`,
         });
       },
       onError: (error) => {
         toastError({
-          title: "Error disabling rules",
+          title: "Lỗi khi tắt rule",
           description: getActionErrorMessage(error.error),
         });
       },
@@ -108,13 +108,13 @@ export const AdminUserControls = () => {
     {
       onSuccess: (result) => {
         toastSuccess({
-          title: "Drafts cleaned up",
-          description: `Deleted ${result.data?.deleted ?? 0} draft(s), skipped ${result.data?.skippedModified ?? 0} modified`,
+          title: "Đã dọn dẹp bản nháp",
+          description: `Đã xóa ${result.data?.deleted ?? 0} bản nháp, bỏ qua ${result.data?.skippedModified ?? 0} bản đã chỉnh sửa`,
         });
       },
       onError: (error) => {
         toastError({
-          title: "Error cleaning up drafts",
+          title: "Lỗi khi dọn dẹp bản nháp",
           description: getActionErrorMessage(error.error),
         });
       },
@@ -125,14 +125,14 @@ export const AdminUserControls = () => {
     {
       onSuccess: () => {
         toastSuccess({
-          title: "User deleted",
-          description: "User deleted",
+          title: "Đã xóa người dùng",
+          description: "Người dùng đã được xóa",
         });
       },
       onError: () => {
         toastError({
-          title: "Error deleting user",
-          description: "Error deleting user",
+          title: "Lỗi khi xóa người dùng",
+          description: "Đã xảy ra lỗi khi xóa người dùng",
         });
       },
     },
@@ -208,7 +208,7 @@ export const AdminUserControls = () => {
             deleteAccount({ email: getValues("email") });
           }}
         >
-          Delete User
+          Xóa người dùng
         </Button>
       </div>
     </form>

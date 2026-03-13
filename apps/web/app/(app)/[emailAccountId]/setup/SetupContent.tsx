@@ -80,27 +80,29 @@ function getFeatures() {
     {
       href: "/assistant",
       icon: MessageSquareIcon,
-      title: "Chat",
-      description: "Chat with your inbox to find information and take actions",
+      title: "Trò chuyện",
+      description:
+        "Trò chuyện với hộp thư để tìm thông tin và thực hiện hành động",
     },
     {
       href: "/automation",
       icon: BotIcon,
-      title: "Assistant",
+      title: "Trợ lý",
       description:
-        "Your personal email assistant that organizes, archives, and drafts replies",
+        "Trợ lý email cá nhân giúp bạn sắp xếp, lưu trữ và soạn thảo trả lời",
     },
     {
       href: "/bulk-unsubscribe",
       icon: ArchiveIcon,
-      title: "Bulk Unsubscribe",
-      description: "Easily unsubscribe from unwanted newsletters in one click",
+      title: "Hủy đăng ký hàng loạt",
+      description:
+        "Dễ dàng hủy đăng ký khỏi các bản tin không mong muốn chỉ với một cú nhấp",
     },
     {
       href: "/bulk-archive",
       icon: InboxIcon,
-      title: "Bulk Archive",
-      description: "Quickly clean up your inbox by archiving old emails",
+      title: "Lưu trữ hàng loạt",
+      description: "Nhanh chóng dọn hộp thư bằng cách lưu trữ email cũ",
     },
   ] as const;
 
@@ -314,10 +316,12 @@ function Checklist({
     <Card className="mb-6 overflow-hidden">
       <div className="border-b border-border p-4">
         <div className="flex items-center justify-between">
-          <h2 className="font-semibold text-foreground">Complete your setup</h2>
+          <h2 className="font-semibold text-foreground">
+            Hoàn tất thiết lập của bạn
+          </h2>
           <div className="flex items-center gap-3">
             <span className="text-sm text-muted-foreground hidden sm:block">
-              {completedCount} of {totalSteps} completed
+              Đã hoàn thành {completedCount}/{totalSteps}
             </span>
             <div className="h-2 w-32 overflow-hidden rounded-full bg-muted">
               <div
@@ -335,10 +339,10 @@ function Checklist({
           `/onboarding?step=${getStepNumber(STEP_KEYS.LABELS)}`,
         )}
         icon={<BotIcon size={18} />}
-        title="Set up your Personal Assistant"
-        timeEstimate="5 minutes"
+        title="Thiết lập Trợ lý cá nhân"
+        timeEstimate="5 phút"
         completed={isAiAssistantConfigured || dismissedSteps.aiAssistant}
-        actionText="Set up"
+        actionText="Thiết lập"
         onMarkDone={() => handleMarkStepDone("aiAssistant")}
         showMarkDone
         markDoneDisabled={isDismissingStep}
@@ -347,12 +351,12 @@ function Checklist({
       <StepItem
         href={prefixPath(emailAccountId, "/bulk-unsubscribe")}
         icon={<ArchiveIcon size={18} />}
-        title="Unsubscribe from a newsletter you don't read"
-        timeEstimate="2 minutes"
+        title="Hủy đăng ký các bản tin bạn không đọc"
+        timeEstimate="2 phút"
         completed={
           isBulkUnsubscribeConfigured || dismissedSteps.bulkUnsubscribe
         }
-        actionText="View"
+        actionText="Xem"
         onMarkDone={() => handleMarkStepDone("bulkUnsubscribe")}
         showMarkDone
         markDoneDisabled={isDismissingStep}
@@ -361,10 +365,10 @@ function Checklist({
       <StepItem
         href={prefixPath(emailAccountId, "/calendars")}
         icon={<CalendarIcon size={18} />}
-        title="Connect your calendar"
-        timeEstimate="2 minutes"
+        title="Kết nối lịch của bạn"
+        timeEstimate="2 phút"
         completed={isCalendarConnected || dismissedSteps.calendarConnected}
-        actionText="Connect"
+        actionText="Kết nối"
         onMarkDone={() => handleMarkStepDone("calendarConnected")}
         showMarkDone
         markDoneDisabled={isDismissingStep}
@@ -374,14 +378,14 @@ function Checklist({
         <StepItem
           href={prefixPath(emailAccountId, "/organization")}
           icon={<UsersIcon size={18} />}
-          title="Invite team members"
-          timeEstimate="2 minutes"
+          title="Mời thành viên trong nhóm"
+          timeEstimate="2 phút"
           completed={teamInvite.completed || dismissedSteps.teamInvite}
-          actionText="Invite"
+          actionText="Mời"
           onMarkDone={() => handleMarkStepDone("teamInvite")}
           markDoneDisabled={isDismissingStep}
           showMarkDone
-          markDoneText="Skip"
+          markDoneText="Bỏ qua"
           onActionClick={handleOpenInviteModal}
         />
       )}
@@ -400,10 +404,10 @@ function Checklist({
           href={EXTENSION_URL}
           linkProps={{ target: "_blank", rel: "noopener noreferrer" }}
           icon={<ChromeIcon size={18} />}
-          title={`Optional: Install the ${BRAND_NAME} Tabs extension`}
-          timeEstimate="1 minute"
+          title={`Tuỳ chọn: Cài đặt tiện ích ${BRAND_NAME} Tabs`}
+          timeEstimate="1 phút"
           completed={isExtensionInstalled}
-          actionText="Install"
+          actionText="Cài đặt"
           onMarkDone={handleMarkExtensionDone}
           showMarkDone={true}
         />
@@ -467,11 +471,11 @@ function SetupPageContent({
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col p-6">
       <div className="mb-4 sm:mb-8">
-        <PageHeading className="text-center">{`Welcome to ${BRAND_NAME}`}</PageHeading>
+        <PageHeading className="text-center">{`Chào mừng đến với ${BRAND_NAME}`}</PageHeading>
         <SectionDescription className="mt-2 text-center text-base">
           {isSetupComplete
-            ? "What would you like to do?"
-            : `Complete these steps to get the most out of ${BRAND_NAME}`}
+            ? "Bạn muốn làm gì tiếp theo?"
+            : `Hoàn thành các bước sau để tận dụng tối đa ${BRAND_NAME}`}
         </SectionDescription>
       </div>
 

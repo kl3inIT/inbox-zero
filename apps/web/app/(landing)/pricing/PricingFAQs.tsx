@@ -14,56 +14,58 @@ import { BRAND_NAME } from "@/utils/branding";
 
 const pricingFaqs = [
   {
-    question: `Can I try ${BRAND_NAME} for free?`,
-    answer: "Yes! All plans include a 7-day free trial.",
+    question: `Tôi có thể dùng thử ${BRAND_NAME} miễn phí không?`,
+    answer: "Có! Tất cả gói đều bao gồm 7 ngày dùng thử miễn phí.",
   },
   {
-    question: "Can I switch between plans?",
+    question: "Tôi có thể chuyển đổi giữa các gói không?",
     answer:
-      "Yes, you can upgrade or downgrade at any time. Changes take effect immediately and billing is prorated.",
+      "Có, bạn có thể nâng cấp hoặc hạ cấp bất cứ lúc nào. Thay đổi có hiệu lực ngay và sẽ được tính phí theo phần chênh lệch (prorated).",
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards through Stripe.",
+    question: "Bạn chấp nhận phương thức thanh toán nào?",
+    answer:
+      "Chúng tôi chấp nhận các thẻ tín dụng/phí phổ biến thông qua Stripe.",
   },
   {
-    question: "Do you offer annual discounts?",
-    answer: "Yes! Save up to 20% by choosing annual billing on any plan.",
+    question: "Có giảm giá khi thanh toán theo năm không?",
+    answer:
+      "Có! Tiết kiệm đến 20% khi chọn thanh toán theo năm ở bất kỳ gói nào.",
   },
   {
     question:
-      "Do you offer discounts for students, nonprofits, or open-source projects?",
+      "Có ưu đãi cho sinh viên, tổ chức phi lợi nhuận, hoặc dự án mã nguồn mở không?",
     answer: (
       <span>
-        Yes! Send us an{" "}
+        Có! Hãy gửi{" "}
         <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
-        and we&apos;ll set up a discounted plan for you.
+        cho chúng tôi và chúng tôi sẽ thiết lập gói ưu đãi cho bạn.
       </span>
     ),
   },
   {
-    question: "What happens if I cancel?",
+    question: "Nếu tôi huỷ thì sao?",
     answer:
-      "You can cancel anytime. Your subscription will remain active until the end of the billing period.",
+      "Bạn có thể huỷ bất cứ lúc nào. Gói đăng ký của bạn vẫn hoạt động đến hết chu kỳ thanh toán hiện tại.",
   },
   {
-    question: "Do you offer refunds?",
+    question: "Có hoàn tiền không?",
     answer: (
       <span>
-        Yes, if you don&apos;t think we provided you with value send us an{" "}
+        Có, nếu bạn cảm thấy chúng tôi chưa mang lại giá trị, hãy gửi{" "}
         <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
-        within 14 days of upgrading and we&apos;ll refund you.
+        trong vòng 14 ngày kể từ khi nâng cấp và chúng tôi sẽ hoàn tiền cho bạn.
       </span>
     ),
   },
   {
-    question: "Need a custom plan for your enterprise?",
+    question: "Cần gói tuỳ chỉnh cho doanh nghiệp?",
     answer: (
       <span>
         <Anchor href="https://go.getinboxzero.com/sales" newTab>
-          Contact our sales team
+          Liên hệ đội ngũ tư vấn
         </Anchor>{" "}
-        for custom pricing, SSO, on-premise deployment, and dedicated support.
+        để nhận báo giá tuỳ chỉnh, SSO, triển khai on-premise và hỗ trợ riêng.
       </span>
     ),
   },
@@ -72,7 +74,7 @@ const pricingFaqs = [
 export function PricingFAQs() {
   return (
     <Section>
-      <SectionHeading>Pricing FAQ</SectionHeading>
+      <SectionHeading>Hỏi đáp về giá</SectionHeading>
       <SectionContent>
         <CardWrapper>
           <dl className="grid md:grid-cols-2 gap-6">

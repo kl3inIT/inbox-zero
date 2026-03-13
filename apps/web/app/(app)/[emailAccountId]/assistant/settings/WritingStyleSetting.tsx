@@ -34,8 +34,8 @@ export function WritingStyleSetting() {
 
   return (
     <SettingCard
-      title="Writing style"
-      description="Define your tone and style."
+      title="Giọng văn"
+      description="Xác định giọng điệu và phong cách."
       right={
         <LoadingContent
           loading={isLoading}
@@ -44,7 +44,7 @@ export function WritingStyleSetting() {
         >
           <WritingStyleDialog currentWritingStyle={data?.writingStyle || ""}>
             <Button variant="outline" size="sm">
-              {hasWritingStyle ? "Edit" : "Set"}
+              {hasWritingStyle ? "Sửa" : "Thiết lập"}
             </Button>
           </WritingStyleDialog>
         </LoadingContent>
@@ -79,7 +79,7 @@ function WritingStyleDialog({
     {
       onSuccess: () => {
         toastSuccess({
-          description: "Writing style saved!",
+          description: "Đã lưu giọng văn!",
         });
         setOpen(false);
       },
@@ -99,9 +99,9 @@ function WritingStyleDialog({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Writing style</DialogTitle>
+          <DialogTitle>Giọng văn</DialogTitle>
           <DialogDescription>
-            Used to draft replies in your voice.
+            Dùng để soạn thư trả lời theo giọng của bạn.
           </DialogDescription>
         </DialogHeader>
 
@@ -119,16 +119,16 @@ function WritingStyleDialog({
                   className="prose prose-sm dark:prose-invert max-w-none [&_p.is-editor-empty:first-child::before]:pointer-events-none [&_p.is-editor-empty:first-child::before]:float-left [&_p.is-editor-empty:first-child::before]:h-0 [&_p.is-editor-empty:first-child::before]:text-muted-foreground [&_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)]"
                   autofocus={false}
                   preservePastedLineBreaks
-                  placeholder={`Typical Length: 2-3 sentences
+                  placeholder={`Độ dài điển hình: 2-3 câu
 
-Formality: Informal but professional
+Mức độ trang trọng: Thân mật nhưng chuyên nghiệp
 
-Common Greeting: Hey,
+Lời chào thường dùng: Chào bạn,
 
-Notable Traits:
-- Uses contractions frequently
-- Concise and direct responses
-- Minimal closings`}
+Đặc điểm nổi bật:
+- Trả lời ngắn gọn, trực tiếp
+- Ít phần kết thư
+- Dùng từ ngữ tự nhiên, gần gũi`}
                 />
               </div>
             )}
@@ -139,7 +139,7 @@ Notable Traits:
             </p>
           )}
           <Button type="submit" className="mt-4" loading={isExecuting}>
-            Save
+            Lưu
           </Button>
         </form>
       </DialogContent>

@@ -13,7 +13,7 @@ export function WelcomeUpgradeNav() {
           }}
           variant="ghost"
         >
-          Log out
+          Đăng xuất
         </Button>
       </div>
     </nav>

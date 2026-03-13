@@ -26,14 +26,14 @@ export function OrganizationTabs({ organizationId }: OrganizationTabsProps) {
   const tabs = [
     {
       id: "members",
-      label: "Members",
+      label: "Thành viên",
       href: `/organization/${organizationId}`,
     },
     ...(isAdmin
       ? [
           {
             id: "stats",
-            label: "Analytics",
+            label: "Thống kê",
             href: `/organization/${organizationId}/stats`,
           },
         ]

@@ -23,14 +23,14 @@ export default function LicensePage(props: {
 
   return (
     <PageWrapper>
-      <PageHeader title="Activate your license" />
+      <PageHeader title="Kích hoạt giấy phép của bạn" />
 
       <div className="max-w-2xl py-4">
         {premium?.lemonLicenseKey && (
           <AlertBasic
             variant="success"
-            title="Your license is activated"
-            description="You have an active license key. To add users to your account visit the settings page."
+            title="Giấy phép của bạn đã được kích hoạt"
+            description="Bạn đang có một khóa giấy phép đang hoạt động. Để thêm người dùng vào tài khoản của mình, hãy truy cập trang cài đặt."
             className="mb-4"
           />
         )}
@@ -46,10 +46,10 @@ function ActivateLicenseForm(props: { licenseKey?: string }) {
     activateLicenseKeyAction,
     {
       onSuccess: () => {
-        toastSuccess({ description: "License activated!" });
+        toastSuccess({ description: "Đã kích hoạt giấy phép!" });
       },
       onError: () => {
-        toastError({ description: "Error activating license!" });
+        toastError({ description: "Lỗi khi kích hoạt giấy phép!" });
       },
     },
   );
@@ -74,12 +74,12 @@ function ActivateLicenseForm(props: { licenseKey?: string }) {
       <Input
         type="text"
         name="licenseKey"
-        label="License Key"
+        label="Khóa giấy phép"
         registerProps={register("licenseKey", { required: true })}
         error={errors.licenseKey}
       />
       <Button type="submit" loading={isExecuting}>
-        Activate
+        Kích hoạt
       </Button>
     </form>
   );

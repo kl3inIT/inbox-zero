@@ -30,10 +30,10 @@ export function AssistantOnboarding({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="min-w-[350px] sm:min-w-[600px] md:min-w-[750px] lg:min-w-[880px]">
         <DialogHeader>
-          <DialogTitle>Welcome to your AI Personal Assistant</DialogTitle>
+          <DialogTitle>Chào mừng bạn đến với Trợ lý AI cá nhân</DialogTitle>
           <DialogDescription>
-            Your personal assistant helps manage your inbox by following your
-            instructions and automating routine tasks.
+            Trợ lý cá nhân của bạn giúp quản lý hộp thư đến bằng cách làm theo
+            hướng dẫn của bạn và tự động hóa các tác vụ lặp lại.
           </DialogDescription>
         </DialogHeader>
 
@@ -49,15 +49,15 @@ export function AssistantOnboarding({
         <div className="grid gap-2 text-sm">
           <CardBasic className="flex items-center">
             <ListChecksIcon className="mr-3 size-5" />
-            Create rules to handle different types of emails
+            Tạo quy tắc để xử lý các loại email khác nhau
           </CardBasic>
           <CardBasic className="flex items-center">
             <ReplyIcon className="mr-3 size-5" />
-            Automate responses and actions
+            Tự động hóa phản hồi và hành động
           </CardBasic>
           <CardBasic className="flex items-center">
             <SlidersIcon className="mr-3 size-5" />
-            Refine your assistant's behavior over time
+            Tinh chỉnh cách Trợ lý hoạt động theo thời gian
           </CardBasic>
         </div>
         <div>
@@ -68,7 +68,7 @@ export function AssistantOnboarding({
               onClose();
             }}
           >
-            Get Started
+            Bắt đầu
           </Button>
         </div>
       </DialogContent>

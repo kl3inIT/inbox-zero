@@ -95,9 +95,9 @@ export function Members({ organizationId }: { organizationId: string }) {
     (memberId: string) =>
       handleAction(
         () => removeMemberAction({ memberId }),
-        "Error removing member",
-        "Member removed successfully",
-        "Failed to remove member",
+        "Lỗi khi xóa thành viên",
+        "Xóa thành viên thành công",
+        "Xóa thành viên thất bại",
       ),
     [handleAction],
   );
@@ -106,9 +106,9 @@ export function Members({ organizationId }: { organizationId: string }) {
     (invitationId: string) =>
       handleAction(
         () => cancelInvitationAction({ invitationId }),
-        "Error cancelling invitation",
-        "Invitation cancelled successfully",
-        "Failed to cancel invitation",
+        "Lỗi khi hủy lời mời",
+        "Hủy lời mời thành công",
+        "Hủy lời mời thất bại",
       ),
     [handleAction],
   );
@@ -117,7 +117,7 @@ export function Members({ organizationId }: { organizationId: string }) {
     <LoadingContent loading={isLoading} error={error}>
       <div>
         <div className="flex justify-between items-center">
-          <TypographyH3>Members ({data?.members.length || 0})</TypographyH3>
+          <TypographyH3>Thành viên ({data?.members.length || 0})</TypographyH3>
           {isAdmin && (
             <InviteMemberModal
               organizationId={organizationId}
@@ -149,7 +149,7 @@ export function Members({ organizationId }: { organizationId: string }) {
             data.pendingInvitations.length === 0) && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">
-                No members found in your organization.
+                Không tìm thấy thành viên nào trong tổ chức của bạn.
               </p>
             </div>
           )}
@@ -157,7 +157,7 @@ export function Members({ organizationId }: { organizationId: string }) {
         {data?.pendingInvitations && data.pendingInvitations.length > 0 && (
           <div className="space-y-4 mt-8">
             <TypographyH3>
-              Pending Invitations ({data.pendingInvitations.length})
+              Lời mời đang chờ ({data.pendingInvitations.length})
             </TypographyH3>
             <div className="space-y-4">
               {data.pendingInvitations.map((invitation) => (
@@ -229,7 +229,7 @@ function MemberCard({
             </TooltipTrigger>
             <TooltipContent>
               <p>
-                Joined at: {new Date(member.createdAt).toLocaleDateString()}
+                Tham gia lúc: {new Date(member.createdAt).toLocaleDateString()}
               </p>
             </TooltipContent>
           </Tooltip>
@@ -248,20 +248,20 @@ function MemberCard({
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => onRemove(member.id)}>
                 <TrashIcon className="mr-2 size-4" />
-                Remove
+                Xóa
               </DropdownMenuItem>
               {member.allowOrgAdminAnalytics && (
                 <>
                   <DropdownMenuItem asChild>
                     <Link href={`/${member.emailAccount.id}/stats`}>
                       <BarChart3 className="mr-2 size-4" />
-                      Analytics
+                      Thống kê
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href={`/${member.emailAccount.id}/usage`}>
                       <BarChartIcon className="mr-2 size-4" />
-                      Usage
+                      Mức sử dụng
                     </Link>
                   </DropdownMenuItem>
                 </>
@@ -332,14 +332,14 @@ function PendingInvitationCard({
           onClick={() => onCancel(invitation.id)}
         >
           <XIcon className="size-4 mr-2" />
-          Cancel
+          Hủy
         </Button>
       }
     >
       <div className="flex items-center space-x-3">
         <p className="font-medium">{invitation.email}</p>
         <Badge variant="outline" className="text-xs">
-          Pending
+          Đang chờ
         </Badge>
         {invitation.role && (
           <Badge variant="secondary" className="text-xs">
@@ -349,7 +349,7 @@ function PendingInvitationCard({
       </div>
       <div className="flex items-center space-x-3 mt-1">
         <span className="text-xs text-muted-foreground">
-          Invited by {invitation.inviter.name || invitation.inviter.email}
+          Được mời bởi {invitation.inviter.name || invitation.inviter.email}
         </span>
       </div>
     </CardWrapper>

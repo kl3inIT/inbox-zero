@@ -23,12 +23,12 @@ import {
 export function DebugLabels() {
   const { execute, isExecuting, result } = useAction(adminGetLabelsAction, {
     onSuccess: () => {
-      toastSuccess({ description: "Labels found!" });
+      toastSuccess({ description: "Đã tìm thấy label!" });
     },
     onError: ({ error }) => {
       toastError({
-        title: "Error getting labels",
-        description: error.serverError || "An error occurred",
+        title: "Lỗi khi lấy label",
+        description: error.serverError || "Đã xảy ra lỗi",
       });
     },
   });
@@ -52,20 +52,22 @@ export function DebugLabels() {
     <Card className="max-w-xl">
       <CardHeader>
         <CardTitle>Debug labels</CardTitle>
-        <CardDescription>Get all labels for an email account</CardDescription>
+        <CardDescription>
+          Lấy tất cả label cho một tài khoản email
+        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <Input
             type="text"
             name="emailAccountId"
-            label="Email Account ID"
-            placeholder="Email Account ID"
+            label="ID tài khoản email"
+            placeholder="ID tài khoản email"
             registerProps={register("emailAccountId")}
             error={errors.emailAccountId}
           />
           <Button type="submit" loading={isExecuting}>
-            Get Labels
+            Lấy label
           </Button>
         </form>
 

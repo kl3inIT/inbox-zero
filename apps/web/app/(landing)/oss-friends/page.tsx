@@ -13,8 +13,8 @@ import { BlogHeader } from "@/components/layouts/BlogLayout";
 import { getBrandTitle } from "@/utils/branding";
 
 export const metadata: Metadata = {
-  title: getBrandTitle("Open Source Friends"),
-  description: "Some other great Open Source projects to follow",
+  title: getBrandTitle("Bạn bè mã nguồn mở"),
+  description: "Một số dự án mã nguồn mở tuyệt vời khác để bạn theo dõi",
   alternates: { canonical: "/oss-friends" },
 };
 
@@ -35,9 +35,9 @@ export default async function OSSFriendsPage() {
 
         <div className="mx-auto mt-20 max-w-6xl pb-10">
           <div className="text-center">
-            <PageHeading>Open Source Friends</PageHeading>
+            <PageHeading>Bạn bè mã nguồn mở</PageHeading>
             <Paragraph className="mt-4">
-              Some other great Open Source projects to follow
+              Một số dự án mã nguồn mở tuyệt vời khác để bạn theo dõi
             </Paragraph>
           </div>
           <div className="mt-20 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -53,7 +53,7 @@ export default async function OSSFriendsPage() {
                   <div className="mt-4">
                     <Button asChild>
                       <Link href={friend.href} target="_blank">
-                        Learn more
+                        Tìm hiểu thêm
                       </Link>
                     </Button>
                   </div>
@@ -69,6 +69,6 @@ export default async function OSSFriendsPage() {
     );
   } catch (error) {
     console.error(error);
-    return <div>Error loading OSS Friends</div>;
+    return <div>Lỗi khi tải danh sách dự án mã nguồn mở</div>;
   }
 }

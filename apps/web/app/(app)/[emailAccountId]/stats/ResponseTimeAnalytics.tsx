@@ -37,12 +37,12 @@ export function ResponseTimeAnalytics({
   const distributionData = useMemo(() => {
     if (!data?.distribution) return [];
     return [
-      { group: "< 1 hour", count: data.distribution.lessThan1Hour },
-      { group: "1-4 hours", count: data.distribution.oneToFourHours },
-      { group: "4-24 hours", count: data.distribution.fourTo24Hours },
-      { group: "1-3 days", count: data.distribution.oneToThreeDays },
-      { group: "3-7 days", count: data.distribution.threeToSevenDays },
-      { group: "> 7 days", count: data.distribution.moreThan7Days },
+      { group: "< 1 giờ", count: data.distribution.lessThan1Hour },
+      { group: "1-4 giờ", count: data.distribution.oneToFourHours },
+      { group: "4-24 giờ", count: data.distribution.fourTo24Hours },
+      { group: "1-3 ngày", count: data.distribution.oneToThreeDays },
+      { group: "3-7 ngày", count: data.distribution.threeToSevenDays },
+      { group: "> 7 ngày", count: data.distribution.moreThan7Days },
     ];
   }, [data]);
   const trendData = useMemo(() => {
@@ -77,25 +77,25 @@ export function ResponseTimeAnalytics({
         <div className="space-y-4">
           {data.emailsAnalyzed > 0 && (
             <p className="text-muted-foreground text-sm">
-              Response time data based on last {data.emailsAnalyzed}{" "}
-              {pluralize(data.emailsAnalyzed, "email")}
+              Dữ liệu thời gian phản hồi dựa trên {data.emailsAnalyzed}{" "}
+              {pluralize(data.emailsAnalyzed, "email")} gần nhất
             </p>
           )}
 
           <div className="grid gap-2 sm:gap-4 grid-cols-3">
             <SummaryCard
-              title="Median Response"
+              title="Thời gian phản hồi trung vị"
               value={formatTime(data.summary.medianResponseTime)}
               icon={<Clock className="h-4 w-4" />}
               comparison={data.summary.previousPeriodComparison}
             />
             <SummaryCard
-              title="Average Response"
+              title="Thời gian phản hồi trung bình"
               value={formatTime(data.summary.averageResponseTime)}
               icon={<Timer className="h-4 w-4" />}
             />
             <SummaryCard
-              title="Within 1 Hour"
+              title="Trong vòng 1 giờ"
               value={`${data.summary.within1Hour}%`}
               icon={<TrendingUp className="h-4 w-4" />}
             />
@@ -104,7 +104,7 @@ export function ResponseTimeAnalytics({
           {/* Distribution Chart */}
           {distributionData.some((d) => d.count > 0) && (
             <CardBasic>
-              <p>Response Time Distribution</p>
+              <p>Phân bố thời gian phản hồi</p>
               <div className="mt-4">
                 <BarChart
                   data={distributionData}
@@ -121,7 +121,7 @@ export function ResponseTimeAnalytics({
           {/* Trend Chart */}
           {trendData.length > 0 && (
             <CardBasic>
-              <p>Weekly Response Time Trend</p>
+              <p>Xu hướng thời gian phản hồi theo tuần</p>
               <div className="mt-4">
                 <BarChart
                   data={trendData}
@@ -140,9 +140,12 @@ export function ResponseTimeAnalytics({
           {!distributionData.some((d) => d.count > 0) &&
             trendData.length === 0 && (
               <CardBasic>
-                <p>Response Time Analytics</p>
+                <p>Phân tích thời gian phản hồi</p>
                 <div className="mt-4 h-32 flex items-center justify-center text-muted-foreground">
-                  <p>No response time data available for this period.</p>
+                  <p>
+                    Không có dữ liệu thời gian phản hồi trong khoảng thời gian
+                    này.
+                  </p>
                 </div>
               </CardBasic>
             )}
@@ -193,9 +196,11 @@ function SummaryCard({
               <TrendingUp className="h-3 w-3" />
             ) : null}
             {comparison.percentChange === 0
-              ? "No change"
-              : `${Math.abs(comparison.percentChange)}% ${comparison.percentChange < 0 ? "faster" : "slower"}`}
-            <span className="text-muted-foreground ml-1">vs previous</span>
+              ? "Không thay đổi"
+              : `${Math.abs(comparison.percentChange)}% ${comparison.percentChange < 0 ? "nhanh hơn" : "chậm hơn"}`}
+            <span className="text-muted-foreground ml-1">
+              so với giai đoạn trước
+            </span>
           </p>
         )}
       </CardContent>

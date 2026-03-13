@@ -19,27 +19,27 @@ import { OnboardingButton } from "@/app/(app)/[emailAccountId]/onboarding/Onboar
 const COMPANY_SIZES = [
   {
     value: 1,
-    label: "Only me",
+    label: "Chỉ mình tôi",
     icon: <User className="size-4" />,
   },
   {
     value: 5,
-    label: "2-10 people",
+    label: "2–10 người",
     icon: <Users className="size-4" />,
   },
   {
     value: 50,
-    label: "11-100 people",
+    label: "11–100 người",
     icon: <Building className="size-4" />,
   },
   {
     value: 500,
-    label: "101-1000 people",
+    label: "101–1000 người",
     icon: <Factory className="size-4" />,
   },
   {
     value: 1000,
-    label: "1000+ people",
+    label: "Trên 1000 người",
     icon: <Landmark className="size-4" />,
   },
 ];
@@ -59,7 +59,7 @@ export function StepCompanySize({ onNext }: { onNext: () => void }) {
         console.error("Failed to save company size:", error);
         toastError({
           description:
-            "There was an error saving your selection. Please try again.",
+            "Đã xảy ra lỗi khi lưu lựa chọn của bạn. Vui lòng thử lại.",
         });
       }
     },
@@ -73,9 +73,10 @@ export function StepCompanySize({ onNext }: { onNext: () => void }) {
       </IconCircle>
 
       <div className="text-center mt-4">
-        <PageHeading>What's the size of your company?</PageHeading>
+        <PageHeading>Quy mô công ty của bạn là bao nhiêu?</PageHeading>
         <TypographyP className="mt-2 max-w-lg mx-auto">
-          This helps us tailor the experience to your organization's needs.
+          Điều này giúp chúng tôi tùy chỉnh trải nghiệm phù hợp với nhu cầu của
+          tổ chức bạn.
         </TypographyP>
       </div>
 

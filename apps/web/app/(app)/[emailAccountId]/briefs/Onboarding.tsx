@@ -9,18 +9,18 @@ import { ConnectCalendar } from "@/app/(app)/[emailAccountId]/calendars/ConnectC
 const features = [
   {
     icon: <UserSearchIcon className="size-4 text-blue-500" />,
-    title: "Attendee research",
-    description: "Who they are, their company, and role",
+    title: "Tìm hiểu người tham dự",
+    description: "Họ là ai, công ty và vai trò của họ",
   },
   {
     icon: <MailIcon className="size-4 text-blue-500" />,
-    title: "Email history",
-    description: "Recent conversations with this person",
+    title: "Lịch sử email",
+    description: "Các cuộc trao đổi gần đây với người này",
   },
   {
     icon: <LightbulbIcon className="size-4 text-blue-500" />,
-    title: "Key context",
-    description: "Important details from past discussions",
+    title: "Bối cảnh quan trọng",
+    description: "Những chi tiết quan trọng từ các cuộc trao đổi trước đó",
   },
 ];
 
@@ -38,23 +38,23 @@ export function BriefsOnboarding({
   return (
     <SetupCard
       imageSrc="/images/illustrations/communication.svg"
-      imageAlt="Meeting Briefs"
-      title="Meeting Briefs"
-      description="Receive briefings via email or Slack before meetings with external guests."
+      imageAlt="Bản tóm tắt cuộc họp"
+      title="Bản tóm tắt cuộc họp"
+      description="Nhận bản tóm tắt qua email hoặc Slack trước các cuộc họp với khách mời bên ngoài."
       features={features}
     >
       {hasCalendarConnected ? (
         <>
           <MessageText>
-            You're all set! Enable meeting briefs to get started:
+            Mọi thứ đã sẵn sàng! Hãy bật bản tóm tắt cuộc họp để bắt đầu:
           </MessageText>
           <Button onClick={onEnable} loading={isEnabling}>
-            Enable Meeting Briefs
+            Bật bản tóm tắt cuộc họp
           </Button>
         </>
       ) : (
         <>
-          <MessageText>Connect your calendar to get started:</MessageText>
+          <MessageText>Kết nối lịch của bạn để bắt đầu:</MessageText>
           <ConnectCalendar onboardingReturnPath={`/${emailAccountId}/briefs`} />
         </>
       )}

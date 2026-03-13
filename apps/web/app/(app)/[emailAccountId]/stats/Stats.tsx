@@ -22,11 +22,11 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { CardBasic } from "@/components/ui/card";
 
 const selectOptions = [
-  { label: "Last week", value: "7" },
-  { label: "Last month", value: "30" },
-  { label: "Last 3 months", value: "90" },
-  { label: "Last year", value: "365" },
-  { label: "All", value: "0" },
+  { label: "Tuần trước", value: "7" },
+  { label: "Tháng trước", value: "30" },
+  { label: "3 tháng gần đây", value: "90" },
+  { label: "Năm trước", value: "365" },
+  { label: "Tất cả", value: "0" },
 ];
 const defaultSelected = selectOptions[1];
 
@@ -74,8 +74,8 @@ export function Stats() {
 
   const title =
     !isAccountOwner && accountInfo?.name
-      ? `Analytics for ${accountInfo.name}`
-      : "Analytics";
+      ? `Phân tích cho ${accountInfo.name}`
+      : "Phân tích";
 
   return (
     <PageWrapper>
@@ -89,26 +89,26 @@ export function Stats() {
           onSetDateDropdown={onSetDateDropdown}
         />
         <DetailedStatsFilter
-          label={`Group by ${period}`}
+          label={`Nhóm theo ${period}`}
           icon={<LayoutGrid className="mr-2 h-4 w-4" />}
           columns={[
             {
-              label: "Day",
+              label: "Ngày",
               checked: period === "day",
               setChecked: () => setPeriod("day"),
             },
             {
-              label: "Week",
+              label: "Tuần",
               checked: period === "week",
               setChecked: () => setPeriod("week"),
             },
             {
-              label: "Month",
+              label: "Tháng",
               checked: period === "month",
               setChecked: () => setPeriod("month"),
             },
             {
-              label: "Year",
+              label: "Năm",
               checked: period === "year",
               setChecked: () => setPeriod("year"),
             },
@@ -116,26 +116,26 @@ export function Stats() {
         />
       </ActionBar>
       <div className="grid gap-2 sm:gap-4 mt-2 sm:mt-4">
-        <ErrorBoundary fallback={<SectionError title="Summary" />}>
+        <ErrorBoundary fallback={<SectionError title="Tổng quan" />}>
           <StatsSummary
             dateRange={dateRange}
             refreshInterval={refreshInterval}
             period={period}
           />
         </ErrorBoundary>
-        <ErrorBoundary fallback={<SectionError title="Email Analytics" />}>
+        <ErrorBoundary fallback={<SectionError title="Phân tích email" />}>
           <EmailAnalytics
             dateRange={dateRange}
             refreshInterval={refreshInterval}
           />
         </ErrorBoundary>
-        <ErrorBoundary fallback={<SectionError title="Response Time" />}>
+        <ErrorBoundary fallback={<SectionError title="Thời gian phản hồi" />}>
           <ResponseTimeAnalytics
             dateRange={dateRange}
             refreshInterval={refreshInterval}
           />
         </ErrorBoundary>
-        <ErrorBoundary fallback={<SectionError title="Rule Stats" />}>
+        <ErrorBoundary fallback={<SectionError title="Thống kê quy tắc" />}>
           <RuleStatsChart
             dateRange={dateRange}
             title="Assistant processed emails"
@@ -156,7 +156,7 @@ function SectionError({ title }: { title: string }) {
   return (
     <CardBasic>
       <p className="text-muted-foreground">
-        Unable to load {title}. Please try refreshing the page.
+        Không thể tải {title}. Vui lòng thử tải lại trang.
       </p>
     </CardBasic>
   );

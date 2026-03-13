@@ -170,14 +170,14 @@ export const OnboardingForm = (props: { questionIndex: number }) => {
               name={name}
               registerProps={register(name)}
               error={errors[name]}
-              placeholder="Optional"
+              placeholder="Không bắt buộc"
             />
             <Button
               className="mt-4 w-full"
               type="submit"
               loading={isSubmitting}
             >
-              Get Started
+              Bắt đầu
             </Button>
           </div>
         )}
@@ -186,7 +186,7 @@ export const OnboardingForm = (props: { questionIndex: number }) => {
           showOtherInput ||
           question.skippable) && (
           <Button className="mt-4 w-full" type="submit" loading={isSubmitting}>
-            {question.skippable ? "Skip" : "Next"}
+            {question.skippable ? "Bỏ qua" : "Tiếp tục"}
           </Button>
         )}
 

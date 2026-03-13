@@ -36,15 +36,15 @@ export default function EmailReportPage() {
       onSuccess: () => {
         if (result?.data) {
           setReport(result.data);
-          toastSuccess({ description: "Report generated successfully" });
+          toastSuccess({ description: "Tạo báo cáo thành công" });
         } else {
-          toastError({ description: "Failed to generate report" });
+          toastError({ description: "Tạo báo cáo thất bại" });
         }
       },
       onError: (result) => {
         toastError({
-          title: "Failed to generate report",
-          description: result.error.serverError || "Unknown error",
+          title: "Tạo báo cáo thất bại",
+          description: result.error.serverError || "Lỗi không xác định",
         });
       },
     },
@@ -56,12 +56,12 @@ export default function EmailReportPage() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Mail className="h-5 w-5" />
-            Email Report
+            Báo cáo email
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <Button onClick={() => executeAsync({})} loading={isExecuting}>
-            Generate Report
+            Tạo báo cáo
           </Button>
 
           <LoadingContent
@@ -71,8 +71,8 @@ export default function EmailReportPage() {
             }
           >
             <p className="text-gray-600">
-              Comprehensive analysis of your email patterns and personalized
-              recommendations.
+              Phân tích tổng quan thói quen email của bạn và gợi ý được cá nhân
+              hóa.
             </p>
 
             {/* Report Display */}
@@ -83,36 +83,36 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Target className="h-5 w-5" />
-                      Executive Summary
+                      Tóm tắt tổng quan
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="bg-white p-4 rounded-lg border">
                         <h4 className="font-semibold text-gray-900">
-                          Professional Persona
+                          Hồ sơ chuyên môn
                         </h4>
                         <p className="text-2xl font-bold text-blue-600">
                           {report.executiveSummary?.userProfile.persona}
                         </p>
                         <p className="text-sm text-gray-500">
-                          Confidence:{" "}
+                          Độ tin cậy:{" "}
                           {report.executiveSummary?.userProfile.confidence}%
                         </p>
                       </div>
                       <div className="bg-white p-4 rounded-lg border">
                         <h4 className="font-semibold text-gray-900">
-                          Email Sources
+                          Nguồn email
                         </h4>
                         <div className="space-y-1">
                           <div className="flex justify-between">
-                            <span className="text-sm">Inbox:</span>
+                            <span className="text-sm">Hộp thư đến:</span>
                             <span className="font-medium">
                               {report.emailActivityOverview.dataSources.inbox}
                             </span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-sm">Archived:</span>
+                            <span className="text-sm">Đã lưu trữ:</span>
                             <span className="font-medium">
                               {
                                 report.emailActivityOverview.dataSources
@@ -121,7 +121,7 @@ export default function EmailReportPage() {
                             </span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-sm">Sent:</span>
+                            <span className="text-sm">Đã gửi:</span>
                             <span className="font-medium">
                               {report.emailActivityOverview.dataSources.sent}
                             </span>
@@ -130,7 +130,7 @@ export default function EmailReportPage() {
                       </div>
                       <div className="bg-white p-4 rounded-lg border">
                         <h4 className="font-semibold text-gray-900">
-                          Quick Actions
+                          Hành động nhanh
                         </h4>
                         <div className="space-y-2">
                           {report.executiveSummary?.quickActions
@@ -158,7 +158,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Top Insights
+                        Những nhận định nổi bật
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {report.executiveSummary?.topInsights.map(
@@ -195,13 +195,13 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <TrendingUp className="h-5 w-5" />
-                      Professional Identity
+                      Danh tính nghề nghiệp
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Professional Identity
+                        Danh tính nghề nghiệp
                       </h4>
                       <p className="text-lg font-medium text-blue-600 mb-2">
                         {report.userPersona?.professionalIdentity.persona}
@@ -223,7 +223,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Current Priorities
+                        Ưu tiên hiện tại
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {report.userPersona?.currentPriorities.map(
@@ -243,45 +243,45 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Clock className="h-5 w-5" />
-                      Email Behavior Patterns
+                      Mẫu hành vi email
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <h5 className="font-medium text-gray-900 mb-2">
-                          Timing Patterns
+                          Mẫu thời gian
                         </h5>
                         <p className="text-sm text-gray-600">
-                          Peak hours:{" "}
+                          Khung giờ cao điểm:{" "}
                           {report.emailBehavior?.timingPatterns.peakHours.join(
                             ", ",
                           )}
                         </p>
                         <p className="text-sm text-gray-600">
-                          Response preference:{" "}
+                          Ưu tiên phản hồi:{" "}
                           {
                             report.emailBehavior?.timingPatterns
                               .responsePreference
                           }
                         </p>
                         <p className="text-sm text-gray-600">
-                          Frequency:{" "}
+                          Tần suất:{" "}
                           {report.emailBehavior?.timingPatterns.frequency}
                         </p>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <h5 className="font-medium text-gray-900 mb-2">
-                          Content Preferences
+                          Ưu tiên nội dung
                         </h5>
                         <p className="text-sm text-gray-600">
-                          Preferred:{" "}
+                          Ưa thích:{" "}
                           {report.emailBehavior?.contentPreferences.preferred.join(
                             ", ",
                           )}
                         </p>
                         <p className="text-sm text-gray-600">
-                          Avoided:{" "}
+                          Hạn chế:{" "}
                           {report.emailBehavior?.contentPreferences.avoided.join(
                             ", ",
                           )}
@@ -289,7 +289,7 @@ export default function EmailReportPage() {
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <h5 className="font-medium text-gray-900 mb-2">
-                          Engagement Triggers
+                          Yếu tố kích hoạt tương tác
                         </h5>
                         <div className="space-y-1">
                           {report.emailBehavior?.engagementTriggers.map(
@@ -310,13 +310,13 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Zap className="h-5 w-5" />
-                      Response Patterns & Categories
+                      Mẫu phản hồi & phân loại
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Common Response Patterns
+                        Mẫu phản hồi thường gặp
                       </h4>
                       <div className="space-y-4">
                         {report.responsePatterns?.commonResponses.map(
@@ -357,7 +357,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Email Categories
+                        Nhóm email
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {report.responsePatterns?.categoryOrganization.map(
@@ -382,7 +382,7 @@ export default function EmailReportPage() {
                                 {category.description}
                               </p>
                               <p className="text-xs text-gray-500">
-                                {category.emailCount} emails
+                                {category.emailCount} email
                               </p>
                             </div>
                           ),
@@ -397,13 +397,13 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Mail className="h-5 w-5" />
-                      Label Analysis
+                      Phân tích nhãn
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Current Labels
+                        Các nhãn hiện tại
                       </h4>
                       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
                         {report.labelAnalysis.currentLabels.map(
@@ -419,10 +419,10 @@ export default function EmailReportPage() {
                                 {label.emailCount}
                               </p>
                               <p className="text-xs text-gray-500">
-                                {label.unreadCount} unread
+                                {label.unreadCount} chưa đọc
                               </p>
                               <p className="text-xs text-gray-400">
-                                {label.threadCount} threads
+                                {label.threadCount} chuỗi
                               </p>
                             </div>
                           ),
@@ -432,7 +432,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Optimization Suggestions
+                        Gợi ý tối ưu
                       </h4>
                       <div className="space-y-3">
                         {report.labelAnalysis.optimizationSuggestions.map(
@@ -460,7 +460,7 @@ export default function EmailReportPage() {
                               <Badge
                                 className={getImpactColor(suggestion.impact)}
                               >
-                                {suggestion.impact} impact
+                                Tác động {suggestion.impact}
                               </Badge>
                             </div>
                           ),
@@ -475,13 +475,13 @@ export default function EmailReportPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="h-5 w-5" />
-                      Actionable Recommendations
+                      Khuyến nghị có thể hành động
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Immediate Actions
+                        Hành động ngay lập tức
                       </h4>
                       <div className="space-y-3">
                         {report.actionableRecommendations?.immediateActions.map(
@@ -495,7 +495,7 @@ export default function EmailReportPage() {
                                   {action.action}
                                 </p>
                                 <p className="text-sm text-gray-600">
-                                  Time required: {action.timeRequired}
+                                  Thời gian thực hiện: {action.timeRequired}
                                 </p>
                               </div>
                               <div className="flex gap-2">
@@ -509,7 +509,7 @@ export default function EmailReportPage() {
                                 <Badge
                                   className={getImpactColor(action.impact)}
                                 >
-                                  {action.impact} impact
+                                  Tác động {action.impact}
                                 </Badge>
                               </div>
                             </div>
@@ -520,7 +520,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Short-term Improvements
+                        Cải thiện ngắn hạn
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {report.actionableRecommendations?.shortTermImprovements.map(
@@ -533,7 +533,7 @@ export default function EmailReportPage() {
                                 {improvement.improvement}
                               </h5>
                               <p className="text-sm text-gray-600 mb-2">
-                                Timeline: {improvement.timeline}
+                                Thời gian thực hiện: {improvement.timeline}
                               </p>
                               <p className="text-sm text-gray-600">
                                 {improvement.expectedBenefit}
@@ -546,7 +546,7 @@ export default function EmailReportPage() {
 
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">
-                        Long-term Strategy
+                        Chiến lược dài hạn
                       </h4>
                       <div className="space-y-4">
                         {report.actionableRecommendations?.longTermStrategy.map(

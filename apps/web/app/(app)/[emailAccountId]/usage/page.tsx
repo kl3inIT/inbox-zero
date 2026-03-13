@@ -58,8 +58,8 @@ export default async function UsagePage(props: {
       <PageHeader
         title={
           isOwnAccount
-            ? "Credits and Usage"
-            : `Credits and Usage for ${emailAccount.name || emailAccount.email}`
+            ? "Tín dụng và mức sử dụng"
+            : `Tín dụng và mức sử dụng cho ${emailAccount.name || emailAccount.email}`
         }
       />
       <div className="my-4">

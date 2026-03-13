@@ -95,9 +95,10 @@ export function StepWho({
       </div>
 
       <div className="text-center">
-        <PageHeading className="mt-4">What do you do?</PageHeading>
+        <PageHeading className="mt-4">Bạn đang làm công việc gì?</PageHeading>
         <TypographyP className="mt-2">
-          This helps us set up your inbox the way you actually need it.
+          Câu trả lời của bạn sẽ giúp chúng tôi thiết lập hộp thư đúng với nhu
+          cầu thực tế của bạn.
         </TypographyP>
       </div>
 
@@ -173,7 +174,7 @@ export function StepWho({
               <Input
                 name="customRole"
                 type="text"
-                placeholder="Enter your role..."
+                placeholder="Nhập chức danh/công việc của bạn..."
                 registerProps={{
                   value: customRole,
                   onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -194,7 +195,7 @@ export function StepWho({
                 !watchedRole || (watchedRole === "Other" && !customRole.trim())
               }
             >
-              Continue
+              Tiếp tục
               <ArrowRightIcon className="size-4 ml-2" />
             </Button>
           </div>

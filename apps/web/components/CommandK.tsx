@@ -31,11 +31,11 @@ const SECTION_ORDER: CommandSection[] = [
 ];
 
 const SECTION_LABELS: Record<CommandSection, string> = {
-  actions: "Actions",
-  navigation: "Navigation",
-  rules: "Rules",
-  accounts: "Switch Account",
-  settings: "Settings",
+  actions: "Hành động",
+  navigation: "Điều hướng",
+  rules: "Quy tắc",
+  accounts: "Chuyển tài khoản",
+  settings: "Cài đặt",
 };
 
 export function CommandK() {
@@ -69,8 +69,8 @@ export function CommandK() {
     if (threadId) {
       actions.unshift({
         id: "archive",
-        label: "Archive",
-        description: "Archive current email",
+        label: "Lưu trữ",
+        description: "Lưu trữ email hiện tại",
         icon: ArchiveIcon,
         shortcut: "E",
         section: "actions",
@@ -193,7 +193,7 @@ export function CommandK() {
       commandProps={commandProps}
     >
       <CommandInput
-        placeholder="Type a command or search..."
+        placeholder="Nhập lệnh hoặc tìm kiếm..."
         value={search}
         onValueChange={setSearch}
       />
@@ -204,7 +204,7 @@ export function CommandK() {
           </div>
         ) : (
           <>
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>Không tìm thấy kết quả.</CommandEmpty>
             {SECTION_ORDER.map((section, index) => {
               const sectionCommands = groupedCommands[section];
               if (sectionCommands.length === 0) return null;
@@ -253,19 +253,19 @@ export function CommandK() {
           <kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px]">
             ↑↓
           </kbd>
-          navigate
+          di chuyển
         </span>
         <span className="flex items-center gap-1">
           <kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px]">
             ↵
           </kbd>
-          select
+          chọn
         </span>
         <span className="flex items-center gap-1">
           <kbd className="rounded border bg-muted px-1.5 py-0.5 font-mono text-[10px]">
             esc
           </kbd>
-          close
+          đóng
         </span>
       </div>
     </CommandDialog>

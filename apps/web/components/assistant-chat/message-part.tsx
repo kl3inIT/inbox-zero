@@ -37,7 +37,7 @@ interface MessagePartProps {
 }
 
 function ErrorToolCard({ error }: { error: string }) {
-  return <div className="rounded border p-2 text-red-500">Error: {error}</div>;
+  return <div className="rounded border p-2 text-red-500">Lỗi: {error}</div>;
 }
 
 function isOutputWithError(output: unknown): output is { error: unknown } {
@@ -112,9 +112,9 @@ export function MessagePart({
   if (part.type === "tool-getAccountOverview") {
     return renderToolStatus({
       part,
-      loadingText: "Loading account overview...",
+      loadingText: "Đang tải tổng quan tài khoản...",
       renderSuccess: ({ toolCallId }) => (
-        <BasicToolInfo key={toolCallId} text="Loaded account overview" />
+        <BasicToolInfo key={toolCallId} text="Đã tải tổng quan tài khoản" />
       ),
     });
   }
@@ -122,9 +122,9 @@ export function MessagePart({
   if (part.type === "tool-getAssistantCapabilities") {
     return renderToolStatus({
       part,
-      loadingText: "Loading assistant capabilities...",
+      loadingText: "Đang tải khả năng của trợ lý...",
       renderSuccess: ({ toolCallId }) => (
-        <BasicToolInfo key={toolCallId} text="Loaded assistant capabilities" />
+        <BasicToolInfo key={toolCallId} text="Đã tải khả năng của trợ lý" />
       ),
     });
   }
@@ -132,7 +132,7 @@ export function MessagePart({
   if (part.type === "tool-updateAssistantSettings") {
     return renderToolStatus({
       part,
-      loadingText: "Updating settings...",
+      loadingText: "Đang cập nhật cài đặt...",
       renderSuccess: ({ toolCallId, output }) => {
         const dryRun = getOutputField<boolean>(output, "dryRun");
         const appliedChanges = getOutputField<Array<unknown>>(
@@ -145,11 +145,9 @@ export function MessagePart({
         return (
           <BasicToolInfo
             key={toolCallId}
-            text={`${dryRun ? "Prepared settings changes" : "Updated settings"}${
+            text={`${dryRun ? "Đã chuẩn bị thay đổi cài đặt" : "Đã cập nhật cài đặt"}${
               appliedChangesCount !== null
-                ? ` (${appliedChangesCount} change${
-                    appliedChangesCount === 1 ? "" : "s"
-                  })`
+                ? ` (${appliedChangesCount} thay đổi)`
                 : ""
             }`}
           />
@@ -161,7 +159,9 @@ export function MessagePart({
   if (part.type === "tool-searchInbox") {
     const { toolCallId, state } = part;
     if (state === "input-available") {
-      return <BasicToolInfo key={toolCallId} text="Searching inbox..." />;
+      return (
+        <BasicToolInfo key={toolCallId} text="Đang tìm trong hộp thư..." />
+      );
     }
     if (state === "output-available") {
       const { output } = part;
@@ -175,7 +175,7 @@ export function MessagePart({
   if (part.type === "tool-readEmail") {
     const { toolCallId, state } = part;
     if (state === "input-available") {
-      return <BasicToolInfo key={toolCallId} text="Reading email..." />;
+      return <BasicToolInfo key={toolCallId} text="Đang đọc email..." />;
     }
     if (state === "output-available") {
       const { output } = part;
@@ -205,18 +205,18 @@ export function MessagePart({
         );
       }
 
-      let actionText = "Updating emails...";
+      let actionText = "Đang cập nhật email...";
       if (part.input.action === "archive_threads") {
         actionText = part.input.labelId
-          ? "Archiving and labeling emails..."
-          : "Archiving emails...";
+          ? "Đang lưu trữ và gắn nhãn email..."
+          : "Đang lưu trữ email...";
       } else if (part.input.action === "mark_read_threads") {
         actionText =
           part.input.read === false
-            ? "Marking emails as unread..."
-            : "Marking emails as read...";
+            ? "Đang đánh dấu email chưa đọc..."
+            : "Đang đánh dấu email đã đọc...";
       } else if (part.input.action === "unsubscribe_senders") {
-        actionText = "Unsubscribing senders...";
+        actionText = "Đang hủy đăng ký người gửi...";
       }
 
       return <BasicToolInfo key={toolCallId} text={actionText} />;

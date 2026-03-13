@@ -5,7 +5,7 @@ import { usePremium } from "@/components/PremiumAlert";
 import {
   ManageSubscription,
   ViewInvoicesButton,
-} from "@/app/(app)/premium/ManageSubscription";
+} from "@/app/(app)/refer/premium/ManageSubscription";
 import { LoadingContent } from "@/components/LoadingContent";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,25 +27,25 @@ export function BillingSection() {
         premium.stripeSubscriptionId) ? (
         <Item size="sm">
           <ItemContent>
-            <ItemTitle>{getPlanDisplayName(premium.tier)} plan</ItemTitle>
+            <ItemTitle>Gói {getPlanDisplayName(premium.tier)}</ItemTitle>
           </ItemContent>
           <ItemActions>
             <ManageSubscription premium={premium} />
             <ViewInvoicesButton premium={premium} />
             <Button asChild variant="outline" size="sm">
-              <Link href="/premium">Change plan</Link>
+              <Link href="/premium">Thay đổi gói</Link>
             </Button>
           </ItemActions>
         </Item>
       ) : (
         <Item size="sm">
           <ItemContent>
-            <ItemTitle>No active plan</ItemTitle>
+            <ItemTitle>Chưa có gói đang hoạt động</ItemTitle>
           </ItemContent>
           <ItemActions>
             {premium && <ViewInvoicesButton premium={premium} />}
             <Button asChild variant="outline" size="sm">
-              <Link href="/premium">Upgrade</Link>
+              <Link href="/premium">Nâng cấp</Link>
             </Button>
           </ItemActions>
         </Item>

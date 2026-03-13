@@ -15,7 +15,7 @@ export function CTAButtons() {
           link={{ href: "/login" }}
           onClick={() => landingPageAnalytics.getStartedClicked(posthog)}
         >
-          Get Started for Free
+          Bắt đầu miễn phí
         </Button>
       </div>
       <div>
@@ -25,7 +25,7 @@ export function CTAButtons() {
           link={{ href: "/sales", target: "_blank" }}
           onClick={() => landingPageAnalytics.talkToSalesClicked(posthog)}
         >
-          Talk to sales
+          Liên hệ tư vấn
         </Button>
       </div>
     </div>

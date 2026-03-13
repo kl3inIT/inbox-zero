@@ -23,7 +23,9 @@ export function TimeRangeStep() {
 
   return (
     <div className="text-center">
-      <TypographyH3>Which emails would you like to process?</TypographyH3>
+      <TypographyH3>
+        Bạn muốn xử lý các email trong khoảng thời gian nào?
+      </TypographyH3>
 
       <ButtonListSurvey
         className="mt-6"

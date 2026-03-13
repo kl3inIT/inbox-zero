@@ -19,7 +19,9 @@ export const BrandScroller = ({
   return (
     <BlurFade duration={0.4} delay={0.125 * 10}>
       <div className="mt-12">
-        <Paragraph>Join {userCount} users saving hours daily</Paragraph>
+        <Paragraph>
+          {userCount} người dùng đang tiết kiệm hàng giờ mỗi ngày
+        </Paragraph>
         <div className="group flex overflow-x-hidden py-10 [--gap:2rem] md:[--gap:3rem] [gap:var(--gap))] flex-row max-w-full [mask-image:linear-gradient(to_right,_rgba(0,_0,_0,_0),rgba(0,_0,_0,_1)_10%,rgba(0,_0,_0,_1)_90%,rgba(0,_0,_0,_0))]">
           {new Array(4).fill(0).map((_, i) => (
             <div

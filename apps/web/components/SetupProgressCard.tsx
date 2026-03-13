@@ -24,9 +24,9 @@ export function SetupProgressCard() {
               <ProgressCircle completed={data.completed} total={data.total} />
 
               <div>
-                <h3 className="text-sm font-semibold">Complete setup</h3>
+                <h3 className="text-sm font-semibold">Hoàn tất thiết lập</h3>
                 <p className="text-xs text-muted-foreground">
-                  {data.completed}/{data.total} Completed
+                  {data.completed}/{data.total} đã hoàn thành
                 </p>
               </div>
             </div>

@@ -14,11 +14,11 @@ export default async function RulePage(props: {
     <div>
       {searchParams.new === "true" && (
         <TopSection
-          title="Here are your rule settings!"
+          title="Đây là cài đặt quy tắc của bạn!"
           descriptionComponent={
             <p>
-              These rules were AI generated, feel free to adjust them to your
-              needs.
+              Các quy tắc này được AI tạo tự động, bạn có thể thoải mái điều
+              chỉnh cho phù hợp nhu cầu của mình.
             </p>
           }
         />

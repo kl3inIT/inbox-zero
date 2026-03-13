@@ -34,7 +34,7 @@ export default function HeroVideoDialog({
           <button
             type="button"
             onClick={() => landingPageAnalytics.videoClicked(posthog)}
-            aria-label="Play video"
+            aria-label="Phát video"
             className="group relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-xl"
           >
             <div className="relative -m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
@@ -63,12 +63,12 @@ export default function HeroVideoDialog({
           </button>
         </DialogTrigger>
         <DialogContent className="max-w-4xl border-0 bg-transparent p-0">
-          <DialogTitle className="sr-only">Video player</DialogTitle>
+          <DialogTitle className="sr-only">Trình phát video</DialogTitle>
           <div className="relative aspect-video w-full">
             <iframe
               src={videoSrc}
               className="size-full rounded-lg"
-              title="Video content"
+              title="Nội dung video"
               allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             />

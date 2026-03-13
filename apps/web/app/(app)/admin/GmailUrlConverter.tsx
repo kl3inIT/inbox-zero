@@ -28,12 +28,12 @@ export function GmailUrlConverter() {
     result,
   } = useAction(adminConvertGmailUrlAction, {
     onSuccess: () => {
-      toastSuccess({ description: "Message found!" });
+      toastSuccess({ description: "Đã tìm thấy email!" });
     },
     onError: ({ error }) => {
       toastError({
-        title: "Error looking up message",
-        description: error.serverError || "An error occurred",
+        title: "Lỗi khi tra cứu email",
+        description: error.serverError || "Đã xảy ra lỗi",
       });
     },
   });
@@ -56,9 +56,9 @@ export function GmailUrlConverter() {
   return (
     <Card className="max-w-xl">
       <CardHeader>
-        <CardTitle>Email message lookup</CardTitle>
+        <CardTitle>Tra cứu email</CardTitle>
         <CardDescription>
-          Find thread/message IDs using RFC822 Message-ID from email headers
+          Tìm ID luồng/email bằng RFC822 Message-ID từ header email
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -74,13 +74,13 @@ export function GmailUrlConverter() {
           <Input
             type="email"
             name="email"
-            label="Email Address"
+            label="Địa chỉ email"
             placeholder="user@example.com"
             registerProps={register("email")}
             error={errors.email}
           />
           <Button type="submit" loading={isExecuting}>
-            Lookup
+            Tra cứu
           </Button>
         </form>
 
@@ -91,7 +91,7 @@ export function GmailUrlConverter() {
               <code className="text-sm">{result.data.threadId}</code>
             </div>
             <div>
-              <span className="text-sm font-medium">Messages: </span>
+              <span className="text-sm font-medium">Email: </span>
               <div className="space-y-1">
                 {result.data.messages.map((msg) => (
                   <div key={msg.id} className="text-sm">

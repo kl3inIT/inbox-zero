@@ -27,13 +27,13 @@ export default function DebugRulesPage() {
     toggleAllRulesAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Rules updated successfully" });
+        toastSuccess({ description: "Cập nhật quy tắc thành công" });
         mutate();
       },
       onError: (result) => {
         toastError({
-          title: "Failed to update rules",
-          description: result.error.serverError || "Unknown error",
+          title: "Cập nhật quy tắc thất bại",
+          description: result.error.serverError || "Lỗi không xác định",
         });
       },
     },
@@ -43,13 +43,13 @@ export default function DebugRulesPage() {
     if (!data) return;
     navigator.clipboard.writeText(JSON.stringify(data, null, 2));
     setCopied(true);
-    toastSuccess({ description: "Copied to clipboard" });
+    toastSuccess({ description: "Đã sao chép vào clipboard" });
     setTimeout(() => setCopied(false), 2000);
   }, [data]);
 
   return (
     <PageWrapper>
-      <PageHeading>Rules</PageHeading>
+      <PageHeading>Quy tắc</PageHeading>
 
       <LoadingContent loading={isLoading} error={error}>
         <div className="mt-6 space-y-6">
@@ -63,10 +63,10 @@ export default function DebugRulesPage() {
               />
               <Label htmlFor="toggle-all-rules" className="font-medium">
                 {allRulesEnabled
-                  ? "All rules enabled"
+                  ? "Tất cả quy tắc đang bật"
                   : someRulesEnabled
-                    ? "Some rules enabled"
-                    : "All rules disabled"}
+                    ? "Một số quy tắc đang bật"
+                    : "Tất cả quy tắc đang tắt"}
               </Label>
             </div>
             <Button
@@ -80,13 +80,13 @@ export default function DebugRulesPage() {
               ) : (
                 <CopyIcon className="mr-2 h-4 w-4" />
               )}
-              {copied ? "Copied" : "Copy JSON"}
+              {copied ? "Đã sao chép" : "Sao chép JSON"}
             </Button>
           </div>
 
           <div className="rounded-lg border bg-muted/50 p-4">
             <pre className="overflow-auto text-sm">
-              {data ? JSON.stringify(data, null, 2) : "Loading..."}
+              {data ? JSON.stringify(data, null, 2) : "Đang tải..."}
             </pre>
           </div>
         </div>

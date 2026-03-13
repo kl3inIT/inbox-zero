@@ -17,15 +17,13 @@ export default function DebugMemoriesPage() {
 
   return (
     <PageWrapper>
-      <PageHeading>Memories Debug</PageHeading>
+      <PageHeading>Gỡ lỗi bộ nhớ</PageHeading>
 
       <LoadingContent loading={isLoading} error={error}>
         <div className="mt-6 space-y-6">
           <div className="rounded-lg border p-3 sm:w-fit">
-            <p className="text-xs text-muted-foreground">Total Memories</p>
-            <p className="mt-1 text-lg font-medium">
-              {data?.totalCount ?? 0}
-            </p>
+            <p className="text-xs text-muted-foreground">Tổng số bộ nhớ</p>
+            <p className="mt-1 text-lg font-medium">{data?.totalCount ?? 0}</p>
           </div>
 
           <div className="space-y-2">
@@ -36,10 +34,13 @@ export default function DebugMemoriesPage() {
                   <span>{new Date(memory.createdAt).toLocaleString()}</span>
                   {memory.chatId && (
                     <Link
-                      href={prefixPath(emailAccountId, `/assistant?chatId=${memory.chatId}`)}
+                      href={prefixPath(
+                        emailAccountId,
+                        `/assistant?chatId=${memory.chatId}`,
+                      )}
                       className="underline hover:text-foreground"
                     >
-                      View chat
+                      Xem cuộc trò chuyện
                     </Link>
                   )}
                 </div>
@@ -47,7 +48,7 @@ export default function DebugMemoriesPage() {
             ))}
             {data?.memories?.length === 0 && (
               <p className="text-sm text-muted-foreground">
-                No memories stored yet.
+                Chưa có bộ nhớ nào được lưu.
               </p>
             )}
           </div>

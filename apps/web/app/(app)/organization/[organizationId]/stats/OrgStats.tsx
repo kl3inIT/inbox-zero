@@ -17,10 +17,10 @@ import { hasOrganizationAdminRole } from "@/utils/organizations/roles";
 import { AccessDenied } from "@/components/AccessDenied";
 
 const selectOptions = [
-  { label: "Last week", value: "7" },
-  { label: "Last month", value: "30" },
-  { label: "Last 3 months", value: "90" },
-  { label: "All time", value: "0" },
+  { label: "Tuần trước", value: "7" },
+  { label: "Tháng trước", value: "30" },
+  { label: "3 tháng trước", value: "90" },
+  { label: "Tất cả", value: "0" },
 ];
 const defaultSelected = selectOptions[1];
 
@@ -87,7 +87,7 @@ export function OrgStats({ organizationId }: { organizationId: string }) {
 
   if (!isAdmin) {
     return (
-      <AccessDenied message="You don't have permission to view organization analytics. Only administrators can access this page." />
+      <AccessDenied message="Bạn không có quyền xem số liệu phân tích của tổ chức. Chỉ quản trị viên mới có thể truy cập trang này." />
     );
   }
 
@@ -118,17 +118,17 @@ export function OrgStats({ organizationId }: { organizationId: string }) {
           {totalsData && (
             <div className="grid gap-4 md:grid-cols-3">
               <StatCard
-                title="Emails Received"
+                title="Email nhận được"
                 value={totalsData.totalEmails.toLocaleString()}
                 icon={<Mail className="h-4 w-4 text-muted-foreground" />}
               />
               <StatCard
-                title="Rules Executed"
+                title="Quy tắc đã chạy"
                 value={totalsData.totalRules.toLocaleString()}
                 icon={<Sparkles className="h-4 w-4 text-muted-foreground" />}
               />
               <StatCard
-                title="Active Members"
+                title="Thành viên đang hoạt động"
                 value={totalsData.activeMembers.toLocaleString()}
                 icon={<Users className="h-4 w-4 text-muted-foreground" />}
               />
@@ -144,11 +144,11 @@ export function OrgStats({ organizationId }: { organizationId: string }) {
           >
             {emailBucketsData && (
               <BucketChart
-                title="Email Volume Distribution"
-                description="Number of users by emails received in selected period"
+                title="Phân bố số lượng email"
+                description="Số lượng người dùng theo số email nhận được trong khoảng thời gian đã chọn"
                 data={emailBucketsData}
-                emptyMessage="No email data available. Users need to load their stats first."
-                unit="emails"
+                emptyMessage="Chưa có dữ liệu email. Người dùng cần tải số liệu trước."
+                unit="email"
               />
             )}
           </LoadingContent>
@@ -160,11 +160,11 @@ export function OrgStats({ organizationId }: { organizationId: string }) {
           >
             {rulesBucketsData && (
               <BucketChart
-                title="Automation Usage Distribution"
-                description="Number of users by rules executed in selected period"
+                title="Phân bố sử dụng tự động hóa"
+                description="Số lượng người dùng theo số quy tắc đã chạy trong khoảng thời gian đã chọn"
                 data={rulesBucketsData}
-                emptyMessage="No automation data yet."
-                unit="rules"
+                emptyMessage="Chưa có dữ liệu tự động hóa."
+                unit="quy tắc"
               />
             )}
           </LoadingContent>
@@ -232,8 +232,7 @@ function BucketChart({
                     {bucket.label} {unit}
                   </span>
                   <span className="font-medium">
-                    {bucket.userCount}{" "}
-                    {bucket.userCount === 1 ? "user" : "users"}
+                    {bucket.userCount} người dùng
                   </span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-secondary">

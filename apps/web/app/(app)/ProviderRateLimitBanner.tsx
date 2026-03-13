@@ -20,13 +20,13 @@ export function ProviderRateLimitBanner() {
   return (
     <div className="mx-auto max-w-screen-xl w-full px-4 mt-6 mb-2">
       <AlertError
-        title={`${providerLabel} Is Rate Limiting This Account`}
+        title={`${providerLabel} đang giới hạn tốc độ tài khoản này`}
         description={
           <p className="mt-2">
-            Inbox Zero actions are temporarily paused until around{" "}
-            <strong>{retryAtLabel}</strong>. This limit is enforced by{" "}
-            {providerLabel}, and other apps connected to this mailbox can
-            contribute to the same shared limit.
+            Các thao tác của Inbox Zero tạm thời bị tạm dừng cho đến khoảng{" "}
+            <strong>{retryAtLabel}</strong>. Giới hạn này được áp dụng bởi{" "}
+            {providerLabel}, và các ứng dụng khác kết nối với hộp thư này cũng
+            có thể góp phần vào cùng một giới hạn dùng chung.
           </p>
         }
       />

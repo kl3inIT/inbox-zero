@@ -17,7 +17,7 @@ interface FooterProps {
 const selfHostedFooter = {
   resources: [
     {
-      name: "Documentation",
+      name: "Tài liệu",
       href: "https://docs.getinboxzero.com",
       target: "_blank",
     },
@@ -25,8 +25,8 @@ const selfHostedFooter = {
     { name: "Discord", href: "/discord", target: "_blank" },
   ],
   legal: [
-    { name: "Terms", href: "/terms" },
-    { name: "Privacy", href: "/privacy" },
+    { name: "Điều khoản", href: "/terms" },
+    { name: "Quyền riêng tư", href: "/privacy" },
   ],
 };
 
@@ -61,7 +61,7 @@ export function Footer({ className, variant = "default" }: FooterProps) {
             ))}
           </div>
           <p className="mt-6 text-center text-xs leading-5 text-gray-500">
-            Powered by{" "}
+            Cung cấp bởi{" "}
             <Link
               href="https://getinboxzero.com"
               target="_blank"
@@ -84,30 +84,33 @@ export function Footer({ className, variant = "default" }: FooterProps) {
       >
         <div className="mt-16 grid grid-cols-2 gap-8 lg:grid-cols-5 xl:col-span-2 xl:mt-0">
           <div>
-            <FooterList title="Product" items={footerNavigation.main} />
+            <FooterList title="Sản phẩm" items={footerNavigation.main} />
           </div>
           <div>
-            <FooterList title="Use Cases" items={footerNavigation.useCases} />
+            <FooterList
+              title="Trường hợp dùng"
+              items={footerNavigation.useCases}
+            />
+            <div className="mt-6">
+              <FooterList title="Ngành" items={footerNavigation.industries} />
+            </div>
+          </div>
+          <div>
+            <FooterList title="Hỗ trợ" items={footerNavigation.support} />
             <div className="mt-6">
               <FooterList
-                title="Industries"
-                items={footerNavigation.industries}
+                title="Công cụ miễn phí"
+                items={footerNavigation.tools}
               />
             </div>
           </div>
           <div>
-            <FooterList title="Support" items={footerNavigation.support} />
-            <div className="mt-6">
-              <FooterList title="Free Tools" items={footerNavigation.tools} />
-            </div>
+            <FooterList title="Công ty" items={footerNavigation.company} />
           </div>
           <div>
-            <FooterList title="Company" items={footerNavigation.company} />
-          </div>
-          <div>
-            <FooterList title="Legal" items={footerNavigation.legal} />
+            <FooterList title="Pháp lý" items={footerNavigation.legal} />
             <div className="mt-6">
-              <FooterList title="Compare" items={footerNavigation.compare} />
+              <FooterList title="So sánh" items={footerNavigation.compare} />
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ function WatchVideo({ video }: { video: Video }) {
       <DialogTrigger asChild>
         <Button variant="outline" size="xs">
           <PlayIcon className="mr-2 size-3" />
-          Watch demo
+          Xem demo
         </Button>
       </DialogTrigger>
       <OnboardingDialogContent

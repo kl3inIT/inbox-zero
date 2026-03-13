@@ -26,7 +26,7 @@ export function StepDraft({
 
       if (result?.serverError) {
         toastError({
-          description: `There was an error: ${result.serverError || ""}`,
+          description: `Đã xảy ra lỗi: ${result.serverError || ""}`,
         });
       }
 
@@ -44,24 +44,27 @@ export function StepDraft({
           </IconCircle>
 
           <div className="text-center mt-4">
-            <PageHeading>Should we draft replies for you?</PageHeading>
+            <PageHeading>
+              Bạn có muốn chúng tôi soạn sẵn phản hồi cho bạn?
+            </PageHeading>
             <TypographyP className="mt-2 max-w-lg mx-auto">
-              The drafts will appear in your inbox, written in your tone.
+              Các bản nháp sẽ xuất hiện trong hộp thư của bạn, được viết theo
+              đúng giọng văn của bạn.
               <br />
-              Our AI learns from your previous conversations to draft the best
-              reply.
+              AI sẽ học từ các cuộc trao đổi trước đây để gợi ý câu trả lời phù
+              hợp nhất.
             </TypographyP>
           </div>
 
           <div className="mt-4 grid gap-2">
             <OnboardingButton
-              text="Yes, please"
+              text="Có, hãy bật tính năng này"
               icon={<CheckIcon className="size-4" />}
               onClick={() => onSetDraftReplies("yes")}
             />
 
             <OnboardingButton
-              text="No, thanks"
+              text="Không, để sau"
               icon={<XIcon className="size-4" />}
               onClick={() => onSetDraftReplies("no")}
             />
@@ -73,7 +76,7 @@ export function StepDraft({
         <div className="rounded-2xl p-4 bg-slate-50 border border-slate-200">
           <Image
             src="/images/onboarding/draft.png"
-            alt="Draft replies"
+            alt="Bản nháp phản hồi"
             width={1200}
             height={800}
             className="rounded-xl border border-slate-200"

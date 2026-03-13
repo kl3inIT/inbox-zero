@@ -26,7 +26,7 @@ export function ReferralDialog() {
       <DialogTrigger asChild>
         <SidebarMenuButton sidebarName="left-sidebar">
           <GiftIcon />
-          <span className="font-semibold">Refer friend</span>
+          <span className="font-semibold">Giới thiệu bạn bè</span>
         </SidebarMenuButton>
       </DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -56,11 +56,13 @@ export function Referrals() {
   const copyToClipboard = async (text: string, type: "code" | "link") => {
     try {
       await navigator.clipboard.writeText(text);
-      toastSuccess({ description: `Referral ${type} copied to clipboard!` });
+      toastSuccess({
+        description: `Đã sao chép ${type === "code" ? "mã" : "liên kết"} giới thiệu!`,
+      });
     } catch {
       toastError({
-        title: `Failed to copy ${type}`,
-        description: "Please try again",
+        title: `Không thể sao chép ${type === "code" ? "mã" : "liên kết"}`,
+        description: "Vui lòng thử lại",
       });
     }
   };
@@ -71,15 +73,15 @@ export function Referrals() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Join Inbox Zero with my referral link",
-          text: "Use my referral link to get started with Inbox Zero!",
+          title: "Tham gia Inbox Zero qua liên kết giới thiệu của mình",
+          text: "Dùng liên kết giới thiệu của mình để bắt đầu với Inbox Zero!",
           url: link,
         });
       } catch (error) {
         if ((error as Error).name !== "AbortError") {
           toastError({
-            title: "Failed to share",
-            description: "Please try again",
+            title: "Không thể chia sẻ",
+            description: "Vui lòng thử lại",
           });
         }
       }
@@ -93,24 +95,24 @@ export function Referrals() {
   }
 
   if (errorCode || errorStats) {
-    return <ErrorDisplay error={{ error: "Error loading referral data" }} />;
+    return <ErrorDisplay error={{ error: "Lỗi khi tải dữ liệu giới thiệu" }} />;
   }
 
   return (
     <div className="space-y-6 sm:space-y-8">
       <div className="text-center">
-        <PageHeading>Refer Friends, Get Rewards</PageHeading>
+        <PageHeading>Giới thiệu bạn bè, nhận quà</PageHeading>
         <PageSubHeading className="mt-2">
-          Share Inbox Zero with friends and get a free month for each friend who
-          completes their trial
+          Chia sẻ Inbox Zero với bạn bè và nhận 1 tháng miễn phí cho mỗi người
+          hoàn tất giai đoạn dùng thử
         </PageSubHeading>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Your referral code</CardTitle>
+          <CardTitle>Liên kết giới thiệu của bạn</CardTitle>
           <CardDescription>
-            Share this code with friends to earn rewards
+            Chia sẻ với bạn bè để nhận phần thưởng
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -131,7 +133,7 @@ export function Referrals() {
                   className="flex-1"
                 >
                   <Copy className="mr-2 h-4 w-4" />
-                  Copy Link
+                  Sao chép liên kết
                 </Button>
                 <Button
                   onClick={shareReferralLink}
@@ -139,12 +141,12 @@ export function Referrals() {
                   className="flex-1"
                 >
                   <Share2 className="mr-2 h-4 w-4" />
-                  Share
+                  Chia sẻ
                 </Button>
               </div>
             </div>
           ) : (
-            <p className="text-gray-500">Unable to load referral code</p>
+            <p className="text-gray-500">Không thể tải liên kết giới thiệu</p>
           )}
         </CardContent>
       </Card>
@@ -155,7 +157,7 @@ export function Referrals() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
-                Total referrals
+                Tổng lượt giới thiệu
               </CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
@@ -164,7 +166,7 @@ export function Referrals() {
                 {statsData.stats.totalReferrals}
               </div>
               <p className="text-xs text-muted-foreground">
-                Friends you've referred
+                Bạn bè bạn đã giới thiệu
               </p>
             </CardContent>
           </Card>
@@ -172,7 +174,7 @@ export function Referrals() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
-                Rewards earned
+                Phần thưởng đã nhận
               </CardTitle>
               <Trophy className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
@@ -180,9 +182,7 @@ export function Referrals() {
               <div className="text-2xl font-bold">
                 {statsData.stats.totalRewards}
               </div>
-              <p className="text-xs text-muted-foreground">
-                Free months earned
-              </p>
+              <p className="text-xs text-muted-foreground">Số tháng miễn phí</p>
             </CardContent>
           </Card>
         </div>

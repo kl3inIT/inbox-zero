@@ -14,7 +14,7 @@ interface CallToActionProps {
 }
 
 export function CallToAction({
-  text = "Get started",
+  text = "Bắt đầu",
   buttonSize = "xl",
   className,
 }: CallToActionProps) {
@@ -37,7 +37,7 @@ export function CallToAction({
           onClick={() => landingPageAnalytics.talkToSalesClicked(posthog)}
         >
           <Chat />
-          Talk to sales
+          Liên hệ tư vấn
         </Link>
       </Button>
     </div>

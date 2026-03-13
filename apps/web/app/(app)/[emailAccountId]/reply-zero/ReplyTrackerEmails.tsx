@@ -100,13 +100,15 @@ export function ReplyTrackerEmails({
 
       if (result?.serverError) {
         toastError({
-          title: "Error",
+          title: "Lỗi",
           description: result.serverError,
         });
       } else {
         toastSuccess({
-          title: "Success",
-          description: resolved ? "Marked as done!" : "Marked as not done!",
+          title: "Thành công",
+          description: resolved
+            ? "Đã đánh dấu là hoàn tất!"
+            : "Đã đánh dấu là chưa hoàn tất!",
         });
       }
 
@@ -182,7 +184,7 @@ export function ReplyTrackerEmails({
   if (!data?.threads.length) {
     return (
       <div className="mt-2">
-        <EmptyState message="No emails yet!" isAnalyzing={isAnalyzing} />
+        <EmptyState message="Chưa có email nào!" isAnalyzing={isAnalyzing} />
       </div>
     );
   }
@@ -400,7 +402,7 @@ function NudgeButton({
       Icon={showNudge ? HandIcon : ReplyIcon}
       onClick={handleClick}
     >
-      {showNudge ? "Nudge" : "Reply"}
+      {showNudge ? "Nhắc lại" : "Trả lời"}
       <CommandShortcut className="ml-2">R</CommandShortcut>
     </Button>
   );
@@ -425,7 +427,7 @@ function ResolveButton({
       loading={isLoading}
       onClick={() => onResolve(threadId, true)}
     >
-      Mark Done
+      Đánh dấu hoàn tất
       {showShortcut && <CommandShortcut className="ml-2">D</CommandShortcut>}
     </Button>
   );
@@ -450,7 +452,7 @@ function UnresolveButton({
       loading={isLoading}
       onClick={() => onResolve(threadId, false)}
     >
-      Not Done
+      Chưa hoàn tất
       {showShortcut && <CommandShortcut className="ml-2">N</CommandShortcut>}
     </Button>
   );
@@ -471,7 +473,7 @@ function EmptyState({
       <div className="flex min-h-[200px] flex-col items-center justify-center rounded-md border border-dashed bg-muted p-8 text-center animate-in fade-in-50">
         {isAnalyzing ? (
           <>
-            <MutedText>Analyzing your emails...</MutedText>
+            <MutedText>Đang phân tích email của bạn...</MutedText>
             <Button
               className="mt-4"
               variant="outline"
@@ -484,7 +486,7 @@ function EmptyState({
                 setTimeout(() => setIsRefreshing(false), 1000);
               }}
             >
-              Refresh
+              Làm mới
             </Button>
           </>
         ) : (

@@ -19,9 +19,9 @@ export function RulesSelect() {
   );
 
   const getCurrentLabel = () => {
-    if (ruleId === "all") return "All rules";
-    if (ruleId === "skipped") return "No match";
-    return data?.find((rule) => rule.id === ruleId)?.name || "All rules";
+    if (ruleId === "all") return "Tất cả quy tắc";
+    if (ruleId === "skipped") return "Không khớp";
+    return data?.find((rule) => rule.id === ruleId)?.name || "Tất cả quy tắc";
   };
 
   return (
@@ -44,10 +44,10 @@ export function RulesSelect() {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onClick={() => setRuleId("all")}>
-            All rules
+            Tất cả quy tắc
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setRuleId("skipped")}>
-            No match
+            Không khớp
           </DropdownMenuItem>
           {data?.map((rule) => (
             <DropdownMenuItem key={rule.id} onClick={() => setRuleId(rule.id)}>

@@ -39,7 +39,7 @@ export function FollowUpRemindersIllustration() {
   }, []);
 
   const daysText =
-    stage >= 5 ? "3 days ago" : stage >= 4 ? "2 days ago" : "1 day ago";
+    stage >= 5 ? "3 ngày trước" : stage >= 4 ? "2 ngày trước" : "1 ngày trước";
 
   return (
     <div className="relative h-44 overflow-hidden rounded-lg bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-900 dark:to-gray-900">
@@ -71,18 +71,19 @@ export function FollowUpRemindersIllustration() {
                           transition={{ duration: 0.375, ease: "easeOut" }}
                           className="rounded bg-amber-100 px-1.5 py-0.5 text-[9px] font-semibold text-amber-700 dark:bg-amber-800/50 dark:text-amber-300"
                         >
-                          Follow up
+                          Cần theo dõi
                         </motion.span>
                       )}
                     </AnimatePresence>
                   </div>
                   <div className="text-[11px] font-medium text-gray-700 dark:text-gray-300">
-                    Meeting follow-up
+                    Theo dõi sau cuộc họp
                   </div>
                 </div>
               </div>
               <div className="mt-2 text-[10px] leading-relaxed text-gray-500 dark:text-gray-400">
-                Thanks for your time today. I wanted to follow up on...
+                Cảm ơn bạn đã dành thời gian hôm nay. Mình muốn theo dõi thêm
+                về...
               </div>
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -95,7 +96,7 @@ export function FollowUpRemindersIllustration() {
               >
                 <div className="mt-2.5 flex items-center gap-1.5 border-t border-gray-100 pt-2 dark:border-gray-700">
                   <span className="text-[10px] text-gray-400 dark:text-gray-500">
-                    ↩ You replied
+                    ↩ Bạn đã trả lời
                     {stage >= 3 && (
                       <motion.span
                         key={daysText}

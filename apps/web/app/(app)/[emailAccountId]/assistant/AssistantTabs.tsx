@@ -22,10 +22,10 @@ export function AssistantTabs() {
           <div className="w-full overflow-x-auto">
             <TabsList>
               {/* <TabsTrigger value="prompt">Prompt</TabsTrigger> */}
-              <TabsTrigger value="rules">Rules</TabsTrigger>
-              <TabsTrigger value="test">Test</TabsTrigger>
-              <TabsTrigger value="history">History</TabsTrigger>
-              <TabsTrigger value="settings">Settings</TabsTrigger>
+              <TabsTrigger value="rules">Quy tắc</TabsTrigger>
+              <TabsTrigger value="test">Kiểm thử</TabsTrigger>
+              <TabsTrigger value="history">Lịch sử</TabsTrigger>
+              <TabsTrigger value="settings">Cài đặt</TabsTrigger>
             </TabsList>
           </div>
           <CloseArtifactButton />
@@ -35,7 +35,7 @@ export function AssistantTabs() {
           <TabsContent value="empty" className="mt-0 h-full">
             <div className="flex h-full items-center justify-center">
               <TypographyP className="max-w-sm px-4 text-center">
-                Select a tab or add rules via the assistant
+                Chọn một tab hoặc thêm quy tắc thông qua Trợ lý
               </TypographyP>
             </div>
           </TabsContent>

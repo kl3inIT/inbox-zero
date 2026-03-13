@@ -62,12 +62,12 @@ export function CreatedRulesContent({
       <DialogHeader>
         <DialogTitle className="flex items-center gap-2">
           <CheckCircle2 className="size-5 text-green-600" />
-          Rules Created Successfully!
+          Tạo quy tắc thành công!
         </DialogTitle>
         <DialogDescription>
           {rules.length === 1
-            ? "Your rule has been created. You can now test it or view the details below."
-            : `${rules.length} rules have been created. You can now test them or view the details below.`}
+            ? "Quy tắc của bạn đã được tạo. Bạn có thể kiểm thử hoặc xem chi tiết bên dưới."
+            : `${rules.length} quy tắc đã được tạo. Bạn có thể kiểm thử hoặc xem chi tiết bên dưới.`}
         </DialogDescription>
       </DialogHeader>
 
@@ -87,12 +87,12 @@ export function CreatedRulesContent({
                 </div>
 
                 <div className="text-sm">
-                  <span className="font-medium">Condition:</span>{" "}
+                  <span className="font-medium">Điều kiện:</span>{" "}
                   {conditionsToString(rule)}
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium">Actions:</span>
+                  <span className="text-sm font-medium">Hành động:</span>
                   <ActionBadges
                     actions={rule.actions}
                     provider={provider}
@@ -107,9 +107,9 @@ export function CreatedRulesContent({
 
       <DialogFooter className="flex gap-2">
         <Button variant="outline" onClick={() => onOpenChange(false)}>
-          Close
+          Đóng
         </Button>
-        <Button onClick={handleTestRules}>Test Rules</Button>
+        <Button onClick={handleTestRules}>Kiểm thử quy tắc</Button>
       </DialogFooter>
       <RuleDialog
         ruleId={ruleDialog.data?.ruleId}

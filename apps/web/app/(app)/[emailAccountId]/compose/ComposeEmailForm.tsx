@@ -88,15 +88,15 @@ export const ComposeEmailForm = ({
         const res = await sendEmailAction(emailAccountId, enrichedData);
         if (res?.serverError) {
           toastError({
-            description: "There was an error sending the email :(",
+            description: "Đã xảy ra lỗi khi gửi email :(",
           });
         } else if (res?.data) {
-          toastSuccess({ description: "Email sent!" });
+          toastSuccess({ description: "Đã gửi email!" });
           onSuccess?.(res.data.messageId ?? "", res.data.threadId ?? "");
         }
       } catch (error) {
         console.error(error);
-        toastError({ description: "There was an error sending the email :(" });
+        toastError({ description: "Đã xảy ra lỗi khi gửi email :(" });
       }
 
       refetch?.();
@@ -169,7 +169,7 @@ export const ComposeEmailForm = ({
         );
       } catch (error) {
         console.error("Failed to append content:", error);
-        toastError({ description: "Failed to show full content" });
+        toastError({ description: "Không thể hiển thị toàn bộ nội dung" });
         return; // Don't set showFullContent to true if append failed
       }
     }
@@ -184,9 +184,9 @@ export const ComposeEmailForm = ({
           className="flex gap-1 text-left"
           onClick={() => setEditReply(true)}
         >
-          <span className="text-green-500">Draft</span>{" "}
+          <span className="text-green-500">Bản nháp</span>{" "}
           <span className="max-w-md break-words text-foreground">
-            to {extractNameFromEmail(replyingToEmail.to)}
+            tới {extractNameFromEmail(replyingToEmail.to)}
           </span>
         </button>
       ) : (
@@ -194,7 +194,7 @@ export const ComposeEmailForm = ({
           {env.NEXT_PUBLIC_CONTACTS_ENABLED ? (
             <div className="flex space-x-2">
               <div className="mt-2">
-                <Label name="to" label="To" />
+                <Label name="to" label="Tới" />
               </div>
               <Combobox
                 value={selectedEmailAddressses}
@@ -278,10 +278,7 @@ export const ComposeEmailForm = ({
                                     <Avatar>
                                       <AvatarImage
                                         src={person.profilePictureUrl!}
-                                        alt={
-                                          person.emailAddress ||
-                                          "Profile picture"
-                                        }
+                                        alt={person.emailAddress || "Ảnh hồ sơ"}
                                       />
                                       <AvatarFallback>
                                         {person.emailAddress?.[0] || "A"}
@@ -311,7 +308,7 @@ export const ComposeEmailForm = ({
             <Input
               type="text"
               name="to"
-              label="To"
+              label="Tới"
               registerProps={register("to", { required: true })}
               error={errors.to}
             />
@@ -322,7 +319,7 @@ export const ComposeEmailForm = ({
             name="subject"
             registerProps={register("subject", { required: true })}
             error={errors.subject}
-            placeholder="Subject"
+            placeholder="Chủ đề"
             className="border border-input bg-background focus:border-slate-200 focus:ring-0 focus:ring-slate-200"
           />
         </>
@@ -343,7 +340,7 @@ export const ComposeEmailForm = ({
       <div className="flex items-center justify-between">
         <Button type="submit" disabled={isSubmitting}>
           {isSubmitting && <ButtonLoader />}
-          Send
+          Gửi
           <CommandShortcut className="ml-2">{symbol}+Enter</CommandShortcut>
         </Button>
 
@@ -356,7 +353,7 @@ export const ComposeEmailForm = ({
             onClick={onDiscard}
           >
             <TrashIcon className="h-4 w-4" />
-            <span className="sr-only">Discard</span>
+            <span className="sr-only">Hủy bỏ</span>
           </Button>
         )}
       </div>

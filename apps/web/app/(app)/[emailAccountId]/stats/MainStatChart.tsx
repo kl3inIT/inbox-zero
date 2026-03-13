@@ -9,12 +9,12 @@ import { BarChart } from "@/app/(app)/[emailAccountId]/stats/BarChart";
 import { COLORS } from "@/utils/colors";
 
 const chartConfig = {
-  received: { label: "Received", color: COLORS.analytics.blue },
-  sent: { label: "Sent", color: COLORS.analytics.purple },
-  read: { label: "Read", color: COLORS.analytics.pink },
-  unread: { label: "Unread", color: COLORS.analytics.lightPink },
-  archived: { label: "Archived", color: COLORS.analytics.green },
-  inbox: { label: "Inbox", color: COLORS.analytics.lightGreen },
+  received: { label: "Đã nhận", color: COLORS.analytics.blue },
+  sent: { label: "Đã gửi", color: COLORS.analytics.purple },
+  read: { label: "Đã đọc", color: COLORS.analytics.pink },
+  unread: { label: "Chưa đọc", color: COLORS.analytics.lightPink },
+  archived: { label: "Đã lưu trữ", color: COLORS.analytics.green },
+  inbox: { label: "Trong hộp thư đến", color: COLORS.analytics.lightGreen },
 } satisfies ChartConfig;
 
 function getActiveChart(activChart: keyof typeof chartConfig): string[] {

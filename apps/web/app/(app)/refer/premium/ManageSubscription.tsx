@@ -28,7 +28,7 @@ export function ManageSubscription({
       {stripeSubscriptionId && (
         <Button loading={loadingBillingPortal} onClick={openBillingPortal}>
           <CreditCardIcon className="mr-2 h-4 w-4" />
-          Manage{hasBothStripeAndLemon ? " Stripe" : ""} subscription
+          Quản lý gói{hasBothStripeAndLemon ? " Stripe" : ""}
         </Button>
       )}
 
@@ -39,7 +39,7 @@ export function ManageSubscription({
             target="_blank"
           >
             <CreditCardIcon className="mr-2 h-4 w-4" />
-            Manage{hasBothStripeAndLemon ? " Lemon" : ""} subscription
+            Quản lý gói{hasBothStripeAndLemon ? " Lemon" : ""}
           </Link>
         </Button>
       )}
@@ -71,7 +71,7 @@ export function ViewInvoicesButton({
           onClick={openBillingPortal}
         >
           <ReceiptIcon className="mr-2 h-4 w-4" />
-          View{hasBoth ? " Stripe" : ""} invoices
+          Xem hóa đơn{hasBoth ? " Stripe" : ""}
         </Button>
       )}
 
@@ -82,7 +82,7 @@ export function ViewInvoicesButton({
             target="_blank"
           >
             <ReceiptIcon className="mr-2 h-4 w-4" />
-            View{hasBoth ? " Lemon" : ""} invoices
+            Xem hóa đơn{hasBoth ? " Lemon" : ""}
           </Link>
         </Button>
       )}
@@ -102,7 +102,7 @@ function useOpenBillingPortal() {
       toastError({
         description:
           result?.serverError ||
-          "Error loading billing portal. Please contact support.",
+          "Lỗi khi tải trang thanh toán. Vui lòng liên hệ hỗ trợ.",
       });
     } else {
       window.location.href = url;

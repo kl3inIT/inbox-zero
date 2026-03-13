@@ -239,8 +239,7 @@ function GroupItems({
       <GroupItemList
         title={
           <div className="flex items-center gap-x-1.5">
-            When these patterns are encountered, the rule will automatically
-            match:
+            Khi các pattern này xuất hiện, quy tắc sẽ tự động khớp:
           </div>
         }
         items={groupedByStatus.include || []}
@@ -250,7 +249,7 @@ function GroupItems({
         <GroupItemList
           title={
             <div className="flex items-center gap-x-1.5">
-              When these patterns are encountered, the rule will never match:
+              Khi các pattern này xuất hiện, quy tắc sẽ không bao giờ khớp:
             </div>
           }
           items={groupedByStatus.exclude || []}
@@ -295,7 +294,7 @@ function GroupItemList({
                   {isCreatedRecently ||
                     (isUpdatedRecently && (
                       <Badge variant="green" className="mr-1">
-                        {isCreatedRecently ? "New!" : "Updated"}
+                        {isCreatedRecently ? "Mới!" : "Đã cập nhật"}
                       </Badge>
                     ))}
 

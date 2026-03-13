@@ -3,7 +3,7 @@
 import { CrownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ActionCard } from "@/components/ui/card";
-import { usePremiumModal } from "@/app/(app)/premium/PremiumModal";
+import { usePremiumModal } from "@/app/(app)/refer/premium/PremiumModal";
 
 export function IntegrationsPremiumAlert() {
   const { PremiumModal, openModal } = usePremiumModal();
@@ -12,11 +12,11 @@ export function IntegrationsPremiumAlert() {
     <>
       <ActionCard
         icon={<CrownIcon className="h-5 w-5" />}
-        title="Plus Plan Required"
-        description="Connect your CRM and tools to help the AI draft better replies and generate richer meeting briefs."
+        title="Cần gói Plus"
+        description="Kết nối CRM và các công cụ của bạn để trợ lý AI soạn thư tốt hơn và tạo báo cáo cuộc họp chi tiết hơn."
         action={
           <Button variant="primaryBlack" onClick={openModal}>
-            Upgrade
+            Nâng cấp
           </Button>
         }
       />

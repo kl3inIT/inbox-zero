@@ -17,23 +17,24 @@ export function StepInboxProcessed({ onNext }: { onNext: () => void }) {
           <InboxReadyIllustration />
         </div>
 
-        <PageHeading className="mb-3">Inbox Preview Ready</PageHeading>
+        <PageHeading className="mb-3">
+          Hộp thư xem trước đã sẵn sàng
+        </PageHeading>
 
         <TypographyP className="text-muted-foreground mb-8">
-          We labeled your last {ONBOARDING_PROCESS_EMAILS_COUNT} emails and
-          drafted replies (nothing was archived).
+          Chúng tôi đã gắn nhãn {ONBOARDING_PROCESS_EMAILS_COUNT} email gần nhất
+          của bạn và soạn sẵn phản hồi (không có email nào bị lưu trữ).
           {!isPremium && (
             <>
               <br />
-              To have incoming emails processed automatically, you'll need to
-              upgrade.
+              Để email mới được xử lý tự động, bạn cần nâng cấp gói sử dụng.
             </>
           )}
         </TypographyP>
 
         <div className="flex flex-col gap-2 w-full max-w-xs">
           <Button className="w-full" onClick={onNext}>
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

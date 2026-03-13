@@ -25,10 +25,10 @@ export function Integrations() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Connection</TableHead>
-              <TableHead className="hidden sm:table-cell">Tools</TableHead>
-              <TableHead>Enable</TableHead>
+              <TableHead>Tên</TableHead>
+              <TableHead>Kết nối</TableHead>
+              <TableHead className="hidden sm:table-cell">Công cụ</TableHead>
+              <TableHead>Bật</TableHead>
               <TableHead />
             </TableRow>
           </TableHeader>
@@ -44,7 +44,7 @@ export function Integrations() {
             ) : (
               <TableRow>
                 <TableCell colSpan={5}>
-                  <TypographyP>No integrations found</TypographyP>
+                  <TypographyP>Không tìm thấy tích hợp nào</TypographyP>
                 </TableCell>
               </TableRow>
             )}

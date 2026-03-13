@@ -57,12 +57,12 @@ export function List({
   const tabs = useMemo(
     () => [
       {
-        label: "All",
+        label: "Tất cả",
         value: "all",
         href: "/mail?tab=all",
       },
       {
-        label: `Planned${planned.length ? ` (${planned.length})` : ""}`,
+        label: `Đã lên kế hoạch${planned.length ? ` (${planned.length})` : ""}`,
         value: "planned",
         href: "/mail?tab=planned",
       },
@@ -104,24 +104,24 @@ export function List({
             <div className="px-2">
               {selectedTab === "planned" ? (
                 <AlertBasic
-                  title="No planned emails"
+                  title="Không có email đã lên kế hoạch"
                   description={
                     <>
-                      Set rules on the{" "}
+                      Thiết lập quy tắc trong{" "}
                       <Link
                         href={prefixPath(emailAccountId, "/automation")}
                         className="font-semibold hover:underline"
                       >
-                        Assistant page
+                        trang Trợ lý
                       </Link>{" "}
-                      for our AI to handle incoming emails for you.
+                      để AI xử lý email đến giúp bạn.
                     </>
                   }
                 />
               ) : (
                 <AlertBasic
-                  title="All emails handled"
-                  description="Great work!"
+                  title="Tất cả email đã được xử lý"
+                  description="Làm rất tốt!"
                 />
               )}
             </div>
@@ -131,10 +131,10 @@ export function List({
       ) : (
         <div className="mt-20">
           {type === "inbox" ? (
-            <Celebration message={"You made it to Inbox Zero!"} />
+            <Celebration message={"Bạn đã đạt đến Inbox Zero!"} />
           ) : (
             <div className="flex items-center justify-center font-title text-2xl text-primary">
-              No emails to display
+              Không có email để hiển thị
             </div>
           )}
         </div>
@@ -196,8 +196,8 @@ export function EmailList({
   const onPlanAiAction = useCallback(
     (thread: Thread) => {
       toast.promise(() => runAiRules(emailAccountId, [thread], true), {
-        success: "Running...",
-        error: "There was an error running the AI rules :(",
+        success: "Đang chạy...",
+        error: "Đã xảy ra lỗi khi chạy các quy tắc AI :(",
       });
     },
     [emailAccountId],
@@ -221,9 +221,9 @@ export function EmailList({
           });
         },
         {
-          loading: "Archiving...",
-          success: "Archived!",
-          error: "There was an error archiving the email :(",
+          loading: "Đang lưu trữ...",
+          success: "Đã lưu trữ!",
+          error: "Đã xảy ra lỗi khi lưu trữ email :(",
         },
       );
     },
@@ -298,9 +298,9 @@ export function EmailList({
         });
       },
       {
-        loading: "Archiving emails...",
-        success: "Emails archived",
-        error: "There was an error archiving the emails :(",
+        loading: "Đang lưu trữ các email...",
+        success: "Đã lưu trữ email",
+        error: "Đã xảy ra lỗi khi lưu trữ các email :(",
       },
     );
   }, [selectedRows, refetch, emailAccountId]);
@@ -325,9 +325,9 @@ export function EmailList({
         });
       },
       {
-        loading: "Deleting emails...",
-        success: "Emails deleted!",
-        error: "There was an error deleting the emails :(",
+        loading: "Đang xoá email...",
+        success: "Đã xoá email!",
+        error: "Đã xảy ra lỗi khi xoá các email :(",
       },
     );
   }, [selectedRows, refetch, emailAccountId]);
@@ -343,8 +343,8 @@ export function EmailList({
         // runAiRules(threadIds, () => refetch(threadIds));
       },
       {
-        success: "Running AI rules...",
-        error: "There was an error running the AI rules :(",
+        success: "Đang chạy quy tắc AI...",
+        error: "Đã xảy ra lỗi khi chạy các quy tắc AI :(",
       },
     );
   }, [emailAccountId, selectedRows, threads]);
@@ -462,7 +462,7 @@ export function EmailList({
                       ) : (
                         <ChevronsDownIcon className="mr-2 h-4 w-4" />
                       )}
-                      <span>Load more</span>
+                      <span>Tải thêm</span>
                     </>
                   }
                 </Button>

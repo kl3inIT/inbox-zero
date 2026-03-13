@@ -23,15 +23,15 @@ export function StepWelcome({ onNext }: { onNext: () => void }) {
           </motion.div>
         </div>
 
-        <PageHeading className="mb-3">{`Welcome to ${BRAND_NAME}`}</PageHeading>
+        <PageHeading className="mb-3">{`Chào mừng đến với ${BRAND_NAME}`}</PageHeading>
 
         <TypographyP className="text-muted-foreground mb-8">
-          {`Here's a quick look at what ${BRAND_NAME} can do for you.`}
+          {`Dưới đây là một lượt giới thiệu nhanh về những gì ${BRAND_NAME} có thể làm cho bạn.`}
         </TypographyP>
 
         <div className="flex flex-col gap-2 w-full max-w-xs">
           <Button className="w-full" onClick={onNext}>
-            Continue
+            Tiếp tục
             <ArrowRightIcon className="size-4 ml-2" />
           </Button>
         </div>

@@ -24,8 +24,8 @@ export function AddAccount() {
     } catch (error) {
       console.error(`Error initiating ${provider} link:`, error);
       toastError({
-        title: `Error initiating ${isGoogleProvider(provider) ? "Google" : "Microsoft"} link`,
-        description: "Please try again or contact support",
+        title: `Lỗi khi bắt đầu liên kết ${isGoogleProvider(provider) ? "Google" : "Microsoft"}`,
+        description: "Vui lòng thử lại hoặc liên hệ bộ phận hỗ trợ",
       });
       setLoading(false);
     }
@@ -48,7 +48,7 @@ export function AddAccount() {
             height={24}
             unoptimized
           />
-          <span className="ml-2">Add Google</span>
+          <span className="ml-2">Thêm Google</span>
         </Button>
         <Button
           variant="outline"
@@ -64,11 +64,10 @@ export function AddAccount() {
             height={24}
             unoptimized
           />
-          <span className="ml-2">Add Microsoft</span>
+          <span className="ml-2">Thêm Microsoft</span>
         </Button>
       </div>
-
-      <MutedText>You will be billed for each account.</MutedText>
+      <MutedText>Bạn sẽ bị tính phí cho mỗi tài khoản.</MutedText>
     </div>
   );
 }

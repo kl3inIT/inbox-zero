@@ -19,7 +19,7 @@ export function AdminUserInfo() {
   const { execute, isExecuting, result } = useAction(adminGetUserInfoAction, {
     onError: (error) => {
       toastError({
-        title: "Error looking up user",
+        title: "Lỗi khi tra cứu người dùng",
         description: getActionErrorMessage(error.error),
       });
     },
@@ -45,7 +45,7 @@ export function AdminUserInfo() {
   return (
     <Card className="max-w-xl">
       <CardHeader>
-        <CardTitle>User Info</CardTitle>
+        <CardTitle>Thông tin người dùng</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -58,62 +58,62 @@ export function AdminUserInfo() {
             error={errors.email}
           />
           <Button type="submit" loading={isExecuting}>
-            Look Up
+            Tra cứu
           </Button>
         </form>
 
         {data && (
           <div className="space-y-3 text-sm">
-            <InfoRow label="User ID" value={data.id} />
-            <InfoRow label="Created" value={formatDate(data.createdAt)} />
+            <InfoRow label="ID người dùng" value={data.id} />
+            <InfoRow label="Ngày tạo" value={formatDate(data.createdAt)} />
             <InfoRow
-              label="Last Login"
-              value={data.lastLogin ? formatDate(data.lastLogin) : "Never"}
+              label="Lần đăng nhập gần nhất"
+              value={data.lastLogin ? formatDate(data.lastLogin) : "Chưa từng"}
             />
             <InfoRow
-              label="Email Accounts"
+              label="Số tài khoản email"
               value={String(data.emailAccountCount)}
             />
             <InfoRow
-              label="Premium Tier"
-              value={data.premium?.tier || "None"}
+              label="Gói trả phí"
+              value={data.premium?.tier || "Không có"}
             />
             <InfoRow
-              label="Subscription Status"
-              value={data.premium?.subscriptionStatus || "N/A"}
+              label="Trạng thái gói"
+              value={data.premium?.subscriptionStatus || "Không có"}
             />
             <InfoRow
-              label="Renews At"
+              label="Gia hạn vào"
               value={
                 data.premium?.renewsAt
                   ? formatDate(data.premium.renewsAt)
-                  : "N/A"
+                  : "Không có"
               }
             />
 
             {data.emailAccounts.map((ea) => (
               <div key={ea.email} className="space-y-1 rounded-md border p-3">
                 <p className="font-medium">{ea.email}</p>
-                <InfoRow label="Provider" value={ea.provider} />
+                <InfoRow label="Nhà cung cấp" value={ea.provider} />
                 <InfoRow
-                  label="Disconnected"
-                  value={ea.disconnected ? "Yes" : "No"}
+                  label="Đã ngắt kết nối"
+                  value={ea.disconnected ? "Có" : "Không"}
                 />
-                <InfoRow label="Rules" value={String(ea.ruleCount)} />
+                <InfoRow label="Số rule" value={String(ea.ruleCount)} />
                 <InfoRow
-                  label="Last Rule Executed"
+                  label="Lần chạy rule gần nhất"
                   value={
                     ea.lastExecutedRuleAt
                       ? formatDate(ea.lastExecutedRuleAt)
-                      : "Never"
+                      : "Chưa từng"
                   }
                 />
                 <InfoRow
-                  label="Watch Expires"
+                  label="Hết hạn theo dõi"
                   value={
                     ea.watchExpirationDate
                       ? formatDate(ea.watchExpirationDate)
-                      : "Not watching"
+                      : "Không theo dõi"
                   }
                 />
               </div>

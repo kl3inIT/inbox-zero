@@ -65,7 +65,7 @@ export function KnowledgeForm({
           content: editingItem.content,
         }
       : {
-          title: "How to draft replies",
+          title: "Cách soạn nháp trả lời",
           content: "",
         },
   });
@@ -89,14 +89,16 @@ export function KnowledgeForm({
 
     if (result?.serverError) {
       toastError({
-        title: `Error ${editingItem ? "updating" : "creating"} knowledge base entry`,
+        title: `Lỗi khi ${editingItem ? "cập nhật" : "tạo"} mục kiến thức`,
         description: result.serverError || "",
       });
       return;
     }
 
     toastSuccess({
-      description: `Knowledge base entry ${editingItem ? "updated" : "created"} successfully`,
+      description: `Mục kiến thức đã được ${
+        editingItem ? "cập nhật" : "tạo"
+      } thành công`,
     });
 
     refetch();
@@ -109,9 +111,9 @@ export function KnowledgeForm({
         !hasFullAccess &&
         knowledgeItemsCount >= KNOWLEDGE_BASIC_MAX_ITEMS && (
           <AlertWithButton
-            title="Upgrade to add more knowledge base entries"
+            title="Nâng cấp để thêm nhiều mục kiến thức hơn"
             description={
-              <>Switch to the Plus plan to add more knowledge base entries.</>
+              <>Chuyển sang gói Plus để thêm nhiều mục kiến thức hơn.</>
             }
             icon={<CrownIcon className="h-4 w-4" />}
             button={
@@ -126,7 +128,7 @@ export function KnowledgeForm({
       <Input
         type="text"
         name="title"
-        label="Title"
+        label="Tiêu đề"
         registerProps={register("title")}
         error={errors.title}
       />
@@ -135,7 +137,7 @@ export function KnowledgeForm({
           htmlFor="content"
           className={cn(errors.content && "text-destructive")}
         >
-          Content (supports markdown)
+          Nội dung (hỗ trợ markdown)
         </Label>
         <Controller
           name="content"
@@ -158,7 +160,7 @@ export function KnowledgeForm({
         )}
       </div>
       <Button type="submit" loading={isSubmitting}>
-        {editingItem ? "Update" : "Create"}
+        {editingItem ? "Cập nhật" : "Tạo mới"}
       </Button>
     </form>
   );

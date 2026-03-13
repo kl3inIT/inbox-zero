@@ -34,7 +34,7 @@ export const TestCustomEmailForm = () => {
       const result = await testAiCustomContentAction(emailAccountId, data);
       if (result?.serverError) {
         toastError({
-          title: "Error testing email",
+          title: "Lỗi khi kiểm thử email",
           description: result.serverError,
         });
       } else {
@@ -52,19 +52,19 @@ export const TestCustomEmailForm = () => {
           autosizeTextarea
           rows={3}
           name="content"
-          placeholder="Paste in email content or write your own. e.g. Receipt from Stripe for $49"
+          placeholder="Dán nội dung email hoặc tự viết. Ví dụ: Biên lai từ Stripe cho $49"
           registerProps={register("content", { required: true })}
           error={errors.content}
         />
         <Button type="submit" loading={isSubmitting} size="sm">
           <SparklesIcon className="mr-2 size-4" />
-          Test
+          Kiểm thử
         </Button>
       </form>
       {testResults && (
         <Card className="mt-4">
           <CardHeader>
-            <CardTitle>Test result</CardTitle>
+            <CardTitle>Kết quả kiểm thử</CardTitle>
           </CardHeader>
           <CardContent>
             <ResultsDisplay results={testResults} showFullContent={true} />

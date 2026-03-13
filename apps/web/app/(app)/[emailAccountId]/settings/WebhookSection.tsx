@@ -32,16 +32,16 @@ export function WebhookSection() {
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" size="sm">
-              View Secret
+              Xem secret
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Webhook Secret</DialogTitle>
               <DialogDescription>
-                Include this in the X-Webhook-Secret header when setting up
-                webhook endpoints. Set webhook URLs for individual rules in
-                Assistant &gt; Rules.
+                Thêm giá trị này vào header X-Webhook-Secret khi cấu hình
+                endpoint webhook. Cấu hình URL webhook cho từng rule tại mục Trợ
+                lý &gt; Rules.
               </DialogDescription>
             </DialogHeader>
             <LoadingContent loading={isLoading} error={error}>

@@ -17,9 +17,9 @@ import Image from "next/image";
 export function EverythingElseSection() {
   return (
     <Section>
-      <SectionHeading>Designed around how you actually work</SectionHeading>
+      <SectionHeading>Thiết kế theo cách bạn thật sự làm việc</SectionHeading>
       <SectionSubtitle>
-        Flexible enough to fit any workflow. Simple enough to set up in minutes.
+        Linh hoạt cho mọi quy trình. Đơn giản để thiết lập trong vài phút.
       </SectionSubtitle>
       <SectionContent
         noMarginTop
@@ -28,8 +28,8 @@ export function EverythingElseSection() {
         <CardWrapper className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
           <BlurFade inView>
             <DisplayCard
-              title="Email analytics. What gets measured, gets managed"
-              description="See who emails you most and what's clogging your inbox. Get clear insights, then take action."
+              title="Thống kê email. Đo được thì quản được"
+              description="Xem ai gửi mail cho bạn nhiều nhất và điều gì đang làm nghẽn inbox. Có insight rõ ràng, rồi hành động."
               icon={<Analytics />}
             >
               <Image
@@ -42,8 +42,8 @@ export function EverythingElseSection() {
           </BlurFade>
           <BlurFade delay={0.25} inView>
             <DisplayCard
-              title="Drafts that know your schedule and availability"
-              description="Connects to your calendar and CRM to draft emails based on your actual schedule and customer data."
+              title="Bản nháp hiểu lịch trình và thời gian rảnh của bạn"
+              description="Kết nối lịch và CRM để soạn email dựa trên lịch thực tế và dữ liệu khách hàng."
               icon={<Link />}
             >
               <Image
@@ -56,8 +56,8 @@ export function EverythingElseSection() {
           </BlurFade>
           <BlurFade delay={0.25 * 2} inView>
             <DisplayCard
-              title="Built to fit your workflow. Customize in plain English"
-              description="Your inbox, your rules. Configure everything in plain English. Make it work the way you actually work."
+              title="Vừa khít quy trình của bạn. Tuỳ biến bằng ngôn ngữ tự nhiên"
+              description="Inbox của bạn, luật của bạn. Cấu hình mọi thứ bằng ngôn ngữ tự nhiên. Làm việc đúng theo cách bạn vận hành."
               icon={<ChatTwo />}
             >
               <Image

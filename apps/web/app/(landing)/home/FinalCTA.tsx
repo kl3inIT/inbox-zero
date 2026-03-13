@@ -17,16 +17,16 @@ export function FinalCTA() {
     >
       <Section>
         <SectionHeading>
-          Get back an hour a day.
+          Lấy lại một giờ mỗi ngày.
           <br />
-          {`Start using ${BRAND_NAME}.`}
+          {`Bắt đầu dùng ${BRAND_NAME}.`}
         </SectionHeading>
         <SectionSubtitle>
-          Less time in your inbox. More time for what actually matters.
+          Ít thời gian hơn trong inbox. Nhiều thời gian hơn cho điều quan trọng.
         </SectionSubtitle>
         <SectionContent>
           <CallToAction
-            text="Get started for free"
+            text="Bắt đầu miễn phí"
             buttonSize="lg"
             className="mt-6"
           />

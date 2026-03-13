@@ -37,8 +37,8 @@ export function ColdEmailRejected() {
             <TableHeader>
               <TableRow>
                 <TableHead>Email</TableHead>
-                <TableHead>AI Reason</TableHead>
-                <TableHead>Date</TableHead>
+                <TableHead>Lý do từ AI</TableHead>
+                <TableHead>Ngày</TableHead>
                 <TableHead />
               </TableRow>
             </TableHeader>
@@ -95,8 +95,8 @@ function NoRejectedColdEmails() {
   return (
     <div className="p-2">
       <AlertBasic
-        title="No emails marked as 'Not a cold email'"
-        description="When you mark an AI-detected cold email as 'Not a cold email', it will appear here."
+        title="Chưa có email nào được đánh dấu là 'Không phải email tiếp thị'"
+        description="Khi bạn đánh dấu một email mà AI phát hiện là email tiếp thị thành 'Không phải email tiếp thị', email đó sẽ xuất hiện ở đây."
       />
     </div>
   );

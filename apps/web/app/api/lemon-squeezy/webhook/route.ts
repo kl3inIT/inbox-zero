@@ -19,7 +19,7 @@ import {
 import type { Payload } from "@/app/api/lemon-squeezy/webhook/types";
 import { switchedPremiumPlan, startedTrial } from "@inboxzero/loops";
 import { SafeError } from "@/utils/error";
-import { getLemonSubscriptionTier } from "@/app/(app)/premium/config";
+import { getLemonSubscriptionTier } from "@/app/(app)/refer/premium/config";
 import type { Logger } from "@/utils/logger";
 
 export const POST = withError("lemon-squeezy/webhook", async (request) => {

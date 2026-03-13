@@ -89,9 +89,9 @@ export function BulkArchiveProgress({
     <ProgressPanel
       totalItems={totalItems}
       remainingItems={totalItems - displayedProgress}
-      inProgressText="Categorizing senders..."
-      completedText={`Categorization complete! ${displayedProgress} senders categorized!`}
-      itemLabel="senders"
+      inProgressText="Đang phân loại người gửi..."
+      completedText={`Hoàn tất phân loại! Đã phân loại ${displayedProgress} người gửi!`}
+      itemLabel="người gửi"
     />
   );
 }

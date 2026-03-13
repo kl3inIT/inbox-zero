@@ -11,28 +11,28 @@ export default async function DebugPage(props: {
 
   return (
     <PageWrapper>
-      <PageHeading>Debug</PageHeading>
+      <PageHeading>Gỡ lỗi</PageHeading>
 
       <div className="mt-4 flex gap-2">
         <Button variant="outline" asChild>
-          <Link href={prefixPath(emailAccountId, "/debug/rules")}>Rules</Link>
+          <Link href={prefixPath(emailAccountId, "/debug/rules")}>Quy tắc</Link>
         </Button>
         {/* <Button variant="outline" asChild>
           <Link href={prefixPath(emailAccountId, "/debug/drafts")}>Drafts</Link>
         </Button> */}
         <Button variant="outline" asChild>
           <Link href={prefixPath(emailAccountId, "/debug/rule-history")}>
-            Rule History
+            Lịch sử quy tắc
           </Link>
         </Button>
         <Button variant="outline" asChild>
           <Link href={prefixPath(emailAccountId, "/debug/follow-up")}>
-            Follow-up
+            Theo dõi lại
           </Link>
         </Button>
         <Button variant="outline" asChild>
           <Link href={prefixPath(emailAccountId, "/debug/memories")}>
-            Memories
+            Bộ nhớ
           </Link>
         </Button>
         {/* <Button variant="outline" asChild>

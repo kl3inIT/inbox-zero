@@ -73,7 +73,7 @@ export default function Components() {
   return (
     <Container>
       <div className="space-y-8 py-8">
-        <h1>A Storybook style page demoing components we use.</h1>
+        <h1>Trang kiểu Storybook minh họa các component đang dùng.</h1>
 
         <div className="space-y-1">
           <div>
@@ -100,45 +100,45 @@ export default function Components() {
 
         <div className="space-y-6">
           <div className="underline">Card</div>
-          <CardBasic>This is a basic card.</CardBasic>
+          <CardBasic>Đây là một card cơ bản.</CardBasic>
 
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Default Card</CardTitle>
+                <CardTitle>Card mặc định</CardTitle>
                 <CardDescription>
-                  This card uses the default size.
+                  Card này dùng kích thước mặc định.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>
-                  The default card has larger padding and text for better
-                  readability in standard layouts.
+                  Card mặc định có khoảng đệm và chữ lớn hơn để dễ đọc hơn trong
+                  các bố cục tiêu chuẩn.
                 </p>
               </CardContent>
               <CardFooter>
                 <ShadButton variant="outline" className="w-full">
-                  Action
+                  Thao tác
                 </ShadButton>
               </CardFooter>
             </Card>
 
             <Card size="sm">
               <CardHeader>
-                <CardTitle>Small Card</CardTitle>
+                <CardTitle>Card nhỏ</CardTitle>
                 <CardDescription>
-                  This card uses the small size variant.
+                  Card này dùng biến thể kích thước nhỏ.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>
-                  The card component supports a size prop that can be set to
-                  &quot;sm&quot; for a more compact appearance.
+                  Component card hỗ trợ thuộc tính kích thước, có thể đặt thành
+                  &quot;sm&quot; để giao diện gọn hơn.
                 </p>
               </CardContent>
               <CardFooter>
                 <ShadButton variant="outline" size="sm" className="w-full">
-                  Action
+                  Thao tác
                 </ShadButton>
               </CardFooter>
             </Card>
@@ -147,23 +147,29 @@ export default function Components() {
           <div className="space-y-4">
             <ActionCard
               icon={<SparklesIcon className="size-5" />}
-              title="Action Card (Green)"
-              description="This is the default green variant of the ActionCard component."
-              action={<ShadButton variant="primaryBlack">Click Me</ShadButton>}
+              title="Action Card (Xanh lá)"
+              description="Đây là biến thể màu xanh lá mặc định của component ActionCard."
+              action={
+                <ShadButton variant="primaryBlack">Bấm vào tôi</ShadButton>
+              }
             />
             <ActionCard
               variant="blue"
               icon={<SparklesIcon className="size-5" />}
-              title="Action Card (Blue)"
-              description="This is the blue variant of the ActionCard component."
-              action={<ShadButton variant="primaryBlack">Click Me</ShadButton>}
+              title="Action Card (Xanh dương)"
+              description="Đây là biến thể màu xanh dương của component ActionCard."
+              action={
+                <ShadButton variant="primaryBlack">Bấm vào tôi</ShadButton>
+              }
             />
             <ActionCard
               variant="destructive"
               icon={<SparklesIcon className="size-5" />}
-              title="Action Card (Destructive)"
-              description="This is the destructive variant of the ActionCard component."
-              action={<ShadButton variant="primaryBlack">Click Me</ShadButton>}
+              title="Action Card (Nguy hiểm)"
+              description="Đây là biến thể nguy hiểm (destructive) của component ActionCard."
+              action={
+                <ShadButton variant="primaryBlack">Bấm vào tôi</ShadButton>
+              }
             />
           </div>
         </div>
@@ -232,11 +238,11 @@ export default function Components() {
             <Suspense>
               <Tabs defaultValue="account" className="w-[400px]">
                 <TabsList>
-                  <TabsTrigger value="account">Account</TabsTrigger>
-                  <TabsTrigger value="password">Password</TabsTrigger>
+                  <TabsTrigger value="account">Tài khoản</TabsTrigger>
+                  <TabsTrigger value="password">Mật khẩu</TabsTrigger>
                 </TabsList>
-                <TabsContent value="account">Account content</TabsContent>
-                <TabsContent value="password">Password content</TabsContent>
+                <TabsContent value="account">Nội dung tài khoản</TabsContent>
+                <TabsContent value="password">Nội dung mật khẩu</TabsContent>
               </Tabs>
             </Suspense>
           </div>

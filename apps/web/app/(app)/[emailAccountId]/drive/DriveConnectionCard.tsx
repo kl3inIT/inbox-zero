@@ -48,12 +48,12 @@ export function DriveConnectionCard({
     useAction(disconnectDriveAction.bind(null, emailAccountId));
 
   const handleDisconnect = async () => {
-    if (confirm("Are you sure you want to disconnect this drive?")) {
+    if (confirm("Bạn có chắc chắn muốn ngắt kết nối Drive này không?")) {
       const result = await executeDisconnect({ connectionId: connection.id });
 
       if (result?.serverError) {
         toastError({
-          title: "Error disconnecting drive",
+          title: "Lỗi khi ngắt kết nối Drive",
           description: result.serverError,
         });
       } else {
@@ -77,7 +77,7 @@ export function DriveConnectionCard({
       {!connection.isConnected && (
         <div className="flex items-center gap-1 text-red-600">
           <XCircle className="h-3 w-3" />
-          <span className="text-xs">Disconnected</span>
+          <span className="text-xs">Đã ngắt kết nối</span>
         </div>
       )}
       <DropdownMenu>
@@ -86,7 +86,7 @@ export function DriveConnectionCard({
             variant="ghost"
             size="sm"
             className="h-6 w-6 p-0"
-            aria-label="Connection options"
+            aria-label="Tùy chọn kết nối"
           >
             <MoreVertical className="h-4 w-4" />
           </Button>
@@ -98,7 +98,7 @@ export function DriveConnectionCard({
             className="text-red-600 focus:text-red-600"
           >
             <Trash2 className="mr-2 h-4 w-4" />
-            Disconnect
+            Ngắt kết nối
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
