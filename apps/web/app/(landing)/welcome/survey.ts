@@ -54,7 +54,7 @@ export const survey = {
         "Tìm kiếm",
         "Bạn bè",
         "Twitter",
-        "GitHub",
+        "Cộng đồng",
         "YouTube",
         "Reddit",
         "Facebook",

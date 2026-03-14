@@ -23,14 +23,11 @@ function EnterpriseFooter() {
       <div>
         <h3 className="font-semibold text-gray-900">Gói doanh nghiệp</h3>
         <p className="text-sm text-gray-600">
-          SSO, triển khai on-premise và hỗ trợ chuyên trách cho các đội nhóm
-          lớn.
+          SSO, triển khai on-premise và hỗ trợ chuyên trách cho các đội nhóm lớn.
         </p>
       </div>
       <Button variant="outline" asChild>
-        <Link href="https://go.getinboxzero.com/sales">
-          Liên hệ bộ phận kinh doanh
-        </Link>
+        <Link href="/pricing">Xem bảng giá</Link>
       </Button>
     </div>
   );
@@ -44,7 +41,6 @@ export function usePremiumModal() {
   const PremiumModal = useCallback(() => {
     return (
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        {/* premium upgrade doesn't support dark mode yet as it appears on homepage */}
         <DialogContent className="max-w-4xl bg-white">
           <Pricing
             header={<PricingDialogHeader />}

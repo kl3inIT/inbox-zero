@@ -107,7 +107,7 @@ export function Pricing() {
         <RadioGroup
           value={frequency}
           onChange={setFrequency}
-          className="w-fit rounded-full p-1.5 text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 mb-6 shadow-[0_0_7px_0_rgba(0,0,0,0.0.07)]"
+          className="mb-6 w-fit rounded-full p-1.5 text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 shadow-[0_0_7px_0_rgba(0,0,0,0.0.07)]"
         >
           <Label className="sr-only">Chu kỳ thanh toán</Label>
           {frequencies.map((item) => (
@@ -125,7 +125,7 @@ export function Pricing() {
             </Radio>
           ))}
         </RadioGroup>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {pricingTiers.map((tier, index) => (
             <CardWrapper key={tier.name}>
               <PricingCard
@@ -139,7 +139,7 @@ export function Pricing() {
         </div>
         <CardWrapper className="mt-6 w-full">
           <Card variant="extra-rounding">
-            <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <CardContent className="flex flex-col items-center justify-between gap-4 sm:flex-row">
               <div className="flex items-center gap-4">
                 <div className="text-gray-400">
                   <Sparkle />
@@ -147,26 +147,23 @@ export function Pricing() {
                 <div>
                   <h3 className="font-title text-lg">Doanh nghiệp</h3>
                   <Paragraph size="sm" className="mt-1">
-                    Cần SSO, triển khai on-premise, hoặc quản lý tài khoản
-                    riêng?
+                    Cần SSO, triển khai on-premise, hoặc quản lý tài khoản riêng?
                   </Paragraph>
                 </div>
               </div>
               <Button variant="secondary-two" size="lg" asChild>
                 <Link
-                  href="https://go.getinboxzero.com/sales"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/login"
                   onClick={() =>
                     landingPageAnalytics.pricingCtaClicked(
                       posthog,
                       "Enterprise",
-                      "Liên hệ tư vấn",
+                      "Bắt đầu",
                     )
                   }
                 >
                   <Chat />
-                  <span className="relative z-10">Liên hệ tư vấn</span>
+                  <span className="relative z-10">Bắt đầu</span>
                 </Link>
               </Button>
             </CardContent>
@@ -196,7 +193,7 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
       icon={tier.icon}
       variant="extra-rounding"
       addon={
-        <div className="h-0 flex items-center gap-1.5">
+        <div className="flex h-0 items-center gap-1.5">
           {tier.badges
             ?.filter(({ annualOnly }) => !annualOnly || isAnnual)
             .map((badge) => (
@@ -208,9 +205,9 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
       }
       className="h-full"
     >
-      <div className="pt-0 px-6 pb-6">
+      <div className="px-6 pb-6 pt-0">
         <div className="space-y-6">
-          <div className="flex gap-2 items-end">
+          <div className="flex items-end gap-2">
             {price ? (
               <>
                 <Subheading>${price}</Subheading>
@@ -235,7 +232,6 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
               }
             >
               {tier.button.icon}
-              {/* z-10 keeps text above gradient background on hover to prevent color shift */}
               <span className="relative z-10">{tier.button.content}</span>
             </Link>
           </Button>
@@ -243,7 +239,7 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
       </div>
       <CardContent className="border-t border-[#E7E7E780]">
         {isFirstTier ? null : (
-          <Paragraph size="sm" className="font-medium mb-4">
+          <Paragraph size="sm" className="mb-4 font-medium">
             {tier.features[0].text}
           </Paragraph>
         )}
@@ -252,7 +248,7 @@ function PricingCard({ tier, tierIndex, isAnnual, posthog }: PricingCardProps) {
             .filter((_, index) => !!isFirstTier || index > 0)
             .map((feature) => (
               <li
-                className="text-gray-500 flex items-center gap-2 text-sm"
+                className="flex items-center gap-2 text-sm text-gray-500"
                 key={feature.text}
               >
                 <div className="text-blue-500">

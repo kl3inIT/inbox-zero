@@ -29,7 +29,7 @@ export function Privacy() {
             Ưu tiên quyền riêng tư
           </h2>
           <p className="mt-2 font-title text-3xl text-gray-900 sm:text-4xl">
-            Mã nguồn mở. Xem chính xác code của chúng tôi làm gì. Hoặc tự host.
+            Kiểm soát dữ liệu rõ ràng. Triển khai an toàn. Tự host nếu cần.
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Dữ liệu của bạn không bao giờ được dùng để huấn luyện các mô hình AI
@@ -38,9 +38,9 @@ export function Privacy() {
           </p>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             FocusMail tuân thủ SOC2 và được phê duyệt CASA Tier 2. Sản phẩm đã
-            trải qua quy trình kiểm tra bảo mật kỹ lưỡng với Google để đảm bảo
-            an toàn cho email của bạn. Bạn thậm chí có thể tự host FocusMail
-            trên hạ tầng của mình.
+            trải qua quy trình kiểm tra bảo mật kỹ lưỡng với Google để đảm bảo an
+            toàn cho email của bạn. Bạn cũng có thể triển khai FocusMail trên hạ
+            tầng của riêng mình khi cần quyền kiểm soát cao hơn.
           </p>
         </div>
       </div>

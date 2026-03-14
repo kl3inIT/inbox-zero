@@ -15,12 +15,12 @@ import { BRAND_NAME } from "@/utils/branding";
 const pricingFaqs = [
   {
     question: `Tôi có thể dùng thử ${BRAND_NAME} miễn phí không?`,
-    answer: "Có! Tất cả gói đều bao gồm 7 ngày dùng thử miễn phí.",
+    answer: "Có. Tất cả gói đều bao gồm 7 ngày dùng thử miễn phí.",
   },
   {
     question: "Tôi có thể chuyển đổi giữa các gói không?",
     answer:
-      "Có, bạn có thể nâng cấp hoặc hạ cấp bất cứ lúc nào. Thay đổi có hiệu lực ngay và sẽ được tính phí theo phần chênh lệch (prorated).",
+      "Có, bạn có thể nâng cấp hoặc hạ cấp bất cứ lúc nào. Thay đổi có hiệu lực ngay và sẽ được tính phí theo phần chênh lệch.",
   },
   {
     question: "Bạn chấp nhận phương thức thanh toán nào?",
@@ -30,16 +30,15 @@ const pricingFaqs = [
   {
     question: "Có giảm giá khi thanh toán theo năm không?",
     answer:
-      "Có! Tiết kiệm đến 20% khi chọn thanh toán theo năm ở bất kỳ gói nào.",
+      "Có. Tiết kiệm đến 20% khi chọn thanh toán theo năm ở bất kỳ gói nào.",
   },
   {
-    question:
-      "Có ưu đãi cho sinh viên, tổ chức phi lợi nhuận, hoặc dự án mã nguồn mở không?",
+    question: "Có ưu đãi cho nhóm lớn, doanh nghiệp, hoặc tổ chức đặc thù không?",
     answer: (
       <span>
-        Có! Hãy gửi{" "}
+        Có. Hãy gửi{" "}
         <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
-        cho chúng tôi và chúng tôi sẽ thiết lập gói ưu đãi cho bạn.
+        cho chúng tôi và chúng tôi sẽ thiết lập gói ưu đãi phù hợp cho bạn.
       </span>
     ),
   },
@@ -60,14 +59,8 @@ const pricingFaqs = [
   },
   {
     question: "Cần gói tuỳ chỉnh cho doanh nghiệp?",
-    answer: (
-      <span>
-        <Anchor href="https://go.getinboxzero.com/sales" newTab>
-          Liên hệ đội ngũ tư vấn
-        </Anchor>{" "}
-        để nhận báo giá tuỳ chỉnh, SSO, triển khai on-premise và hỗ trợ riêng.
-      </span>
-    ),
+    answer:
+      "Có. FocusMail hỗ trợ báo giá tuỳ chỉnh, SSO, triển khai on-premise và quy trình hỗ trợ riêng cho đội ngũ doanh nghiệp.",
   },
 ];
 
@@ -77,7 +70,7 @@ export function PricingFAQs() {
       <SectionHeading>Hỏi đáp về giá</SectionHeading>
       <SectionContent>
         <CardWrapper>
-          <dl className="grid md:grid-cols-2 gap-6">
+          <dl className="grid gap-6 md:grid-cols-2">
             {pricingFaqs.map((faq) => (
               <Card
                 variant="extra-rounding"
@@ -88,7 +81,7 @@ export function PricingFAQs() {
                   <Paragraph
                     as="dt"
                     color="gray-900"
-                    className="font-semibold tracking-tight mb-4"
+                    className="mb-4 font-semibold tracking-tight"
                   >
                     {faq.question}
                   </Paragraph>

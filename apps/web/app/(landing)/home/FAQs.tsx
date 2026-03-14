@@ -22,30 +22,20 @@ const faqs = [
     question: "Làm thế nào để tôi yêu cầu một tính năng mới?",
     answer: (
       <span>
-        Hãy gửi email cho chúng tôi hoặc tạo vấn đề (issue) trên{" "}
-        <Anchor href="/github" newTab>
-          GitHub
-        </Anchor>
-        . Chúng tôi luôn sẵn lòng lắng nghe ý kiến để cải thiện trải nghiệm
-        email của bạn.
+        Hãy gửi{" "}
+        <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
+        cho chúng tôi. Chúng tôi luôn sẵn lòng lắng nghe ý kiến để cải thiện
+        trải nghiệm email của bạn.
       </span>
     ),
   },
   {
     question: `${BRAND_NAME} có thay thế ứng dụng email hiện tại của tôi không?`,
-    answer: `Không! ${BRAND_NAME} không phải là một ứng dụng email. Nó được sử dụng song song với ứng dụng email hiện tại của bạn. Bạn vẫn sử dụng Google hoặc Outlook như bình thường.`,
+    answer: `Không. ${BRAND_NAME} hoạt động song song với ứng dụng email hiện tại của bạn, nên bạn vẫn dùng Gmail hoặc Outlook như bình thường.`,
   },
   {
-    question: "Mã nguồn có phải là nguồn mở không?",
-    answer: (
-      <span>
-        Có! Bạn có thể xem toàn bộ mã nguồn của ứng dụng FocusMail trong{" "}
-        <Anchor href="/github" newTab>
-          kho lưu trữ GitHub
-        </Anchor>
-        của chúng tôi.
-      </span>
-    ),
+    question: `Tôi có thể triển khai ${BRAND_NAME} trên hạ tầng riêng không?`,
+    answer: `Có. ${BRAND_NAME} phù hợp cho các đội ngũ cần quyền kiểm soát cao hơn về dữ liệu, triển khai và quy trình vận hành.`,
   },
   {
     question: "Bạn có chính sách hoàn tiền không?",
@@ -61,7 +51,7 @@ const faqs = [
   {
     question: `Tôi có thể dùng thử ${BRAND_NAME} miễn phí không?`,
     answer:
-      "Chắc chắn rồi, chúng tôi có chương trình dùng thử miễn phí 7 ngày cho tất cả các gói dịch vụ để bạn có thể trải nghiệm ngay lập tức, không cần thẻ tín dụng!",
+      "Chắc chắn rồi, chúng tôi có chương trình dùng thử miễn phí 7 ngày cho tất cả các gói dịch vụ để bạn có thể trải nghiệm ngay lập tức, không cần thẻ tín dụng.",
   },
 ];
 
@@ -71,7 +61,7 @@ export function FAQs() {
       <SectionHeading>Câu hỏi thường gặp</SectionHeading>
       <SectionContent>
         <CardWrapper>
-          <dl className="grid md:grid-cols-2 gap-6">
+          <dl className="grid gap-6 md:grid-cols-2">
             {faqs.map((faq) => (
               <Card
                 variant="extra-rounding"
@@ -82,7 +72,7 @@ export function FAQs() {
                   <Paragraph
                     as="dt"
                     color="gray-900"
-                    className="font-semibold tracking-tight mb-4"
+                    className="mb-4 font-semibold tracking-tight"
                   >
                     {faq.question}
                   </Paragraph>

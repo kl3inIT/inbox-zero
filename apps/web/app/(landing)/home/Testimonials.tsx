@@ -16,7 +16,7 @@ type Testimonial = {
 };
 
 const featuredTestimonial = {
-  body: "Rất ưng! Tôi đã dọn sạch các bản tin và email khuyến mãi gây rối nhất chỉ trong vài phút.",
+  body: "Rất ưng. Tôi đã dọn sạch các bản tin và email khuyến mãi gây rối nhất chỉ trong vài phút.",
   author: {
     name: "Jonni Lundy",
     handle: "Resend",
@@ -25,17 +25,8 @@ const featuredTestimonial = {
   },
 };
 
-const stevenTestimonial: Testimonial = {
-  body: "Rất thích ứng dụng mã nguồn mở mới này của @elie2222: getinboxzero.com",
-  author: {
-    name: "Steven Tey",
-    handle: "Dub",
-    imageUrl: "/images/testimonials/steventey.jpg",
-  },
-};
-
 const vinayTestimonial: Testimonial = {
-  body: "Đây chính là thứ tôi đã tìm kiếm từ rất lâu — cảm ơn vì đã xây dựng nó.",
+  body: "Đây chính là thứ tôi đã tìm kiếm từ rất lâu, cảm ơn vì đã xây dựng nó.",
   author: {
     name: "Vinay Katiyar",
     handle: "@ktyr",
@@ -45,7 +36,7 @@ const vinayTestimonial: Testimonial = {
 };
 
 const yoniTestimonial: Testimonial = {
-  body: "Wow. Tôi onboard và bắt đầu hủy đăng ký khỏi các nguồn spam tệ nhất chỉ trong 3 phút... Cảm ơn 🙏🏼",
+  body: "Wow. Tôi onboard và bắt đầu hủy đăng ký khỏi các nguồn spam tệ nhất chỉ trong 3 phút. Cảm ơn rất nhiều.",
   author: {
     name: "Yoni Belson",
     handle: "LeadTrap",
@@ -63,7 +54,7 @@ const slimTestimonial: Testimonial = {
 };
 
 const willTestimonial: Testimonial = {
-  body: "Tôi rất thích tính linh hoạt và khả năng tùy chỉnh; đây là công cụ đầu tiên sau rất lâu giúp hộp thư của tôi vào khuôn. Cảm ơn!",
+  body: "Tôi rất thích tính linh hoạt và khả năng tùy chỉnh; đây là công cụ đầu tiên sau rất lâu giúp hộp thư của tôi vào khuôn.",
   author: {
     name: "Will Brierly",
     handle: "DreamKey",
@@ -72,7 +63,7 @@ const willTestimonial: Testimonial = {
 };
 
 const valentineTestimonial: Testimonial = {
-  body: "Tôi là một quản lý, từng ngập trong hàng trăm email mỗi ngày và phụ thuộc nhiều vào trợ lý điều hành để xử lý email. Điều tôi thích nhất ở FocusMail là nó thay thế liền mạch toàn bộ vai trò đó—các tính năng tự động hóa, ưu tiên và sắp xếp thông minh hoạt động như một trợ lý email chuyên biệt ngay trong quy trình làm việc của tôi.",
+  body: "Tôi từng ngập trong hàng trăm email mỗi ngày và phụ thuộc nhiều vào trợ lý điều hành để xử lý. Điều tôi thích nhất ở FocusMail là nó thay thế liền mạch cả lớp công việc đó.",
   author: {
     name: "Valentine Nwachukwu",
     handle: "Zaden Technologies",
@@ -90,7 +81,7 @@ const joelTestimonial: Testimonial = {
 };
 
 const alexTestimonial: Testimonial = {
-  body: "Cực kỳ hào hứng với công cụ này! Làm rất tốt, chắc chắn tôi sẽ dùng thường xuyên—tôi đã chờ một công cụ như vậy từ lâu, rất hợp lý khi có một lớp hỗ trợ nằm trên email.",
+  body: "Cực kỳ hào hứng với công cụ này. Tôi đã chờ một lớp hỗ trợ nằm trên email như vậy từ lâu.",
   author: {
     name: "Alex Bass",
     handle: "Efficient App",
@@ -100,7 +91,7 @@ const alexTestimonial: Testimonial = {
 };
 
 const jamesTestimonial: Testimonial = {
-  body: "Này bạn, công cụ của bạn đúng là thứ tôi tìm kiếm bao năm nay haha. Nó đúng là cứu tinh.",
+  body: "Công cụ của bạn đúng là thứ tôi tìm kiếm bao năm nay. Nó đúng là cứu tinh.",
   author: {
     name: "James",
     handle: "@james",
@@ -109,7 +100,7 @@ const jamesTestimonial: Testimonial = {
 };
 
 const steveTestimonial: Testimonial = {
-  body: "Mục tiêu của tôi chỉ là làm hộp thư bớt hỗn loạn hơn. Tôi từng bỏ sót nhiều việc cần làm vì email bị chôn vùi. Đến giờ thì công cụ này giúp rất nhiều.",
+  body: "Mục tiêu của tôi chỉ là làm hộp thư bớt hỗn loạn hơn. Đến giờ thì công cụ này giúp rất nhiều.",
   author: {
     name: "Steve Radabaugh",
     handle: "@stevenpaulr",
@@ -118,7 +109,7 @@ const steveTestimonial: Testimonial = {
 };
 
 const wilcoTestimonial: Testimonial = {
-  body: "Cuối cùng cũng có một “ứng dụng hủy đăng ký” cho phép bạn *thực sự* hủy đăng ký và lọc bằng bộ lọc Gmail (thay vì luôn phải phụ thuộc ứng dụng bên thứ ba để lọc email đó). Đây là điểm cộng lớn với tôi vì tôi có tất cả bộ lọc ở một chỗ (ngay trong Gmail filters). Làm quá tốt! Tôi là fan rồi :)",
+  body: "Cuối cùng cũng có một ứng dụng hủy đăng ký cho phép bạn thực sự hủy đăng ký và lọc bằng chính bộ lọc Gmail. Điểm cộng rất lớn với tôi.",
   author: {
     name: "Wilco de Kreij",
     handle: "@emarky",
@@ -129,7 +120,7 @@ const wilcoTestimonial: Testimonial = {
 
 const desktopTestimonials: Testimonial[][][] = [
   [
-    [stevenTestimonial, joelTestimonial, willTestimonial, vinayTestimonial],
+    [joelTestimonial, willTestimonial, vinayTestimonial],
     [slimTestimonial, alexTestimonial],
   ],
   [
@@ -141,7 +132,6 @@ const desktopTestimonials: Testimonial[][][] = [
 const mobileTestimonials: Testimonial[] = [
   joelTestimonial,
   valentineTestimonial,
-  stevenTestimonial,
   yoniTestimonial,
   slimTestimonial,
   alexTestimonial,
@@ -176,7 +166,6 @@ export function Testimonials() {
 function TestimonialsContent() {
   return (
     <>
-      {/* Mobile */}
       <div className="mx-auto mt-16 grid max-w-2xl gap-4 text-sm leading-6 text-gray-900 sm:hidden">
         {mobileTestimonials.map((testimonial) => (
           <figure
@@ -207,7 +196,6 @@ function TestimonialsContent() {
         ))}
       </div>
 
-      {/* Desktop */}
       <div className="mx-auto mt-16 hidden max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
         <figure className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-900/5 sm:col-span-2 xl:col-start-2 xl:row-end-1">
           <blockquote className="p-6 text-lg font-semibold leading-7 tracking-tight text-gray-900 sm:p-12 sm:text-xl sm:leading-8">

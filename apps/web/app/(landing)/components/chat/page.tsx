@@ -203,7 +203,7 @@ export default function ChatPage() {
                     totalResults: 3,
                     messages: [
                       {
-                        from: "updates@github.com",
+                        from: "updates@acme.design",
                         subject: "PR Review Requested",
                       },
                       {
@@ -267,7 +267,7 @@ export default function ChatPage() {
           <ChatFrame>
             <Message from="user">
               <MessageContent variant="flat">
-                Search my inbox for emails from GitHub this week.
+                Search my inbox for emails from Acme Design this week.
               </MessageContent>
             </Message>
             <Message from="assistant">
@@ -281,7 +281,7 @@ export default function ChatPage() {
                   <ToolContent>
                     <ToolInput
                       input={{
-                        query: "from:github.com newer_than:7d",
+                        query: "from:acme.design newer_than:7d",
                         maxResults: 20,
                       }}
                     />
@@ -290,12 +290,12 @@ export default function ChatPage() {
                         totalResults: 5,
                         messages: [
                           {
-                            from: "notifications@github.com",
-                            subject: "PR #142 merged",
+                            from: "updates@acme.design",
+                            subject: "Homepage assets approved",
                           },
                           {
-                            from: "notifications@github.com",
-                            subject: "Issue #87 assigned to you",
+                            from: "updates@acme.design",
+                            subject: "Final copy needs sign-off",
                           },
                         ],
                       }}
@@ -305,7 +305,7 @@ export default function ChatPage() {
                 </Tool>
                 <Response>
                   {
-                    "I found **5 emails** from GitHub this week. Here are the highlights:\n\n1. **PR #142 merged** — Your pull request was merged\n2. **Issue #87 assigned to you** — A new issue needs your attention\n\nWould you like me to do anything with these emails?"
+                    "I found **5 emails** from Acme Design this week. Here are the highlights:\n\n1. **Homepage assets approved** — Creative is ready for launch\n2. **Final copy needs sign-off** — One decision is still pending\n\nWould you like me to do anything with these emails?"
                   }
                 </Response>
               </MessageContent>

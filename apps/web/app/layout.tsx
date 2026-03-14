@@ -33,9 +33,8 @@ const geist = Geist({
 
 const title = `${BRAND_NAME} | Automate and clean your inbox`;
 const description =
-  "Your AI executive assistant to reach FocusMail fast. Automate emails, bulk unsubscribe, block cold emails, and analytics. Open-source";
+  "FocusMail helps your team automate email, draft replies, clean inboxes, and stay on top of important conversations.";
 
-// JSON-LD structured data
 const jsonLd: WithContext<WebApplication> = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -72,10 +71,7 @@ const jsonLd: WithContext<WebApplication> = {
       "@type": "ImageObject",
       url: toAbsoluteUrl(BRAND_ICON_URL),
     },
-    sameAs: [
-      "https://x.com/inboxzero_ai",
-      "https://github.com/elie222/inbox-zero",
-    ],
+    sameAs: ["https://x.com/inboxzero_ai"],
   },
 };
 
@@ -96,12 +92,10 @@ export const metadata: Metadata = {
     creator: "@inboxzero_ai",
   },
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
-  // issues with robots.txt: https://github.com/vercel/next.js/issues/58615#issuecomment-1852457285
   robots: {
     index: true,
     follow: true,
   },
-  // pwa
   applicationName: BRAND_NAME,
   appleWebApp: {
     capable: true,
@@ -112,7 +106,6 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
-  // safe area for iOS PWA
   other: {
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",

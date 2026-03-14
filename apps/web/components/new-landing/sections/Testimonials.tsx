@@ -35,15 +35,6 @@ const featuredTestimonial = {
   },
 };
 
-const stevenTestimonial: Testimonial = {
-  body: "Love this new open-source app by @elie2222: getinboxzero.com",
-  author: {
-    name: "Steven Tey",
-    handle: "Dub",
-    imageUrl: "/images/testimonials/steventey.jpg",
-  },
-};
-
 const vinayTestimonial: Testimonial = {
   body: "this is something I've been searching for a long time – thanks for building it.",
   author: {
@@ -139,7 +130,7 @@ const wilcoTestimonial: Testimonial = {
 
 const desktopTestimonials: Testimonial[][][] = [
   [
-    [stevenTestimonial, joelTestimonial, willTestimonial, vinayTestimonial],
+    [joelTestimonial, willTestimonial, vinayTestimonial],
     [slimTestimonial, alexTestimonial],
   ],
   [
@@ -151,7 +142,6 @@ const desktopTestimonials: Testimonial[][][] = [
 const mobileTestimonials: Testimonial[] = [
   joelTestimonial,
   valentineTestimonial,
-  stevenTestimonial,
   yoniTestimonial,
   slimTestimonial,
   alexTestimonial,

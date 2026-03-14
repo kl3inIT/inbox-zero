@@ -22,19 +22,16 @@ const copy: {
   "clean-up-in-minutes": {
     title: "Clean Up Your Inbox In Minutes",
     subtitle:
-      "Bulk unsubscribe from newsletters, automate your emails with AI, block cold emails, and view your analytics. Open-source.",
+      "Bulk unsubscribe from newsletters, automate your emails with AI, block cold emails, and view your analytics.",
   },
 };
 
-// allow this to work for search engines while avoiding flickering text for users
-// ssr method relied on cookies in the root layout which broke static page generation of blog posts
 export function HeroAB() {
   const [title, setTitle] = useState(copy.control.title);
   const [subtitle, setSubtitle] = useState(copy.control.subtitle);
   const [isHydrated, setIsHydrated] = useState(false);
 
   const variant = useHeroVariant();
-  // to prevent flickering text
   const isFlagEnabled = useHeroVariantEnabled();
 
   useEffect(() => {
