@@ -49,7 +49,7 @@ export default function NewLanding() {
             ]}
           />
         }
-        subtitle={`${BRAND_NAME} sắp xếp hộp thư và lịch của bạn, soạn nháp trả lời theo giọng văn của bạn, và giúp bạn nhanh chóng đạt inbox zero. Không bỏ lỡ email quan trọng nữa.`}
+        subtitle={`${BRAND_NAME} sắp xếp hộp thư và lịch của bạn, soạn nháp trả lời theo giọng văn của bạn, và giúp bạn nhanh chóng đạt FocusMail. Không bỏ lỡ email quan trọng nữa.`}
       >
         <HeroContent />
       </Hero>

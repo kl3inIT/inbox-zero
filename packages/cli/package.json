@@ -1,7 +1,7 @@
 {
   "name": "@inbox-zero/cli",
   "version": "2.28.0",
-  "description": "CLI tool for setting up and managing Inbox Zero - AI email assistant",
+  "description": "CLI tool for setting up and managing FocusMail - AI email assistant",
   "type": "module",
   "bin": {
     "inbox-zero": "bin/inbox-zero.js"

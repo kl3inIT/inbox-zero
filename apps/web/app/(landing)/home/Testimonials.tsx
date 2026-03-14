@@ -54,7 +54,8 @@ const yoniTestimonial: Testimonial = {
 };
 
 const slimTestimonial: Testimonial = {
-  body: "Tôi biết tới Inbox Zero khi đang tìm thuê trợ lý ảo để quản lý email, nhưng sau khi dùng thử công cụ này, nó thực sự thay đổi cuộc chơi.",
+
+  body: "Tôi biết tới FocusMail khi đang tìm thuê trợ lý ảo để quản lý email, nhưng sau khi dùng thử công cụ này, nó thực sự thay đổi cuộc chơi.",
   author: {
     name: "Slim Labassi",
     handle: "Boomgen",
@@ -72,7 +73,7 @@ const willTestimonial: Testimonial = {
 };
 
 const valentineTestimonial: Testimonial = {
-  body: "Tôi là một quản lý, từng ngập trong hàng trăm email mỗi ngày và phụ thuộc nhiều vào trợ lý điều hành để xử lý email. Điều tôi thích nhất ở Inbox Zero là nó thay thế liền mạch toàn bộ vai trò đó—các tính năng tự động hóa, ưu tiên và sắp xếp thông minh hoạt động như một trợ lý email chuyên biệt ngay trong quy trình làm việc của tôi.",
+  body: "Tôi là một quản lý, từng ngập trong hàng trăm email mỗi ngày và phụ thuộc nhiều vào trợ lý điều hành để xử lý email. Điều tôi thích nhất ở FocusMail là nó thay thế liền mạch toàn bộ vai trò đó—các tính năng tự động hóa, ưu tiên và sắp xếp thông minh hoạt động như một trợ lý email chuyên biệt ngay trong quy trình làm việc của tôi.",
   author: {
     name: "Valentine Nwachukwu",
     handle: "Zaden Technologies",
