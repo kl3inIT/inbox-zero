@@ -53,6 +53,7 @@ import {
 import { useAccounts } from "@/hooks/useAccounts";
 import { useMessagingChannels } from "@/hooks/useMessagingChannels";
 import { useAccount } from "@/providers/EmailAccountProvider";
+import type { MessagingProvider } from "@/generated/prisma/enums";
 import { cn } from "@/utils";
 import { env } from "@/env";
 
@@ -174,9 +175,14 @@ function EmailAccountSettingsCard({
   onToggle: () => void;
 }) {
   const { data: channelsData } = useMessagingChannels(emailAccount.id);
-  const menuVisibleProviders = useMemo(
+  const menuVisibleProviders = useMemo<MessagingProvider[]>(
     () =>
-      Array.from(new Set([...(channelsData?.availableProviders ?? []), "TELEGRAM"])),
+      Array.from(
+        new Set<MessagingProvider>([
+          ...(channelsData?.availableProviders ?? []),
+          "TELEGRAM",
+        ]),
+      ),
     [channelsData?.availableProviders],
   );
 
