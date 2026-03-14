@@ -7,7 +7,7 @@ import { BRAND_NAME, SUPPORT_EMAIL } from "@/utils/branding";
 export const footerNavigation = {
   main: [
     {
-      name: `${BRAND_NAME} Tabs (Chrome Extension)`,
+      name: `${BRAND_NAME} Tabs (Tiện ích Chrome)`,
       href: EXTENSION_URL,
       target: "_blank",
     },
@@ -76,24 +76,24 @@ export const footerNavigation = {
     },
   ],
   company: [
-    { name: "Affiliates", href: "/affiliates", target: "_blank" },
+    { name: "Đối tác liên kết", href: "/affiliates", target: "_blank" },
     { name: "Blog", href: "/blog" },
-    { name: "Case study", href: "/case-studies" },
+    { name: "Nghiên cứu tình huống", href: "/case-studies" },
     { name: "Twitter", href: "/twitter", target: "_blank" },
     { name: "GitHub", href: "/github", target: "_blank" },
     { name: "Discord", href: "/discord", target: "_blank" },
-    { name: "OSS Friends", href: "/oss-friends" },
-    { name: "Email Blaster", href: "/game" },
+    { name: "Bạn bè OSS", href: "/oss-friends" },
+    { name: "Trò chơi Email Blaster", href: "/game" },
   ],
   legal: [
     { name: "Điều khoản", href: "/terms" },
     { name: "Quyền riêng tư", href: "/privacy" },
     {
-      name: "SOC2 Compliant",
+      name: "Tuân thủ SOC2",
       href: "https://security.getinboxzero.com",
       target: "_blank",
     },
-    { name: "Sitemap", href: "/sitemap.xml" },
+    { name: "Sơ đồ trang", href: "/sitemap.xml" },
   ],
   social: [
     {
@@ -148,8 +148,8 @@ const selfHostedFooter = {
     { name: "Discord", href: "/discord", target: "_blank" },
   ],
   legal: [
-    { name: "Terms", href: "/terms" },
-    { name: "Privacy", href: "/privacy" },
+    { name: "Điều khoản", href: "/terms" },
+    { name: "Quyền riêng tư", href: "/privacy" },
   ],
 };
 
