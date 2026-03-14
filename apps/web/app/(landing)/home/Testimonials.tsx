@@ -54,6 +54,7 @@ const yoniTestimonial: Testimonial = {
 };
 
 const slimTestimonial: Testimonial = {
+
   body: "Tôi biết tới FocusMail khi đang tìm thuê trợ lý ảo để quản lý email, nhưng sau khi dùng thử công cụ này, nó thực sự thay đổi cuộc chơi.",
   author: {
     name: "Slim Labassi",
