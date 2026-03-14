@@ -22,15 +22,15 @@ interface AwsPrerequisites {
 }
 
 interface GcloudPrerequisites {
-  installed: boolean;
   authenticated: boolean;
+  installed: boolean;
   projectId: string | null;
 }
 
 export interface AwsSetupOptions {
+  environment?: string;
   profile?: string;
   region?: string;
-  environment?: string;
   yes?: boolean; // Non-interactive mode with defaults
 }
 
@@ -92,7 +92,7 @@ const SERVICE_NAME = "inbox-zero-ecs";
 // ═══════════════════════════════════════════════════════════════════════════
 
 export async function runAwsSetup(options: AwsSetupOptions) {
-  p.intro("AWS Copilot Setup for Inbox Zero");
+  p.intro("AWS Copilot Setup for FocusMail");
 
   const nonInteractive = options.yes === true;
   if (nonInteractive) {

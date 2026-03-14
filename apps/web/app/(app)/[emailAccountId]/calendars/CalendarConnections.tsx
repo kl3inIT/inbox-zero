@@ -22,26 +22,26 @@ export function CalendarConnections() {
         {connections.length === 0 ? (
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle>Connected calendars</CardTitle>
+              <CardTitle>Lịch đã kết nối</CardTitle>
             </CardHeader>
 
             <CardContent>
               <div className="space-y-2">
                 <TypographyP className="text-sm">
-                  Connect your calendar to unlock:
+                  Kết nối lịch để mở khóa:
                 </TypographyP>
 
                 <TypographyP className="text-sm flex items-center gap-2">
                   <CalendarCheckIcon className="size-4 text-blue-600" />
                   <span className="min-w-0">
-                    AI replies based on your real availability
+                    AI trả lời dựa trên lịch trống thực tế của bạn
                   </span>
                 </TypographyP>
 
                 <TypographyP className="text-sm flex items-center gap-2">
                   <FileTextIcon className="size-4 text-blue-600" />
                   <span className="min-w-0">
-                    Meeting briefs before every call
+                    Bản tóm tắt trước mỗi cuộc gọi
                   </span>
                 </TypographyP>
               </div>

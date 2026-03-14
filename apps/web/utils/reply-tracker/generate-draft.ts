@@ -103,7 +103,7 @@ export async function fetchMessagesAndGenerateDraftWithConfidenceThreshold(
       emailAccount.userId,
     );
     const referralLink = generateReferralLink(referralSignature.code);
-    const htmlSignature = `Drafted by <a href="${referralLink}">Inbox Zero</a>.`;
+    const htmlSignature = `Drafted by <a href="${referralLink}">FocusMail</a>.`;
     finalResult = `${finalResult}\n\n${htmlSignature}`;
   }
 

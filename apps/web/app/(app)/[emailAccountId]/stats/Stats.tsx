@@ -30,6 +30,11 @@ const selectOptions = [
 ];
 const defaultSelected = selectOptions[1];
 
+function getPeriodLabel(period: "day" | "week" | "month" | "year") {
+  const labels = { day: "ngày", week: "tuần", month: "tháng", year: "năm" };
+  return labels[period];
+}
+
 export function Stats() {
   const [dateDropdown, setDateDropdown] = useState<string>(
     defaultSelected.label,
@@ -89,7 +94,7 @@ export function Stats() {
           onSetDateDropdown={onSetDateDropdown}
         />
         <DetailedStatsFilter
-          label={`Nhóm theo ${period}`}
+          label={`Nhóm theo ${getPeriodLabel(period)}`}
           icon={<LayoutGrid className="mr-2 h-4 w-4" />}
           columns={[
             {
@@ -138,11 +143,11 @@ export function Stats() {
         <ErrorBoundary fallback={<SectionError title="Thống kê quy tắc" />}>
           <RuleStatsChart
             dateRange={dateRange}
-            title="Assistant processed emails"
+            title="Email đã được trợ lý xử lý"
           />
         </ErrorBoundary>
         {isAccountOwner && (
-          <ErrorBoundary fallback={<SectionError title="Email Actions" />}>
+          <ErrorBoundary fallback={<SectionError title="Hành động email" />}>
             <EmailActionsAnalytics />
           </ErrorBoundary>
         )}

@@ -164,8 +164,8 @@ export function CalendarSettings() {
   return (
     <div className="space-y-2">
       <SettingCard
-        title="Calendar Booking Link"
-        description="Your booking link for the AI to share when scheduling meetings"
+        title="Liên kết đặt lịch"
+        description="Liên kết đặt lịch để AI chia sẻ khi lên lịch cuộc họp"
         collapseOnMobile
         right={
           <LoadingContent
@@ -192,7 +192,7 @@ export function CalendarSettings() {
                 size="sm"
                 className="w-full sm:w-auto"
               >
-                Save
+                Lưu
               </Button>
             </form>
           </LoadingContent>
@@ -200,8 +200,8 @@ export function CalendarSettings() {
       />
 
       <SettingCard
-        title="Timezone"
-        description="Your timezone for calendar scheduling suggestions"
+        title="Múi giờ"
+        description="Múi giờ dùng cho các gợi ý lên lịch"
         collapseOnMobile
         right={
           <LoadingContent
@@ -226,7 +226,7 @@ export function CalendarSettings() {
                 size="sm"
                 className="w-full sm:w-auto"
               >
-                Save
+                Lưu
               </Button>
             </form>
           </LoadingContent>

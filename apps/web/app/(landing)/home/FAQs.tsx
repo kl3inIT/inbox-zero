@@ -39,7 +39,7 @@ const faqs = [
     question: "Mã nguồn có phải là nguồn mở không?",
     answer: (
       <span>
-        Có! Bạn có thể xem toàn bộ mã nguồn của ứng dụng Inbox Zero trong{" "}
+        Có! Bạn có thể xem toàn bộ mã nguồn của ứng dụng FocusMail trong{" "}
         <Anchor href="/github" newTab>
           kho lưu trữ GitHub
         </Anchor>
