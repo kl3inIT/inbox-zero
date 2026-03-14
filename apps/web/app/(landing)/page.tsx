@@ -43,7 +43,7 @@ export default function NewLanding() {
               "AI",
               "thực",
               "sự",
-              <em key="actually">actually</em>,
+              <em key="actually">rất</em>,
               "hiệu",
               "quả",
             ]}
