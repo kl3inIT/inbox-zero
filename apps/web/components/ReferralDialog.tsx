@@ -73,8 +73,8 @@ export function Referrals() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Tham gia Inbox Zero qua liên kết giới thiệu của mình",
-          text: "Dùng liên kết giới thiệu của mình để bắt đầu với Inbox Zero!",
+          title: "Tham gia FocusMail qua liên kết giới thiệu của mình",
+          text: "Dùng liên kết giới thiệu của mình để bắt đầu với FocusMail!",
           url: link,
         });
       } catch (error) {
@@ -103,7 +103,7 @@ export function Referrals() {
       <div className="text-center">
         <PageHeading>Giới thiệu bạn bè, nhận quà</PageHeading>
         <PageSubHeading className="mt-2">
-          Chia sẻ Inbox Zero với bạn bè và nhận 1 tháng miễn phí cho mỗi người
+          Chia sẻ FocusMail với bạn bè và nhận 1 tháng miễn phí cho mỗi người
           hoàn tất giai đoạn dùng thử
         </PageSubHeading>
       </div>

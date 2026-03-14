@@ -9,7 +9,6 @@ import {
   ArchiveIcon,
   ArrowLeftIcon,
   BarChartBigIcon,
-  BookIcon,
   BrushIcon,
   CalendarIcon,
   ChevronDownIcon,
@@ -303,24 +302,6 @@ export function SideNav({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <ReferralDialog />
           </ClientOnly>
         )}
-
-        <SidebarMenuButton asChild>
-          <Link
-            href="https://docs.getinboxzero.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              if (isMobile) {
-                setOpenMobile((prev) =>
-                  prev.filter((name) => name !== "left-sidebar"),
-                );
-              }
-            }}
-          >
-            <BookIcon className="size-4" />
-            <span className="font-semibold">Trung tâm trợ giúp</span>
-          </Link>
-        </SidebarMenuButton>
 
         <SidebarMenuButton asChild>
           <Link

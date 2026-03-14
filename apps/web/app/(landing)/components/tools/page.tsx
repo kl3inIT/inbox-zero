@@ -369,7 +369,7 @@ function getAssistantSendEmailOutput(state: EmailActionState) {
       bcc: null,
       subject: "Weekly update",
       messageHtml: "<p>Hi team,<br/>Here is this week's update.</p>",
-      from: "Inbox Zero <assistant@example.com>",
+      from: "FocusMail <assistant@example.com>",
     },
     ...(state === "confirmed"
       ? {

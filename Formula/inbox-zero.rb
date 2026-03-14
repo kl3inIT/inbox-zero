@@ -1,7 +1,7 @@
-# Homebrew Formula for Inbox Zero CLI
+# Homebrew Formula for FocusMail CLI
 
 class InboxZero < Formula
-  desc "CLI tool for setting up Inbox Zero - AI email assistant"
+  desc "CLI tool for setting up FocusMail - AI email assistant"
   homepage "https://www.getinboxzero.com"
   version "2.29.1"
   license "AGPL-3.0-only"

@@ -201,9 +201,9 @@ describe("Provider Edge Cases", () => {
           getMockParsedMessage({
             labelIds: ["SENT"],
             headers: {
-              from: "Inbox Zero Assistant <user@test.com>",
+              from: "FocusMail Assistant <user@test.com>",
               to: "user@test.com",
-              "reply-to": "Inbox Zero Assistant <user+ai@test.com>",
+              "reply-to": "FocusMail Assistant <user+ai@test.com>",
               subject: "Filed your document",
               date: "2024-01-01",
             },

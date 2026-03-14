@@ -278,19 +278,19 @@ export default function Components() {
           <div className="underline">Notices</div>
           <div className="mt-4 space-y-2">
             <Notice variant="info">
-              <strong>Info:</strong> This is an informational notice with some
-              helpful context.
+              <strong>Thông tin:</strong> Đây là thông báo cung cấp thông tin
+              kèm ngữ cảnh hữu ích.
             </Notice>
             <Notice variant="warning">
-              <strong>Warning:</strong> Please be cautious when proceeding with
-              this action.
+              <strong>Cảnh báo:</strong> Vui lòng cẩn thận khi thực hiện hành
+              động này.
             </Notice>
             <Notice variant="success">
-              <strong>Success:</strong> Your changes have been saved
-              successfully!
+              <strong>Thành công:</strong> Các thay đổi của bạn đã được lưu
+              thành công!
             </Notice>
             <Notice variant="error">
-              <strong>Error:</strong> Something went wrong. Please try again.
+              <strong>Lỗi:</strong> Đã xảy ra lỗi. Vui lòng thử lại.
             </Notice>
           </div>
         </div>
@@ -298,17 +298,17 @@ export default function Components() {
         <div>
           <div className="underline">TooltipExplanation</div>
           <div className="mt-4 flex flex-col gap-2">
-            <TooltipExplanation size="sm" text="Sm explanation tooltip" />
-            <TooltipExplanation size="md" text="Md explanation tooltip" />
+            <TooltipExplanation size="sm" text="Tooltip giải thích cỡ nhỏ" />
+            <TooltipExplanation size="md" text="Tooltip giải thích cỡ vừa" />
           </div>
         </div>
 
         <div>
-          <div className="underline">Premium Alerts</div>
+          <div className="underline">Cảnh báo Premium</div>
           <div className="mt-4 space-y-4">
             <div>
               <MutedText className="mb-2">
-                Basic Plan (needs upgrade to Business):
+                Gói Basic (cần nâng cấp lên Business):
               </MutedText>
               <PremiumAiAssistantAlert
                 showSetApiKey={false}
@@ -316,14 +316,16 @@ export default function Components() {
               />
             </div>
             <div>
-              <MutedText className="mb-2">Pro Plan (needs API key):</MutedText>
+              <MutedText className="mb-2">Gói Pro (cần API key):</MutedText>
               <PremiumAiAssistantAlert
                 showSetApiKey={true}
                 tier={"PRO_MONTHLY"}
               />
             </div>
             <div>
-              <MutedText className="mb-2">Free Plan (needs upgrade):</MutedText>
+              <MutedText className="mb-2">
+                Gói Miễn phí (cần nâng cấp):
+              </MutedText>
               <PremiumAiAssistantAlert showSetApiKey={false} tier={null} />
             </div>
           </div>
@@ -334,9 +336,9 @@ export default function Components() {
           <div className="mt-4">
             <DismissibleVideoCard
               icon={<SparklesIcon className="h-5 w-5" />}
-              title="Getting started with AI Assistant"
+              title="Bắt đầu với Trợ lý AI"
               description={
-                "Learn how to use the AI Assistant to automatically label, archive, and more."
+                "Tìm hiểu cách dùng Trợ lý AI để tự động gắn nhãn, lưu trữ và nhiều hơn nữa."
               }
               videoSrc="https://www.youtube.com/embed/SoeNDVr7ve4"
               thumbnailSrc="https://img.youtube.com/vi/SoeNDVr7ve4/0.jpg"

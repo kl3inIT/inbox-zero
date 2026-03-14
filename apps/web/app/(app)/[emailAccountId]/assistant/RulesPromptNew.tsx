@@ -98,7 +98,7 @@ function RulesPromptForm({
     if (typeof markdown !== "string") return;
     if (markdown.trim() === "") {
       toastError({
-        description: "Please enter a prompt to create rules",
+        description: "Vui lòng nhập prompt để tạo quy tắc",
       });
       return;
     }
@@ -122,7 +122,7 @@ function RulesPromptForm({
         return result;
       },
       {
-        loading: "Creating rules...",
+        loading: "Đang tạo quy tắc...",
         success: (result) => {
           const { rules = [], errors = [] } = result?.data || {};
           setCreatedRules(rules);
@@ -131,13 +131,13 @@ function RulesPromptForm({
             const errorDetails = errors
               .map((e) => `${e.ruleName}: ${e.error}`)
               .join(", ");
-            return `${rules.length} rules created. ${errors.length} failed: ${errorDetails}`;
+            return `${rules.length} quy tắc đã tạo. ${errors.length} quy tắc lỗi: ${errorDetails}`;
           }
 
-          return `${rules.length} rules created!`;
+          return `Đã tạo ${rules.length} quy tắc!`;
         },
         error: (err) => {
-          return `Error creating rules: ${err.message}`;
+          return `Lỗi khi tạo quy tắc: ${err.message}`;
         },
       },
     );
@@ -164,7 +164,7 @@ function RulesPromptForm({
             }}
           >
             <Label className="font-title text-xl leading-7">
-              Add new rules
+              Thêm quy tắc mới
             </Label>
 
             <div className="mt-1.5 space-y-2">
@@ -177,14 +177,14 @@ function RulesPromptForm({
                   defaultValue={undefined}
                   minHeight={180}
                   userLabels={userLabels}
-                  placeholder={`* Label urgent emails as "Urgent"
-* Forward receipts to jane@accounting.com`}
+                  placeholder={`* Gắn nhãn email khẩn cấp là "Khẩn cấp"
+* Chuyển tiếp biên nhận cho jane@accounting.com`}
                 />
               </LoadingContent>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-2">
                 <Button type="submit" size="sm" loading={isSubmitting}>
-                  Create rules
+                  Tạo quy tắc
                 </Button>
 
                 <Button
@@ -193,7 +193,7 @@ function RulesPromptForm({
                   onClick={examples ? onHideExamples : onOpenPersonaDialog}
                 >
                   <UserPenIcon className="mr-2 size-4" />
-                  {examples ? "Hide examples" : "Choose from examples"}
+                  {examples ? "Ẩn ví dụ" : "Chọn từ ví dụ"}
                 </Button>
 
                 <Button
@@ -203,7 +203,7 @@ function RulesPromptForm({
                   onClick={() => ruleDialog.onOpen()}
                   Icon={PlusIcon}
                 >
-                  Add rule manually
+                  Thêm quy tắc thủ công
                 </Button>
               </div>
             </div>
@@ -217,7 +217,7 @@ function RulesPromptForm({
 
       {examples && (
         <div className="mt-2">
-          <Label className="font-title text-xl leading-7">Examples</Label>
+          <Label className="font-title text-xl leading-7">Ví dụ</Label>
           <div className="mt-1.5">
             <ExamplesGrid
               examples={examples}

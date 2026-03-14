@@ -37,9 +37,9 @@ export function Privacy() {
             ở mức cao nhất.
           </p>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Inbox Zero tuân thủ SOC2 và được phê duyệt CASA Tier 2. Sản phẩm đã
+            FocusMail tuân thủ SOC2 và được phê duyệt CASA Tier 2. Sản phẩm đã
             trải qua quy trình kiểm tra bảo mật kỹ lưỡng với Google để đảm bảo
-            an toàn cho email của bạn. Bạn thậm chí có thể tự host Inbox Zero
+            an toàn cho email của bạn. Bạn thậm chí có thể tự host FocusMail
             trên hạ tầng của mình.
           </p>
         </div>

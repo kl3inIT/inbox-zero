@@ -179,8 +179,8 @@ export function CalendarConnectionCard({
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-full text-left"
               >
                 <span>
-                  {enabledCalendars.length} of {calendars.length} calendars
-                  selected for availability
+                  {enabledCalendars.length} trên {calendars.length} lịch được
+                  chọn để dùng cho lịch trống
                 </span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${
@@ -204,7 +204,7 @@ export function CalendarConnectionCard({
           </Collapsible>
         ) : (
           <TypographyP className="text-sm">
-            No calendars found. Your calendars will be synced automatically.
+            Không tìm thấy lịch. Lịch của bạn sẽ được đồng bộ tự động.
           </TypographyP>
         )}
       </CardContent>
