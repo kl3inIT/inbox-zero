@@ -16,28 +16,27 @@ import { BRAND_NAME, SUPPORT_EMAIL } from "@/utils/branding";
 
 const errorMessages: Record<string, { title: string; description: string }> = {
   email_not_found: {
-    title: "Account Not Authorized",
+    title: "Tài khoản chưa được cấp quyền",
     description:
-      "Your account is not authorized to access this application. This may be because your email is not part of the allowed organization. Please contact your administrator or try signing in with a different account.",
+      "Tài khoản của bạn chưa được cấp quyền truy cập ứng dụng này. Có thể email của bạn không thuộc tổ chức được cho phép. Vui lòng liên hệ quản trị viên hoặc thử đăng nhập bằng tài khoản khác.",
   },
   email_already_linked: {
-    title: "Email Already Linked",
-    description: `This email address is already linked to another ${BRAND_NAME} account. Please sign in with the original account, or use a different email address.`,
+    title: "Email đã được liên kết",
+    description: `Địa chỉ email này đã được liên kết với một tài khoản ${BRAND_NAME} khác. Vui lòng đăng nhập bằng tài khoản gốc hoặc dùng địa chỉ email khác.`,
   },
   org_invite_invalid_code: {
-    title: "Organization Invite Sign-in Failed",
+    title: "Không thể đăng nhập từ lời mời tổ chức",
     description:
-      "We couldn't complete sign-in while joining this organization. Please start from the invitation link again. If it still fails, sign in with the original account for this mailbox, then accept the invite again.",
+      "Không thể hoàn tất đăng nhập khi tham gia tổ chức này. Vui lòng mở lại từ liên kết mời. Nếu vẫn lỗi, hãy đăng nhập bằng tài khoản gốc của hộp thư này rồi chấp nhận lời mời lại.",
   },
   invalid_code: {
-    title: "Sign-in Session Expired",
+    title: "Phiên đăng nhập đã hết hạn",
     description:
-      "Your sign-in link is no longer valid. This can happen if the login flow was opened twice, timed out, or already used. Please start sign-in again from the login page.",
+      "Liên kết đăng nhập không còn hợp lệ. Điều này có thể xảy ra nếu luồng đăng nhập được mở hai lần, bị hết thời gian hoặc đã được sử dụng. Vui lòng bắt đầu lại từ trang đăng nhập.",
   },
   requiresreconsent: {
-    title: "Permissions need to be refreshed",
-    description:
-      `Please sign in again and approve every requested permission. If your Microsoft 365 organization requires admin approval, ask your admin to approve ${BRAND_NAME} first.`,
+    title: "Cần cấp lại quyền truy cập",
+    description: `Vui lòng đăng nhập lại và chấp thuận đầy đủ các quyền được yêu cầu. Nếu tổ chức Microsoft 365 của bạn cần quản trị viên phê duyệt, hãy nhờ quản trị viên phê duyệt ${BRAND_NAME} trước.`,
   },
 };
 
@@ -49,8 +48,6 @@ function LoginErrorContent() {
   const reason = searchParams.get("reason")?.toLowerCase();
   const resolvedErrorCode = resolveErrorCode({ errorCode, reason });
 
-  // For some reason users are being sent to this page when logged in
-  // This will redirect them out of this page to the app
   useEffect(() => {
     if (data?.id) {
       const authErrorCookie = getAndClearAuthErrorCookie();
@@ -64,15 +61,14 @@ function LoginErrorContent() {
   }, [data, router]);
 
   if (isLoading) return <Loading />;
-  // will redirect to welcome if user is logged in
   if (data?.id) return <Loading />;
 
   const errorInfo = resolvedErrorCode ? errorMessages[resolvedErrorCode] : null;
-  const title = errorInfo?.title || "Error Logging In";
-  const supportText = `If this error persists, please use the support chat or email us at ${SUPPORT_EMAIL}.`;
+  const title = errorInfo?.title || "Đăng nhập không thành công";
+  const supportText = `Nếu lỗi vẫn tiếp diễn, vui lòng dùng chat hỗ trợ hoặc gửi email đến ${SUPPORT_EMAIL}.`;
   const fallbackDescription = resolvedErrorCode
-    ? `Please try signing in again. (Error code: ${resolvedErrorCode}) ${supportText}`
-    : `Please try signing in again. ${supportText}`;
+    ? `Vui lòng thử đăng nhập lại. (Mã lỗi: ${resolvedErrorCode}) ${supportText}`
+    : `Vui lòng thử đăng nhập lại. ${supportText}`;
   const description = errorInfo?.description
     ? `${errorInfo.description} ${supportText}`
     : fallbackDescription;
@@ -84,11 +80,10 @@ function LoginErrorContent() {
         description={description}
         button={
           <Button asChild>
-            <Link href="/login">Log In</Link>
+            <Link href="/login">Đăng nhập lại</Link>
           </Button>
         }
       />
-      {/* <AutoLogOut loggedIn={!!session?.user.email} /> */}
     </LoadingContent>
   );
 }

@@ -6,8 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AxiomWebVitals } from "next-axiom";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics as DubAnalytics } from "@dub/analytics/react";
-import { Geist } from "next/font/google";
-import localFont from "next/font/local";
+import { Be_Vietnam_Pro } from "next/font/google";
 import type { WebApplication, WithContext } from "schema-dts";
 import "../styles/globals.css";
 import { PostHogPageview, PostHogProvider } from "@/providers/PostHogProvider";
@@ -18,22 +17,22 @@ import { startupImage } from "@/app/startup-image";
 import { Toaster } from "@/components/Toast";
 import { BRAND_ICON_URL, BRAND_NAME, toAbsoluteUrl } from "@/utils/branding";
 
-const aeonikFont = localFont({
-  src: "../styles/aeonik-medium.woff",
+const titleFont = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
   variable: "--font-title",
-  preload: true,
+  weight: ["600", "700", "800"],
   display: "swap",
 });
-const geist = Geist({
-  subsets: ["latin"],
+const bodyFont = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
   variable: "--font-geist",
-  weight: ["400", "500", "600", "700"], // font-normal, font-medium, font-semibold, font-bold
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const title = `${BRAND_NAME} | Automate and clean your inbox`;
+const title = `${BRAND_NAME} | Tự động hóa email và giữ hộp thư luôn gọn gàng`;
 const description =
-  "FocusMail helps your team automate email, draft replies, clean inboxes, and stay on top of important conversations.";
+  "FocusMail giúp cá nhân và đội ngũ tự động xử lý email, soạn phản hồi, dọn dẹp hộp thư và theo sát mọi cuộc trò chuyện quan trọng.";
 
 const jsonLd: WithContext<WebApplication> = {
   "@context": "https://schema.org",
@@ -56,12 +55,12 @@ const jsonLd: WithContext<WebApplication> = {
     availability: "https://schema.org/InStock",
   },
   featureList: [
-    "AI Email Assistant",
-    "Email Automation",
-    "Bulk Unsubscribe",
-    "Cold Email Blocking",
-    "Email Analytics",
-    "Newsletter Management",
+    "Trợ lý email AI",
+    "Tự động hóa email",
+    "Hủy đăng ký hàng loạt",
+    "Chặn email tiếp thị lạnh",
+    "Phân tích email",
+    "Quản lý bản tin",
   ],
   publisher: {
     "@type": "Organization",
@@ -71,7 +70,6 @@ const jsonLd: WithContext<WebApplication> = {
       "@type": "ImageObject",
       url: toAbsoluteUrl(BRAND_ICON_URL),
     },
-    sameAs: ["https://x.com/inboxzero_ai"],
   },
 };
 
@@ -89,7 +87,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    creator: "@inboxzero_ai",
   },
   metadataBase: new URL(env.NEXT_PUBLIC_BASE_URL),
   robots: {
@@ -123,9 +120,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="vi" className="h-full" suppressHydrationWarning>
       <body
-        className={`h-full ${env.NEXT_PUBLIC_USE_AEONIK_FONT ? aeonikFont.variable : ""} ${geist.variable} font-sans antialiased`}
+        className={`h-full ${titleFont.variable} ${bodyFont.variable} font-sans antialiased`}
       >
         <Script
           id="json-ld"

@@ -212,7 +212,7 @@ export default function ChatPage() {
                       },
                       {
                         from: "news@techcrunch.com",
-                        subject: "Daily Digest",
+                        subject: "Tóm tắt hằng ngày",
                       },
                     ],
                   }}

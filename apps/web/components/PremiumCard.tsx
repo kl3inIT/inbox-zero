@@ -45,8 +45,8 @@ export function PremiumExpiredCardContent({
 
   const getSubscriptionMessage = () => {
     const UPGRADE_MESSAGE = {
-      title: "Upgrade to Premium",
-      description: "Upgrade to Premium to enable your AI email assistant.",
+      title: "Nâng cấp Premium",
+      description: "Nâng cấp Premium để bật trợ lý email AI của bạn.",
     };
 
     if (!premium) {
@@ -65,50 +65,50 @@ export function PremiumExpiredCardContent({
 
     if (!premium || hasNoSubscription) {
       return {
-        title: "Upgrade to Premium",
-        description: "Upgrade to Premium to enable your AI email assistant.",
+        title: "Nâng cấp Premium",
+        description: "Nâng cấp Premium để bật trợ lý email AI của bạn.",
       };
     }
 
     if (status === "past_due") {
       return {
-        title: "Payment Past Due",
-        description: "Update your payment method to continue service",
+        title: "Thanh toán đang quá hạn",
+        description: "Hãy cập nhật phương thức thanh toán để tiếp tục sử dụng",
       };
     }
 
     if (status === "canceled" || status === "cancelled") {
       return {
-        title: "Subscription Cancelled",
-        description: "Reactivate to resume AI email management",
+        title: "Gói đã bị hủy",
+        description: "Kích hoạt lại để tiếp tục dùng các tính năng AI cho email",
       };
     }
 
     if (status === "incomplete" || status === "incomplete_expired") {
       return {
-        title: "Payment Incomplete",
-        description: "Complete your payment to activate service",
+        title: "Thanh toán chưa hoàn tất",
+        description: "Hoàn tất thanh toán để kích hoạt dịch vụ",
       };
     }
 
     if (status === "unpaid") {
       return {
-        title: "Payment Required",
-        description: "Update payment to continue AI features",
+        title: "Cần thanh toán",
+        description: "Cập nhật thanh toán để tiếp tục dùng các tính năng AI",
       };
     }
 
     if (hasLemonSqueezyExpired || status === "expired") {
       return {
-        title: "Subscription Expired",
-        description: "Renew your subscription to continue",
+        title: "Gói đã hết hạn",
+        description: "Gia hạn gói để tiếp tục sử dụng",
       };
     }
 
     // Default fallback
     return {
-      title: "Subscription Issue",
-      description: "Please check your subscription status",
+      title: "Có vấn đề với gói đăng ký",
+      description: "Vui lòng kiểm tra trạng thái gói đăng ký của bạn",
     };
   };
 
@@ -120,7 +120,7 @@ export function PremiumExpiredCardContent({
       !premium.stripeSubscriptionId &&
       !premium.lemonSqueezySubscriptionId);
 
-  const buttonText = isNewUser ? "Upgrade" : "Reactivate";
+  const buttonText = isNewUser ? "Nâng cấp" : "Kích hoạt lại";
   const buttonHref = isNewUser ? "/premium" : "/settings";
 
   // When collapsed, show only the alert icon with a hover card
@@ -184,7 +184,7 @@ export function PremiumExpiredCardContent({
               type="button"
               className="flex-shrink-0 rounded p-1 text-orange-600 hover:bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-colors dark:text-orange-400 dark:hover:bg-orange-900/20 dark:focus:ring-orange-700"
               onClick={onDismiss}
-              aria-label="Dismiss banner"
+              aria-label="Đóng thông báo"
             >
               <XIcon className="h-3 w-3" />
             </button>

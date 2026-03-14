@@ -5,11 +5,11 @@ import { useAction } from "next-safe-action/hooks";
 import { Button } from "@/components/ui/button";
 import {
   Item,
-  ItemContent,
-  ItemTitle,
-  ItemDescription,
   ItemActions,
+  ItemContent,
+  ItemDescription,
   ItemSeparator,
+  ItemTitle,
 } from "@/components/ui/item";
 import { cleanupAIDraftsAction } from "@/utils/actions/user";
 import { toastError, toastSuccess } from "@/components/Toast";
@@ -33,15 +33,15 @@ export function CleanupDraftsSection({
         if (res.data) {
           setResult(res.data);
           if (res.data.deleted === 0 && res.data.skippedModified === 0) {
-            toastSuccess({ description: "No stale drafts found." });
+            toastSuccess({ description: "Không tìm thấy bản nháp cũ nào." });
           } else if (res.data.deleted === 0) {
             toastSuccess({
               description:
-                "All stale drafts were edited by you, so none were removed.",
+                "Mọi bản nháp cũ đều đã được bạn chỉnh sửa nên không bản nháp nào bị xóa.",
             });
           } else {
             toastSuccess({
-              description: `Cleaned up ${res.data.deleted} draft${res.data.deleted === 1 ? "" : "s"}.`,
+              description: `Đã dọn ${res.data.deleted} bản nháp.`,
             });
           }
         }
@@ -59,9 +59,9 @@ export function CleanupDraftsSection({
       <ItemSeparator />
       <Item size="sm">
         <ItemContent>
-          <ItemTitle>Clean Up AI Drafts</ItemTitle>
+          <ItemTitle>Dọn bản nháp AI</ItemTitle>
           <ItemDescription>
-            {`Delete drafts created by ${BRAND_NAME} that are older than 3 days and haven't been edited by you`}
+            {`Xóa các bản nháp do ${BRAND_NAME} tạo ra đã quá 3 ngày và chưa được bạn chỉnh sửa`}
           </ItemDescription>
         </ItemContent>
         <ItemActions>
@@ -71,16 +71,15 @@ export function CleanupDraftsSection({
             loading={isExecuting}
             onClick={() => execute()}
           >
-            Delete drafts
+            Xóa bản nháp
           </Button>
         </ItemActions>
       </Item>
       {result && result.deleted > 0 && result.skippedModified > 0 && (
         <div className="px-4 pb-2">
           <p className="text-xs text-muted-foreground">
-            {result.skippedModified} draft
-            {result.skippedModified === 1 ? " was" : "s were"} kept because you
-            edited {result.skippedModified === 1 ? "it" : "them"}
+            Đã giữ lại {result.skippedModified} bản nháp vì bạn đã chỉnh sửa
+            {result.skippedModified === 1 ? " nó" : " chúng"}
           </p>
         </div>
       )}

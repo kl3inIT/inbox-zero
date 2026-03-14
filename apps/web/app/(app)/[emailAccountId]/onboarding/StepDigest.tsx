@@ -17,30 +17,29 @@ export function StepDigest({ onNext }: { onNext: () => void }) {
           <MailsIcon className="size-6" />
         </IconCircle>
 
-        <div className="text-center mt-4">
-          <PageHeading>Daily Digest</PageHeading>
-          <TypographyP className="mt-2 max-w-lg mx-auto">
-            Get a beautiful daily email summarizing what happened in your inbox
-            today. Read your inbox in 30 seconds instead of 30 minutes.
+        <div className="mt-4 text-center">
+          <PageHeading>Tóm tắt hằng ngày</PageHeading>
+          <TypographyP className="mx-auto mt-2 max-w-lg">
+            Nhận một email tóm tắt ngắn gọn về những gì diễn ra trong hộp thư
+            hôm nay. Đọc hộp thư trong 30 giây thay vì 30 phút.
           </TypographyP>
         </div>
 
-        {/* <DigestItemsForm showSaveButton={false} /> */}
         <DigestScheduleForm showSaveButton={false} />
 
-        <div className="flex justify-center mt-8 gap-2">
+        <div className="mt-8 flex justify-center gap-2">
           <Button variant="outline" size="sm" onClick={onNext}>
-            Skip for now
+            Để sau
           </Button>
 
           <ContinueButton onClick={onNext} />
         </div>
       </OnboardingWrapper>
 
-      <div className="fixed top-0 right-0 w-1/2 bg-white h-screen items-center justify-center hidden xl:flex">
+      <div className="fixed top-0 right-0 hidden h-screen w-1/2 items-center justify-center bg-white xl:flex">
         <OnboardingImagePreview
           src="/images/onboarding/digest.png"
-          alt="Digest Email Example"
+          alt="Ví dụ email tóm tắt"
           width={672}
           height={1200}
         />

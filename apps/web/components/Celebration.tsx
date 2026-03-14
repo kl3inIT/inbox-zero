@@ -33,9 +33,7 @@ export function Celebration(props: { message: string }) {
         <Button
           size="2xl"
           onClick={() => {
-            const tweet = encodeURIComponent(
-              "I made it to FocusMail thanks to @inboxzero_ai!",
-            );
+            const tweet = encodeURIComponent("Mình vừa hoàn thành với FocusMail!");
             const twitterIntentURL = `https://x.com/intent/tweet?text=${tweet}`;
             window.open(
               twitterIntentURL,
@@ -44,7 +42,7 @@ export function Celebration(props: { message: string }) {
             );
           }}
         >
-          Chia sẻ lên Twitter
+          Chia sẻ lên X
         </Button>
       </div>
 

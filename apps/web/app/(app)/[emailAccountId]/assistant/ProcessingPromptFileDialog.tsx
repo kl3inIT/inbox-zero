@@ -38,11 +38,11 @@ export function ProcessingPromptFileDialog({
   const [currentStep, setCurrentStep] = useState(0);
 
   const back = useCallback(() => {
-    setCurrentStep((currentStep) => Math.max(0, currentStep - 1));
+    setCurrentStep((current) => Math.max(0, current - 1));
   }, []);
 
   const next = useCallback(() => {
-    setCurrentStep((currentStep) => Math.min(STEPS, currentStep + 1));
+    setCurrentStep((current) => Math.min(STEPS, current + 1));
   }, []);
 
   useEffect(() => {
@@ -61,12 +61,6 @@ export function ProcessingPromptFileDialog({
         {currentStep === 4 && <Step4 back={back} next={next} />}
         {currentStep >= STEPS &&
           (result ? (
-            // <FinalStepReady
-            //   back={back}
-            //   next={() => onOpenChange(false)}
-            //   result={result}
-            // />
-
             <CreatedRulesContent rules={result} onOpenChange={onOpenChange} />
           ) : (
             <FinalStepWaiting back={back} />
@@ -81,10 +75,10 @@ function StepNavigation({ back, next }: StepProps) {
     <div className="flex gap-2">
       {back && (
         <Button variant="outline" onClick={back}>
-          Back
+          Quay lại
         </Button>
       )}
-      {next && <Button onClick={next}>Next</Button>}
+      {next && <Button onClick={next}>Tiếp tục</Button>}
     </div>
   );
 }
@@ -92,7 +86,7 @@ function StepNavigation({ back, next }: StepProps) {
 function Step({ back, next, title, children }: StepContentProps) {
   return (
     <>
-      <DialogHeader className="flex flex-col justify-center mx-auto">
+      <DialogHeader className="mx-auto flex flex-col justify-center">
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription className="max-w-lg space-y-1.5 text-left">
           {children}
@@ -110,13 +104,13 @@ function IntroStep({ next }: StepProps) {
     <>
       <DialogHeader className="flex flex-col items-center justify-center">
         <Loading />
-        <DialogTitle>Creating rules...</DialogTitle>
+        <DialogTitle>Đang tạo quy tắc...</DialogTitle>
         <DialogDescription className="text-center">
-          In the meantime, get to know your AI assistant better!
+          Trong lúc chờ, bạn có thể làm quen thêm với trợ lý AI của mình.
         </DialogDescription>
       </DialogHeader>
       <div className="flex justify-center">
-        <Button onClick={next}>Show me around!</Button>
+        <Button onClick={next}>Xem nhanh cách hoạt động</Button>
       </div>
     </>
   );
@@ -124,17 +118,17 @@ function IntroStep({ next }: StepProps) {
 
 function Step1({ back, next }: StepProps) {
   return (
-    <Step back={back} next={next} title="What's happening now?">
+    <Step back={back} next={next} title="Hệ thống đang làm gì?">
       <p>
-        We're turning your instructions into clear rules.
+        Hệ thống đang chuyển hướng dẫn của bạn thành các quy tắc rõ ràng.
         <br />
-        This makes your assistant more reliable and gives you better control
-        over how each rule is applied.
+        Việc này giúp trợ lý hoạt động ổn định hơn và cho bạn kiểm soát tốt hơn
+        cách từng quy tắc được áp dụng.
       </p>
 
       <Image
         src="/images/assistant/rules.png"
-        alt="Analyzing prompt file"
+        alt="Phân tích hướng dẫn"
         width={800}
         height={600}
         className="rounded-lg shadow"
@@ -145,11 +139,11 @@ function Step1({ back, next }: StepProps) {
 
 function Step2({ back, next }: StepProps) {
   return (
-    <Step back={back} next={next} title="Customize Your Rules">
-      <p>Once created, you can fine-tune each rule to your needs.</p>
+    <Step back={back} next={next} title="Tùy chỉnh quy tắc">
+      <p>Sau khi tạo xong, bạn có thể tinh chỉnh từng quy tắc theo nhu cầu.</p>
       <Image
         src="/images/assistant/rule-edit.png"
-        alt="Editing a rule"
+        alt="Chỉnh sửa quy tắc"
         width={500}
         height={300}
         className="rounded-lg shadow"
@@ -160,15 +154,15 @@ function Step2({ back, next }: StepProps) {
 
 function Step3({ back, next }: StepProps) {
   return (
-    <Step back={back} next={next} title="Test Your Rules">
+    <Step back={back} next={next} title="Kiểm tra quy tắc">
       <p>
-        Shortly, you'll be taken to the "Test" tab. Here you can check the
-        assistant is working as expected.
+        Ngay sau đây bạn sẽ được đưa tới tab "Kiểm tra". Tại đó bạn có thể xem
+        trợ lý có hoạt động đúng như mong muốn hay không.
       </p>
 
       <Image
         src="/images/assistant/process.png"
-        alt="Test Rules"
+        alt="Kiểm tra quy tắc"
         width={500}
         height={300}
         className="rounded-lg shadow"
@@ -179,15 +173,15 @@ function Step3({ back, next }: StepProps) {
 
 function Step4({ back, next }: StepProps) {
   return (
-    <Step back={back} next={next} title="Improve Your Rules">
+    <Step back={back} next={next} title="Cải thiện quy tắc">
       <p>
-        Click "Fix" to correct any mistakes. Each fix helps train the AI to
-        better match your needs.
+        Bấm "Sửa" để điều chỉnh những chỗ chưa đúng. Mỗi lần sửa sẽ giúp AI học
+        và bám sát nhu cầu của bạn hơn.
       </p>
 
       <Image
         src="/images/assistant/fix.png"
-        alt="Fix rule"
+        alt="Sửa quy tắc"
         width={500}
         height={300}
         className="rounded-lg shadow"
@@ -201,9 +195,9 @@ function FinalStepWaiting({ back }: StepProps) {
     <>
       <DialogHeader className="flex flex-col items-center justify-center">
         <Loading />
-        <DialogTitle>Almost done!</DialogTitle>
+        <DialogTitle>Sắp xong rồi</DialogTitle>
         <DialogDescription className="text-center">
-          We're almost done.
+          Hệ thống gần hoàn tất.
         </DialogDescription>
       </DialogHeader>
       <div className="flex justify-center">
@@ -212,62 +206,3 @@ function FinalStepWaiting({ back }: StepProps) {
     </>
   );
 }
-
-// function FinalStepReady({
-//   back,
-//   next,
-//   result,
-// }: StepProps & {
-//   result: ResultProps;
-// }) {
-//   const { emailAccountId } = useAccount();
-
-//   function getDescription() {
-//     let message = "";
-
-//     if (result.createdRules > 0) {
-//       message += `We've created ${result.createdRules} ${pluralize(
-//         result.createdRules,
-//         "rule",
-//       )} for you.`;
-//     }
-
-//     if (result.editedRules && result.editedRules > 0) {
-//       message += ` We edited ${result.editedRules} ${pluralize(
-//         result.editedRules,
-//         "rule",
-//       )}.`;
-//     }
-
-//     if (result.removedRules && result.removedRules > 0) {
-//       message += ` We removed ${result.removedRules} ${pluralize(
-//         result.removedRules,
-//         "rule",
-//       )}.`;
-//     }
-
-//     return message;
-//   }
-
-//   return (
-//     <>
-//       <DialogHeader className="flex flex-col items-center justify-center">
-//         <DialogTitle>All done!</DialogTitle>
-//         <DialogDescription className="text-center">
-//           {getDescription()}
-//         </DialogDescription>
-//       </DialogHeader>
-
-//       <div className="flex justify-center gap-2">
-//         <Button variant="outline" onClick={back}>
-//           Back
-//         </Button>
-//         <Button asChild onClick={next}>
-//           <Link href={prefixPath(emailAccountId, "/automation?tab=test")}>
-//             Try it out!
-//           </Link>
-//         </Button>
-//       </div>
-//     </>
-//   );
-// }

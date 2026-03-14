@@ -2,17 +2,17 @@
 
 import { useAction } from "next-safe-action/hooks";
 import Link from "next/link";
-import { Trash2, MoreVertical, Settings } from "lucide-react";
+import { MoreVertical, Settings, Trash2 } from "lucide-react";
 import { useEffect } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { LoadingContent } from "@/components/LoadingContent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardTitle,
-  CardHeader,
   CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import {
   DropdownMenu,
@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useAccounts } from "@/hooks/useAccounts";
 import { deleteEmailAccountAction } from "@/utils/actions/user";
-import { toastSuccess, toastError } from "@/components/Toast";
+import { toastError, toastSuccess } from "@/components/Toast";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { prefixPath } from "@/utils/path";
 import { AddAccount } from "@/app/(app)/accounts/AddAccount";
@@ -103,7 +103,7 @@ function AccountHeader({
           {emailAccount.name?.[0] || emailAccount.email?.[0]}
         </AvatarFallback>
       </Avatar>
-      <div className="flex flex-col space-y-1.5 flex-1">
+      <div className="flex flex-1 flex-col space-y-1.5">
         <CardTitle>{emailAccount.name}</CardTitle>
         <CardDescription>{emailAccount.email}</CardDescription>
       </div>
@@ -149,7 +149,7 @@ function AccountOptionsDropdown({
     },
     onError: (error) => {
       toastError({
-        title: "Lỗi khi xóa tài khoản email",
+        title: "Không thể xóa tài khoản email",
         description: getActionErrorMessage(error.error),
       });
       onAccountDeleted();
@@ -192,7 +192,7 @@ function AccountOptionsDropdown({
           title="Xóa tài khoản"
           description={
             emailAccount.isPrimary
-              ? `Bạn có chắc chắn muốn xóa "${emailAccount.email}"? Đây là tài khoản chính của bạn. Bạn sẽ bị đăng xuất và cần đăng nhập lại. Tài khoản còn lại lâu nhất sẽ trở thành tài khoản chính mới của bạn. Tất cả dữ liệu cho "${emailAccount.email}" sẽ bị xóa vĩnh viễn khỏi ${BRAND_NAME}.`
+              ? `Bạn có chắc chắn muốn xóa "${emailAccount.email}"? Đây là tài khoản chính của bạn. Bạn sẽ bị đăng xuất và cần đăng nhập lại. Tài khoản còn lại lâu nhất sẽ trở thành tài khoản chính mới. Tất cả dữ liệu cho "${emailAccount.email}" sẽ bị xóa vĩnh viễn khỏi ${BRAND_NAME}.`
               : `Bạn có chắc chắn muốn xóa "${emailAccount.email}"? Thao tác này sẽ xóa toàn bộ dữ liệu của tài khoản này trên ${BRAND_NAME}.`
           }
           confirmText="Xóa"
@@ -221,58 +221,56 @@ function useAccountNotifications() {
         { title: string; description: string }
       > = {
         account_not_found_for_merge: {
-          title: "Account not found",
-          description: `This account doesn't exist in ${BRAND_NAME} yet. Please select 'No, it's a new account' instead.`,
+          title: "Không tìm thấy tài khoản",
+          description: `Tài khoản này chưa tồn tại trong ${BRAND_NAME}. Vui lòng chọn "Không, đây là tài khoản mới" thay thế.`,
         },
         account_already_exists_use_merge: {
-          title: "Account already exists",
-          description: `This account already exists in ${BRAND_NAME}. Please select 'Yes, it's an existing ${BRAND_NAME} account' to merge.`,
+          title: "Tài khoản đã tồn tại",
+          description: `Tài khoản này đã có trong ${BRAND_NAME}. Vui lòng chọn "Có, đây là tài khoản ${BRAND_NAME} hiện có" để gộp.`,
         },
         already_linked_to_self: {
-          title: "Account already linked",
-          description: "This account is already linked to your profile.",
+          title: "Tài khoản đã được liên kết",
+          description: "Tài khoản này đã được liên kết với hồ sơ của bạn.",
         },
         invalid_state: {
-          title: "Invalid request",
-          description:
-            "The authentication request was invalid. Please try again.",
+          title: "Yêu cầu không hợp lệ",
+          description: "Yêu cầu xác thực không hợp lệ. Vui lòng thử lại.",
         },
         missing_code: {
-          title: "Authentication failed",
-          description:
-            "Failed to receive authentication code. Please try again.",
+          title: "Xác thực thất bại",
+          description: "Không nhận được mã xác thực. Vui lòng thử lại.",
         },
         consent_declined: {
-          title: "Microsoft permissions were not granted",
-          description: `Microsoft sign-in was canceled before ${BRAND_NAME} received the required permissions. Please try again and complete the consent screen.`,
+          title: "Chưa cấp quyền Microsoft",
+          description: `Đăng nhập Microsoft đã bị hủy trước khi ${BRAND_NAME} nhận đủ quyền cần thiết. Vui lòng thử lại và hoàn tất màn hình cấp quyền.`,
         },
         admin_consent_required: {
-          title: "Admin approval required",
+          title: "Cần quản trị viên phê duyệt",
           description:
-            "Your Microsoft 365 organization requires admin approval before FocusMail can access this account. Ask your Microsoft 365 admin to grant consent for the app, then try again.",
+            "Tổ chức Microsoft 365 của bạn yêu cầu quản trị viên phê duyệt trước khi FocusMail có thể truy cập tài khoản này. Hãy nhờ quản trị viên Microsoft 365 cấp quyền rồi thử lại.",
         },
         invalid_scope_configuration: {
-          title: "Microsoft app setup needs attention",
+          title: "Cấu hình ứng dụng Microsoft cần kiểm tra",
           description:
-            "Microsoft rejected the requested permissions for this app. Ask your admin to verify the FocusMail app registration, delegated Microsoft Graph permissions, and redirect URLs, then try again.",
+            "Microsoft từ chối các quyền được yêu cầu cho ứng dụng này. Hãy nhờ quản trị viên kiểm tra đăng ký ứng dụng FocusMail, quyền Microsoft Graph dạng delegated và các URL chuyển hướng rồi thử lại.",
         },
         consent_incomplete: {
-          title: "More Microsoft permissions are required",
-          description: `Microsoft connected the account, but did not grant all required permissions. Reconnect and approve every requested permission. If your organization restricts consent, ask your admin to approve ${BRAND_NAME} first.`,
+          title: "Cần cấp thêm quyền Microsoft",
+          description: `Microsoft đã kết nối tài khoản nhưng chưa cấp đủ mọi quyền cần thiết. Hãy kết nối lại và chấp thuận toàn bộ quyền được yêu cầu. Nếu tổ chức của bạn hạn chế việc cấp quyền, hãy nhờ quản trị viên phê duyệt ${BRAND_NAME} trước.`,
         },
         link_failed: {
-          title: "Account linking failed",
+          title: "Liên kết tài khoản thất bại",
           description:
             searchParams.get("error_description") ||
-            "Failed to link account. Please try again.",
+            "Không thể liên kết tài khoản. Vui lòng thử lại.",
         },
       };
 
       const errorMessage = errorMessages[errorParam] || {
-        title: "Error",
+        title: "Đã xảy ra lỗi",
         description:
           searchParams.get("error_description") ||
-          "An error occurred. Please try again.",
+          "Có lỗi xảy ra. Vui lòng thử lại.",
       };
 
       toastError({
@@ -289,22 +287,22 @@ function useAccountNotifications() {
         { title: string; description: string }
       > = {
         account_merged: {
-          title: "Account merged successfully!",
-          description: "Your accounts have been merged.",
+          title: "Gộp tài khoản thành công",
+          description: "Các tài khoản của bạn đã được gộp.",
         },
         account_created_and_linked: {
-          title: "Account added successfully!",
-          description: "Your new account has been linked.",
+          title: "Thêm tài khoản thành công",
+          description: "Tài khoản mới đã được liên kết.",
         },
         tokens_updated: {
-          title: "Account reconnected successfully!",
-          description: "Your account permissions were refreshed.",
+          title: "Kết nối lại tài khoản thành công",
+          description: "Quyền truy cập của tài khoản đã được làm mới.",
         },
       };
 
       const successMessage = successMessages[successParam] || {
-        title: "Success",
-        description: "Operation completed successfully.",
+        title: "Thành công",
+        description: "Thao tác đã hoàn tất.",
       };
 
       toastSuccess({

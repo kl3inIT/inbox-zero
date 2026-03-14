@@ -502,7 +502,7 @@ export function RuleForm({
                   <div className="flex items-center space-x-2">
                     <Toggle
                       name="digest"
-                      labelRight="Include in daily digest"
+                      labelRight="Đưa vào bản tóm tắt hằng ngày"
                       enabled={watch("digest") || false}
                       onChange={(enabled) => {
                         setValue("digest", enabled);
