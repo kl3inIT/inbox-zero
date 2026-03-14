@@ -37,7 +37,7 @@ export function TimezoneDetector() {
     updateEmailAccountTimezoneAction.bind(null, emailAccountId),
     {
       onSuccess: () => {
-        toastSuccess({ description: "Timezone updated!" });
+        toastSuccess({ description: "Đã cập nhật múi giờ!" });
         setShowDialog(false);
       },
       onSettled: () => {
@@ -96,12 +96,12 @@ export function TimezoneDetector() {
     <Dialog open={showDialog} onOpenChange={setShowDialog}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Timezone Change Detected</DialogTitle>
+          <DialogTitle>Phát hiện thay đổi múi giờ</DialogTitle>
           <DialogDescription>
-            Your saved timezone is <strong>{data.timezone}</strong>, but we
-            detected that your current timezone is{" "}
-            <strong>{detectedTimezone}</strong>. Would you like to update your
-            timezone?
+            Múi giờ đã lưu của bạn là <strong>{data.timezone}</strong>, nhưng
+            chúng tôi phát hiện múi giờ hiện tại là{" "}
+            <strong>{detectedTimezone}</strong>. Bạn có muốn cập nhật múi giờ
+            không?
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -110,10 +110,10 @@ export function TimezoneDetector() {
             onClick={handleKeepCurrent}
             disabled={isExecuting}
           >
-            Keep Current Setting
+            Giữ cài đặt hiện tại
           </Button>
           <Button onClick={handleUpdateTimezone} loading={isExecuting}>
-            Update to {detectedTimezone}
+            Cập nhật thành {detectedTimezone}
           </Button>
         </DialogFooter>
       </DialogContent>

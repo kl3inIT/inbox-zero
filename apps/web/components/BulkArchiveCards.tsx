@@ -48,6 +48,37 @@ import { getCategoryStyle } from "@/components/bulk-archive/categoryIcons";
 import { defaultCategory } from "@/utils/categories";
 import type { EmailGroup } from "@/utils/bulk-archive/get-archive-candidates";
 
+function translateCategoryDescription(description?: string) {
+  if (!description) return description;
+
+  const labels: Record<string, string> = {
+    "Senders that don't fit any other category":
+      "Người gửi không thuộc danh mục nào khác",
+    Newsletters: "Bản tin",
+    "Promotional content, product launches, and marketing campaigns":
+      "Nội dung quảng bá, ra mắt sản phẩm và chiến dịch tiếp thị",
+    "Purchase confirmations, order receipts, and payment confirmations":
+      "Xác nhận mua hàng, biên nhận đơn hàng và xác nhận thanh toán",
+    "Automated alerts, system notifications, and status updates":
+      "Cảnh báo tự động, thông báo hệ thống và cập nhật trạng thái",
+  };
+
+  return labels[description] || description;
+}
+
+function translateCategoryLabel(name: string) {
+  const labels: Record<string, string> = {
+    Marketing: "Tiếp thị",
+    Notification: "Thông báo",
+    Newsletter: "Bản tin",
+    Receipt: "Biên nhận",
+    Other: "Khác",
+    Uncategorized: "Chưa phân loại",
+  };
+
+  return labels[name] || name;
+}
+
 export function BulkArchiveCards({
   emailGroups,
   categories,
@@ -309,14 +340,14 @@ export function BulkArchiveCards({
                         isArchived && "text-muted-foreground line-through",
                       )}
                     >
-                      {categoryName}
+                      {translateCategoryLabel(categoryName)}
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      {senders.length} senders
-                      {isArchived && " archived"}
+                      {senders.length} người gửi
+                      {isArchived && " đã lưu trữ"}
                       {!isArchived &&
                         (category?.description || defaultCat?.description) &&
-                        ` · ${category?.description || defaultCat?.description}`}
+                        ` · ${translateCategoryDescription(category?.description || defaultCat?.description)}`}
                     </p>
                   </div>
                 </div>
@@ -363,7 +394,7 @@ export function BulkArchiveCards({
                 <div className="divide-y">
                   {senders.length === 0 ? (
                     <div className="p-4 text-center text-sm text-muted-foreground">
-                      No senders in this category
+                      Không có người gửi trong danh mục này
                     </div>
                   ) : (
                     <>
@@ -379,8 +410,8 @@ export function BulkArchiveCards({
                           }
                         />
                         <span className="text-sm text-muted-foreground">
-                          {getSelectedCount(categoryName)} of {senders.length}{" "}
-                          selected
+                          {getSelectedCount(categoryName)} trên {senders.length}{" "}
+                          đã chọn
                         </span>
                       </div>
                       {senders.map((sender) => (
@@ -539,7 +570,7 @@ function EditCategoryDialog({
       toastError({ description: result.serverError });
       setIsLoading(false);
     } else {
-      toastSuccess({ description: "Category updated" });
+      toastSuccess({ description: "Đã cập nhật danh mục" });
       await onCategoryChange?.();
       setIsLoading(false);
       onOpenChange(false);
@@ -557,7 +588,7 @@ function EditCategoryDialog({
             <div className="space-y-1">
               <p className="font-medium">Category</p>
               <p className="text-sm text-muted-foreground">
-                Choose which category this sender belongs to
+                Chọn danh mục cho người gửi này
               </p>
             </div>
             <Select
@@ -565,7 +596,7 @@ function EditCategoryDialog({
               onValueChange={setSelectedCategoryId}
             >
               <SelectTrigger className="w-[180px] shrink-0">
-                <SelectValue placeholder="Select category" />
+                <SelectValue placeholder="Chọn danh mục" />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((category) => (
@@ -582,10 +613,10 @@ function EditCategoryDialog({
               onClick={() => onOpenChange(false)}
               disabled={isLoading}
             >
-              Cancel
+              Hủy
             </Button>
             <Button onClick={handleSave} disabled={isLoading}>
-              {isLoading ? "Saving..." : "Save"}
+              {isLoading ? "Đang lưu..." : "Lưu"}
             </Button>
           </div>
         </div>
@@ -608,8 +639,8 @@ function SenderStatus({
         return (
           <span className="text-sm text-green-600">
             {archiveStatus.threadsTotal
-              ? `Archived ${archiveStatus.threadsTotal}!`
-              : "Archived"}
+              ? `Đã lưu trữ ${archiveStatus.threadsTotal}!`
+              : "Đã lưu trữ"}
           </span>
         );
       case "processing":
@@ -621,7 +652,7 @@ function SenderStatus({
         );
       case "pending":
         return (
-          <span className="text-sm text-muted-foreground">Pending...</span>
+          <span className="text-sm text-muted-foreground">Đang chờ...</span>
         );
     }
   }
@@ -633,8 +664,8 @@ function SenderStatus({
         return (
           <span className="text-sm text-green-600">
             {markReadStatus.threadsTotal
-              ? `Marked ${markReadStatus.threadsTotal} read!`
-              : "Marked read"}
+              ? `Đã đánh dấu đã đọc ${markReadStatus.threadsTotal}!`
+              : "Đã đánh dấu đã đọc"}
           </span>
         );
       case "processing":
@@ -646,7 +677,7 @@ function SenderStatus({
         );
       case "pending":
         return (
-          <span className="text-sm text-muted-foreground">Pending...</span>
+          <span className="text-sm text-muted-foreground">Đang chờ...</span>
         );
     }
   }
@@ -680,7 +711,7 @@ function ExpandedEmails({
   if (error) {
     return (
       <div className="border-t bg-muted/30 p-4 text-sm text-muted-foreground">
-        Error loading emails
+        Lỗi khi tải email
       </div>
     );
   }
@@ -688,7 +719,7 @@ function ExpandedEmails({
   if (!data?.threads.length) {
     return (
       <div className="border-t bg-muted/30 p-4 text-sm text-muted-foreground">
-        No emails found
+        Không tìm thấy email
       </div>
     );
   }
