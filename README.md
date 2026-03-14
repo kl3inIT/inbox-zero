@@ -112,6 +112,13 @@ cd apps/web && pnpm prisma migrate dev && cd ../..
 pnpm dev
 ```
 
+If you are working from a fresh local branch and need to publish it:
+
+```bash
+git remote add origin https://github.com/<your-user>/inbox-zero.git
+git push -u origin <your-branch>
+```
+
 Open http://localhost:3000
 
 See the **[Contributing Guide](https://docs.getinboxzero.com/contributing)** for more details including devcontainer setup.
