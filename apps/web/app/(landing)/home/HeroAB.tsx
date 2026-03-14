@@ -16,13 +16,13 @@ const copy: {
   };
 } = {
   control: {
-    title: "Meet Your AI Email Assistant That Actually Works",
-    subtitle: `Cut your email time in half. ${BRAND_NAME} organizes your inbox, drafts responses, and helps you reach FocusMail fast. For Gmail and Outlook.`,
+    title: "Bớt quá tải email. Làm việc tập trung hơn.",
+    subtitle: `${BRAND_NAME} giúp bạn sắp xếp hộp thư, soạn phản hồi nhanh hơn và không bỏ lỡ email quan trọng. Dùng cho Gmail và Outlook.`,
   },
   "clean-up-in-minutes": {
-    title: "Clean Up Your Inbox In Minutes",
+    title: "Dọn inbox chỉ trong vài phút",
     subtitle:
-      "Bulk unsubscribe from newsletters, automate your emails with AI, block cold emails, and view your analytics.",
+      "Hủy đăng ký email hàng loạt, tự động hóa hộp thư với AI, chặn email không mong muốn và theo dõi hiệu suất xử lý email mỗi ngày.",
   },
 };
 

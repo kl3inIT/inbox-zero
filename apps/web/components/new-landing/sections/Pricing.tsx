@@ -99,7 +99,7 @@ export function Pricing() {
   return (
     <Section id="pricing">
       <SectionHeading>Dùng thử miễn phí, gói trả phí hợp lý</SectionHeading>
-      <SectionSubtitle>Không phí ẩn. Huỷ bất cứ lúc nào.</SectionSubtitle>
+      <SectionSubtitle>Không phí ẩn. Hủy bất cứ lúc nào.</SectionSubtitle>
       <SectionContent
         noMarginTop
         className="mt-6 flex flex-col items-center justify-center"
@@ -107,7 +107,7 @@ export function Pricing() {
         <RadioGroup
           value={frequency}
           onChange={setFrequency}
-          className="mb-6 w-fit rounded-full p-1.5 text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 shadow-[0_0_7px_0_rgba(0,0,0,0.0.07)]"
+          className="mb-6 w-fit rounded-full p-1.5 text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200 shadow-[0_0_7px_0_rgba(0,0,0,0.07)]"
         >
           <Label className="sr-only">Chu kỳ thanh toán</Label>
           {frequencies.map((item) => (
@@ -145,25 +145,26 @@ export function Pricing() {
                   <Sparkle />
                 </div>
                 <div>
-                  <h3 className="font-title text-lg">Doanh nghiệp</h3>
+                  <h3 className="font-title text-lg">Nhóm làm việc</h3>
                   <Paragraph size="sm" className="mt-1">
-                    Cần SSO, triển khai on-premise, hoặc quản lý tài khoản riêng?
+                    Cần nhiều tài khoản hơn, onboarding riêng hoặc hỗ trợ triển
+                    khai cho đội sales, CSKH hay vận hành?
                   </Paragraph>
                 </div>
               </div>
               <Button variant="secondary-two" size="lg" asChild>
                 <Link
-                  href="/login"
+                  href="/pricing"
                   onClick={() =>
                     landingPageAnalytics.pricingCtaClicked(
                       posthog,
-                      "Enterprise",
-                      "Bắt đầu",
+                      "Team",
+                      "Liên hệ tư vấn",
                     )
                   }
                 >
                   <Chat />
-                  <span className="relative z-10">Bắt đầu</span>
+                  <span className="relative z-10">Liên hệ tư vấn</span>
                 </Link>
               </Button>
             </CardContent>
