@@ -5,7 +5,10 @@ import { cn } from "@/utils";
 import { FooterLineLogo } from "@/components/new-landing/FooterLineLogo";
 import { Paragraph } from "@/components/new-landing/common/Typography";
 import { UnicornScene } from "@/components/new-landing/UnicornScene";
-import { footerNavigation } from "@/app/(landing)/home/Footer";
+import {
+  footerNavigation,
+  type FooterLink,
+} from "@/app/(landing)/home/Footer";
 import { BRAND_LOGO_URL } from "@/utils/branding";
 
 interface FooterProps {
@@ -13,7 +16,10 @@ interface FooterProps {
   variant?: "default" | "simple";
 }
 
-const selfHostedFooter = {
+const selfHostedFooter: {
+  resources: FooterLink[];
+  legal: FooterLink[];
+} = {
   resources: [{ name: "Bảng giá", href: "/pricing" }],
   legal: [
     { name: "Điều khoản", href: "/terms" },
@@ -47,6 +53,10 @@ export function Footer({ className, variant = "default" }: FooterProps) {
               <Link
                 key={item.name}
                 href={item.href}
+                target={item.target}
+                rel={
+                  item.target === "_blank" ? "noopener noreferrer" : undefined
+                }
                 className="text-sm leading-6 text-gray-500 hover:text-gray-900"
               >
                 {item.name}
@@ -101,20 +111,6 @@ export function Footer({ className, variant = "default" }: FooterProps) {
         </div>
         <div className="mt-40 flex items-center justify-between">
           <Logo variant="glass" />
-          {footerNavigation.social.length ? (
-            <div className="flex items-center gap-4">
-              {footerNavigation.social.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  target={item.target}
-                  className="text-gray-400 hover:text-gray-500"
-                >
-                  <span className="sr-only">{item.name}</span>
-                </Link>
-              ))}
-            </div>
-          ) : null}
         </div>
       </div>
       {variant === "default" && !BRAND_LOGO_URL ? (
@@ -124,10 +120,7 @@ export function Footer({ className, variant = "default" }: FooterProps) {
   );
 }
 
-function FooterList(props: {
-  title: string;
-  items: { name: string; href: string; target?: string }[];
-}) {
+function FooterList(props: { title: string; items: FooterLink[] }) {
   return (
     <>
       <Paragraph

@@ -3,7 +3,7 @@ import { env } from "@/env";
 import { EXTENSION_URL } from "@/utils/config";
 import { BRAND_NAME, SUPPORT_EMAIL } from "@/utils/branding";
 
-type FooterLink = {
+export type FooterLink = {
   name: string;
   href: string;
   target?: string;
@@ -24,7 +24,6 @@ export const footerNavigation: {
     {
       name: `${BRAND_NAME} Tabs (Tiện ích Chrome)`,
       href: EXTENSION_URL,
-      target: "_blank",
     },
     { name: "Trợ lý Email AI", href: "/ai-automation" },
     { name: "Tóm tắt cuộc họp", href: "/brief-my-meeting" },
@@ -86,7 +85,10 @@ export const footerNavigation: {
   social: [],
 };
 
-const selfHostedFooter = {
+const selfHostedFooter: {
+  resources: FooterLink[];
+  legal: FooterLink[];
+} = {
   resources: [{ name: "Bảng giá", href: "/pricing" }],
   legal: [
     { name: "Điều khoản", href: "/terms" },
@@ -123,6 +125,10 @@ export function Footer() {
               <Link
                 key={item.name}
                 href={item.href}
+                target={item.target}
+                rel={
+                  item.target === "_blank" ? "noopener noreferrer" : undefined
+                }
                 className="text-sm leading-6 text-gray-600 hover:text-gray-900"
               >
                 {item.name}
@@ -149,18 +155,15 @@ export function Footer() {
               title="Trường hợp dùng"
               items={footerNavigation.useCases}
             />
-
             <div className="mt-6">
               <FooterList title="Ngành" items={footerNavigation.industries} />
             </div>
-
             <div className="mt-6">
               <FooterList title="So sánh" items={footerNavigation.compare} />
             </div>
           </div>
           <div>
             <FooterList title="Hỗ trợ" items={footerNavigation.support} />
-
             <div className="mt-6">
               <FooterList
                 title="Công cụ miễn phí"
@@ -176,20 +179,6 @@ export function Footer() {
           </div>
         </div>
 
-        {footerNavigation.social.length ? (
-          <div className="mt-16 flex justify-center space-x-10">
-            {footerNavigation.social.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                target={item.target}
-                className="text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">{item.name}</span>
-              </Link>
-            ))}
-          </div>
-        ) : null}
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
           &copy; {new Date().getFullYear()} {copyrightName}. Bảo lưu mọi quyền.
         </p>
