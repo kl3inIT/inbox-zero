@@ -2,10 +2,10 @@
 
 <p align="center">
   <a href="https://www.getinboxzero.com">
-    <h1 align="center">Inbox Zero - your 24/7 AI email assistant</h1>
+    <h1 align="center">FocusMail - your 24/7 AI email assistant</h1>
   </a>
   <p align="center">
-    Organizes your inbox, pre-drafts replies, and tracks follow‑ups - so you reach inbox zero faster. Open source alternative to Fyxer, but more customisable and secure.
+    Organizes your inbox, pre-drafts replies, and tracks follow‑ups - so you reach FocusMail faster. Open source alternative to Fyxer, but more customisable and secure.
     <br />
     <a href="https://www.getinboxzero.com">Website</a>
     ·
@@ -59,7 +59,7 @@ Learn more in our [docs](https://docs.getinboxzero.com).
 
 ## Demo Video
 
-[![Inbox Zero demo](/video-thumbnail.png)](http://www.youtube.com/watch?v=hfvKvTHBjG0)
+[![FocusMail demo](/video-thumbnail.png)](http://www.youtube.com/watch?v=hfvKvTHBjG0)
 
 ## Built with
 
@@ -81,11 +81,11 @@ To request a feature open a [GitHub issue](https://github.com/elie222/inbox-zero
 
 ## Getting Started
 
-We offer a hosted version of Inbox Zero at [getinboxzero.com](https://www.getinboxzero.com).
+We offer a hosted version of FocusMail at [getinboxzero.com](https://www.getinboxzero.com).
 
 ### Self-Hosting
 
-The fastest way to self-host Inbox Zero is with the CLI:
+The fastest way to self-host FocusMail is with the CLI:
 
 > **Prerequisites**: [Docker](https://docs.docker.com/engine/install/) and [Node.js](https://nodejs.org/) v24+
 

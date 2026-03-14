@@ -13,7 +13,7 @@ export function BulkUnsubscribe() {
   return (
     <Section>
       <SectionHeading>
-        Nhanh chóng đạt Inbox Zero.
+        Nhanh chóng đạt FocusMail.
         <br />
         Hủy đăng ký hàng loạt những email bạn không bao giờ đọc.
       </SectionHeading>
