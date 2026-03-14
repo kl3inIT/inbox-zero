@@ -31,7 +31,7 @@ function HeroHome() {
   return (
     <Hero
       title="Gặp gỡ Trợ lý Email AI Thực sự Hiệu quả"
-      subtitle={`${BRAND_NAME} sắp xếp hộp thư đến, soạn thảo câu trả lời bằng giọng văn của bạn và giúp bạn đạt được inbox zero nhanh chóng. Không bao giờ bỏ lỡ một email quan trọng nào nữa.`}
+      subtitle={`${BRAND_NAME} sắp xếp hộp thư đến, soạn thảo câu trả lời bằng giọng văn của bạn và giúp bạn đạt được FocusMail nhanh chóng. Không bao giờ bỏ lỡ một email quan trọng nào nữa.`}
     >
       <HeroVideoPlayer />
     </Hero>

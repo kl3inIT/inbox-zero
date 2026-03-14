@@ -84,7 +84,7 @@ export function ActionCell<T extends Row>({
       {isUnsubscribed ? (
         <Badge variant="red" className="gap-1">
           <MailXIcon className="size-3" />
-          Unsubscribed
+          Đã hủy đăng ký
         </Badge>
       ) : (
         <ApproveButton
@@ -154,10 +154,10 @@ function UnsubscribeButton<T extends Row>({
   const isUnsubscribed = item.status === NewsletterStatus.UNSUBSCRIBED;
 
   const buttonText = isUnsubscribed
-    ? "Resubscribe"
+    ? "Đăng ký lại"
     : hasUnsubscribeLink
-      ? "Unsubscribe"
-      : "Block";
+      ? "Hủy đăng ký"
+      : "Chặn";
 
   const senderName = item.fromName || extractNameFromEmail(item.name);
 
@@ -171,7 +171,7 @@ function UnsubscribeButton<T extends Row>({
         onClick={() => setResubscribeDialogOpen(true)}
       >
         {unsubscribeLoading && <ButtonLoader />}
-        Resubscribe
+        Đăng ký lại
       </Button>
     ) : (
       <Button

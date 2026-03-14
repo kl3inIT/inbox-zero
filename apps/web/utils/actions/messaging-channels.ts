@@ -209,7 +209,7 @@ export const linkSlackWorkspaceAction = actionClient
 
       if (!slackUser) {
         throw new SafeError(
-          "Could not find your Slack account. Your Inbox Zero email may not match your Slack profile email.",
+          "Could not find your Slack account. Your FocusMail email may not match your Slack profile email.",
         );
       }
 

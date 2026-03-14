@@ -59,7 +59,7 @@ export function Awards() {
       <SectionSubtitle>
         Dữ liệu của bạn luôn riêng tư — không dùng để huấn luyện AI, không
         “chiêu trò” mập mờ. Chúng tôi đạt các chứng nhận bảo mật hàng đầu, và
-        bạn thậm chí có thể tự host Inbox Zero nếu muốn toàn quyền kiểm soát.
+        bạn thậm chí có thể tự host FocusMail nếu muốn toàn quyền kiểm soát.
       </SectionSubtitle>
       <SectionContent
         noMarginTop

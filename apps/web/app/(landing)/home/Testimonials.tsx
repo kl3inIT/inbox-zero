@@ -16,7 +16,7 @@ type Testimonial = {
 };
 
 const featuredTestimonial = {
-  body: "Loving it so far! Cleaned up my top cluttering newsletter and promotional email subscriptions in just a few minutes.",
+  body: "Rất ưng! Tôi đã dọn sạch các bản tin và email khuyến mãi gây rối nhất chỉ trong vài phút.",
   author: {
     name: "Jonni Lundy",
     handle: "Resend",
@@ -26,7 +26,7 @@ const featuredTestimonial = {
 };
 
 const stevenTestimonial: Testimonial = {
-  body: "Love this new open-source app by @elie2222: getinboxzero.com",
+  body: "Rất thích ứng dụng mã nguồn mở mới này của @elie2222: getinboxzero.com",
   author: {
     name: "Steven Tey",
     handle: "Dub",
@@ -35,7 +35,7 @@ const stevenTestimonial: Testimonial = {
 };
 
 const vinayTestimonial: Testimonial = {
-  body: "this is something I've been searching for a long time – thanks for building it.",
+  body: "Đây chính là thứ tôi đã tìm kiếm từ rất lâu — cảm ơn vì đã xây dựng nó.",
   author: {
     name: "Vinay Katiyar",
     handle: "@ktyr",
@@ -45,7 +45,7 @@ const vinayTestimonial: Testimonial = {
 };
 
 const yoniTestimonial: Testimonial = {
-  body: "Wow. Onboarded and started unsubscribing from the worst spammers in just 3 minutes... Thank you 🙏🏼",
+  body: "Wow. Tôi onboard và bắt đầu hủy đăng ký khỏi các nguồn spam tệ nhất chỉ trong 3 phút... Cảm ơn 🙏🏼",
   author: {
     name: "Yoni Belson",
     handle: "LeadTrap",
@@ -54,7 +54,7 @@ const yoniTestimonial: Testimonial = {
 };
 
 const slimTestimonial: Testimonial = {
-  body: "I came across Inbox Zero while actively looking to hire a VA to manage my emails but after trying the tool, it turned out to be a complete game changer.",
+  body: "Tôi biết tới FocusMail khi đang tìm thuê trợ lý ảo để quản lý email, nhưng sau khi dùng thử công cụ này, nó thực sự thay đổi cuộc chơi.",
   author: {
     name: "Slim Labassi",
     handle: "Boomgen",
@@ -63,7 +63,7 @@ const slimTestimonial: Testimonial = {
 };
 
 const willTestimonial: Testimonial = {
-  body: "I love the flexibility and customization options, and it's the first thing in forever that's gotten my inbox under control. Thank you!",
+  body: "Tôi rất thích tính linh hoạt và khả năng tùy chỉnh; đây là công cụ đầu tiên sau rất lâu giúp hộp thư của tôi vào khuôn. Cảm ơn!",
   author: {
     name: "Will Brierly",
     handle: "DreamKey",
@@ -72,7 +72,7 @@ const willTestimonial: Testimonial = {
 };
 
 const valentineTestimonial: Testimonial = {
-  body: "I'm an executive who was drowning in hundreds of daily emails and heavily dependent on my EA for email management. What I love most about Inbox Zero is how it seamlessly replaced that entire function—the smart automation, prioritization, and organization features work like having a dedicated email assistant built right into my workflow.",
+  body: "Tôi là một quản lý, từng ngập trong hàng trăm email mỗi ngày và phụ thuộc nhiều vào trợ lý điều hành để xử lý email. Điều tôi thích nhất ở FocusMail là nó thay thế liền mạch toàn bộ vai trò đó—các tính năng tự động hóa, ưu tiên và sắp xếp thông minh hoạt động như một trợ lý email chuyên biệt ngay trong quy trình làm việc của tôi.",
   author: {
     name: "Valentine Nwachukwu",
     handle: "Zaden Technologies",
@@ -81,7 +81,7 @@ const valentineTestimonial: Testimonial = {
 };
 
 const joelTestimonial: Testimonial = {
-  body: "It's the first tool I've tried of many that have actually captured my voice in the responses that it drafts.",
+  body: "Đây là công cụ đầu tiên trong rất nhiều công cụ tôi thử có thể nắm được đúng giọng văn của tôi trong các phản hồi mà nó soạn.",
   author: {
     name: "Joel Neuenhaus",
     handle: "Outbound Legal",
@@ -90,7 +90,7 @@ const joelTestimonial: Testimonial = {
 };
 
 const alexTestimonial: Testimonial = {
-  body: "SUPER excited for this one! Well done, going to get use out of it for sure—have been waiting for a tool like this, it just makes so much sense to have as a layer atop email.",
+  body: "Cực kỳ hào hứng với công cụ này! Làm rất tốt, chắc chắn tôi sẽ dùng thường xuyên—tôi đã chờ một công cụ như vậy từ lâu, rất hợp lý khi có một lớp hỗ trợ nằm trên email.",
   author: {
     name: "Alex Bass",
     handle: "Efficient App",
@@ -100,7 +100,7 @@ const alexTestimonial: Testimonial = {
 };
 
 const jamesTestimonial: Testimonial = {
-  body: "hey bro, your tool is legit what I been looking for for ages haha. its a god send",
+  body: "Này bạn, công cụ của bạn đúng là thứ tôi tìm kiếm bao năm nay haha. Nó đúng là cứu tinh.",
   author: {
     name: "James",
     handle: "@james",
@@ -109,7 +109,7 @@ const jamesTestimonial: Testimonial = {
 };
 
 const steveTestimonial: Testimonial = {
-  body: "I was mostly hoping to turn my email inbox into less of the mess that it is. I've been losing tasks that I should do as the emails get buried. So far it's really helped.",
+  body: "Mục tiêu của tôi chỉ là làm hộp thư bớt hỗn loạn hơn. Tôi từng bỏ sót nhiều việc cần làm vì email bị chôn vùi. Đến giờ thì công cụ này giúp rất nhiều.",
   author: {
     name: "Steve Radabaugh",
     handle: "@stevenpaulr",
@@ -118,7 +118,7 @@ const steveTestimonial: Testimonial = {
 };
 
 const wilcoTestimonial: Testimonial = {
-  body: `Finally an "unsubscribe app" that let's you *actually* unsubscribe and filter using Gmail filters (instead of always relying on the 3rd party app to filter those emails). Big plus for me, so I have all filters in one place (inside the Gmail filters, that is). Awesome work! Already a fan :)`,
+  body: "Cuối cùng cũng có một “ứng dụng hủy đăng ký” cho phép bạn *thực sự* hủy đăng ký và lọc bằng bộ lọc Gmail (thay vì luôn phải phụ thuộc ứng dụng bên thứ ba để lọc email đó). Đây là điểm cộng lớn với tôi vì tôi có tất cả bộ lọc ở một chỗ (ngay trong Gmail filters). Làm quá tốt! Tôi là fan rồi :)",
   author: {
     name: "Wilco de Kreij",
     handle: "@emarky",
