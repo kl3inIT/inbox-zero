@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NextLink from "next/link";
 import { BRAND_LOGO_URL, BRAND_NAME } from "@/utils/branding";
 import { cn } from "@/utils";
 
@@ -41,8 +42,10 @@ function FocusMailWordmark({
 
   return (
     <div
-      className={cn("inline-flex items-center text-slate-950", compact ? "gap-2" : "gap-3")}
-      aria-label={`${BRAND_NAME} logo`}
+      className={cn(
+        "inline-flex items-center text-slate-950",
+        compact ? "gap-2" : "gap-3",
+      )}
     >
       <span
         className={`relative inline-flex items-center justify-center overflow-hidden rounded-2xl ${
@@ -57,7 +60,9 @@ function FocusMailWordmark({
         />
         <span
           className={`absolute rounded-full border-2 border-white ${
-            compact ? "left-[6px] top-[8px] h-3.5 w-3.5" : "left-[7px] top-[10px] h-4.5 w-4.5"
+            compact
+              ? "left-[6px] top-[8px] h-3.5 w-3.5"
+              : "left-[7px] top-[10px] h-4.5 w-4.5"
           }`}
         />
       </span>
@@ -75,12 +80,12 @@ function FocusMailWordmark({
 
 export function Logo({ variant = "default" }: LogoProps) {
   return (
-    <Link href="/" aria-label={BRAND_NAME}>
+    <NextLink href="/" aria-label={BRAND_NAME}>
       {BRAND_LOGO_URL ? (
         <CustomLogo logoUrl={BRAND_LOGO_URL} variant={variant} />
       ) : (
         <FocusMailWordmark variant={variant} />
       )}
-    </Link>
+    </NextLink>
   );
 }
