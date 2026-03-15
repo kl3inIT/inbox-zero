@@ -1,11 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
 import { cn } from "@/utils";
 import { Logo } from "@/components/new-landing/common/Logo";
 import { Button } from "@/components/new-landing/common/Button";
-import { HeaderLinks } from "@/components/new-landing/HeaderLinks";
 import { landingPageAnalytics } from "@/hooks/useAnalytics";
 
 interface HeaderProps {
@@ -28,23 +26,15 @@ export function Header({ className }: HeaderProps) {
       <div className="block md:hidden">
         <Logo variant="mobile" />
       </div>
-      <HeaderLinks />
       <div className="flex items-center gap-3">
-        <Button variant="secondary" asChild>
-          <Link
-            href="/login"
-            onClick={() => landingPageAnalytics.logInClicked(posthog)}
-          >
-            Đăng nhập
-          </Link>
+        <Button
+          variant="secondary"
+          onClick={() => landingPageAnalytics.logInClicked(posthog)}
+        >
+          Đăng nhập
         </Button>
-        <Button asChild>
-          <Link
-            href="/login"
-            onClick={() => landingPageAnalytics.getStartedClicked(posthog)}
-          >
-            <span className="relative z-10">Bắt đầu miễn phí</span>
-          </Link>
+        <Button onClick={() => landingPageAnalytics.getStartedClicked(posthog)}>
+          <span className="relative z-10">Bắt đầu miễn phí</span>
         </Button>
       </div>
     </header>
