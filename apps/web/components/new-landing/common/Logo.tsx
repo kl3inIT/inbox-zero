@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BRAND_LOGO_URL, BRAND_NAME } from "@/utils/branding";
 import { cn } from "@/utils";
 

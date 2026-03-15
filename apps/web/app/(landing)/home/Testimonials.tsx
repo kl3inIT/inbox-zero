@@ -91,7 +91,7 @@ const alexTestimonial: Testimonial = {
 };
 
 const jamesTestimonial: Testimonial = {
-  body: "Công cụ của bạn đúng là thứ tôi tìm kiếm bao năm nay. Nó đúng là cứu tinh.",
+  body: "Này bạn, công cụ của bạn đúng là thứ tôi tìm kiếm bao năm nay haha. Nó đúng là cứu tinh.",
   author: {
     name: "James",
     handle: "@james",
@@ -100,7 +100,7 @@ const jamesTestimonial: Testimonial = {
 };
 
 const steveTestimonial: Testimonial = {
-  body: "Mục tiêu của tôi chỉ là làm hộp thư bớt hỗn loạn hơn. Đến giờ thì công cụ này giúp rất nhiều.",
+  body: "Mục tiêu của tôi chỉ là làm hộp thư bớt hỗn loạn hơn. Tôi từng bỏ sót nhiều việc cần làm vì email bị chôn vùi. Đến giờ thì công cụ này giúp rất nhiều.",
   author: {
     name: "Steve Radabaugh",
     handle: "@stevenpaulr",
@@ -109,7 +109,7 @@ const steveTestimonial: Testimonial = {
 };
 
 const wilcoTestimonial: Testimonial = {
-  body: "Cuối cùng cũng có một ứng dụng hủy đăng ký cho phép bạn thực sự hủy đăng ký và lọc bằng chính bộ lọc Gmail. Điểm cộng rất lớn với tôi.",
+  body: "Cuối cùng cũng có một “ứng dụng hủy đăng ký” cho phép bạn *thực sự* hủy đăng ký và lọc bằng bộ lọc Gmail (thay vì luôn phải phụ thuộc ứng dụng bên thứ ba để lọc email đó). Đây là điểm cộng lớn với tôi vì tôi có tất cả bộ lọc ở một chỗ (ngay trong Gmail filters). Làm quá tốt! Tôi là fan rồi :)",
   author: {
     name: "Wilco de Kreij",
     handle: "@emarky",

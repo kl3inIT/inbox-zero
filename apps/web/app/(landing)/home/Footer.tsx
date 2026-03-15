@@ -74,8 +74,14 @@ export const footerNavigation: {
     },
   ],
   company: [
+    { name: "Đối tác liên kết", href: "/affiliates", target: "_blank" },
     { name: "Blog", href: "/blog" },
     { name: "Nghiên cứu tình huống", href: "/case-studies" },
+    { name: "Twitter", href: "/twitter", target: "_blank" },
+    { name: "GitHub", href: "/github", target: "_blank" },
+    { name: "Discord", href: "/discord", target: "_blank" },
+    { name: "Bạn bè OSS", href: "/oss-friends" },
+    { name: "Trò chơi Email Blaster", href: "/game" },
   ],
   legal: [
     { name: "Điều khoản", href: "/terms" },
