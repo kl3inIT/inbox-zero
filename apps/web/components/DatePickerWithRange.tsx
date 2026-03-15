@@ -17,12 +17,12 @@ import { differenceInDays, subDays } from "date-fns";
 import { useMemo } from "react";
 
 function getRelativeDateLabel(days: number) {
-  if (days === 1) return "Last day";
-  if (days === 7) return "Last week";
-  if (days === 30) return "Last month";
-  if (days === 90) return "Last 3 months";
-  if (days === 365) return "Last year";
-  return "All";
+  if (days === 1) return "Ngày trước";
+  if (days === 7) return "Tuần trước";
+  if (days === 30) return "Tháng trước";
+  if (days === 90) return "3 tháng trước";
+  if (days === 365) return "Năm trước";
+  return "Tất cả";
 }
 
 interface DatePickerWithRangeProps
@@ -72,7 +72,7 @@ export function DatePickerWithRange({
                   format(dateRange.from, "LLL dd, y")
                 )
               ) : (
-                <span>Pick a date</span>
+                <span>Chọn ngày</span>
               ))}
           </div>
           <ChevronDown className="ml-2 h-4 w-4 text-gray-400" />

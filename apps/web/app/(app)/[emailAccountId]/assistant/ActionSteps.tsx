@@ -541,12 +541,12 @@ function ActionCard({
     <>
       {isNotifySender ? (
         <MutedText className="px-1 h-full flex items-center">
-          {`Sends an automated notification from ${BRAND_NAME} informing the sender their email was filtered as cold outreach.`}
+          {`Gửi thông báo tự động từ ${BRAND_NAME} để báo cho người gửi rằng email của họ đã bị lọc là tiếp cận lạnh.`}
         </MutedText>
       ) : isDraftEmailWithoutManualContent ? (
         <MutedText className="px-1 h-full flex items-center">
-          Our AI generates a draft reply from your email history and knowledge
-          base.
+          AI của chúng tôi tạo sẵn bản nháp trả lời từ lịch sử email và cơ sở
+          tri thức của bạn.
         </MutedText>
       ) : isEmailAction || actionType === ActionType.CALL_WEBHOOK ? (
         <Card className="p-4 space-y-4">
