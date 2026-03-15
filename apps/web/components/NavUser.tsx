@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import {
-  ChevronsUpDownIcon,
-  MessageCircleReplyIcon,
-  ShieldCheckIcon,
-  RibbonIcon,
-  LogOutIcon,
-  PaletteIcon,
-  ChromeIcon,
   Building2Icon,
+  ChevronsUpDownIcon,
+  ChromeIcon,
   CrownIcon,
+  LogOutIcon,
+  MessageCircleReplyIcon,
+  PaletteIcon,
+  RibbonIcon,
+  ShieldCheckIcon,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -92,7 +92,7 @@ export function NavUser() {
             />
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">
-                {emailAccount?.name || emailAccount?.email || "Account"}
+                {emailAccount?.name || emailAccount?.email || "Tài khoản"}
               </span>
               {(organizationName || emailAccount?.email) && (
                 <span className="truncate text-xs text-muted-foreground">
@@ -111,7 +111,7 @@ export function NavUser() {
                 href={prefixPath(currentEmailAccountId, "/organization/create")}
               >
                 <Building2Icon className="mr-2 size-4" />
-                Create organization
+                Tạo tổ chức
               </Link>
             </DropdownMenuItem>
           )}
@@ -119,7 +119,7 @@ export function NavUser() {
             <DropdownMenuItem asChild>
               <Link href={prefixPath(currentEmailAccountId, "/organization")}>
                 <Building2Icon className="mr-2 size-4" />
-                My Organization
+                Tổ chức của tôi
               </Link>
             </DropdownMenuItem>
           )}
@@ -131,7 +131,7 @@ export function NavUser() {
                 rel="noopener noreferrer"
               >
                 <ChromeIcon className="mr-2 size-4" />
-                Install extension
+                Cài tiện ích
               </Link>
             </DropdownMenuItem>
           )}
@@ -156,13 +156,13 @@ export function NavUser() {
                   )}
                 >
                   <ShieldCheckIcon className="mr-2 size-4" />
-                  Cold Email Blocker
+                  Chặn email tiếp thị lạnh
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/early-access">
                   <RibbonIcon className="mr-2 size-4" />
-                  Early Access
+                  Truy cập sớm
                 </Link>
               </DropdownMenuItem>
             </>
@@ -171,7 +171,7 @@ export function NavUser() {
             <DropdownMenuItem asChild>
               <Link href="/premium">
                 <CrownIcon className="mr-2 size-4" />
-                Premium
+                Nâng cấp
               </Link>
             </DropdownMenuItem>
           )}
@@ -185,13 +185,13 @@ export function NavUser() {
           }}
         >
           <PaletteIcon className="mr-2 size-4" />
-          {theme === "dark" ? "Light mode" : "Dark mode"}
+          {theme === "dark" ? "Chế độ sáng" : "Chế độ tối"}
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => logOut(window.location.origin)}>
           <LogOutIcon className="mr-2 size-4" />
-          Sign out
+          Đăng xuất
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

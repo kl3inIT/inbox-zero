@@ -21,7 +21,7 @@ export function CallToAction({
   const posthog = usePostHog();
 
   return (
-    <div className={cn("flex justify-center items-center gap-4", className)}>
+    <div className={cn("flex items-center justify-center gap-4", className)}>
       <Button size={buttonSize} asChild>
         <Link
           href="/login"
@@ -32,12 +32,11 @@ export function CallToAction({
       </Button>
       <Button variant="secondary-two" size={buttonSize} asChild>
         <Link
-          href="/sales"
-          target="_blank"
+          href="/pricing"
           onClick={() => landingPageAnalytics.talkToSalesClicked(posthog)}
         >
           <Chat />
-          Liên hệ tư vấn
+          Xem bảng giá
         </Link>
       </Button>
     </div>

@@ -3,7 +3,7 @@ import type React from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { after } from "next/server";
-import { Inter } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import { SideNavWithTopNav } from "@/components/SideNavWithTopNav";
 import { auth } from "@/utils/auth";
 import { PostHogIdentify } from "@/providers/PostHogProvider";
@@ -23,10 +23,10 @@ import { createScopedLogger } from "@/utils/logger";
 
 const logger = createScopedLogger("AppLayout");
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
   variable: "--font-inter",
-  weight: ["400", "500", "600", "700"], // font-normal, font-medium, font-semibold, font-bold
+  weight: ["400", "500", "600", "700"],
   preload: true,
   display: "swap",
 });

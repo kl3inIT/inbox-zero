@@ -524,8 +524,8 @@ function useReplyTrackerKeyboardNav(
 
 function showReplyNotSupportedToast() {
   toastInfo({
-    title: "Reply in your email client",
-    description: `Please use your email client to reply. Replying from within ${BRAND_NAME} not yet supported for Microsoft accounts.`,
+    title: "Hãy trả lời trong ứng dụng email của bạn",
+    description: `Vui lòng dùng ứng dụng email để trả lời. Hiện tại ${BRAND_NAME} chưa hỗ trợ trả lời trực tiếp cho tài khoản Microsoft.`,
     duration: 5000,
   });
 }

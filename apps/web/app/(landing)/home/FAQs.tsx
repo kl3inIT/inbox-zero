@@ -16,52 +16,47 @@ const faqs = [
   {
     question: `${BRAND_NAME} hỗ trợ nhà cung cấp email nào?`,
     answer:
-      "Chúng tôi hỗ trợ các tài khoản Gmail, Google Workspace và Microsoft Outlook.",
+      "FocusMail hiện hỗ trợ Gmail, Google Workspace và Microsoft Outlook.",
   },
   {
     question: "Làm thế nào để tôi yêu cầu một tính năng mới?",
     answer: (
       <span>
-        Hãy gửi email cho chúng tôi hoặc tạo vấn đề (issue) trên{" "}
-        <Anchor href="/github" newTab>
-          GitHub
-        </Anchor>
-        . Chúng tôi luôn sẵn lòng lắng nghe ý kiến để cải thiện trải nghiệm
-        email của bạn.
+        Hãy gửi{" "}
+        <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
+        cho chúng tôi. Đội ngũ luôn sẵn sàng lắng nghe để cải thiện trải nghiệm
+        quản lý email mỗi ngày.
       </span>
     ),
   },
   {
     question: `${BRAND_NAME} có thay thế ứng dụng email hiện tại của tôi không?`,
-    answer: `Không! ${BRAND_NAME} không phải là một ứng dụng email. Nó được sử dụng song song với ứng dụng email hiện tại của bạn. Bạn vẫn sử dụng Google hoặc Outlook như bình thường.`,
+    answer: `Không. ${BRAND_NAME} hoạt động song song với Gmail hoặc Outlook hiện tại của bạn, nên bạn không cần thay đổi thói quen làm việc quen thuộc.`,
   },
   {
-    question: "Mã nguồn có phải là nguồn mở không?",
-    answer: (
-      <span>
-        Có! Bạn có thể xem toàn bộ mã nguồn của ứng dụng FocusMail trong{" "}
-        <Anchor href="/github" newTab>
-          kho lưu trữ GitHub
-        </Anchor>
-        của chúng tôi.
-      </span>
-    ),
+    question: `${BRAND_NAME} phù hợp với ai nhất?`,
+    answer: `${BRAND_NAME} phù hợp với nhân viên văn phòng, người đi làm, đội sales, chăm sóc khách hàng, freelancer và doanh nhân độc lập đang phải xử lý email liên tục mỗi ngày.`,
+  },
+  {
+    question: "Tôi có cần biết kỹ thuật để dùng không?",
+    answer:
+      "Không cần. Bạn có thể mô tả nhu cầu bằng ngôn ngữ tự nhiên và FocusMail sẽ hỗ trợ tạo quy tắc xử lý email mà không cần viết code hay thiết lập phức tạp.",
   },
   {
     question: "Bạn có chính sách hoàn tiền không?",
     answer: (
       <span>
-        Có, nếu bạn cảm thấy chúng tôi không mang lại giá trị cho mình, hãy gửi{" "}
+        Có. Nếu bạn thấy sản phẩm chưa mang lại giá trị như mong đợi, hãy gửi{" "}
         <Anchor href={`mailto:${env.NEXT_PUBLIC_SUPPORT_EMAIL}`}>email</Anchor>{" "}
-        cho chúng tôi trong vòng 14 ngày kể từ khi nâng cấp và chúng tôi sẽ hoàn
-        tiền cho bạn.
+        cho chúng tôi trong vòng 14 ngày kể từ khi nâng cấp và đội ngũ sẽ hỗ
+        trợ hoàn tiền cho bạn.
       </span>
     ),
   },
   {
     question: `Tôi có thể dùng thử ${BRAND_NAME} miễn phí không?`,
     answer:
-      "Chắc chắn rồi, chúng tôi có chương trình dùng thử miễn phí 7 ngày cho tất cả các gói dịch vụ để bạn có thể trải nghiệm ngay lập tức, không cần thẻ tín dụng!",
+      "Có. Tất cả các gói đều có 7 ngày dùng thử miễn phí để bạn trải nghiệm trước khi quyết định nâng cấp.",
   },
 ];
 
@@ -71,7 +66,7 @@ export function FAQs() {
       <SectionHeading>Câu hỏi thường gặp</SectionHeading>
       <SectionContent>
         <CardWrapper>
-          <dl className="grid md:grid-cols-2 gap-6">
+          <dl className="grid gap-6 md:grid-cols-2">
             {faqs.map((faq) => (
               <Card
                 variant="extra-rounding"
@@ -82,7 +77,7 @@ export function FAQs() {
                   <Paragraph
                     as="dt"
                     color="gray-900"
-                    className="font-semibold tracking-tight mb-4"
+                    className="mb-4 font-semibold tracking-tight"
                   >
                     {faq.question}
                   </Paragraph>

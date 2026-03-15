@@ -651,9 +651,9 @@ export default function Components() {
                   reason: "Test reason",
                   rule: {
                     ...getRule(),
-                    from: "notifications@github.com",
-                    body: "mentioned you",
-                    instructions: "Pull request reviews that need my feedback",
+                    from: "updates@acme.design",
+                    body: "needs approval",
+                    instructions: "Design review emails that need my feedback",
                     conditionalOperator: "OR",
                   },
                   status: ExecutedRuleStatus.APPLIED,
@@ -954,7 +954,7 @@ function getActivityLogEntries(): ActivityLogEntry[] {
     },
     {
       id: "3",
-      from: "Elie Steinbock <elie@getinboxzero.com>",
+      from: "Alex Morgan <alex@focusmail.ai>",
       subject: "talk tomorrow",
       status: "processing",
     },
@@ -966,10 +966,10 @@ function getActivityLogEntries(): ActivityLogEntry[] {
     },
     {
       id: "5",
-      from: "GitHub <notifications@github.com>",
-      subject: "PR review requested",
+      from: "Acme Design <updates@acme.design>",
+      subject: "Assets approved for launch",
       status: "completed",
-      ruleName: "To Review",
+      ruleName: "Priority",
     },
   ];
 }

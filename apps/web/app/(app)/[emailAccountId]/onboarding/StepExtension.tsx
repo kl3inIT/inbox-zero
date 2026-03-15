@@ -20,27 +20,27 @@ export function StepExtension({ onNext }: { onNext: () => Promise<void> }) {
           <MailsIcon className="size-6" />
         </IconCircle>
 
-        <div className="text-center mt-4">
-          <PageHeading>{`Install the ${BRAND_NAME} Tabs extension`}</PageHeading>
-          <TypographyP className="mt-2 max-w-lg mx-auto">
-            Add tabs to Gmail that show only <strong>unhandled emails</strong>{" "}
-            by label.
+        <div className="mt-4 text-center">
+          <PageHeading>{`Cài tiện ích tab của ${BRAND_NAME}`}</PageHeading>
+          <TypographyP className="mx-auto mt-2 max-w-lg">
+            Thêm các tab vào Gmail để chỉ hiển thị{" "}
+            <strong>những email chưa được xử lý</strong> theo từng nhãn.
             <br />
-            See only emails needing replies, or see only newsletters and archive
-            all (or mark as read) in one click.
+            Bạn có thể chỉ xem email cần trả lời, hoặc chỉ xem bản tin rồi lưu
+            trữ toàn bộ chúng trong một lần bấm.
           </TypographyP>
         </div>
 
-        <div className="flex justify-center mt-8">
+        <div className="mt-8 flex justify-center">
           <Button asChild size="sm">
             <a href={EXTENSION_URL} target="_blank" rel="noopener noreferrer">
-              <ChromeIcon className="size-4 mr-2" />
-              Install Extension
+              <ChromeIcon className="mr-2 size-4" />
+              Cài tiện ích
             </a>
           </Button>
         </div>
 
-        <div className="flex justify-center mt-8">
+        <div className="mt-8 flex justify-center">
           <Button
             size="sm"
             variant="outline"
@@ -52,15 +52,15 @@ export function StepExtension({ onNext }: { onNext: () => Promise<void> }) {
             }}
             loading={isLoading}
           >
-            Skip for now <ArrowRightIcon className="size-4 ml-2" />
+            Để sau <ArrowRightIcon className="ml-2 size-4" />
           </Button>
         </div>
       </OnboardingWrapper>
 
-      <div className="fixed top-0 right-0 w-1/2 bg-white h-screen items-center justify-center hidden xl:flex">
+      <div className="fixed top-0 right-0 hidden h-screen w-1/2 items-center justify-center bg-white xl:flex">
         <OnboardingImagePreview
           src="/images/onboarding/extension.png"
-          alt={`${BRAND_NAME} Tabs Extension`}
+          alt={`Tiện ích tab ${BRAND_NAME}`}
           width={672}
           height={1200}
         />

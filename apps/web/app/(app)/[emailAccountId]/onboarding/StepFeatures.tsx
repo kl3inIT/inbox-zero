@@ -18,11 +18,10 @@ import { Button } from "@/components/ui/button";
 import { saveOnboardingFeaturesAction } from "@/utils/actions/onboarding";
 import { BRAND_NAME } from "@/utils/branding";
 
-// `value` is the value that will be saved to the database
 const choices = [
   {
-    label: "Trợ lý cá nhân AI",
-    description: "Tự động gắn nhãn, soạn sẵn phản hồi và nhiều hơn nữa.",
+    label: "Trợ lý email AI",
+    description: "Tự động gắn nhãn, soạn sẵn phản hồi và xử lý nhiều việc hơn.",
     icon: <SparklesIcon className="size-4" />,
     value: "AI Personal Assistant",
   },
@@ -42,13 +41,13 @@ const choices = [
   {
     label: "Reply Zero",
     description:
-      "Không bao giờ quên trả lời. Không bỏ lỡ việc nhắc lại khi người khác im lặng.",
+      "Không còn quên trả lời hay bỏ lỡ việc theo dõi khi người khác im lặng.",
     icon: <ReplyIcon className="size-4" />,
     value: "Reply/Follow-up Tracker",
   },
   {
     label: "Phân tích email",
-    description: "Phân tích hoạt động email của bạn",
+    description: "Theo dõi và phân tích hoạt động email của bạn",
     icon: <ChartBarIcon className="size-4" />,
     value: "Email Analytics",
   },
@@ -65,19 +64,19 @@ export function StepFeatures({ onNext }: { onNext: () => void }) {
         <ZapIcon className="size-6" />
       </IconCircle>
 
-      <div className="text-center mt-4">
-        <PageHeading>{`Bạn muốn sử dụng ${BRAND_NAME} như thế nào?`}</PageHeading>
-        <TypographyP className="mt-2 max-w-lg mx-auto">
-          Bạn có thể chọn nhiều mục mà mình quan tâm.
+      <div className="mt-4 text-center">
+        <PageHeading>{`Bạn muốn dùng ${BRAND_NAME} theo cách nào?`}</PageHeading>
+        <TypographyP className="mx-auto mt-2 max-w-lg">
+          Bạn có thể chọn nhiều mục mình quan tâm.
         </TypographyP>
 
-        <div className="grid gap-4 mt-4 max-w-3xl mx-auto">
+        <div className="mx-auto mt-4 grid max-w-3xl gap-4">
           {choices.map((choice) => (
             <button
               type="button"
               key={choice.value}
               className={cn(
-                "rounded-xl border bg-card p-4 text-card-foreground shadow-sm text-left flex items-center gap-4 transition-all min-h-24",
+                "flex min-h-24 items-center gap-4 rounded-xl border bg-card p-4 text-left text-card-foreground shadow-sm transition-all",
                 selectedChoices.get(choice.value) &&
                   "border-blue-600 ring-2 ring-blue-100",
               )}
@@ -97,24 +96,22 @@ export function StepFeatures({ onNext }: { onNext: () => void }) {
           ))}
         </div>
 
-        <div className="flex w-full max-w-xs mx-auto mt-6">
+        <div className="mx-auto mt-6 flex w-full max-w-xs">
           <Button
             type="button"
             className="w-full"
             onClick={() => {
-              // Get all selected features (only the ones that are true)
               const features = Array.from(selectedChoices.entries())
                 .filter(([_, isSelected]) => isSelected)
                 .map(([label]) => label);
 
-              // Fire and forget - don't block navigation
               saveOnboardingFeaturesAction({ features });
 
               onNext();
             }}
           >
             Tiếp tục
-            <ArrowRightIcon className="size-4 ml-2" />
+            <ArrowRightIcon className="ml-2 size-4" />
           </Button>
         </div>
       </div>

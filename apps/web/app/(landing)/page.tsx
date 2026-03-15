@@ -22,8 +22,8 @@ export default function NewLanding() {
     return (
       <BasicLayout>
         <Hero
-          title={`${BRAND_NAME} cho đội ngũ tự host`}
-          subtitle={`Triển khai ${BRAND_NAME} trên hạ tầng của bạn và tự động hoá hộp thư với toàn quyền kiểm soát dữ liệu.`}
+          title={`${BRAND_NAME} cho người đi làm bận rộn`}
+          subtitle={`${BRAND_NAME} giúp bạn phân loại email, soạn phản hồi nhanh hơn và không bỏ lỡ những cuộc trò chuyện quan trọng trong công việc mỗi ngày.`}
         />
       </BasicLayout>
     );
@@ -36,40 +36,42 @@ export default function NewLanding() {
           <WordReveal
             spaceBetween="w-2 md:w-3"
             words={[
-              "Gặp",
-              "trợ",
-              "lý",
-              "email",
-              "AI",
-              "thực",
-              "sự",
-              <em key="actually">rất</em>,
-              "hiệu",
-              "quả",
+              "Bớt",
+              "quá",
+              "tải",
+              "email.",
+              "Thêm",
+              "thời",
+              "gian",
+              "cho",
+              "công",
+              "việc",
+              "quan",
+              "trọng.",
             ]}
           />
         }
-        subtitle={`${BRAND_NAME} sắp xếp hộp thư và lịch của bạn, soạn nháp trả lời theo giọng văn của bạn, và giúp bạn nhanh chóng đạt FocusMail. Không bỏ lỡ email quan trọng nữa.`}
+        subtitle={`${BRAND_NAME} dành cho nhân viên văn phòng, người đi làm, freelancer và doanh nhân độc lập muốn phân loại hộp thư, soạn nháp phản hồi, nhắc follow-up và giữ mọi cơ hội trong tầm mắt.`}
       >
         <HeroContent />
       </Hero>
       <OrganizedInbox
         title={
           <>
-            Tự động sắp xếp.
+            Tự động phân loại email.
             <br />
-            Không bỏ lỡ email quan trọng nữa.
+            Không còn lọt thư quan trọng.
           </>
         }
-        subtitle="Quá tải email? Đừng tốn công ưu tiên thủ công. Trợ lý AI của chúng tôi sẽ tự động gắn nhãn mọi thứ."
+        subtitle="FocusMail giúp bạn làm nổi bật email cần xử lý trước, giảm nhiễu từ bản tin và thư quảng cáo để bạn tập trung vào đúng việc mang lại doanh thu và kết quả."
       />
       <PreWrittenDrafts
-        title="Bản nháp soạn sẵn chờ trong hộp thư"
-        subtitle="Khi bạn mở inbox, mọi email cần phản hồi sẽ có sẵn bản nháp theo đúng giọng văn của bạn, sẵn sàng để gửi."
+        title="Soạn nháp sẵn theo đúng giọng văn của bạn"
+        subtitle="Mỗi email cần phản hồi đều có sẵn bản nháp để bạn xem lại, chỉnh sửa và gửi nhanh hơn. AI hỗ trợ, còn bạn luôn là người quyết định cuối cùng."
       />
       <StartedInMinutes
-        title="Bắt đầu chỉ trong vài phút"
-        subtitle="Cài đặt một chạm. Bắt đầu sắp xếp và soạn nháp trong vài phút."
+        title="Thiết lập nhanh, không cần kỹ thuật"
+        subtitle="Chỉ cần mô tả bằng ngôn ngữ tự nhiên, FocusMail sẽ giúp bạn tạo quy tắc xử lý email, nhắc follow-up và tối ưu inbox trong vài phút."
       />
       <BulkUnsubscribe />
       <EverythingElseSection />

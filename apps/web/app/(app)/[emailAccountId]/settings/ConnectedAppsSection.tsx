@@ -107,8 +107,7 @@ export function ConnectedAppsSection({
     channelsData?.availableProviders?.includes("SLACK") ?? false;
   const teamsAvailable =
     channelsData?.availableProviders?.includes("TEAMS") ?? false;
-  const telegramAvailable =
-    channelsData?.availableProviders?.includes("TELEGRAM") ?? false;
+  const telegramAvailable = true;
 
   const { execute: executeLinkSlack, status: linkStatus } = useAction(
     linkSlackWorkspaceAction.bind(null, emailAccountId),
@@ -148,7 +147,8 @@ export function ConnectedAppsSection({
       onError: (error) => {
         toastError({
           description:
-            getActionErrorMessage(error.error) ?? "Failed to generate code",
+            getActionErrorMessage(error.error) ??
+            "Telegram chưa được cấu hình hoặc không thể tạo mã kết nối",
         });
       },
     },

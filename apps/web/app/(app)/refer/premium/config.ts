@@ -49,9 +49,7 @@ export const BRIEF_MY_MEETING_PRICE_ID_ANNUALLY =
 const STRIPE_PRICE_ID_CONFIG: Record<
   PremiumTier,
   {
-    // active price id
     priceId?: string;
-    // Allow handling of old price ids
     oldPriceIds?: string[];
   }
 > = {
@@ -71,7 +69,6 @@ const STRIPE_PRICE_ID_CONFIG: Record<
       "price_1Rg0QfKGf8mwZWHnDsiocBVD",
       "price_1Rg0LEKGf8mwZWHndYXYg7ie",
       "price_1Rg03pKGf8mwZWHnWMNeQzLc",
-      // brief my meeting
       BRIEF_MY_MEETING_PRICE_ID_MONTHLY,
     ],
   },
@@ -82,7 +79,6 @@ const STRIPE_PRICE_ID_CONFIG: Record<
       "price_1S1QGGKGf8mwZWHnYpUcqNua",
       "price_1RMSnIKGf8mwZWHnymtuW2s0",
       "price_1RfSoxKGf8mwZWHngHcug4YM",
-      // brief my meeting
       BRIEF_MY_MEETING_PRICE_ID_ANNUALLY,
     ],
   },
@@ -137,7 +133,7 @@ function discount(monthly: number, annually: number) {
   return ((monthly - annually) / monthly) * 100;
 }
 
-export const starterTierName = "Starter";
+export const starterTierName = "Cá nhân";
 
 const starterTier: Tier = {
   name: starterTierName,
@@ -154,35 +150,35 @@ const starterTier: Tier = {
     annually: discount(pricing.STARTER_MONTHLY, pricing.STARTER_ANNUALLY),
   },
   description:
-    "For individuals, entrepreneurs, and executives looking to buy back their time.",
+    "Dành cho cá nhân, nhà sáng lập và người điều hành muốn tiết kiệm thời gian xử lý email.",
   features: [
     {
-      text: "Sorts and labels every email",
+      text: "Tự động phân loại và gắn nhãn email",
     },
     {
-      text: "Drafts replies in your voice",
+      text: "Soạn phản hồi theo giọng điệu của bạn",
     },
     {
-      text: "Blocks cold emails",
+      text: "Chặn email tiếp thị lạnh",
     },
     {
-      text: "Bulk unsubscribe and archive emails",
+      text: "Hủy đăng ký và lưu trữ email hàng loạt",
     },
     {
-      text: "Email analytics",
+      text: "Phân tích email",
     },
     {
-      text: "Pre-meeting briefings",
+      text: "Tóm tắt trước cuộc họp",
       tooltip:
-        "Get AI briefings before every meeting with research on attendees and context from your inbox.",
+        "Nhận bản tóm tắt AI trước mỗi cuộc họp với thông tin người tham dự và ngữ cảnh lấy từ hộp thư của bạn.",
     },
   ],
-  cta: "Try free for 7 days",
+  cta: "Dùng thử miễn phí 7 ngày",
   mostPopular: false,
 };
 
 const plusTier: Tier = {
-  name: "Plus",
+  name: "Nâng cao",
   tiers: {
     monthly: "PLUS_MONTHLY",
     annually: "PLUS_ANNUALLY",
@@ -196,33 +192,33 @@ const plusTier: Tier = {
     annually: discount(pricing.PLUS_MONTHLY, pricing.PLUS_ANNUALLY),
   },
   description:
-    "For power users who need integrations and deeper knowledge base support.",
+    "Dành cho người dùng chuyên sâu cần tích hợp ngoài và kho tri thức lớn hơn.",
   features: [
     {
-      text: "Everything in Starter, plus:",
+      text: "Bao gồm mọi thứ trong gói Cá nhân, cùng với:",
     },
     {
-      text: "Slack integration",
+      text: "Tích hợp Slack",
       tooltip:
-        "Forward important emails and notifications to your Slack channels automatically.",
+        "Tự động chuyển tiếp email quan trọng và thông báo vào các kênh Slack của bạn.",
     },
     {
-      text: "Auto-file attachments",
+      text: "Tự động lưu tệp đính kèm",
       tooltip:
-        "Automatically organize and file email attachments to your preferred storage.",
+        "Tự động sắp xếp và lưu tệp đính kèm email vào nơi lưu trữ bạn chọn.",
     },
     {
-      text: "Unlimited knowledge base",
+      text: "Kho tri thức không giới hạn",
       tooltip:
-        "The knowledge base is used to help draft responses. Store unlimited content in your knowledge base.",
+        "Kho tri thức được dùng để hỗ trợ soạn phản hồi. Bạn có thể lưu trữ không giới hạn nội dung.",
     },
   ],
-  cta: "Try free for 7 days",
+  cta: "Dùng thử miễn phí 7 ngày",
   mostPopular: true,
 };
 
 const professionalTier: Tier = {
-  name: "Professional",
+  name: "Nhóm",
   tiers: {
     monthly: "PROFESSIONAL_MONTHLY",
     annually: "PROFESSIONAL_ANNUALLY",
@@ -238,25 +234,26 @@ const professionalTier: Tier = {
       pricing.PROFESSIONAL_ANNUALLY,
     ),
   },
-  description: "For teams and growing businesses handling high email volumes.",
+  description:
+    "Dành cho đội nhóm và doanh nghiệp đang tăng trưởng với lượng email lớn.",
   features: [
     {
-      text: "Everything in Plus, plus:",
+      text: "Bao gồm mọi thứ trong gói Nâng cao, cùng với:",
     },
-    { text: "Team-wide analytics" },
-    { text: "Priority support" },
+    { text: "Phân tích theo nhóm" },
+    { text: "Hỗ trợ ưu tiên" },
     {
-      text: "Dedicated onboarding manager",
+      text: "Chuyên viên onboarding riêng",
       tooltip:
-        "We'll help you get set up on an onboarding call. Book as many free calls as needed.",
+        "Đội ngũ sẽ hỗ trợ thiết lập trong cuộc gọi onboarding. Bạn có thể đặt nhiều buổi hỗ trợ nếu cần.",
     },
   ],
-  cta: "Try free for 7 days",
+  cta: "Dùng thử miễn phí 7 ngày",
   mostPopular: false,
 };
 
 const enterpriseTier: Tier = {
-  name: "Enterprise",
+  name: "Doanh nghiệp",
   tiers: {
     monthly: "COPILOT_MONTHLY",
     annually: "COPILOT_MONTHLY",
@@ -264,26 +261,26 @@ const enterpriseTier: Tier = {
   price: { monthly: 0, annually: 0 },
   discount: { monthly: 0, annually: 0 },
   description:
-    "For organizations with enterprise-grade security and compliance requirements.",
+    "Dành cho tổ chức có yêu cầu cao về bảo mật, tuân thủ và hạ tầng triển khai riêng.",
   features: [
     {
-      text: "Everything in Team, plus:",
+      text: "Bao gồm mọi thứ trong gói Nhóm, cùng với:",
     },
     {
-      text: "SSO login",
+      text: "Đăng nhập SSO",
     },
     {
-      text: "On-premise deployment (optional)",
+      text: "Triển khai on-premise (tùy chọn)",
     },
     {
-      text: "Advanced security & SLA",
+      text: "Bảo mật nâng cao và SLA",
     },
     {
-      text: "Dedicated account manager & training",
+      text: "Quản lý tài khoản riêng và đào tạo đội ngũ",
     },
   ],
-  cta: "Speak to sales",
-  ctaLink: "https://go.getinboxzero.com/sales",
+  cta: "Liên hệ tư vấn",
+  ctaLink: "/pricing",
   mostPopular: false,
 };
 

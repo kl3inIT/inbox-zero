@@ -89,69 +89,9 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
-        source: "/feature-requests",
-        destination: "https://go.getinboxzero.com/feature-requests",
-        permanent: true,
-      },
-      {
-        source: "/feedback",
-        destination: "https://go.getinboxzero.com/feedback",
-        permanent: true,
-      },
-      {
-        source: "/changelog",
-        destination: "https://go.getinboxzero.com/changelog",
-        permanent: true,
-      },
-      {
-        source: "/twitter",
-        destination: "https://go.getinboxzero.com/x",
-        permanent: true,
-      },
-      {
-        source: "/github",
-        destination: "https://go.getinboxzero.com/github",
-        permanent: true,
-      },
-      {
-        source: "/discord",
-        destination: "https://go.getinboxzero.com/discord",
-        permanent: true,
-      },
-      {
-        source: "/linkedin",
-        destination: "https://go.getinboxzero.com/linkedin",
-        permanent: true,
-      },
-      {
-        source: "/waitlist",
-        destination: "https://go.getinboxzero.com/waitlist",
-        permanent: true,
-      },
-      {
-        source: "/waitlist-other",
-        destination: "https://go.getinboxzero.com/waitlist-other",
-        permanent: false,
-      },
-      {
-        source: "/affiliates",
-        destination: "https://go.getinboxzero.com/affiliate",
-        permanent: true,
-      },
-      {
         source: "/newsletters",
         destination: "/bulk-unsubscribe",
         permanent: false,
-      },
-      {
-        source: "/docs",
-        destination: "https://docs.getinboxzero.com",
-        permanent: true,
-      },
-      {
-        source: "/docs/:path*",
-        destination: "https://docs.getinboxzero.com/:path*",
-        permanent: true,
       },
       {
         source: "/request-access",
@@ -161,21 +101,6 @@ const nextConfig: NextConfig = {
       {
         source: "/reply-tracker",
         destination: "/reply-zero",
-        permanent: false,
-      },
-      {
-        source: "/game",
-        destination: "https://go.getinboxzero.com/game",
-        permanent: false,
-      },
-      {
-        source: "/soc2",
-        destination: "https://go.getinboxzero.com/soc2",
-        permanent: true,
-      },
-      {
-        source: "/sales",
-        destination: "https://go.getinboxzero.com/sales",
         permanent: false,
       },
     ];

@@ -10,9 +10,9 @@ import { LoadingContent } from "@/components/LoadingContent";
 import { usePremium } from "@/components/PremiumAlert";
 import { Button } from "@/components/ui/button";
 import {
-  PricingFrequencyToggle,
-  frequencies,
   DiscountBadge,
+  frequencies,
+  PricingFrequencyToggle,
   type Frequency,
 } from "@/app/(app)/refer/premium/PricingFrequencyToggle";
 import { getUserTier } from "@/utils/premium";
@@ -41,10 +41,9 @@ export default function Pricing(props: PricingProps) {
   const { premium, isLoading, error, data } = usePremium();
 
   const isLoggedIn = !!data?.id;
-
   const [frequency, setFrequency] = useState(frequencies[1]);
-
   const userPremiumTier = getUserTier(premium);
+  const router = useRouter();
 
   const header = props.header || (
     <div className="mb-12">
@@ -53,7 +52,7 @@ export default function Pricing(props: PricingProps) {
           Bảng giá
         </h2>
         <p className="mt-2 font-title text-4xl text-gray-900 sm:text-5xl">
-          Dùng thử miễn phí, gói trả phí linh hoạt
+          Dùng thử miễn phí, nâng cấp linh hoạt theo nhu cầu
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
@@ -61,8 +60,6 @@ export default function Pricing(props: PricingProps) {
       </p>
     </div>
   );
-
-  const router = useRouter();
 
   return (
     <LoadingContent loading={isLoading} error={error}>
@@ -86,7 +83,7 @@ export default function Pricing(props: PricingProps) {
                 <Button className="ml-2" asChild>
                   <Link href="/setup">
                     <SparklesIcon className="mr-2 h-4 w-4" />
-                    Vào ứng dụng
+                    Mở ứng dụng
                   </Link>
                 </Button>
                 <div className="mx-auto mt-4 max-w-md">
@@ -97,7 +94,7 @@ export default function Pricing(props: PricingProps) {
                     <AlertWithButton
                       className="bg-background"
                       variant="blue"
-                      title="Cần nhiều tài khoản?"
+                      title="Cần nhiều tài khoản hơn?"
                       description="Các gói cá nhân được thiết kế cho một người dùng. Liên hệ đội ngũ hỗ trợ để được tư vấn giá cho nhiều tài khoản."
                       icon={null}
                       button={
@@ -126,7 +123,7 @@ export default function Pricing(props: PricingProps) {
 
         <div
           className={cn(
-            "isolate mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-y-8 gap-4 lg:mx-0 lg:max-w-none",
+            "isolate mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-4 gap-y-8 lg:mx-0 lg:max-w-none",
             (props.displayTiers || tiers).length === 2
               ? "lg:grid-cols-2"
               : "lg:grid-cols-3",
@@ -173,7 +170,6 @@ function PriceTier({
   userId: string | null | undefined;
 }) {
   const [loading, setLoading] = useState(false);
-
   const isCurrentPlan = tier.tiers[frequency.value] === userPremiumTier;
 
   function getCTAText() {
@@ -183,10 +179,7 @@ function PriceTier({
   }
 
   return (
-    <ThreeColItem
-      key={tier.name}
-      className="flex flex-col rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10"
-    >
+    <ThreeColItem className="flex flex-col rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10">
       <div className="flex-1">
         <div className="flex items-center justify-between gap-x-4">
           <h3
@@ -198,7 +191,7 @@ function PriceTier({
           >
             {tier.name}
           </h3>
-          {tier.mostPopular ? <DiscountBadge>Popular</DiscountBadge> : null}
+          {tier.mostPopular ? <DiscountBadge>Phổ biến</DiscountBadge> : null}
         </div>
         <p className="mt-4 text-sm leading-6 text-gray-600">
           {tier.description}
@@ -254,7 +247,6 @@ function PriceTier({
         type="button"
         disabled={loading}
         onClick={async () => {
-          // Handle enterprise tier differently - redirect to sales page
           if (tier.ctaLink) {
             window.location.href = tier.ctaLink;
             return;
@@ -269,13 +261,11 @@ function PriceTier({
 
           async function load() {
             if (tier.tiers[frequency.value] === userPremiumTier) {
-              toast.info("Bạn đang sử dụng gói này rồi");
+              toast.info("Bạn đang dùng gói này rồi");
               return;
             }
 
             const upgradeToTier = tier.tiers[frequency.value];
-
-            // Only use billing portal if subscription is active or trialing
             const hasActiveStripeSubscription =
               stripeSubscriptionId &&
               stripeSubscriptionStatus &&

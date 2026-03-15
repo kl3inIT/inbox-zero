@@ -7,12 +7,12 @@ export const frequencies = [
   {
     value: "monthly" as const,
     label: "Theo tháng",
-    priceSuffix: "/tháng, thanh toán hàng tháng",
+    priceSuffix: "/tháng, thanh toán hằng tháng",
   },
   {
     value: "annually" as const,
     label: "Theo năm",
-    priceSuffix: "/tháng, thanh toán hàng năm",
+    priceSuffix: "/tháng, thanh toán hằng năm",
   },
 ];
 
@@ -36,7 +36,7 @@ export function PricingFrequencyToggle({
         onChange={setFrequency}
         className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
       >
-        <Label className="sr-only">Payment frequency</Label>
+        <Label className="sr-only">Chu kỳ thanh toán</Label>
         {frequencies.map((option) => (
           <Radio
             key={option.value}

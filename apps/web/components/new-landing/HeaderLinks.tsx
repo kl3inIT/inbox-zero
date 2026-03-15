@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const navigation = [
-  { name: "Doanh nghiệp", href: "/enterprise" },
+  { name: "Nhóm làm việc", href: "/small-business" },
   { name: "Bảng giá", href: "/pricing" },
 ];
 
@@ -29,7 +29,7 @@ const useCases = [
   {
     title: "Nhà sáng lập",
     href: "/founders",
-    description: "Mở rộng startup khi AI lo phần hộp thư của bạn",
+    description: "Giữ mọi cơ hội bán hàng và đối tác trong tầm mắt mà không bị ngập trong inbox",
     icon: RocketIcon,
     iconColor: "text-new-purple-600",
     borderColor: "from-new-purple-200 to-new-purple-300",
@@ -37,9 +37,9 @@ const useCases = [
     hoverBg: "hover:bg-new-purple-50/[0.44]",
   },
   {
-    title: "Doanh nghiệp nhỏ",
+    title: "Nhân viên văn phòng",
     href: "/small-business",
-    description: "Phát triển kinh doanh với quản lý email tự động",
+    description: "Giảm thời gian xử lý email lặp lại và tập trung hơn vào việc quan trọng",
     icon: BuildingIcon,
     iconColor: "text-new-green-500",
     borderColor: "from-new-green-150 to-new-green-200",
@@ -47,9 +47,9 @@ const useCases = [
     hoverBg: "hover:bg-new-green-50",
   },
   {
-    title: "Nhà sáng tạo nội dung",
+    title: "Freelancer & solopreneur",
     href: "/creator",
-    description: "Tối ưu hợp tác và làm việc với các nhãn hàng",
+    description: "Phản hồi khách hàng nhanh hơn, không bỏ lỡ lead và làm việc gọn hơn mỗi ngày",
     icon: UserIcon,
     iconColor: "text-new-blue-600",
     borderColor: "from-new-blue-150 to-new-blue-200",
@@ -57,9 +57,9 @@ const useCases = [
     hoverBg: "hover:bg-new-blue-50/50",
   },
   {
-    title: "Bất động sản",
+    title: "Môi giới BĐS",
     href: "/real-estate",
-    description: "Quản lý email bằng AI cho môi giới/chuyên gia bất động sản",
+    description: "Theo dõi lead, nhắc follow-up và giữ inbox luôn sẵn sàng cho giao dịch mới",
     icon: HomeIcon,
     iconColor: "text-new-pink-500",
     borderColor: "from-new-pink-150 to-new-pink-200",
@@ -67,9 +67,9 @@ const useCases = [
     hoverBg: "hover:bg-new-pink-50/[0.44]",
   },
   {
-    title: "Chăm sóc khách hàng",
+    title: "Sales & CSKH",
     href: "/support",
-    description: "Hỗ trợ nhanh hơn nhờ phản hồi được AI hỗ trợ",
+    description: "Ưu tiên email cần phản hồi, chuẩn hóa câu trả lời và phục vụ khách hàng nhanh hơn",
     icon: HeadphonesIcon,
     iconColor: "text-new-orange-600",
     borderColor: "from-new-orange-150 to-new-orange-200",
@@ -77,9 +77,9 @@ const useCases = [
     hoverBg: "hover:bg-new-orange-50/50",
   },
   {
-    title: "Thương mại điện tử",
+    title: "Vận hành & TMĐT",
     href: "/ecommerce",
-    description: "Tự động cập nhật đơn hàng và giao tiếp với khách hàng",
+    description: "Tự động xử lý email đơn hàng, thông báo và phản hồi khách hàng ở quy mô lớn hơn",
     icon: ShoppingCartIcon,
     iconColor: "text-new-indigo-600",
     borderColor: "from-new-indigo-150 to-new-indigo-200",
@@ -93,9 +93,8 @@ export function HeaderLinks() {
     <div className="hidden lg:flex lg:items-center lg:gap-x-8">
       <NavigationMenu>
         <NavigationMenuList>
-          {/* Solutions Dropdown */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm font-semibold font-geist leading-6 text-gray-900">
+            <NavigationMenuTrigger className="font-geist text-sm font-semibold leading-6 text-gray-900">
               Giải pháp
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -118,7 +117,6 @@ export function HeaderLinks() {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          {/* Regular Navigation Items */}
           {navigation.map((item) => (
             <NavigationMenuItem key={item.name}>
               <NavigationMenuLink
@@ -127,7 +125,7 @@ export function HeaderLinks() {
               >
                 <Link
                   href={item.href}
-                  className="text-sm font-semibold font-geist leading-6 text-gray-900"
+                  className="font-geist text-sm font-semibold leading-6 text-gray-900"
                 >
                   {item.name}
                 </Link>
@@ -171,7 +169,7 @@ function EnhancedListItem({
           <div className="flex items-start gap-3">
             <div
               className={cn(
-                "p-px rounded-lg shadow-sm bg-gradient-to-b",
+                "rounded-lg bg-gradient-to-b p-px shadow-sm",
                 borderColor,
               )}
             >

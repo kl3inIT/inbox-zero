@@ -16,25 +16,22 @@ const copy: {
   };
 } = {
   control: {
-    title: "Meet Your AI Email Assistant That Actually Works",
-    subtitle: `Cut your email time in half. ${BRAND_NAME} organizes your inbox, drafts responses, and helps you reach FocusMail fast. For Gmail and Outlook.`,
+    title: "Bớt quá tải email. Làm việc tập trung hơn.",
+    subtitle: `${BRAND_NAME} giúp bạn sắp xếp hộp thư, soạn phản hồi nhanh hơn và không bỏ lỡ email quan trọng. Dùng cho Gmail và Outlook.`,
   },
   "clean-up-in-minutes": {
-    title: "Clean Up Your Inbox In Minutes",
+    title: "Dọn inbox chỉ trong vài phút",
     subtitle:
-      "Bulk unsubscribe from newsletters, automate your emails with AI, block cold emails, and view your analytics. Open-source.",
+      "Hủy đăng ký email hàng loạt, tự động hóa hộp thư với AI, chặn email không mong muốn và theo dõi hiệu suất xử lý email mỗi ngày.",
   },
 };
 
-// allow this to work for search engines while avoiding flickering text for users
-// ssr method relied on cookies in the root layout which broke static page generation of blog posts
 export function HeroAB() {
   const [title, setTitle] = useState(copy.control.title);
   const [subtitle, setSubtitle] = useState(copy.control.subtitle);
   const [isHydrated, setIsHydrated] = useState(false);
 
   const variant = useHeroVariant();
-  // to prevent flickering text
   const isFlagEnabled = useHeroVariantEnabled();
 
   useEffect(() => {

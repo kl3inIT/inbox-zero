@@ -6,8 +6,9 @@ import { landingPageAnalytics } from "@/hooks/useAnalytics";
 
 export function CTAButtons() {
   const posthog = usePostHog();
+
   return (
-    <div className="flex flex-col md:flex-row justify-center mt-10 gap-2">
+    <div className="mt-10 flex flex-col justify-center gap-2 md:flex-row">
       <div>
         <Button
           size="2xl"
@@ -22,10 +23,10 @@ export function CTAButtons() {
         <Button
           size="2xl"
           color="transparent"
-          link={{ href: "/sales", target: "_blank" }}
+          link={{ href: "/pricing" }}
           onClick={() => landingPageAnalytics.talkToSalesClicked(posthog)}
         >
-          Liên hệ tư vấn
+          Xem bảng giá
         </Button>
       </div>
     </div>

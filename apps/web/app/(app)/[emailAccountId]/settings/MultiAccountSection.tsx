@@ -48,13 +48,13 @@ export function MultiAccountSection() {
 
   const { execute: claimPremiumAdmin } = useAction(claimPremiumAdminAction, {
     onSuccess: () => {
-      toastSuccess({ description: "Admin claimed!" });
+      toastSuccess({ description: "Đã nhận quyền quản trị." });
       mutate();
     },
     onError: (error) => {
       toastError({
         description: getActionErrorMessage(error.error, {
-          prefix: "Failed to claim premium admin",
+          prefix: "Không thể nhận quyền quản trị premium",
         }),
       });
     },
@@ -70,8 +70,8 @@ export function MultiAccountSection() {
   return (
     <SettingsSection
       id="manage-users"
-      title="Manage Team Access"
-      description="Grant premium access to additional email accounts. Additional members are billed to your subscription. Each account maintains separate email privacy."
+      title="Quản lý quyền truy cập của nhóm"
+      description="Cấp quyền premium cho các tài khoản email khác. Mỗi thành viên bổ sung sẽ được tính vào gói của bạn, và từng tài khoản vẫn giữ quyền riêng tư email riêng."
       className="space-y-4"
     >
       <LoadingContent loading={isLoadingPremium} error={errorPremium}>
@@ -109,10 +109,10 @@ export function MultiAccountSection() {
           </LoadingContent>
         ) : (
           <AlertWithButton
-            title="Upgrade"
-            description="Upgrade to premium to share premium with other email addresses."
+            title="Nâng cấp"
+            description="Nâng cấp premium để chia sẻ quyền truy cập với các địa chỉ email khác."
             icon={<CrownIcon className="h-4 w-4" />}
-            button={<Button onClick={openModal}>Upgrade</Button>}
+            button={<Button onClick={openModal}>Nâng cấp</Button>}
           />
         )}
       </LoadingContent>
@@ -171,13 +171,13 @@ function MultiAccountForm({
     updateMultiAccountPremiumAction,
     {
       onSuccess: () => {
-        toastSuccess({ description: "Users updated!" });
+        toastSuccess({ description: "Đã cập nhật danh sách người dùng." });
         onUpdate?.();
       },
       onError: (error) => {
         toastError({
           description: getActionErrorMessage(error.error, {
-            prefix: "Failed to update users",
+            prefix: "Không thể cập nhật người dùng",
           }),
         });
       },
@@ -222,7 +222,7 @@ function MultiAccountForm({
       </div>
 
       <Button type="submit" loading={isExecuting}>
-        Save
+        Lưu
       </Button>
     </form>
   );
@@ -240,8 +240,8 @@ function ExtraSeatsAlert({
   if (emailAccountsAccess > seatsUsed) {
     return (
       <AlertBasic
-        title="Seats"
-        description={`You have access to ${emailAccountsAccess} seats.`}
+        title="Số chỗ"
+        description={`Bạn đang có quyền dùng ${emailAccountsAccess} chỗ.`}
         icon={<CrownIcon className="h-4 w-4" />}
       />
     );
@@ -249,10 +249,10 @@ function ExtraSeatsAlert({
 
   return (
     <AlertBasic
-      title="Additional team member pricing"
-      description={`You are on the ${capitalCase(
+      title="Chi phí thành viên bổ sung"
+      description={`Bạn đang dùng gói ${capitalCase(
         premiumTier,
-      )} plan. You will be billed for each additional team member you add to your account.`}
+      )}. Bạn sẽ được tính phí cho từng thành viên bổ sung mà bạn thêm vào tài khoản.`}
       icon={<CrownIcon className="h-4 w-4" />}
     />
   );
