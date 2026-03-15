@@ -278,7 +278,7 @@ export function MoreDropdown<T extends Row>({
       <DropdownMenuTrigger asChild>
         <Button aria-haspopup="true" size="icon" variant="ghost">
           <MoreHorizontalIcon className="size-4" />
-          <span className="sr-only">Toggle menu</span>
+          <span className="sr-only">Mở menu</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -286,7 +286,7 @@ export function MoreDropdown<T extends Row>({
         {!!onOpenNewsletter && (
           <DropdownMenuItem onClick={() => onOpenNewsletter(item)}>
             <ExpandIcon className="mr-2 size-4" />
-            <span>View stats</span>
+            <span>Xem thống kê</span>
           </DropdownMenuItem>
         )}
         {isGoogleProvider(provider) && (
@@ -296,7 +296,7 @@ export function MoreDropdown<T extends Row>({
               target="_blank"
             >
               <ExternalLinkIcon className="mr-2 size-4" />
-              <span>View in Gmail</span>
+              <span>Xem trong Gmail</span>
             </Link>
           </DropdownMenuItem>
         )}
@@ -307,7 +307,7 @@ export function MoreDropdown<T extends Row>({
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <TagIcon className="mr-2 size-4" />
-            <span>{terminology.label.action} future emails</span>
+            <span>{terminology.label.action} cho email trong tương lai</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <LabelsSubMenu
@@ -319,13 +319,13 @@ export function MoreDropdown<T extends Row>({
                 });
                 if (res?.serverError) {
                   toastError({
-                    title: "Error",
-                    description: `Failed to add ${item.name} to ${label.name}. ${res.serverError || ""}`,
+                    title: "Lỗi",
+                    description: `Không thể thêm ${item.name} vào ${label.name}. ${res.serverError || ""}`,
                   });
                 } else {
                   toastSuccess({
-                    title: "Success!",
-                    description: `Added ${item.name} to ${label.name}`,
+                    title: "Thành công!",
+                    description: `Đã thêm ${item.name} vào ${label.name}`,
                   });
                 }
               }}
@@ -342,12 +342,12 @@ export function MoreDropdown<T extends Row>({
           ) : (
             <ArchiveIcon className="mr-2 size-4" />
           )}
-          <span>Archive all</span>
+          <span>Lưu trữ tất cả</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
             const yes = confirm(
-              `Are you sure you want to delete all emails from ${item.name}?`,
+              `Bạn có chắc muốn xóa tất cả email từ ${item.name} không?`,
             );
             if (!yes) return;
 
@@ -359,7 +359,7 @@ export function MoreDropdown<T extends Row>({
           ) : (
             <TrashIcon className="mr-2 size-4" />
           )}
-          <span>Delete all</span>
+          <span>Xóa tất cả</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -417,7 +417,7 @@ export function HeaderButton(props: {
 //                     });
 //                   } else {
 //                     toastSuccess({
-//                       title: "Success!",
+//                       title: "Thành công!",
 //                       description: `Added ${sender} to ${group.name}`,
 //                     });
 //                   }

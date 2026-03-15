@@ -196,11 +196,11 @@ export function RuleForm({
           if (mutate) mutate();
         } else if (!res?.data?.rule) {
           toastError({
-            description: "There was an error updating the rule.",
+            description: "Có lỗi khi cập nhật quy tắc.",
           });
           if (mutate) mutate();
         } else {
-          toastSuccess({ description: "Saved!" });
+          toastSuccess({ description: "Đã lưu!" });
           // Revalidate to get the real data from server
           if (mutate) mutate();
           posthog.capture("User updated AI rule", {
@@ -226,10 +226,10 @@ export function RuleForm({
           toastError({ description: res.serverError });
         } else if (!res?.data?.rule) {
           toastError({
-            description: "There was an error creating the rule.",
+            description: "Có lỗi khi tạo quy tắc.",
           });
         } else {
-          toastSuccess({ description: "Created!" });
+          toastSuccess({ description: "Đã tạo!" });
           posthog.capture("User created AI rule", {
             conditions: data.conditions.map((condition) => condition.type),
             actions: actionsToSubmit.map((action) => action.type),
@@ -292,53 +292,53 @@ export function RuleForm({
       ...(isMicrosoftProvider(provider)
         ? [
             {
-              label: "Move to folder",
+              label: "Chuyển vào thư mục",
               value: ActionType.MOVE_FOLDER,
               icon: getActionIcon(ActionType.MOVE_FOLDER),
             },
           ]
         : []),
       {
-        label: "Draft reply",
+        label: "Soạn thư trả lời",
         value: ActionType.DRAFT_EMAIL,
         icon: getActionIcon(ActionType.DRAFT_EMAIL),
       },
       {
-        label: "Archive",
+        label: "Lưu trữ",
         value: ActionType.ARCHIVE,
         icon: getActionIcon(ActionType.ARCHIVE),
       },
       {
-        label: "Mark read",
+        label: "Đánh dấu đã đọc",
         value: ActionType.MARK_READ,
         icon: getActionIcon(ActionType.MARK_READ),
       },
       ...(env.NEXT_PUBLIC_EMAIL_SEND_ENABLED
         ? [
             {
-              label: "Reply",
+              label: "Trả lời",
               value: ActionType.REPLY,
               icon: getActionIcon(ActionType.REPLY),
             },
             {
-              label: "Send email",
+              label: "Gửi email",
               value: ActionType.SEND_EMAIL,
               icon: getActionIcon(ActionType.SEND_EMAIL),
             },
             {
-              label: "Forward",
+              label: "Chuyển tiếp",
               value: ActionType.FORWARD,
               icon: getActionIcon(ActionType.FORWARD),
             },
           ]
         : []),
       {
-        label: "Mark spam",
+        label: "Đánh dấu spam",
         value: ActionType.MARK_SPAM,
         icon: getActionIcon(ActionType.MARK_SPAM),
       },
       {
-        label: "Call webhook",
+        label: "Gọi webhook",
         value: ActionType.CALL_WEBHOOK,
         icon: getActionIcon(ActionType.CALL_WEBHOOK),
       },
@@ -347,7 +347,7 @@ export function RuleForm({
       env.NEXT_PUBLIC_IS_RESEND_CONFIGURED
         ? [
             {
-              label: "Notify sender",
+              label: "Thông báo người gửi",
               value: ActionType.NOTIFY_SENDER,
               icon: getActionIcon(ActionType.NOTIFY_SENDER),
             },
@@ -373,7 +373,7 @@ export function RuleForm({
         {isSubmitted && formErrors.length > 0 && (
           <div className="mt-4">
             <AlertError
-              title="Error"
+              title="Lỗi"
               description={
                 <ul className="list-disc">
                   {formErrors.map((message) => (
@@ -390,10 +390,10 @@ export function RuleForm({
             <Input
               type="text"
               name="name"
-              label="Rule name"
+              label="Tên quy tắc"
               registerProps={register("name")}
               error={errors.name}
-              placeholder="e.g. Label receipts"
+              placeholder="ví dụ: Gắn nhãn biên lai"
             />
           ) : (
             <TypographyH3
@@ -409,11 +409,11 @@ export function RuleForm({
         <RuleSectionCard
           icon={MailIcon}
           color="blue"
-          title="When you get an email"
+          title="Khi bạn nhận được email"
           errors={
             errors.conditions?.root?.message ? (
               <AlertError
-                title="Error"
+                title="Lỗi"
                 description={errors.conditions.root.message}
               />
             ) : undefined
@@ -437,11 +437,11 @@ export function RuleForm({
         <RuleSectionCard
           icon={BotIcon}
           color="green"
-          title="Then:"
+          title="Thì:"
           errors={
             actionErrors.length > 0 ? (
               <AlertError
-                title="Error"
+                title="Lỗi"
                 description={
                   <ul className="list-inside list-disc">
                     {actionErrors.map((error, index) => (
@@ -476,18 +476,18 @@ export function RuleForm({
           <Dialog>
             <DialogTrigger asChild>
               <Button variant="outline" size="sm" Icon={SettingsIcon}>
-                Advanced Settings
+                Cài đặt nâng cao
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-lg">
               <DialogHeader>
-                <DialogTitle>Advanced Settings</DialogTitle>
+                <DialogTitle>Cài đặt nâng cao</DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <Toggle
                     name="runOnThreads"
-                    labelRight="Apply to threads"
+                    labelRight="Áp dụng cho chuỗi hội thoại"
                     enabled={watch("runOnThreads") || false}
                     onChange={(enabled) => {
                       setValue("runOnThreads", enabled);
@@ -512,7 +512,7 @@ export function RuleForm({
                     <TooltipExplanation
                       size="md"
                       side="right"
-                      text="When enabled you will receive a summary of the emails that match this rule in your digest email."
+                      text="Khi bật, bạn sẽ nhận bản tóm tắt các email khớp quy tắc này trong email tổng hợp hằng ngày."
                     />
                   </div>
                 )}
@@ -536,7 +536,7 @@ export function RuleForm({
                     disabled={isSubmitting}
                     onClick={async () => {
                       const yes = confirm(
-                        "Are you sure you want to delete this rule?",
+                        "Bạn có chắc muốn xóa quy tắc này không?",
                       );
                       if (yes) {
                         try {
@@ -553,7 +553,7 @@ export function RuleForm({
                             });
                           } else {
                             toastSuccess({
-                              description: "The rule has been deleted.",
+                              description: "Quy tắc đã được xóa.",
                             });
 
                             if (isDialog && onSuccess) {
@@ -568,14 +568,14 @@ export function RuleForm({
                             );
                           }
                         } catch {
-                          toastError({ description: "Failed to delete rule." });
+                          toastError({ description: "Không thể xóa quy tắc." });
                         } finally {
                           setIsDeleting(false);
                         }
                       }
                     }}
                   >
-                    Delete rule
+                    Xóa quy tắc
                   </Button>
                 )}
               </div>
@@ -585,7 +585,7 @@ export function RuleForm({
           <div className="flex space-x-2">
             {onCancel && (
               <Button variant="outline" size="sm" onClick={onCancel}>
-                Cancel
+                Hủy
               </Button>
             )}
 
@@ -596,11 +596,11 @@ export function RuleForm({
                 loading={isSubmitting}
                 disabled={isDeleting}
               >
-                Save
+                Lưu
               </Button>
             ) : (
               <Button type="submit" size="sm" loading={isSubmitting}>
-                Create
+                Tạo
               </Button>
             )}
           </div>
@@ -615,7 +615,7 @@ function ThreadsExplanation({ size }: { size: "sm" | "md" }) {
     <TooltipExplanation
       size={size}
       side="right"
-      text="When enabled, this rule can apply to the first email and any subsequent replies in a conversation. When disabled, it can only apply to the first email."
+      text="Khi bật, quy tắc này có thể áp dụng cho email đầu tiên và các phản hồi tiếp theo trong cùng hội thoại. Khi tắt, quy tắc chỉ áp dụng cho email đầu tiên."
     />
   );
 }

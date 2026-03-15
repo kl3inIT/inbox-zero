@@ -55,7 +55,6 @@ import { LoadingContent } from "@/components/LoadingContent";
 import {
   useCleanerEnabled,
   useIntegrationsEnabled,
-  useMeetingBriefsEnabled,
 } from "@/hooks/useFeatureFlags";
 import { ClientOnly } from "@/components/ClientOnly";
 import { AccountSwitcher } from "@/components/AccountSwitcher";
@@ -80,7 +79,6 @@ type NavItem = {
 
 export const useNavigation = () => {
   const showCleaner = useCleanerEnabled();
-  const showMeetingBriefs = useMeetingBriefsEnabled();
   const showIntegrations = useIntegrationsEnabled();
 
   const { emailAccount, emailAccountId, provider } = useAccount();
@@ -135,15 +133,11 @@ export const useNavigation = () => {
 
   const moreItems: NavItem[] = useMemo(
     () => [
-      ...(showMeetingBriefs
-        ? [
-            {
-              name: "Tóm tắt cuộc họp",
-              href: prefixPath(currentEmailAccountId, "/briefs"),
-              icon: FileTextIcon,
-            },
-          ]
-        : []),
+      {
+        name: "Tóm tắt cuộc họp",
+        href: prefixPath(currentEmailAccountId, "/briefs"),
+        icon: FileTextIcon,
+      },
       {
         name: "Tệp đính kèm",
         href: prefixPath(currentEmailAccountId, "/drive"),
@@ -166,7 +160,7 @@ export const useNavigation = () => {
           ]
         : []),
     ],
-    [currentEmailAccountId, showMeetingBriefs, showIntegrations],
+    [currentEmailAccountId, showIntegrations],
   );
 
   return {
@@ -275,18 +269,18 @@ export function SideNav({ ...props }: React.ComponentProps<typeof Sidebar>) {
           ) : (
             <>
               <SidebarGroup>
-                <SidebarGroupLabel>Manage</SidebarGroupLabel>
+                <SidebarGroupLabel>Quản lý</SidebarGroupLabel>
                 <SideNavMenu items={navigation.manageItems} activeHref={path} />
               </SidebarGroup>
               <SidebarGroup>
-                <SidebarGroupLabel>Cleanup</SidebarGroupLabel>
+                <SidebarGroupLabel>Dọn dẹp</SidebarGroupLabel>
                 <SideNavMenu
                   items={navigation.cleanupItems}
                   activeHref={path}
                 />
               </SidebarGroup>
               <SidebarGroup>
-                <SidebarGroupLabel>More</SidebarGroupLabel>
+                <SidebarGroupLabel>Thêm</SidebarGroupLabel>
                 <SideNavMenu items={navigation.moreItems} activeHref={path} />
               </SidebarGroup>
             </>
@@ -384,7 +378,7 @@ function MailNav({ path }: { path: string }) {
         <SideNavMenu items={topMailLinks} activeHref={path} />
       </SidebarGroup>
       <SidebarGroup>
-        <SidebarGroupLabel>Categories</SidebarGroupLabel>
+        <SidebarGroupLabel>Danh mục</SidebarGroupLabel>
         <SideNavMenu items={bottomMailLinks} activeHref={path} />
       </SidebarGroup>
 
@@ -397,7 +391,7 @@ function MailNav({ path }: { path: string }) {
             <SideNavMenu items={labelNavItems} activeHref={path} />
           ) : (
             <div className="px-3 py-2 text-xs text-muted-foreground">
-              No {terminology.label.plural}
+              Không có {terminology.label.plural}
             </div>
           )}
 
@@ -414,7 +408,7 @@ function MailNav({ path }: { path: string }) {
                 ) : (
                   <ChevronRightIcon className="mr-1 size-4" />
                 )}
-                <span>More</span>
+                <span>Thêm</span>
               </button>
 
               {showHiddenLabels && (
