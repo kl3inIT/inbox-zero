@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Inbox Zero Documentation",
+  "name": "FocusMail Documentation",
   "colors": {
     "primary": "#2563eb",
     "light": "#60a5fa",

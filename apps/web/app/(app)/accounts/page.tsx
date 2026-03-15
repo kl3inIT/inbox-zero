@@ -249,12 +249,12 @@ function useAccountNotifications() {
         admin_consent_required: {
           title: "Admin approval required",
           description:
-            "Your Microsoft 365 organization requires admin approval before Inbox Zero can access this account. Ask your Microsoft 365 admin to grant consent for the app, then try again.",
+            "Your Microsoft 365 organization requires admin approval before FocusMail can access this account. Ask your Microsoft 365 admin to grant consent for the app, then try again.",
         },
         invalid_scope_configuration: {
           title: "Microsoft app setup needs attention",
           description:
-            "Microsoft rejected the requested permissions for this app. Ask your admin to verify the Inbox Zero app registration, delegated Microsoft Graph permissions, and redirect URLs, then try again.",
+            "Microsoft rejected the requested permissions for this app. Ask your admin to verify the FocusMail app registration, delegated Microsoft Graph permissions, and redirect URLs, then try again.",
         },
         consent_incomplete: {
           title: "More Microsoft permissions are required",

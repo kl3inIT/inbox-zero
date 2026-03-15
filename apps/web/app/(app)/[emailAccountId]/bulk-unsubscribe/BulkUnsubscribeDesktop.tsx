@@ -47,7 +47,7 @@ export function BulkUnsubscribeDesktop({
             />
           </TableHead>
           <TableHead className="pl-8">
-            <span className="text-sm font-medium">From</span>
+            <span className="text-sm font-medium">Người gửi</span>
           </TableHead>
           <TableHead>
             <HeaderButton
@@ -57,7 +57,7 @@ export function BulkUnsubscribeDesktop({
               }
               onClick={() => onSort("emails")}
             >
-              Emails
+              Email
             </HeaderButton>
           </TableHead>
           <TableHead>
@@ -68,7 +68,7 @@ export function BulkUnsubscribeDesktop({
               }
               onClick={() => onSort("unread")}
             >
-              Read
+              Đã đọc
             </HeaderButton>
           </TableHead>
           <TableHead />

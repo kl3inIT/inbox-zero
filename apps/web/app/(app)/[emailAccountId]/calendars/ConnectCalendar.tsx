@@ -96,7 +96,7 @@ export function ConnectCalendar({
           height={16}
           unoptimized
         />
-        {isConnectingGoogle ? "Connecting..." : "Add Google Calendar"}
+        {isConnectingGoogle ? "Đang kết nối..." : "Thêm Google Calendar"}
       </Button>
 
       <Button
@@ -112,7 +112,7 @@ export function ConnectCalendar({
           height={16}
           unoptimized
         />
-        {isConnectingMicrosoft ? "Connecting..." : "Add Outlook Calendar"}
+        {isConnectingMicrosoft ? "Đang kết nối..." : "Thêm Outlook Calendar"}
       </Button>
     </div>
   );

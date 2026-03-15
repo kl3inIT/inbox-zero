@@ -131,7 +131,7 @@ export function List({
       ) : (
         <div className="mt-20">
           {type === "inbox" ? (
-            <Celebration message={"Bạn đã đạt đến Inbox Zero!"} />
+            <Celebration message={"Bạn đã đạt đến FocusMail!"} />
           ) : (
             <div className="flex items-center justify-center font-title text-2xl text-primary">
               Không có email để hiển thị

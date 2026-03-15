@@ -31,6 +31,18 @@ interface RuleStatsChartProps {
   title: string;
 }
 
+function translateRuleName(ruleName: string) {
+  const translations: Record<string, string> = {
+    Marketing: "Tiếp thị",
+    Notification: "Thông báo",
+    Newsletter: "Bản tin",
+    Receipt: "Biên nhận",
+    Other: "Khác",
+  };
+
+  return translations[ruleName] || ruleName;
+}
+
 const CHART_COLORS = [
   "var(--chart-1)",
   "var(--chart-2)",
@@ -49,7 +61,7 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
   const barChartData = useMemo(() => {
     if (!data?.ruleStats) return [];
     return data.ruleStats.map((rule) => ({
-      group: rule.ruleName,
+      group: translateRuleName(rule.ruleName),
       executed: rule.executedCount,
     }));
   }, [data]);
@@ -59,7 +71,7 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
       return { pieChartData: [], chartConfig: {}, barChartConfig: {} };
 
     const pieData = data.ruleStats.map((rule, index) => ({
-      name: rule.ruleName,
+      name: translateRuleName(rule.ruleName),
       value: rule.executedCount,
       fill: CHART_COLORS[index % CHART_COLORS.length],
     }));
@@ -70,9 +82,9 @@ export function RuleStatsChart({ dateRange, title }: RuleStatsChartProps) {
       },
       ...fromPairs(
         data.ruleStats.map((rule, index) => [
-          rule.ruleName,
+          translateRuleName(rule.ruleName),
           {
-            label: rule.ruleName,
+            label: translateRuleName(rule.ruleName),
             color: CHART_COLORS[index % CHART_COLORS.length],
           },
         ]),
